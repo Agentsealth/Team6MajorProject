@@ -39,22 +39,16 @@ public class PlayerRayCast : MonoBehaviour
             Debug.Log("Touched " + hit.collider.gameObject.name);
             if (hit.collider.gameObject.tag == "Iron Ore")
             {
-                hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                hit.collider.gameObject.transform.position = playerHand.position;
-                hit.collider.gameObject.transform.parent = playerHand.transform;
-                objectInHand++;
+
             }
         }
     }
 
     private void RaycastUp()
     {
-       if(objectInHand >0)
+       if(objectInHand > 0)
         {
-            hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = true;
-            playerHand.GetChild(0).gameObject.transform.localScale = new Vector3(1,1,1);
-            playerHand.GetChild(0).gameObject.transform.parent = null;
-            objectInHand--;
+            
         }
     }
 }
