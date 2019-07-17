@@ -17,6 +17,7 @@ public class PickUp : MonoBehaviour
     private void Start()
     {
         scale = item.transform.localScale;
+        tempParent = GameObject.Find("Parent");
     }
 
     private void Update()
