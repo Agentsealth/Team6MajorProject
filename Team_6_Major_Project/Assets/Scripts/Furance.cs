@@ -37,7 +37,7 @@ public class Furance : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Ingot>().ready == false)
             {
-                other.gameObject.GetComponent<Ingot>().IngotPickup.isHolding = false;
+                other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                 other.gameObject.GetComponent<Ingot>().smeltTime = ironHeat;
             }
             else

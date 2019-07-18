@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3255687643613962733
+--- !u!1 &3438516735236097051
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3255687643613962721}
-  - component: {fileID: 3255687643613962722}
-  - component: {fileID: 3255687643613962723}
-  - component: {fileID: 3255687643613962727}
-  - component: {fileID: 3255687643613962720}
-  - component: {fileID: 3255687643613962732}
-  - component: {fileID: 3255687643613962734}
+  - component: {fileID: 3438516735236097055}
+  - component: {fileID: 3438516735236097054}
+  - component: {fileID: 3438516735236097049}
+  - component: {fileID: 3438516735236097048}
+  - component: {fileID: 3438516735236097053}
+  - component: {fileID: 3438516735236097052}
+  - component: {fileID: 3438516735236097042}
   m_Layer: 0
-  m_Name: Iron Ingot
-  m_TagString: Iron Ingot
+  m_Name: Iron Medium Sheet
+  m_TagString: Iron Medium Sheet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3255687643613962721
+--- !u!4 &3438516735236097055
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3255687643613962733}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 2.658}
-  m_LocalScale: {x: 0.2, y: 0.3, z: 1}
+  m_GameObject: {fileID: 3438516735236097051}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.7074, y: 0.8736, z: 5.238}
+  m_LocalScale: {x: 1.2754049, y: 0.08502667, z: 0.5234614}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3255687643613962722
+--- !u!33 &3438516735236097054
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3255687643613962733}
+  m_GameObject: {fileID: 3438516735236097051}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3255687643613962723
+--- !u!23 &3438516735236097049
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3255687643613962733}
+  m_GameObject: {fileID: 3438516735236097051}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -81,26 +81,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3255687643613962727
+--- !u!65 &3438516735236097048
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3255687643613962733}
+  m_GameObject: {fileID: 3438516735236097051}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3255687643613962720
+--- !u!54 &3438516735236097053
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3255687643613962733}
+  m_GameObject: {fileID: 3438516735236097051}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -110,13 +110,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3255687643613962732
+--- !u!114 &3438516735236097052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3255687643613962733}
+  m_GameObject: {fileID: 3438516735236097051}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 157ef8c69625afd4599916d299b0e261, type: 3}
@@ -127,22 +127,23 @@ MonoBehaviour:
   objectPos: {x: 0, y: 0, z: 0}
   distance: 0
   canHold: 1
-  item: {fileID: 3255687643613962733}
+  item: {fileID: 3438516735236097051}
   tempParent: {fileID: 0}
   isHolding: 0
---- !u!114 &3255687643613962734
+--- !u!114 &3438516735236097042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3255687643613962733}
+  m_GameObject: {fileID: 3438516735236097051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b9c5da6e89300543824718e44a2b32f, type: 3}
+  m_Script: {fileID: 11500000, guid: e52324b871c287d4b84befc083277e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ready: 0
   objectName: 
   smeltTime: 0
-  ingotPickup: {fileID: 0}
+  quality: 0
+  sheetPickup: {fileID: 0}
