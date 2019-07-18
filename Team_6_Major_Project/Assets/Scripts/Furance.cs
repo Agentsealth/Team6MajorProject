@@ -45,5 +45,21 @@ public class Furance : MonoBehaviour
                 return;
             }
         }
+        else if(other.gameObject.tag == "Iron Sheet")
+        {
+            if (other.gameObject.GetComponent<Sheet>().ready == false)
+            {
+                other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
+                other.gameObject.GetComponent<Sheet>().smeltTime = ironHeat;
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            return;
+        }
     }
 }

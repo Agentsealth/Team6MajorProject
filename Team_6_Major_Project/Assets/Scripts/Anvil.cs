@@ -8,6 +8,7 @@ public class Anvil : MonoBehaviour
     public int ingotCount;
     public int sheetCount;
     public int Quality;
+    public int sheetQuality;
 
     public Transform drop;
 
@@ -16,6 +17,7 @@ public class Anvil : MonoBehaviour
     public bool usingSlider = false;
 
     public List<GameObject> ingots = new List<GameObject>();
+    public List<GameObject> sheet = new List<GameObject>();
 
     public GameObject[] sheets;
     public GameObject[] blades;
@@ -37,8 +39,35 @@ public class Anvil : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Ingot>().ready == true)
             {
-                ingotCount++;
-                ingots.Add(other.gameObject);
+                if (ingotCount > 3)
+                {
+                    return;
+                }
+                else
+                {
+                    ingotCount++;
+                    ingots.Add(other.gameObject);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+        else if(other.gameObject.tag == "Iron Sheet")
+        {
+            if (other.gameObject.GetComponent<Sheet>().ready == true)
+            {
+                if (sheetCount > 1)
+                {
+                    return;
+                }
+                else
+                {
+                    sheetCount++;
+                    other.gameObject.GetComponent<Sheet>().quality = sheetQuality;
+                    sheet.Add(other.gameObject);
+                }
             }
             else
             {
@@ -49,28 +78,31 @@ public class Anvil : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Iron Large Sheet")
+        if(other.gameObject.tag == "Iron Ingot")
         {
-            other.gameObject.GetComponent<Sheet>().quality = Quality;
+            ingotCount = 0;
         }
-        else if(other.gameObject.tag == "Iron Medium Sheet")
+        else if(other.gameObject.tag == "Iron Sheet")
         {
             other.gameObject.GetComponent<Sheet>().quality = Quality;
+            Quality = 0;
+            sheetCount = 0;
         }
-        else if(other.gameObject.tag == "Iron Large Sheet")
+        else if(other.gameObject.tag == "Iron Blade")
         {
-            other.gameObject.GetComponent<Sheet>().quality = Quality;
+            other.gameObject.GetComponent<Blade>().quality = (Quality + sheetQuality) / 2;
+            Quality = 0;
+            sheetQuality = 0;
         }
     }
 
     private void OnMouseOver()
     {
-        Debug.Log("Hover");
         if (ingotCount > 0 || sheetCount > 0)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("Slider On");
+                //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
                 gameSlider.SetActive(true);
                 gameSlider.GetComponent<SliderMiniGame>().repeat = 0;
                 usingSlider = true;
@@ -82,7 +114,7 @@ public class Anvil : MonoBehaviour
         }
     }
 
-    public void usingAnvil()
+    public void anvilIngot()
     {
         if(ingotCount > 0)
         {
@@ -109,6 +141,37 @@ public class Anvil : MonoBehaviour
                 Destroy(ingots[2]);
                 ingots.RemoveRange(0, ingots.Count);
                 ingotCount = 0;
+            }
+        }
+    }
+
+    public void anvilSheet()
+    {
+        if (sheetCount > 0)
+        {
+            if (sheet.Count == 1)
+            {
+                Instantiate(blades[0], drop.position, Quaternion.identity);
+                Destroy(sheet[0]);
+                sheet.RemoveRange(0, sheet.Count);
+                sheetCount = 0;
+            }
+            if (sheet.Count == 2)
+            {
+                Instantiate(blades[1], drop.position, Quaternion.identity);
+                Destroy(sheet[0]);
+                Destroy(sheet[1]);
+                sheet.RemoveRange(0, sheet.Count);
+                sheetCount = 0;
+            }
+            if (sheet.Count == 3)
+            {
+                Instantiate(blades[2], drop.position, Quaternion.identity);
+                Destroy(sheet[0]);
+                Destroy(sheet[1]);
+                Destroy(sheet[2]);
+                sheet.RemoveRange(0, sheet.Count);
+                sheetCount = 0;
             }
         }
     }

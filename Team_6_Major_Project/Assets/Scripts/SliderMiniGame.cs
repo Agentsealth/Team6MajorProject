@@ -92,7 +92,8 @@ public class SliderMiniGame : MonoBehaviour
         if (repeat == maxrepeat)
         {
             anvil.Quality = totalQuality;
-            anvil.usingAnvil();
+            anvil.anvilIngot();
+            anvil.anvilSheet();
             totalQuality = 0;
             this.gameObject.SetActive(false);
             return;
