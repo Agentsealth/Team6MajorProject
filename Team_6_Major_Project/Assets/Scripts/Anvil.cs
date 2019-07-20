@@ -105,6 +105,7 @@ public class Anvil : MonoBehaviour
                 //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
                 gameSlider.SetActive(true);
                 gameSlider.GetComponent<SliderMiniGame>().repeat = 0;
+                gameSlider.GetComponent<SliderMiniGame>().inUseAnvil = true;
                 usingSlider = true;
             }
         }

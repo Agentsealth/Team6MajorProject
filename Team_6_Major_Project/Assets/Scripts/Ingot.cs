@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Ingot : MonoBehaviour
 {
+    public enum Material { iron, silver, gold };
+
+    public Material material;
+
     public bool ready = false;
     public string objectName;
     public float smeltTime;

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Sheet : MonoBehaviour
 {
+
+    public enum TypeSheet { small, medium, large };
+    public enum Material { iron, silver, gold };
+
+    public TypeSheet size;
+    public Material material;
+
     public bool ready = false;
     public string objectName;
     public float smeltTime;

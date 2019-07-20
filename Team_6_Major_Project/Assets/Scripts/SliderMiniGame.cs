@@ -37,6 +37,13 @@ public class SliderMiniGame : MonoBehaviour
     private bool stopped = false;
     [SerializeField]
     private Anvil anvil;
+    [SerializeField]
+    private Grinder grinder;
+
+    public bool inUseGrinder = false;
+    public bool inUseAnvil = false;
+    public bool handle = false;
+    public bool guard = false;
 
     public int repeat;
 
@@ -45,6 +52,7 @@ public class SliderMiniGame : MonoBehaviour
     private void Start()
     {
         anvil = GameObject.Find("Anvil").GetComponent<Anvil>();
+        grinder = GameObject.Find("Grinder").GetComponent<Grinder>();
     }
 
     // Update is called once per frame
@@ -91,12 +99,34 @@ public class SliderMiniGame : MonoBehaviour
     {
         if (repeat == maxrepeat)
         {
-            anvil.Quality = totalQuality;
-            anvil.anvilIngot();
-            anvil.anvilSheet();
-            totalQuality = 0;
-            this.gameObject.SetActive(false);
-            return;
+            if (inUseAnvil == true)
+            {
+                anvil.Quality = totalQuality;
+                anvil.anvilIngot();
+                anvil.anvilSheet();
+                totalQuality = 0;
+                this.gameObject.SetActive(false);
+                inUseAnvil = false;
+                return;
+            }
+            else if(inUseGrinder == true)
+            {
+                grinder.Quality = totalQuality;
+                if(handle == true)
+                {
+                    grinder.GrinderHandle();
+                    handle = false;
+                }
+                else if(guard == true)
+                {
+                    grinder.GrinderHandle();
+                    guard = false;
+                }
+                totalQuality = 0;
+                this.gameObject.SetActive(false);
+                inUseGrinder = false;
+                return;
+            }
         }
         else if (Input.GetMouseButtonDown(0))
         {
@@ -142,6 +172,7 @@ public class SliderMiniGame : MonoBehaviour
             }
         }
     }
+
 
     private void Continue()
     {
