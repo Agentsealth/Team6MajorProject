@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
 
+    public bool inChat = false;
+
     private void Start()
     {
         sentences = new Queue<string>();

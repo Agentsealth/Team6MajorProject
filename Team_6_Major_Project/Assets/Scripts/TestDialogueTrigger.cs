@@ -6,11 +6,13 @@ public class TestDialogueTrigger : MonoBehaviour
 {
     public bool inRange = false;
     public Dialogue dialogue;
+    public DialogueManager dialogueManager;
 
     // Start is called before the first frame update
     void Start()
     {
         inRange = true;
+        dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
     // Update is called once per frame
@@ -24,13 +26,13 @@ public class TestDialogueTrigger : MonoBehaviour
             }
             else if(Input.GetKeyDown("f"))
             {
-                FindObjectOfType<DialogueManager>().DisplayNextSentence();
+                dialogueManager.DisplayNextSentence();
             }
         }
     }
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+         dialogueManager.StartDialogue(dialogue);
     }
 }

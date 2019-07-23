@@ -587,7 +587,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 46
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1429,9 +1429,8 @@ MonoBehaviour:
     handleMaterial: 0
     sentences:
     - Test
-    - 'Bye
-
-'
+    - Hello
+    - Bye
     - 
     - 
     - 
@@ -1439,7 +1438,7 @@ MonoBehaviour:
     - 
     - 
     - 
-    - 
+  dialogueManager: {fileID: 0}
 --- !u!1 &646670645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,6 +1484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 167064629}
   animator: {fileID: 1475012038}
+  inChat: 0
 --- !u!1 &732511914
 GameObject:
   m_ObjectHideFlags: 0
