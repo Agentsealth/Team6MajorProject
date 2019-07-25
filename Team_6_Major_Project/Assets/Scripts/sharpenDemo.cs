@@ -9,10 +9,11 @@ public class sharpenDemo : MonoBehaviour
     GameObject otherOther = null;
     public GameObject handle;
     public int i;
-
+    Vector3 initialPosition;
+    public float endPosition;
     void Start()
     {
-        
+        initialPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class sharpenDemo : MonoBehaviour
         if (i >= 100)
         {
             Destroy(otherOther);
-            Instantiate(handle, this.transform.position, Quaternion.identity);
+            Instantiate(handle, initialPosition, Quaternion.identity);
             i = 0;
         }
         if(Input.GetKeyDown(KeyCode.Space))
@@ -48,8 +49,9 @@ public class sharpenDemo : MonoBehaviour
             if (isGrinding)
             {
                 {
-                    transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 4.93f);
-                    otherOther.transform.position = transform.position;
+                    transform.position = new Vector3(initialPosition.x, initialPosition.y, 4.94f );
+                    otherOther.transform.position = transform.position = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z + endPosition);
+
                     otherOther.transform.eulerAngles = new Vector3(0, 0, 0);
                     i++;
                 }
@@ -59,8 +61,8 @@ public class sharpenDemo : MonoBehaviour
             if (!isGrinding)
             {
                 {
-                    transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 4.8f);
-                    otherOther.transform.position = transform.position;
+                    otherOther.transform.position =  initialPosition;
+                   
                     otherOther.transform.eulerAngles = new Vector3(0, 0, 0);
                 }
             }
