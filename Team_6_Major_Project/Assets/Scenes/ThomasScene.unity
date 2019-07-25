@@ -1588,7 +1588,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 79
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1642,10 +1642,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 577030211}
-  - component: {fileID: 577030212}
   - component: {fileID: 577030213}
   - component: {fileID: 577030214}
   - component: {fileID: 577030215}
+  - component: {fileID: 577030212}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -1712,9 +1712,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.0022135973, z: 0}
 --- !u!54 &577030214
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1742,9 +1742,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.002213597, z: 0}
 --- !u!1 &583520508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,18 +1995,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289725348fc1cff43877a51e0a44ef4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ironHeat: 3
-  silverHeat: 4
-  goldHeat: 5
-  ironSmallHeat: 6
-  ironMediumHeat: 9
-  ironLargeHeat: 12
-  silverSmallHeat: 8
-  silverMediumHeat: 12
-  silverLargeHeat: 16
-  goldSmallHeat: 10
-  goldMediumHeat: 15
-  goldLargeHeat: 20
+  ironHeat: 2
+  silverHeat: 2
+  goldHeat: 2
+  ironSmallHeat: 2
+  ironMediumHeat: 2
+  ironLargeHeat: 2
+  silverSmallHeat: 2
+  silverMediumHeat: 2
+  silverLargeHeat: 2
+  goldSmallHeat: 2
+  goldMediumHeat: 2
+  goldLargeHeat: 2
 --- !u!65 &732511920
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2084,7 +2084,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 79
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3998,7 +3998,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 79
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -4562,7 +4562,7 @@ MonoBehaviour:
   goldOre: 0
   silverOre: 0
   drop: {fileID: 514908404}
-  time: 10
+  time: 2
   smeltTime: 0
   ironIngot: {fileID: 3255687643613962733, guid: ad744323ba9b2a04ca39fd31668151ea,
     type: 3}
@@ -5819,21 +5819,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8136363981366453123, guid: e06b5de44a7c97b4fb5edce4424281a1,
-        type: 3}
-      propertyPath: m_TagString
-      value: Iron Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 8136363981965750281, guid: e06b5de44a7c97b4fb5edce4424281a1,
-        type: 3}
-      propertyPath: m_TagString
-      value: Iron Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 8136363982149852763, guid: e06b5de44a7c97b4fb5edce4424281a1,
-        type: 3}
-      propertyPath: m_TagString
-      value: Iron Sword
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e06b5de44a7c97b4fb5edce4424281a1, type: 3}

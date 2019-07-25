@@ -17,7 +17,8 @@ public class TestDialogueTrigger : MonoBehaviour
         inRange = true;
         dialogueManager = FindObjectOfType<DialogueManager>();
         playerStats = FindObjectOfType<PlayerStats>();
-        dialogue.sentences[3] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
+        dialogue.sentences[3] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
+            + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
     }
 
     // Update is called once per frame
@@ -55,7 +56,7 @@ public class TestDialogueTrigger : MonoBehaviour
                         if (other.gameObject.GetComponent<Sword>().materialHandle == dialogue.handleMaterial)
                         {
                             playerStats.gold += gold;
-                            Destroy(other);
+                            Destroy(other.gameObject);
                         }
                     }
                 }

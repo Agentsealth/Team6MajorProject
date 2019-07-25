@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8136363980206463949}
-  - component: {fileID: 8136363980206463948}
   - component: {fileID: 8136363980206463951}
   - component: {fileID: 8136363980206463950}
   - component: {fileID: 8136363980206463922}
+  - component: {fileID: 6425536645976410018}
   m_Layer: 0
   m_Name: Small Iron Sword
   m_TagString: Iron Sword
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8136363980206463945}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.59549975, y: 0.8736, z: 5.242}
   m_LocalScale: {x: 0.09822397, y: 0.08502667, z: 0.4}
   m_Children:
@@ -37,20 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &8136363980206463948
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8136363980206463945}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!54 &8136363980206463951
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -104,6 +90,19 @@ MonoBehaviour:
   materialHandle: 0
   materialGuard: 0
   quality: 0
+--- !u!65 &6425536645976410018
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8136363980206463945}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.364711, y: 1, z: 1}
+  m_Center: {x: -1.6559029, y: 0, z: 0}
 --- !u!1 &8136363981366453123
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +117,7 @@ GameObject:
   - component: {fileID: 8136363981366453121}
   m_Layer: 0
   m_Name: Handle
-  m_TagString: Untagged
+  m_TagString: Iron Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +208,7 @@ GameObject:
   - component: {fileID: 8136363981965750287}
   m_Layer: 0
   m_Name: Small Blade
-  m_TagString: Untagged
+  m_TagString: Iron Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,7 +299,7 @@ GameObject:
   - component: {fileID: 8136363982149852761}
   m_Layer: 0
   m_Name: Guard
-  m_TagString: Untagged
+  m_TagString: Iron Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -17,6 +17,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        PlayerInput();
+        LockMouse();
+    }
+
+    private void PlayerInput()
+    {
         float _xMov = Input.GetAxisRaw("Horizontal");
         float _zMov = Input.GetAxisRaw("Vertical");
 
@@ -38,5 +44,19 @@ public class PlayerController : MonoBehaviour
         Vector3 _cameraRotation = new Vector3(_xRot, 0, 0f) * lookSemsitivity;
 
         motor.RotateCamera(_cameraRotation);
+    }
+
+    private void LockMouse()
+    {
+        if (Input.GetKeyDown("1"))
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }
