@@ -18,7 +18,7 @@ public class movePlayerToPos : MonoBehaviour
     public GameObject loc4;
     void Start()
     {
-
+        playerController = this.gameObject.GetComponent<PlayerController>();
     }
     IEnumerator WaitAndMove(float delayTime)
     {
@@ -89,7 +89,7 @@ public class movePlayerToPos : MonoBehaviour
         playerController.speed = 5;
         playerController.lookSemsitivity = 3;
         rotA = transform.eulerAngles;
-        rotB = loc4.transform.eulerAngles;
+        rotB = new Vector3(loc1.transform.rotation.x, loc1.transform.rotation.y, loc1.transform.rotation.z);
         StartCoroutine(WaitAndMove(delayTime));
     }
 }

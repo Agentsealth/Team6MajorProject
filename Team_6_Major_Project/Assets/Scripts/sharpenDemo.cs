@@ -107,6 +107,8 @@ public class sharpenDemo : MonoBehaviour
         {
             if (other.GetComponent<Sheet>().size == Sheet.TypeSheet.small)
             {
+                options.SetActive(true);
+
                 otherQuality = other.GetComponent<Sheet>().quality;
                 quality = 100;
                 MPTP.gotoGrinder();
@@ -134,11 +136,16 @@ public class sharpenDemo : MonoBehaviour
         isHandle = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        options.SetActive(false);
+        options.SetActive(false);
+        Debug.Log("Aaaaaa");
+
     }
 
     public void chooseGuard()
     {
         options.SetActive(false);
+        Debug.Log("Aaaaaa");
 
         isGuard = true;
         Cursor.visible = false;
