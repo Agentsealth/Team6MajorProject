@@ -136,9 +136,7 @@ public class sharpenDemo : MonoBehaviour
         isHandle = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        options.SetActive(false);
-        options.SetActive(false);
-        Debug.Log("Aaaaaa");
+        
 
     }
 
