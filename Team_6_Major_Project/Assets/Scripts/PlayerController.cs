@@ -4,9 +4,9 @@
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 5.0f;
+    public float speed = 5.0f;
     [SerializeField]
-    private float lookSemsitivity = 3.0f;
+    public float lookSemsitivity = 3.0f;
 
     private PlayerMotor motor;
 

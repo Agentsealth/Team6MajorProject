@@ -11,6 +11,7 @@ public class sharpenDemo : MonoBehaviour
     public int i;
     Vector3 initialPosition;
     public float endPosition;
+    public movePlayerToPos MPTP;
     void Start()
     {
         initialPosition = transform.position;
@@ -25,8 +26,10 @@ public class sharpenDemo : MonoBehaviour
             Destroy(otherOther);
             Instantiate(handle, initialPosition, Quaternion.identity);
             i = 0;
+            MPTP.returnToPos();
+               
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             isGrinding = true;
         }
@@ -82,12 +85,14 @@ public class sharpenDemo : MonoBehaviour
         {
             Debug.Log("This works");
             isGrinding = false;
+            isGrinding = false;
+            isGrinding = false;
         }
         if (other.gameObject.tag == "Iron Sheet")
         {
             if (other.GetComponent<Sheet>().size == Sheet.TypeSheet.small)
             {
-
+                MPTP.gotoGrinder();
 
                 otherOther = other.gameObject;
                 other.transform.position = new Vector3(0, 0, 0);
