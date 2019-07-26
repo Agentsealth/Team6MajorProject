@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3255687643613962720}
   - component: {fileID: 3255687643613962732}
   - component: {fileID: 3255687643613962734}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Iron Ingot
   m_TagString: Iron Ingot
   m_Icon: {fileID: 0}
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9c5da6e89300543824718e44a2b32f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: 0
   ready: 0
   objectName: 
   smeltTime: 0
