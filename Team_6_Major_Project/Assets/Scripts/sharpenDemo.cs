@@ -11,6 +11,7 @@ public class sharpenDemo : MonoBehaviour
     public int i;
     Vector3 initialPosition;
     public float endPosition;
+    public movePlayerToPos MPTP;
     void Start()
     {
         initialPosition = transform.position;
@@ -24,6 +25,7 @@ public class sharpenDemo : MonoBehaviour
         {
             Destroy(otherOther);
             Instantiate(handle, initialPosition, Quaternion.identity);
+            MPTP.returnToPos();
             i = 0;
         }
         if(Input.GetKeyDown(KeyCode.Space))
@@ -87,7 +89,7 @@ public class sharpenDemo : MonoBehaviour
         {
             if (other.GetComponent<Sheet>().size == Sheet.TypeSheet.small)
             {
-
+                MPTP.gotoGrinder();
 
                 otherOther = other.gameObject;
                 other.transform.position = new Vector3(0, 0, 0);
