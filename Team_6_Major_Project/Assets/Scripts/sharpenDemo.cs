@@ -32,14 +32,14 @@ public class sharpenDemo : MonoBehaviour
             Destroy(otherOther);
             if (isHandle)
             {
-                GameObject craftedHandle = Instantiate(handle, initialPosition + new Vector3(1, 0.25f, 0.21f), Quaternion.identity);//PLACE WHERE HANDLE SPAWNS
+                GameObject craftedHandle = Instantiate(handle, initialPosition + new Vector3(1, 0.25f, 0.21f), Quaternion.identity);
                 isHandle = false;
-                craftedHandle.GetComponent<Handle>().quality = quality + otherQuality;
+                craftedHandle.GetComponent<Handle>().quality = (quality + otherQuality) / 2;
             }
             if (isGuard)
             {
                 GameObject craftedGuard = Instantiate(guard, initialPosition + new Vector3(1, 0.25f, 0.21f), Quaternion.identity);
-                craftedGuard.GetComponent<Guard>().quality = quality + otherQuality;
+                craftedGuard.GetComponent<Guard>().quality = (quality + otherQuality) / 2;
 
                 isGuard = false;
 
@@ -61,8 +61,6 @@ public class sharpenDemo : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                
-                Debug.Log("Yeet");
-                //Destroy(this);
                 otherOther.GetComponent<Rigidbody>().isKinematic = false;
                 otherOther.transform.position = new Vector3(0,0,0);
             }
@@ -101,7 +99,6 @@ public class sharpenDemo : MonoBehaviour
     {
         if (other.gameObject.tag == "gsHazard")
         {
-            Debug.Log("This works");
             quality = quality - 10;
             isGrinding = false;
             
@@ -119,14 +116,12 @@ public class sharpenDemo : MonoBehaviour
 
                 otherOther = other.gameObject;
                 other.transform.position = new Vector3(0, 0, 0);
-                Debug.Log("Oh [redacted] a bug");
                 other.transform.parent = null;
 
 
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 other.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 other.transform.eulerAngles = new Vector3(0, 0, 0);
-                Debug.Log("A R E A [redacted]");
             }
         }
 
