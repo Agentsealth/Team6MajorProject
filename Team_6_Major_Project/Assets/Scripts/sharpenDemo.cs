@@ -25,10 +25,11 @@ public class sharpenDemo : MonoBehaviour
         {
             Destroy(otherOther);
             Instantiate(handle, initialPosition, Quaternion.identity);
-            MPTP.returnToPos();
             i = 0;
+            MPTP.returnToPos();
+               
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             isGrinding = true;
         }
@@ -83,6 +84,8 @@ public class sharpenDemo : MonoBehaviour
         if (other.gameObject.tag == "gsHazard")
         {
             Debug.Log("This works");
+            isGrinding = false;
+            isGrinding = false;
             isGrinding = false;
         }
         if (other.gameObject.tag == "Iron Sheet")

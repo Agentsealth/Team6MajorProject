@@ -28,7 +28,7 @@ public class movePlayerToPos : MonoBehaviour
         { // until one second passed
             transform.position = Vector3.Lerp(posA, posB, Time.time - startTime); // lerp from A to B in one second
             transform.eulerAngles = Vector3.Lerp(rotA, rotB, Time.time - startTime);
-            yield return 0.5f; // wait for next frame
+            yield return 0.1f; // wait for next frame
         }
     }
 
