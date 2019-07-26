@@ -1,20 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+    
 
 public class PlayerRayCast : MonoBehaviour
 {
     [SerializeField]
-    private float distanceToSee = 3.0f;
+    Camera cam;
+    [SerializeField]
+    private float distanceToSee = 3.0f; 
     [SerializeField]
     private Transform playerHand;
     [SerializeField]
     private int objectInHand;
     RaycastHit hit;
+    Ray ray;
     // Start is called before the first frame update
     void Start()
     {
-        
+        cam = this.GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -33,14 +37,11 @@ public class PlayerRayCast : MonoBehaviour
 
     private void RaycastDown()
     {
-        Debug.DrawRay(this.transform.position, this.transform.forward* distanceToSee, Color.red);
-        if(Physics.Raycast(this.transform.position, this.transform.forward, out hit, distanceToSee))
+        ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); 
+        if(Physics.Raycast(ray,out hit))
         {
-            Debug.Log("Touched " + hit.collider.gameObject.name);
-            if (hit.collider.gameObject.tag == "Iron Ore")
-            {
-
-            }
+            print("I'm looking at " + hit.transform.name);
+            ButtonClickUI();
         }
     }
 
@@ -49,6 +50,17 @@ public class PlayerRayCast : MonoBehaviour
        if(objectInHand > 0)
         {
             
+        }
+    }
+
+    private void ButtonClickUI()
+    {
+        if (hit.transform.gameObject.layer == 9)
+        {
+            if (hit.transform.gameObject.GetComponent<IPointClick>() != null)
+            {
+                hit.transform.gameObject.GetComponent<IPointClick>().OnPointerClick();
+            }
         }
     }
 }
