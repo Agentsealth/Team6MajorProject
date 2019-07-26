@@ -241,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
         type: 3}
@@ -2745,6 +2745,131 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3bf27f805971d547930c624a36aba7a, type: 3}
+--- !u!1001 &857572948
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5900016895400901897, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_Name
+      value: TutorialPaper-Smelter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901893, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900016895400901890, guid: 40914cd42201c6648910995523effc1d,
+        type: 3}
+      propertyPath: tempParent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 373586420, guid: 40914cd42201c6648910995523effc1d, type: 3}
+      propertyPath: m_Name
+      value: CanvasTutorial-Smelter
+      objectReference: {fileID: 0}
+    - target: {fileID: 373586423, guid: 40914cd42201c6648910995523effc1d, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 792148342, guid: 40914cd42201c6648910995523effc1d, type: 3}
+      propertyPath: m_Name
+      value: SmelterText
+      objectReference: {fileID: 0}
+    - target: {fileID: 792148344, guid: 40914cd42201c6648910995523effc1d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 792148344, guid: 40914cd42201c6648910995523effc1d, type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 792148344, guid: 40914cd42201c6648910995523effc1d, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 792148344, guid: 40914cd42201c6648910995523effc1d, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 792148344, guid: 40914cd42201c6648910995523effc1d, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 792148344, guid: 40914cd42201c6648910995523effc1d, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 792148344, guid: 40914cd42201c6648910995523effc1d, type: 3}
+      propertyPath: m_Text
+      value: 'Smelter
+
+
+        Drag Heated Ore into Smelter
+
+
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 792148344, guid: 40914cd42201c6648910995523effc1d, type: 3}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 40914cd42201c6648910995523effc1d, type: 3}
 --- !u!1 &859129946
 GameObject:
   m_ObjectHideFlags: 0
