@@ -39,6 +39,8 @@ public class SliderMiniGame : MonoBehaviour
     private Anvil anvil;
     [SerializeField]
     private Grinder grinder;
+    [SerializeField]
+    private GameObject hammer;
 
     public bool inUseGrinder = false;
     public bool inUseAnvil = false;
@@ -101,6 +103,8 @@ public class SliderMiniGame : MonoBehaviour
         {
             if (inUseAnvil == true)
             {
+                //hammer.transform.position = new Vector3(hammer.transform.position.x - 0.25f, hammer.transform.position.y, hammer.transform.position.z);
+
                 anvil.Quality = totalQuality;
                 anvil.anvilIngot();
                 anvil.anvilSheet();
@@ -126,6 +130,8 @@ public class SliderMiniGame : MonoBehaviour
                 this.gameObject.SetActive(false);
                 inUseGrinder = false;
                 return;
+                hammer.GetComponent<Animator>().Play("hammerDink", -1, 0);
+                //hammer.transform.position = new Vector3(hammer.transform.position.x + 0.05f, hammer.transform.position.y, hammer.transform.position.z);
             }
         }
         else if (Input.GetMouseButtonDown(0))
@@ -169,6 +175,8 @@ public class SliderMiniGame : MonoBehaviour
                     text.text = "Bad";
                     totalQuality += badQuality;
                 }
+                hammer.GetComponent<Animator>().Play("hammerDink", -1, 0);
+                //hammer.transform.position = new Vector3(hammer.transform.position.x + 0.05f, hammer.transform.position.y, hammer.transform.position.z);
             }
         }
     }
