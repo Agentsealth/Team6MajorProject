@@ -53,7 +53,7 @@ public class SliderMiniGame : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        anvil = GameObject.Find("Anvil").GetComponent<Anvil>();
+        //anvil = GameObject.Find("Anvil").GetComponent<Anvil>();
         grinder = GameObject.Find("Grinder").GetComponent<Grinder>();
     }
 

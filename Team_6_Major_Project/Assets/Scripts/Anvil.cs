@@ -35,10 +35,16 @@ public class Anvil : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Iron Ingot")
+
+        if (other.gameObject.tag == "Iron Ingot")
         {
+            
             if (other.gameObject.GetComponent<Ingot>().ready == true)
             {
+                other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
+                other.transform.position = drop.transform.position;
+
+
                 if (ingotCount > 3)
                 {
                     return;
@@ -58,6 +64,11 @@ public class Anvil : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Sheet>().ready == true)
             {
+                other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
+                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                other.transform.position = drop.transform.position;
+
+
                 if (sheetCount > 1)
                 {
                     return;
