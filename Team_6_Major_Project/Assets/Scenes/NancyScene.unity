@@ -6372,13 +6372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2f7fd81c7cf024685af989798b6867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 0
-  posA: {x: 0, y: 0, z: 0}
-  posB: {x: 0, y: 0, z: 0}
-  rotA: {x: 0, y: 0, z: 0, w: 1}
-  rotB: {x: 0, y: 0, z: 0, w: 1}
-  resetPos: {x: 0, y: 0, z: 0}
-  playerController: {fileID: 1906218670}
   loc1: {fileID: 0}
   loc2: {fileID: 0}
   loc3: {fileID: 0}
@@ -7549,6 +7542,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214174874811791874, guid: 0751e8199d743dd4392ce911780eb75f,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.62211657
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214174874811791874, guid: 0751e8199d743dd4392ce911780eb75f,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.026773214
       objectReference: {fileID: 0}
     - target: {fileID: 6214174874811791901, guid: 0751e8199d743dd4392ce911780eb75f,
         type: 3}
