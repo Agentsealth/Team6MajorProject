@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sharpenDemo : MonoBehaviour
+public class GrindstoneLogic : MonoBehaviour
 {
     public bool isGrinding;
     // Start is called before the first frame update
@@ -13,21 +13,29 @@ public class sharpenDemo : MonoBehaviour
     public int i;
     Vector3 initialPosition;
     public float endPosition;
-    public movePlayerToPos MPTP;
+    public MoveToPos MTP;
     private int quality;
     private int otherQuality;
     private bool isHandle;
     private bool isGuard;
     public bool playerInPos;
+    public bool playerHere;
     void Start()
     {
         initialPosition = transform.position;
+        MTP = GameObject.FindObjectOfType<MoveToPos>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (playerHere)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                MTP.returnToPos();
+            }
+        }
         if (i >= 100 && otherOther != null)
         {
             Destroy(otherOther);
@@ -47,7 +55,7 @@ public class sharpenDemo : MonoBehaviour
             }
             i = 0;
             playerInPos = false;
-            MPTP.returnToPos();
+            MTP.returnToPos();
         }
         if (Input.GetKeyDown(KeyCode.Space) && playerInPos)
         {
