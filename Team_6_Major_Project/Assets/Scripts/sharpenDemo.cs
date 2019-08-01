@@ -18,6 +18,7 @@ public class sharpenDemo : MonoBehaviour
     private int otherQuality;
     private bool isHandle;
     private bool isGuard;
+    
     void Start()
     {
         initialPosition = transform.position;
@@ -103,10 +104,12 @@ public class sharpenDemo : MonoBehaviour
             isGrinding = false;
             
         }
-        if (other.gameObject.tag == "Iron Sheet")
+        if(other.gameObject.tag == "Iron Sheet")
         {
             if (other.GetComponent<Sheet>().size == Sheet.TypeSheet.small)
             {
+                other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
+
                 options.SetActive(true);
 
                 otherQuality = other.GetComponent<Sheet>().quality;
