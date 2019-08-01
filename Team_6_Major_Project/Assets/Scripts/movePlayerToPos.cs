@@ -16,11 +16,12 @@ public class movePlayerToPos : MonoBehaviour
     public GameObject loc2;
     public GameObject loc3;
     public GameObject loc4;
-
-
+    public GameObject options;
+    private sharpenDemo sD;
     void Start()
     {
         playerController = this.gameObject.GetComponent<PlayerController>();
+        sD = GameObject.FindObjectOfType<sharpenDemo>();
     }
     IEnumerator WaitAndMove(float delayTime)
     {
@@ -84,8 +85,9 @@ public class movePlayerToPos : MonoBehaviour
             rotA = transform.rotation;
             rotB = loc1.gameObject.transform.rotation;
             StartCoroutine(WaitAndMove(delayTime));
-
-
+            options.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
 
     }
 

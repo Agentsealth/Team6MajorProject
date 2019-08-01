@@ -18,7 +18,7 @@ public class sharpenDemo : MonoBehaviour
     private int otherQuality;
     private bool isHandle;
     private bool isGuard;
-    
+    public bool playerInPos;
     void Start()
     {
         initialPosition = transform.position;
@@ -28,7 +28,7 @@ public class sharpenDemo : MonoBehaviour
     void Update()
     {
 
-        if (i >= 100)
+        if (i >= 100 && otherOther != null)
         {
             Destroy(otherOther);
             if (isHandle)
@@ -46,9 +46,10 @@ public class sharpenDemo : MonoBehaviour
 
             }
             i = 0;
+            playerInPos = false;
             MPTP.returnToPos();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && playerInPos)
         {
             isGrinding = true;
         }
@@ -110,14 +111,11 @@ public class sharpenDemo : MonoBehaviour
             {
                 other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
 
-                options.SetActive(true);
 
                 otherQuality = other.GetComponent<Sheet>().quality;
                 quality = 100;
-                MPTP.gotoGrinder();
-                options.SetActive(true);
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
+                //MPTP.gotoGrinder();
+                
 
                 otherOther = other.gameObject;
                 other.transform.position = new Vector3(0, 0, 0);
@@ -139,7 +137,7 @@ public class sharpenDemo : MonoBehaviour
         isHandle = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        
+        playerInPos = true;
 
     }
 
@@ -151,6 +149,7 @@ public class sharpenDemo : MonoBehaviour
         isGuard = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        playerInPos = true;
     }
 
  
