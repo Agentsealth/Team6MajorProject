@@ -6,11 +6,12 @@ public class grindstoneSpinner : MonoBehaviour
 {
     float degrees;
     public float speed;
-    public movePlayerToPos MPTP;
+    private MoveToPos MTP;
+    
     // Start is called before the first frame update
     void Start()
     {
-        MPTP = GameObject.FindObjectOfType<movePlayerToPos>();
+        MTP = GameObject.FindObjectOfType<MoveToPos>();
     }
 
     // Update is called once per frame
@@ -24,9 +25,9 @@ public class grindstoneSpinner : MonoBehaviour
     private void OnMouseOver()
     {
         Debug.Log("Help");
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            MPTP.gotoGrinder();
+            MTP.gotoGrinder();
         }
     }
 }

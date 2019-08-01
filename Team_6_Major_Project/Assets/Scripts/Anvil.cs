@@ -21,10 +21,11 @@ public class Anvil : MonoBehaviour
 
     public GameObject[] sheets;
     public GameObject[] blades;
+    private MoveToPos MTP;
     // Start is called before the first frame update
     void Start()
     {
-        
+        MTP = GameObject.FindObjectOfType<MoveToPos>();
     }
 
     // Update is called once per frame
@@ -41,6 +42,7 @@ public class Anvil : MonoBehaviour
             
             if (other.gameObject.GetComponent<Ingot>().ready == true)
             {
+                MTP.gotoAnvil();
                 other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                 other.transform.position = drop.transform.position;
 
@@ -130,6 +132,7 @@ public class Anvil : MonoBehaviour
     {
         if(ingotCount > 0)
         {
+            MTP.returnToPos();
             if(ingots.Count == 1)
             {
                 Instantiate(sheets[0], drop.position, Quaternion.identity);
@@ -161,6 +164,7 @@ public class Anvil : MonoBehaviour
     {
         if (sheetCount > 0)
         {
+            MTP.returnToPos();
             if (sheet.Count == 1)
             {
                 Instantiate(blades[0], drop.position, Quaternion.identity);
