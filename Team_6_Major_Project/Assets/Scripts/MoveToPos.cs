@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveToPos : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float delayTime;
+    private float delayTime = 0;
     private Vector3 posA;
     private Vector3 posB;
     private Quaternion rotA = Quaternion.identity;
@@ -28,10 +28,10 @@ public class MoveToPos : MonoBehaviour
     {
         yield return new WaitForSeconds(delayTime); // start at time X
         float startTime = Time.time; // Time.time contains current frame time, so remember starting point
-        while (Time.time - startTime <= 2)
+        while (Time.time - startTime <= 1)
         { // until one second passed
             transform.position = Vector3.Lerp(posA, posB, Time.time - startTime); // lerp from A to B in one second
-            transform.rotation = Quaternion.Lerp(rotA, rotB, Time.time - startTime);
+           transform.rotation = Quaternion.Lerp(rotA, rotB, Time.time - startTime);
             yield return 0.1f;
         }
     }
@@ -42,35 +42,11 @@ public class MoveToPos : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
-
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            posA = transform.position;
-            posB = loc2.transform.position;
-            StartCoroutine(WaitAndMove(delayTime));
+            returnToPos();
 
         }
 
-
-        if (Input.GetKeyDown(KeyCode.F3)) 
-        {
-            posA = transform.position;
-            posB = loc3.transform.position;
-            StartCoroutine(WaitAndMove(delayTime));
-
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            posB = posA;
-            posA = transform.position;
-            StartCoroutine(WaitAndMove(delayTime));
-
-        }
+       
     }
 
     public void gotoGrinder()
@@ -108,11 +84,13 @@ public class MoveToPos : MonoBehaviour
 
     public void returnToPos()
     {
+        StopCoroutine(WaitAndMove(delayTime));
+        StopAllCoroutines();
         posB = resetPos;
-        posA = loc1.transform.position;
+        posA = transform.position;
         playerController.speed = 5;
         playerController.lookSemsitivity = 3;
-        rotA = loc1.transform.rotation;
+        rotA = transform.rotation;
         rotB = loc4.transform.rotation;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
