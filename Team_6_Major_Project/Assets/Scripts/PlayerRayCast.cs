@@ -18,6 +18,10 @@ public class PlayerRayCast : MonoBehaviour
     Ray ray;
     public GameObject hoverOver;
     public Text hoverOverText;
+    public GameObject floatingTextPrefab;
+    public Vector3 viewport;
+    public float halfXScale;
+    public float halfYScale;
 
     // Start is called before the first frame update
     void Start()
@@ -66,20 +70,33 @@ public class PlayerRayCast : MonoBehaviour
             print("I'm hovering over at " + hit.transform.name);
             if(hit.transform.gameObject.layer == 10)
             {
-                hoverOver.SetActive(true);
-                hoverOverText.text = hit.transform.name;
+                if (floatingTextPrefab != null)
+                {
+                    ShowFloatingText();
+                }
             }
             else
             {
-                hoverOver.SetActive(false);
-                hoverOverText.text = "";
+                HideFloatingText();
             }
         }
         else
         {
-            hoverOver.SetActive(false);
-            hoverOverText.text = "";
+            HideFloatingText();
         }
+    }
+
+    void ShowFloatingText()
+    {
+        floatingTextPrefab.SetActive(true);
+        floatingTextPrefab.transform.position = hit.transform.position + new Vector3(0, (hit.transform.localScale.y / 2) + 0.2f, 0);
+        floatingTextPrefab.GetComponentInChildren<Text>().text = hit.transform.name;
+    }
+
+    void HideFloatingText()
+    {
+        floatingTextPrefab.SetActive(false);
+        floatingTextPrefab.GetComponentInChildren<Text>().text = "";
     }
 
     private void ButtonClickUI()
