@@ -8,33 +8,35 @@ public class movePlayerToPos : MonoBehaviour
     public float delayTime;
     public Vector3 posA;
     public Vector3 posB;
-    public Vector3 rotA;
-    public Vector3 rotB;
+    public Quaternion rotA = Quaternion.identity;
+    public Quaternion rotB = Quaternion.identity;
     public Vector3 resetPos;
     public PlayerController playerController;
     public GameObject loc1;
     public GameObject loc2;
     public GameObject loc3;
     public GameObject loc4;
+
+
     void Start()
     {
-
+        playerController = this.gameObject.GetComponent<PlayerController>();
     }
     IEnumerator WaitAndMove(float delayTime)
     {
         yield return new WaitForSeconds(delayTime); // start at time X
         float startTime = Time.time; // Time.time contains current frame time, so remember starting point
-        while (Time.time - startTime <= 1)
+        while (Time.time - startTime <= 2)
         { // until one second passed
             transform.position = Vector3.Lerp(posA, posB, Time.time - startTime); // lerp from A to B in one second
-            transform.eulerAngles = Vector3.Lerp(rotA, rotB, Time.time - startTime);
-            yield return 1f; // wait for next frame
+            transform.rotation = Quaternion.Lerp(rotA, rotB, Time.time - startTime);
+            yield return 0.5f;
         }
     }
 
     private void Update()
     {
-
+        
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
@@ -51,7 +53,7 @@ public class movePlayerToPos : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.F3))
+        if (Input.GetKeyDown(KeyCode.F3)) 
         {
             posA = transform.position;
             posB = loc3.transform.position;
@@ -71,15 +73,20 @@ public class movePlayerToPos : MonoBehaviour
 
     public void gotoGrinder()
     {
-        resetPos = transform.position;
+       
+            
+            resetPos = transform.position;
 
-        playerController.speed = 0;
-        playerController.lookSemsitivity = 0;
-        posA = transform.position;
-        posB = loc1.transform.position;
-        rotA = transform.eulerAngles;
-        rotB = new Vector3(loc1.transform.rotation.x, loc1.transform.rotation.y, loc1.transform.rotation.z);
-        StartCoroutine(WaitAndMove(delayTime));
+            playerController.speed = 0;
+            playerController.lookSemsitivity = 0;
+            posA = transform.position;
+            posB = loc1.transform.position;
+            rotA = transform.rotation;
+            rotB = loc1.gameObject.transform.rotation;
+            StartCoroutine(WaitAndMove(delayTime));
+
+
+
     }
 
     public void returnToPos()
@@ -88,8 +95,24 @@ public class movePlayerToPos : MonoBehaviour
         posA = transform.position;
         playerController.speed = 5;
         playerController.lookSemsitivity = 3;
-        rotA = transform.eulerAngles;
-        rotB = loc4.transform.eulerAngles;
+        rotA = transform.rotation;
+        rotB = loc4.transform.rotation;
+
         StartCoroutine(WaitAndMove(delayTime));
+
+
+    }
+    void gsPosFirm()
+    {
+        //playerController.gameObject.transform.position = loc1.transform.position;
+        //playerController.gameObject.transform.rotation = loc1.transform.rotation;
+
+    }
+
+    void offgsPosFirm()
+    {
+       // playerController.gameObject.transform.position = loc4.transform.position;
+       // playerController.gameObject.transform.rotation = loc4.transform.rotation;
+
     }
 }

@@ -30,7 +30,7 @@ public class TestDialogueTrigger : MonoBehaviour
             {
                 TriggerDialogue();
             }
-            else if(Input.GetKeyDown("f"))
+            else if(Input.GetKeyDown("g"))
             {
                 dialogueManager.DisplayNextSentence();
             }

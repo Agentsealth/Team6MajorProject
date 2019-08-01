@@ -8,10 +8,17 @@ public class sharpenDemo : MonoBehaviour
     // Start is called before the first frame update
     GameObject otherOther = null;
     public GameObject handle;
+    public GameObject guard;
+    public GameObject options;
     public int i;
     Vector3 initialPosition;
     public float endPosition;
     public movePlayerToPos MPTP;
+    private int quality;
+    private int otherQuality;
+    private bool isHandle;
+    private bool isGuard;
+    
     void Start()
     {
         initialPosition = transform.position;
@@ -24,10 +31,22 @@ public class sharpenDemo : MonoBehaviour
         if (i >= 100)
         {
             Destroy(otherOther);
-            Instantiate(handle, initialPosition, Quaternion.identity);
+            if (isHandle)
+            {
+                GameObject craftedHandle = Instantiate(handle, initialPosition + new Vector3(1, 0.25f, 0.21f), Quaternion.identity);
+                isHandle = false;
+                craftedHandle.GetComponent<Handle>().quality = (quality + otherQuality) / 2;
+            }
+            if (isGuard)
+            {
+                GameObject craftedGuard = Instantiate(guard, initialPosition + new Vector3(1, 0.25f, 0.21f), Quaternion.identity);
+                craftedGuard.GetComponent<Guard>().quality = (quality + otherQuality) / 2;
+
+                isGuard = false;
+
+            }
             i = 0;
             MPTP.returnToPos();
-               
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -43,8 +62,6 @@ public class sharpenDemo : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                
-                Debug.Log("Yeet");
-                //Destroy(this);
                 otherOther.GetComponent<Rigidbody>().isKinematic = false;
                 otherOther.transform.position = new Vector3(0,0,0);
             }
@@ -83,32 +100,59 @@ public class sharpenDemo : MonoBehaviour
     {
         if (other.gameObject.tag == "gsHazard")
         {
-            Debug.Log("This works");
+            quality = quality - 10;
             isGrinding = false;
-            isGrinding = false;
-            isGrinding = false;
+            
         }
-        if (other.gameObject.tag == "Iron Sheet")
+        if(other.gameObject.tag == "Iron Sheet")
         {
             if (other.GetComponent<Sheet>().size == Sheet.TypeSheet.small)
             {
+                other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
+
+                options.SetActive(true);
+
+                otherQuality = other.GetComponent<Sheet>().quality;
+                quality = 100;
                 MPTP.gotoGrinder();
+                options.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
 
                 otherOther = other.gameObject;
                 other.transform.position = new Vector3(0, 0, 0);
-                Debug.Log("Oh [redacted] a bug");
                 other.transform.parent = null;
 
 
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 other.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 other.transform.eulerAngles = new Vector3(0, 0, 0);
-                Debug.Log("A R E A [redacted]");
             }
         }
 
     }
 
 
-    
+    public void chooseHandle()
+    {
+        options.SetActive(false);
+        isHandle = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        
+
+    }
+
+    public void chooseGuard()
+    {
+        options.SetActive(false);
+        Debug.Log("Aaaaaa");
+
+        isGuard = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+ 
+
 }

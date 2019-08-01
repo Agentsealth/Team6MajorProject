@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
     
 
 public class PlayerRayCast : MonoBehaviour
@@ -15,16 +16,22 @@ public class PlayerRayCast : MonoBehaviour
     private int objectInHand;
     RaycastHit hit;
     Ray ray;
+    public GameObject hoverOver;
+    public Text hoverOverText;
+
     // Start is called before the first frame update
     void Start()
     {
         cam = this.GetComponent<Camera>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         Debug.DrawRay(this.transform.position, this.transform.forward * distanceToSee, Color.red);
+        HoverOver();
         if (Input.GetMouseButtonDown(0))
         {
             RaycastDown();
@@ -37,8 +44,7 @@ public class PlayerRayCast : MonoBehaviour
 
     private void RaycastDown()
     {
-        ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); 
-        if(Physics.Raycast(ray,out hit))
+        if(Physics.Raycast(ray,out hit, distanceToSee))
         {
             print("I'm looking at " + hit.transform.name);
             ButtonClickUI();
@@ -53,6 +59,29 @@ public class PlayerRayCast : MonoBehaviour
         }
     }
 
+    private void HoverOver()
+    {
+        if (Physics.Raycast(ray, out hit, distanceToSee))
+        {
+            print("I'm hovering over at " + hit.transform.name);
+            if(hit.transform.gameObject.layer == 10)
+            {
+                hoverOver.SetActive(true);
+                hoverOverText.text = hit.transform.name;
+            }
+            else
+            {
+                hoverOver.SetActive(false);
+                hoverOverText.text = "";
+            }
+        }
+        else
+        {
+            hoverOver.SetActive(false);
+            hoverOverText.text = "";
+        }
+    }
+
     private void ButtonClickUI()
     {
         if (hit.transform.gameObject.layer == 9)
@@ -63,4 +92,6 @@ public class PlayerRayCast : MonoBehaviour
             }
         }
     }
+
+
 }
