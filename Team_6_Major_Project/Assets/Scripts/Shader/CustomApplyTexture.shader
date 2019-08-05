@@ -4,7 +4,6 @@ Shader "Outlined/CustomApplyTexture"
 	{
 		_MainTex("Main Texture (RGB)", 2D) = "white" {}
 		_Color("Color", Color) = (1,1,1,1)
-		_OutlineWidth("Outlines width", Range(0.0, 2.0)) = 1.1
 	}
 
 	SubShader
