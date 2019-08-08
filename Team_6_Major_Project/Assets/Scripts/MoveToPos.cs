@@ -91,7 +91,7 @@ public class MoveToPos : MonoBehaviour
         playerController.speed = 5;
         playerController.lookSemsitivity = 3;
         rotA = transform.rotation;
-        rotB = loc4.transform.rotation;
+        rotB = Quaternion.Euler(0, 0, 0);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         StartCoroutine(WaitAndMove(delayTime));

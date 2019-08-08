@@ -7,7 +7,6 @@ public class grindstoneSpinner : MonoBehaviour
     float degrees;
     public float speed;
     private MoveToPos MTP;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +18,7 @@ public class grindstoneSpinner : MonoBehaviour
     {
 
         transform.Rotate(speed * Time.deltaTime, 0, 0);
-
+        
     }
 
     private void OnMouseOver()
