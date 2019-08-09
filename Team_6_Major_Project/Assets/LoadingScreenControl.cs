@@ -8,9 +8,10 @@ public class LoadingScreenControl : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject loadingScreenObj;
-    public GameObject loadingMan;
+    public GameObject MainMenu;
     public Slider slider;
-
+    private float i;
+    private bool startLoad;
     AsyncOperation async;
     public void LoadScreenExample()
     {
@@ -19,16 +20,20 @@ public class LoadingScreenControl : MonoBehaviour
 
     IEnumerator LoadingScreen()
     {
+        startLoad = true;
+        MainMenu.SetActive(false);
         loadingScreenObj.SetActive(true);
-        async = SceneManager.LoadSceneAsync("ssScene");
+        async = SceneManager.LoadSceneAsync("ssScene", LoadSceneMode.Additive);
         async.allowSceneActivation = false;
+        
 
         while (async.isDone == false)
         {
-            slider.value = async.progress;
             if (async.progress == 0.9f)
             {
-                slider.value = 1f;
+                
+                startLoad = false;
+                slider.value = 1;
                 async.allowSceneActivation = true;
             }
             yield return null;
@@ -38,6 +43,10 @@ public class LoadingScreenControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (startLoad)
+        {
+            i = i + 0.005f;
+            slider.value = i;
+        }
     }
 }
