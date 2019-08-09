@@ -9,8 +9,11 @@ public class Anvil : MonoBehaviour
     public int sheetCount;
     public int Quality;
     public int sheetQuality;
+    public int time;
+    public int Timer;
 
     public Transform drop;
+    public Transform wrongIngotDrop;
 
     public GameObject gameSlider;
 
@@ -21,11 +24,16 @@ public class Anvil : MonoBehaviour
 
     public GameObject[] sheets;
     public GameObject[] blades;
+
     private MoveToPos MTP;
+
+    public GameObject warning;
+
     // Start is called before the first frame update
     void Start()
     {
-        MTP = GameObject.FindObjectOfType<MoveToPos>();
+        //MTP = GameObject.FindObjectOfType<MoveToPos>();
+        Timer = time;
     }
 
     // Update is called once per frame
@@ -42,10 +50,6 @@ public class Anvil : MonoBehaviour
             
             if (other.gameObject.GetComponent<Ingot>().ready == true)
             {
-                MTP.gotoAnvil();
-                other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
-                other.transform.position = drop.transform.position;
-
 
                 if (ingotCount > 3)
                 {
@@ -53,8 +57,32 @@ public class Anvil : MonoBehaviour
                 }
                 else
                 {
-                    ingotCount++;
-                    ingots.Add(other.gameObject);
+                    if (ingotCount == 0)
+                    {
+                        ingotCount++;
+                        ingots.Add(other.gameObject);
+                        //MTP.gotoAnvil();
+                        other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
+                        other.transform.position = drop.transform.position;
+                    }
+                    else if (ingotCount > 0)
+                    {
+                        if (other.gameObject.GetComponent<Ingot>().material == ingots[0].GetComponent<Ingot>().material)
+                        {
+                            ingotCount++;
+                            ingots.Add(other.gameObject);
+                            //MTP.gotoAnvil();
+                            other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
+                            other.transform.position = drop.transform.position;
+                        }
+                        else
+                        {
+                            other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
+                            other.gameObject.transform.position = wrongIngotDrop.position;
+                            warning.SetActive(true);
+
+                        }
+                    }
                 }
             }
             else
@@ -116,7 +144,7 @@ public class Anvil : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
-                MTP.gotoAnvil();
+                //MTP.gotoAnvil();
                 gameSlider.SetActive(true);
                 gameSlider.GetComponent<SliderMiniGame>().repeat = 0;
                 gameSlider.GetComponent<SliderMiniGame>().inUseAnvil = true;
@@ -133,17 +161,21 @@ public class Anvil : MonoBehaviour
     {
         if(ingotCount > 0)
         {
-            MTP.returnToPos();
+            //MTP.returnToPos();
             if(ingots.Count == 1)
             {
-                Instantiate(sheets[0], drop.position, Quaternion.identity);
+                GameObject sheet = Instantiate(sheets[0], drop.position, Quaternion.identity);
+                int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
+                sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
                 Destroy(ingots[0]);
                 ingots.RemoveRange(0, ingots.Count);
                 ingotCount = 0;
             }
             if (ingots.Count == 2)
             {
-                Instantiate(sheets[1], drop.position, Quaternion.identity);
+                GameObject sheet = Instantiate(sheets[1], drop.position, Quaternion.identity);
+                int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
+                sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
                 Destroy(ingots[0]);
                 Destroy(ingots[1]);
                 ingots.RemoveRange(0, ingots.Count);
@@ -151,7 +183,9 @@ public class Anvil : MonoBehaviour
             }
             if (ingots.Count == 3)
             {
-                Instantiate(sheets[2], drop.position, Quaternion.identity);
+                GameObject sheet = Instantiate(sheets[2], drop.position, Quaternion.identity);
+                int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
+                sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
                 Destroy(ingots[0]);
                 Destroy(ingots[1]);
                 Destroy(ingots[2]);
@@ -165,7 +199,7 @@ public class Anvil : MonoBehaviour
     {
         if (sheetCount > 0)
         {
-            MTP.returnToPos();
+            //MTP.returnToPos();
             if (sheet.Count == 1)
             {
                 Instantiate(blades[0], drop.position, Quaternion.identity);

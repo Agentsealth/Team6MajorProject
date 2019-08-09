@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class Ingot : MonoBehaviour
 {
-    public enum Material { iron, silver, gold };
+    public enum IngotMaterial { iron, steel, bronze };
 
-    public Material material;
+    public IngotMaterial material;
 
     public bool ready = false;
     public string objectName;
     public float smeltTime;
     public PickUp ingotPickup;
+
+    public Material[] textures;
     // Start is called before the first frame update
     void Start()
     {
         ingotPickup = this.gameObject.GetComponent<PickUp>();
         objectName = this.gameObject.name;
-        if(ready == false)
+        TextureChange();
+        if (ready == false)
         {
             this.gameObject.name = objectName + " (Not Ready)";
         }
@@ -41,5 +44,21 @@ public class Ingot : MonoBehaviour
                 this.gameObject.name = objectName + " (Ready)";
             }
         }        
+    }
+
+    void TextureChange()
+    {
+        if (material == IngotMaterial.iron)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = textures[0];
+        }
+        else if (material == IngotMaterial.steel)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = textures[1];
+        }
+        else if (material == IngotMaterial.bronze)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = textures[2];
+        }
     }
 }

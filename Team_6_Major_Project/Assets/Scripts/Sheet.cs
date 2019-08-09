@@ -6,21 +6,24 @@ public class Sheet : MonoBehaviour
 {
 
     public enum TypeSheet { small, medium, large };
-    public enum Material { iron, silver, gold };
+    public enum SheetMaterial { iron, steel, bronze };
 
     public TypeSheet size;
-    public Material material;
+    public SheetMaterial material;
 
     public bool ready = false;
     public string objectName;
     public float smeltTime;
     public int quality;
     public PickUp sheetPickup;
+
+    public Material[] textures;
     // Start is called before the first frame update
     void Start()
     {
         sheetPickup = this.gameObject.GetComponent<PickUp>();
         objectName = this.gameObject.name;
+        TextureChange();
         if (ready == false)
         {
             this.gameObject.name = objectName + " (Not Ready)";
@@ -44,6 +47,22 @@ public class Sheet : MonoBehaviour
                 ready = true;
                 this.gameObject.name = objectName + " (Ready)";
             }
+        }
+    }
+
+    void TextureChange()
+    {
+        if (material == SheetMaterial.iron)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = textures[0];
+        }
+        else if (material == SheetMaterial.steel)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = textures[1];
+        }
+        else if (material == SheetMaterial.bronze)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = textures[2];
         }
     }
 }

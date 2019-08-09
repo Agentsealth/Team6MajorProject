@@ -5,8 +5,8 @@ using UnityEngine;
 public class Smelter : MonoBehaviour
 {
     public int ironOre;
-    public int goldOre;
-    public int silverOre;
+    public int steelOre;
+    public int bronzeOre;
     public Transform drop;
     public float time;
     public float smeltTime;
@@ -26,13 +26,26 @@ public class Smelter : MonoBehaviour
             smeltTime = time;
         }
         smeltIron();
+        smeltSteel();
+        smeltBronze();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Iron Ore")
         {
-            ironOre++;
+            if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.iron)
+            {
+                ironOre++;
+            }
+            else if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.steel)
+            {
+                steelOre++;
+            }
+            else if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.bronze)
+            {
+                bronzeOre++;
+            }
             Destroy(other.gameObject);
         }
     }
@@ -44,19 +57,38 @@ public class Smelter : MonoBehaviour
             smeltTime -= 1 * Time.deltaTime;
             if (smeltTime <= 0)
             {
-                Instantiate(ironIngot, drop.position, Quaternion.identity);
+                GameObject iron = Instantiate(ironIngot, drop.position, Quaternion.identity);
+                iron.GetComponent<Ingot>().material = Ingot.IngotMaterial.iron;
                 ironOre--;
             }
         }
     }
 
-    private void smeltGold()
+    private void smeltSteel()
     {
-
+        if (steelOre > 0)
+        {
+            smeltTime -= 1 * Time.deltaTime;
+            if (smeltTime <= 0)
+            {
+                GameObject steel = Instantiate(ironIngot, drop.position, Quaternion.identity);
+                steel.GetComponent<Ingot>().material = Ingot.IngotMaterial.steel;
+                steelOre--;
+            }
+        }
     }
 
-    private void smeltSilver()
+    private void smeltBronze()
     {
-
+        if (bronzeOre > 0)
+        {
+            smeltTime -= 1 * Time.deltaTime;
+            if (smeltTime <= 0)
+            {
+                GameObject bronze = Instantiate(ironIngot, drop.position, Quaternion.identity);
+                bronze.GetComponent<Ingot>().material = Ingot.IngotMaterial.bronze;
+                bronzeOre--;
+            }
+        }
     }
 }

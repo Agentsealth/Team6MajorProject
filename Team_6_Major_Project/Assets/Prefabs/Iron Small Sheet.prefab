@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6149075225909756746}
   - component: {fileID: 6149075225909756749}
   - component: {fileID: 6149075225909756747}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Iron Small Sheet
   m_TagString: Iron Sheet
   m_Icon: {fileID: 0}
@@ -142,8 +142,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52324b871c287d4b84befc083277e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  size: 0
+  material: 0
   ready: 0
   objectName: 
   smeltTime: 0
   quality: 0
   sheetPickup: {fileID: 0}
+  textures:
+  - {fileID: 2100000, guid: 14e755eda2bf49442b4490e1c4128f9d, type: 2}
+  - {fileID: 2100000, guid: e3da3cd9818b09f44893487518343baf, type: 2}
+  - {fileID: 2100000, guid: 2903c90e2afe05f44b098f3e91c258e7, type: 2}
