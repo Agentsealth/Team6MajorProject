@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Handle : MonoBehaviour
 {
-    public enum Material { Iron, Silver, Gold };
+    public enum HandleMaterial { Iron, Silver, Gold };
 
-    public Material material;
+    public HandleMaterial material;
 
     public int quality;
     // Start is called before the first frame update

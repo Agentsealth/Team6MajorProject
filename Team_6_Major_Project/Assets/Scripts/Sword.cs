@@ -5,9 +5,9 @@ using UnityEngine;
 public class Sword : MonoBehaviour
 {
     public enum SwordType { small, medium, large };
-    public enum MaterialBlade { iron, silver, gold };
-    public enum MaterialHandle { iron, silver, gold };
-    public enum MaterialGuard { iron, silver, gold };
+    public enum MaterialBlade { iron, steel, bronze };
+    public enum MaterialHandle { iron, steel, bronze };
+    public enum MaterialGuard { iron, steel, bronze };
 
     public SwordType swordType;
     public MaterialBlade materialBlade;

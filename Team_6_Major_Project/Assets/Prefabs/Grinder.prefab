@@ -970,13 +970,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrinding: 0
-  handle: {fileID: 232977154213615781, guid: 85182be98bcd43140a3cbdcee8ef13c9, type: 3}
-  guard: {fileID: 7300701744429922073, guid: c3bf27f805971d547930c624a36aba7a, type: 3}
+  handle: {fileID: 8234311213502857610, guid: 6b96eaf3fafad1a4db98340ca55ee4f4, type: 3}
+  guard: {fileID: 3812608953104703530, guid: 6070545d16057344aaf8be289d6f416b, type: 3}
   options: {fileID: 354484042781564776}
   i: 0
   endPosition: 0.1
-  MPTP: {fileID: 0}
+  MTP: {fileID: 0}
   playerInPos: 0
+  playerHere: 0
 --- !u!54 &7693181303835529884
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1160,7 +1161,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7693181304606657433}
-  m_Mesh: {fileID: 4300000, guid: d23a6b5e0e24ee64193f660a43265398, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b5a9e8630034fe842a7aa5d52233c2b1, type: 3}
 --- !u!23 &7693181304608855385
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1348,7 +1349,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7693181304944571777}
-  m_Mesh: {fileID: 4300000, guid: d46c073aad250b04c898891951e7a215, type: 3}
+  m_Mesh: {fileID: 4300000, guid: c85d33452c6f1634aa83ae852778c766, type: 3}
 --- !u!23 &7693181304942570305
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1399,7 +1400,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -75
-  MPTP: {fileID: 0}
 --- !u!65 &7693181304944571776
 BoxCollider:
   m_ObjectHideFlags: 0

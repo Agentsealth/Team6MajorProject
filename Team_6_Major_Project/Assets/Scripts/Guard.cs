@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Guard : MonoBehaviour
 {
-    public enum Material { Iron, Silver, Gold };
+    public enum GuardMaterial { Iron, Silver, Gold };
 
-    public Material material;
+    public GuardMaterial material;
 
     public int quality;
     // Start is called before the first frame update

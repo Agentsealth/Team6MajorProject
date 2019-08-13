@@ -22,7 +22,7 @@ public class CraftingTable : MonoBehaviour
     public Transform sworddrop;
     public Transform sidedrop;
 
-    public Blade.Material bladeMaterial;
+    public Blade.BladeMaterial bladeMaterial;
     public Handle.Material handleMaterial;
     public Guard.Material guardMaterial;
     public Blade.Typeblade bladeType;
