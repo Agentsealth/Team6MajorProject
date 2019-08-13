@@ -23,8 +23,8 @@ public class CraftingTable : MonoBehaviour
     public Transform sidedrop;
 
     public Blade.BladeMaterial bladeMaterial;
-    public Handle.Material handleMaterial;
-    public Guard.Material guardMaterial;
+    public Handle.HandleMaterial handleMaterial;
+    public Guard.GuardMaterial guardMaterial;
     public Blade.Typeblade bladeType;
 
     // Start is called before the first frame update
