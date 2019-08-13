@@ -23,7 +23,7 @@ public class LoadingScreenControl : MonoBehaviour
         startLoad = true;
         MainMenu.SetActive(false);
         loadingScreenObj.SetActive(true);
-        async = SceneManager.LoadSceneAsync("ssScene", LoadSceneMode.Additive);
+        async = SceneManager.LoadSceneAsync("ssScene");
         async.allowSceneActivation = false;
         
 

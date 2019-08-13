@@ -5,6 +5,7 @@ using UnityEngine;
 public class GrindstoneLogic : MonoBehaviour
 {
     public bool isGrinding;
+    public bool canGrind;
     // Start is called before the first frame update
     GameObject otherOther = null;
     public GameObject handle;
@@ -54,6 +55,7 @@ public class GrindstoneLogic : MonoBehaviour
 
             }
             i = 0;
+            canGrind = false;
             playerInPos = false;
             MTP.returnToPos();
         }
@@ -61,7 +63,6 @@ public class GrindstoneLogic : MonoBehaviour
         {
             isGrinding = true;
         }
-
         if(Input.GetKeyUp(KeyCode.Space))
         {
             isGrinding = false;
@@ -117,6 +118,7 @@ public class GrindstoneLogic : MonoBehaviour
         {
             if (other.GetComponent<Sheet>().size == Sheet.TypeSheet.small)
             {
+                canGrind = true;
                 other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
 
 
