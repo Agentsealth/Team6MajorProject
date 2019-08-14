@@ -13,9 +13,14 @@ public class MainMenuBossScript : MonoBehaviour
     public GameObject AudioButton;
     public GameObject DisplayButton;
     public GameObject GameplayButton;
+
+    public GameObject Music;
+    public GameObject OptionsMaster;
     // Start is called before the first frame update
     public void PlayGame()
     {
+        DontDestroyOnLoad(Music);
+        DontDestroyOnLoad(OptionsMaster);
         SceneManager.LoadScene("ssScene");
     }
 

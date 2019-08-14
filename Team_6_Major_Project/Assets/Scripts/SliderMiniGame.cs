@@ -176,6 +176,10 @@ public class SliderMiniGame : MonoBehaviour
                     totalQuality += badQuality;
                 }
                 hammer.GetComponent<Animator>().Play("hammerDink", -1, 0);
+                if(repeat < maxrepeat)
+                {
+                    anvil.Invoke("AddCritPoint", 0.5f);
+                }
                 //hammer.transform.position = new Vector3(hammer.transform.position.x + 0.05f, hammer.transform.position.y, hammer.transform.position.z);
             }
         }

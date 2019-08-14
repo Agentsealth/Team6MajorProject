@@ -17,7 +17,7 @@ public class Anvil : MonoBehaviour
     public Transform[] ingotplace;
 
     public GameObject gameSlider;
-
+    public GameObject hammer;
     public bool usingSlider = false;
 
     public List<GameObject> ingots = new List<GameObject>();
@@ -34,19 +34,45 @@ public class Anvil : MonoBehaviour
     public static string ingotplace2 = "empty";
     public static string ingotplace3 = "empty";
 
-
+    private bool isHammering;
+    private Vector3 hammerOriginalPos;
+    public GameObject CritPoint;
     // Start is called before the first frame update
     void Start()
     {
-        //MTP = GameObject.FindObjectOfType<MoveToPos>();
+        hammerOriginalPos = hammer.transform.position;
+        MTP = GameObject.FindObjectOfType<MoveToPos>();
         Timer = time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (isHammering)
+        {
+            if (Input.GetAxis("Mouse X")  < -0.7f)
+            {
+               hammer.transform.position = new Vector3(hammer.transform.position.x - 0.01f, hammer.transform.position.y, hammer.transform.position.z);
+            }
+            if (Input.GetAxis("Mouse X") > 0.7f)
+            {
+                hammer.transform.position = new Vector3(hammer.transform.position.x + 0.01f, hammer.transform.position.y, hammer.transform.position.z);
+            }
+            if (Input.GetAxis("Mouse Y") < -0.7f)
+            {
+                hammer.transform.position = new Vector3(hammer.transform.position.x, hammer.transform.position.y, hammer.transform.position.z - 0.01f);
+            }
+            if (Input.GetAxis("Mouse Y") > 0.7f)
+            {
+                hammer.transform.position = new Vector3(hammer.transform.position.x, hammer.transform.position.y, hammer.transform.position.z + 0.01f);
+            }
+
+
+        }
     }
+
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -66,7 +92,7 @@ public class Anvil : MonoBehaviour
                     if (ingots.Count == 0)
                     {
                         ingotCount++;
-                        //MTP.gotoAnvil();
+                        MTP.gotoAnvil();
                         other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                         other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                         //other.transform.position = drop.transform.position;
@@ -82,7 +108,7 @@ public class Anvil : MonoBehaviour
                     {
                         if (other.gameObject.GetComponent<Ingot>().material == ingots[0].GetComponent<Ingot>().material)
                         {
-                            //MTP.gotoAnvil();
+                            MTP.gotoAnvil();
                             other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                             //other.transform.position = drop.transform.position;
@@ -171,11 +197,16 @@ public class Anvil : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
-                //MTP.gotoAnvil();
+                MTP.gotoAnvil();
                 gameSlider.SetActive(true);
                 gameSlider.GetComponent<SliderMiniGame>().repeat = 0;
                 gameSlider.GetComponent<SliderMiniGame>().inUseAnvil = true;
                 usingSlider = true;
+                isHammering = true;
+
+                var position = new Vector3(Random.Range(-3.9f, -3.6f), 0.79f, Random.Range(7.4f, 7.6f));
+                Instantiate(CritPoint, position, Quaternion.identity);
+                
             }
         }
         else
@@ -188,8 +219,11 @@ public class Anvil : MonoBehaviour
     {
         //if(ingotCount > 0)
         //{
-            //MTP.returnToPos();
-            if(ingots.Count == 1)
+            isHammering = false;
+            MTP.returnToPos();
+            hammer.transform.position = hammerOriginalPos;
+
+        if (ingots.Count == 1)
             {
                 GameObject sheet = Instantiate(sheets[0], drop.position, Quaternion.identity);
                 int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
@@ -234,7 +268,14 @@ public class Anvil : MonoBehaviour
     {
         if (sheet.Count >= 1)
         {
-            //MTP.returnToPos();
+            isHammering = false;
+
+            MTP.returnToPos();
+            hammer.transform.position = hammerOriginalPos;
+            for(var i = 0; i < GameObject.FindGameObjectsWithTag("CriticalPoint").Length; i++)
+            {
+                Destroy(GameObject.FindGameObjectsWithTag("CriticalPoint")[i]);
+            }
             if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
             {
                 GameObject small = Instantiate(blades[0], drop.position, Quaternion.identity);
@@ -263,5 +304,11 @@ public class Anvil : MonoBehaviour
                 sheetCount = 0;
             }
         }
+    }
+
+    public void AddCritPoint()
+    {
+        var position = new Vector3(Random.Range(-3.9f, -3.6f), 0.79f, Random.Range(7.4f, 7.6f));
+                Instantiate(CritPoint, position, Quaternion.identity);
     }
 }

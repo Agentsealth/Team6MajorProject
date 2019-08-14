@@ -31,7 +31,7 @@ public class MoveToPos : MonoBehaviour
         while (Time.time - startTime <= 1)
         { // until one second passed
             transform.position = Vector3.Lerp(posA, posB, Time.time - startTime); // lerp from A to B in one second
-           transform.rotation = Quaternion.Lerp(rotA, rotB, Time.time - startTime);
+            transform.rotation = Quaternion.Lerp(rotA, rotB, Time.time - startTime);
             yield return 0.1f;
         }
     }
