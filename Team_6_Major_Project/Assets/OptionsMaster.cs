@@ -7,6 +7,7 @@ public class OptionsMaster : MonoBehaviour
 
     public Slider MasterVolumeSlider;
 
+    private float GammaCorrection;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +27,5 @@ public class OptionsMaster : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    
+
 }
