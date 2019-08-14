@@ -105,7 +105,10 @@ public class CraftingTable : MonoBehaviour
     {
         if(bladeType == Blade.Typeblade.small)
         {
-            Instantiate(sword[0], sworddrop.position, Quaternion.identity);
+            GameObject small = Instantiate(sword[0], sworddrop.position, Quaternion.identity);
+            small.GetComponent<Sword>().materialBlade = (Sword.MaterialBlade)bladeMaterial;
+            small.GetComponent<Sword>().materialGuard = (Sword.MaterialGuard)guardMaterial;
+            small.GetComponent<Sword>().materialHandle = (Sword.MaterialHandle)handleMaterial;
             Destroy(blade);
             Destroy(handle);
             Destroy(guard);
@@ -118,7 +121,10 @@ public class CraftingTable : MonoBehaviour
         }
         else if (bladeType == Blade.Typeblade.medium)
         {
-            Instantiate(sword[1], sworddrop.position, Quaternion.identity);
+            GameObject medium = Instantiate(sword[1], sworddrop.position, Quaternion.identity);
+            medium.GetComponent<Sword>().materialBlade = (Sword.MaterialBlade)bladeMaterial;
+            medium.GetComponent<Sword>().materialGuard = (Sword.MaterialGuard)guardMaterial;
+            medium.GetComponent<Sword>().materialHandle = (Sword.MaterialHandle)handleMaterial;
             Destroy(blade);
             Destroy(handle);
             Destroy(guard);
@@ -131,7 +137,10 @@ public class CraftingTable : MonoBehaviour
         }
         else if (bladeType == Blade.Typeblade.large)
         {
-            Instantiate(sword[2], sworddrop.position, Quaternion.identity);
+            GameObject large = Instantiate(sword[2], sworddrop.position, Quaternion.identity);
+            large.GetComponent<Sword>().materialBlade = (Sword.MaterialBlade)bladeMaterial;
+            large.GetComponent<Sword>().materialGuard = (Sword.MaterialGuard)guardMaterial;
+            large.GetComponent<Sword>().materialHandle = (Sword.MaterialHandle)handleMaterial;
             Destroy(blade);
             Destroy(handle);
             Destroy(guard);
@@ -147,9 +156,6 @@ public class CraftingTable : MonoBehaviour
     {
         if (other.gameObject.tag == "Iron Sword")
         {
-            other.gameObject.GetComponent<Sword>().materialBlade = (Sword.MaterialBlade)bladeMaterial;
-            other.gameObject.GetComponent<Sword>().materialGuard = (Sword.MaterialGuard)guardMaterial;
-            other.gameObject.GetComponent<Sword>().materialHandle = (Sword.MaterialHandle)handleMaterial;
             totalQuality = (handleQuality + guardQuality + bladeQuality) / 3;
         }
     }

@@ -10,9 +10,9 @@ public class Blade : MonoBehaviour
     public Typeblade size;
     public BladeMaterial material;
 
-    public Material[] textures;
-
     public int quality;
+
+    public Material[] textures;
     // Start is called before the first frame update
     void Start()
     {

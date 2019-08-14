@@ -14,6 +14,7 @@ public class Anvil : MonoBehaviour
 
     public Transform drop;
     public Transform wrongIngotDrop;
+    public Transform[] ingotplace;
 
     public GameObject gameSlider;
 
@@ -28,6 +29,11 @@ public class Anvil : MonoBehaviour
     private MoveToPos MTP;
 
     public GameObject warning;
+
+    public static string ingotplace1 = "empty";
+    public static string ingotplace2 = "empty";
+    public static string ingotplace3 = "empty";
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,29 +57,50 @@ public class Anvil : MonoBehaviour
             if (other.gameObject.GetComponent<Ingot>().ready == true)
             {
 
-                if (ingotCount > 3)
+                if (ingots.Count > 3)
                 {
-                    return;
+                    other.gameObject.transform.position = wrongIngotDrop.position;
                 }
                 else
                 {
-                    if (ingotCount == 0)
+                    if (ingots.Count == 0)
                     {
                         ingotCount++;
-                        ingots.Add(other.gameObject);
                         //MTP.gotoAnvil();
                         other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
-                        other.transform.position = drop.transform.position;
+                        other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                        //other.transform.position = drop.transform.position;
+                        if(ingotplace1 == "empty")
+                        {
+                            other.transform.position = ingotplace[0].transform.position;
+                            ingots.Add(other.gameObject);
+                            ingotplace1 = "full";
+
+                        }
                     }
-                    else if (ingotCount > 0)
+                    else if (ingots.Count > 0)
                     {
                         if (other.gameObject.GetComponent<Ingot>().material == ingots[0].GetComponent<Ingot>().material)
                         {
-                            ingotCount++;
-                            ingots.Add(other.gameObject);
                             //MTP.gotoAnvil();
                             other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
-                            other.transform.position = drop.transform.position;
+                            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                            //other.transform.position = drop.transform.position;
+                            if (ingotplace2 == "empty")
+                            {
+                                other.transform.position = ingotplace[1].transform.position;
+                                ingots.Add(other.gameObject);
+                                ingotplace2 = "full";
+                                ingotCount++;
+
+                            }
+                            else if(ingotplace3 == "empty")
+                            {
+                                other.transform.position = ingotplace[2].transform.position;
+                                ingots.Add(other.gameObject);
+                                ingotplace3 = "full";
+                                ingotCount++;
+                            }
                         }
                         else
                         {
@@ -101,7 +128,7 @@ public class Anvil : MonoBehaviour
 
                 if (sheetCount > 1)
                 {
-                    return;
+                    other.gameObject.transform.position = wrongIngotDrop.position;
                 }
                 else
                 {
@@ -139,7 +166,7 @@ public class Anvil : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (ingotCount > 0 || sheetCount > 0)
+        if (ingots.Count > 0 || sheetCount > 0)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -159,8 +186,8 @@ public class Anvil : MonoBehaviour
 
     public void anvilIngot()
     {
-        if(ingotCount > 0)
-        {
+        //if(ingotCount > 0)
+        //{
             //MTP.returnToPos();
             if(ingots.Count == 1)
             {
@@ -170,6 +197,7 @@ public class Anvil : MonoBehaviour
                 Destroy(ingots[0]);
                 ingots.RemoveRange(0, ingots.Count);
                 ingotCount = 0;
+                ingotplace1 = "empty";
             }
             if (ingots.Count == 2)
             {
@@ -180,6 +208,9 @@ public class Anvil : MonoBehaviour
                 Destroy(ingots[1]);
                 ingots.RemoveRange(0, ingots.Count);
                 ingotCount = 0;
+                ingotplace1 = "empty";
+                ingotplace2 = "empty";
+
             }
             if (ingots.Count == 3)
             {
@@ -191,36 +222,43 @@ public class Anvil : MonoBehaviour
                 Destroy(ingots[2]);
                 ingots.RemoveRange(0, ingots.Count);
                 ingotCount = 0;
+                ingotplace1 = "empty";
+                ingotplace2 = "empty";
+                ingotplace3 = "empty";
+
             }
-        }
+        //}
     }
 
     public void anvilSheet()
     {
-        if (sheetCount > 0)
+        if (sheet.Count >= 1)
         {
             //MTP.returnToPos();
-            if (sheet.Count == 1)
+            if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
             {
-                Instantiate(blades[0], drop.position, Quaternion.identity);
+                GameObject small = Instantiate(blades[0], drop.position, Quaternion.identity);
+                int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
+                small.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
                 Destroy(sheet[0]);
                 sheet.RemoveRange(0, sheet.Count);
                 sheetCount = 0;
             }
-            if (sheet.Count == 2)
+            if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(1))
             {
-                Instantiate(blades[1], drop.position, Quaternion.identity);
+                GameObject medium = Instantiate(blades[1], drop.position, Quaternion.identity);
+                int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
+                medium.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
                 Destroy(sheet[0]);
-                Destroy(sheet[1]);
                 sheet.RemoveRange(0, sheet.Count);
                 sheetCount = 0;
             }
-            if (sheet.Count == 3)
+            if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(2))
             {
-                Instantiate(blades[2], drop.position, Quaternion.identity);
+                GameObject large = Instantiate(blades[2], drop.position, Quaternion.identity);
+                int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
+                large.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
                 Destroy(sheet[0]);
-                Destroy(sheet[1]);
-                Destroy(sheet[2]);
                 sheet.RemoveRange(0, sheet.Count);
                 sheetCount = 0;
             }

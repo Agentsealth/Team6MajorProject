@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3812608953104606854}
   - component: {fileID: 3812608953104606857}
   - component: {fileID: 3812608953104606856}
-  - component: {fileID: 3303812322412145184}
+  - component: {fileID: 7566496230825947716}
   m_Layer: 10
   m_Name: newGuard
   m_TagString: Iron Guard
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3812608953104703530}
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: -0.7071068}
   m_LocalPosition: {x: -4.8778, y: 0.8742, z: 6.1603}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3812608953104703530}
-  m_Mesh: {fileID: 4300000, guid: 6fe8dd9eee7aa954392818b64460649c, type: 3}
+  m_Mesh: {fileID: 4300000, guid: ef26320b116118a449ba6b55f7a338d5, type: 3}
 --- !u!23 &3812608953106644714
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -95,6 +95,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: 0
   quality: 0
+  textures:
+  - {fileID: 2100000, guid: 12b03d6e0aad6bd47830386889e34da9, type: 2}
+  - {fileID: 2100000, guid: 8d6843dfe3fb65e4fb52caa5c668c138, type: 2}
+  - {fileID: 2100000, guid: d1e7fa1b8f0422340bbded6a3435293e, type: 2}
 --- !u!54 &3812608953104606857
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,7 +135,7 @@ MonoBehaviour:
   item: {fileID: 3812608953104703530}
   tempParent: {fileID: 0}
   isHolding: 0
---- !u!65 &3303812322412145184
+--- !u!65 &7566496230825947716
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,5 +146,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.023740727, y: 0.007430238, z: 0.0066442727}
-  m_Center: {x: -4.656613e-10, y: 0, z: -0.0000000023283064}
+  m_Size: {x: 0.25639993, y: 0.080246575, z: 0.071758166}
+  m_Center: {x: 0.000000007450582, y: 0, z: -0.000000024214392}

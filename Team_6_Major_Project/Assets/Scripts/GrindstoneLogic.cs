@@ -11,6 +11,7 @@ public class GrindstoneLogic : MonoBehaviour
     public GameObject handle;
     public GameObject guard;
     public GameObject options;
+    public GameObject sheet;
     public int i;
     Vector3 initialPosition;
     public float endPosition;
@@ -43,12 +44,17 @@ public class GrindstoneLogic : MonoBehaviour
             if (isHandle)
             {
                 GameObject craftedHandle = Instantiate(handle, initialPosition + new Vector3(1, 0.25f, 0.21f), Quaternion.identity);
-                isHandle = false;
+                int materialIndex = (int)sheet.GetComponent<Sheet>().material;
+                craftedHandle.GetComponent<Handle>().material = (Handle.HandleMaterial)(materialIndex);
                 craftedHandle.GetComponent<Handle>().quality = (quality + otherQuality) / 2;
+                isHandle = false;
+
             }
             if (isGuard)
             {
                 GameObject craftedGuard = Instantiate(guard, initialPosition + new Vector3(1, 0.25f, 0.21f), Quaternion.identity);
+                int materialIndex = (int)sheet.GetComponent<Sheet>().material;
+                craftedGuard.GetComponent<Guard>().material = (Guard.GuardMaterial)(materialIndex);
                 craftedGuard.GetComponent<Guard>().quality = (quality + otherQuality) / 2;
 
                 isGuard = false;
@@ -119,6 +125,7 @@ public class GrindstoneLogic : MonoBehaviour
             if (other.GetComponent<Sheet>().size == Sheet.TypeSheet.small)
             {
                 canGrind = true;
+                sheet = other.gameObject;
                 other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
 
 
