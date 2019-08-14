@@ -49,7 +49,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -85,10 +85,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a76578503fc1a94ab51090061bd7b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordType: 1
+  swordType: 2
   materialBlade: 0
   materialHandle: 0
   materialGuard: 0
+  textures:
+  - {fileID: 2100000, guid: 12b03d6e0aad6bd47830386889e34da9, type: 2}
+  - {fileID: 2100000, guid: 8d6843dfe3fb65e4fb52caa5c668c138, type: 2}
+  - {fileID: 2100000, guid: d1e7fa1b8f0422340bbded6a3435293e, type: 2}
   quality: 0
 --- !u!65 &5478944938270218029
 BoxCollider:
