@@ -268,8 +268,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.78459036, z: 0.9}
-  m_Center: {x: 0, y: -0.14770478, z: 0}
+  m_Size: {x: 0.797107, y: 0.8853439, z: 0.80613947}
+  m_Center: {x: -0.022665858, y: -0.09732801, z: -0.0009686947}
 --- !u!65 &6214174874811791874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -281,8 +281,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7, y: 0.9523643, z: 0.62211657}
-  m_Center: {x: 0, y: 0.77381784, z: 0.026773214}
+  m_Size: {x: 0.7719474, y: 0.34819233, z: 0.57393265}
+  m_Center: {x: 0.0012028217, y: 0.57028073, z: 0.0026812553}
 --- !u!114 &6214174874811791901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +299,10 @@ MonoBehaviour:
   sheetCount: 0
   Quality: 0
   sheetQuality: 0
+  time: 0
+  Timer: 0
   drop: {fileID: 6214174874778487070}
+  wrongIngotDrop: {fileID: 0}
   gameSlider: {fileID: 0}
   usingSlider: 0
   ingots: []
@@ -309,9 +312,10 @@ MonoBehaviour:
   - {fileID: 3438516735236097051, guid: dff1ea98fd8a1884e9c8f9d585ba2e4d, type: 3}
   - {fileID: 5539234142792360697, guid: 3624ccafcd71f3749ac915e28f14df54, type: 3}
   blades:
-  - {fileID: 2858527155817539342, guid: 6b89067cd55574f48a3dcd88a349f1b7, type: 3}
+  - {fileID: 4551477426784190242, guid: e1ccba0d5009c3b429a58bc43f19664c, type: 3}
   - {fileID: 2773243437673078383, guid: 6f3f1958f5bedc5409fd3425384fd2df, type: 3}
   - {fileID: 5398175160822320810, guid: 16adf371cdc0e4247ab1d6e4eddbd5e8, type: 3}
+  warning: {fileID: 0}
 --- !u!1001 &6214174874185519517
 PrefabInstance:
   m_ObjectHideFlags: 0
