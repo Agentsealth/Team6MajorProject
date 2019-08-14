@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
+        inChat = true;
         sentences.Clear();
 
         foreach(string sentence in dialogue.sentences)
@@ -37,6 +38,7 @@ public class DialogueManager : MonoBehaviour
         if(sentences.Count == 0 || string.IsNullOrEmpty(sentence))
         {
             EndDialogue();
+            inChat = false;
             return;
         }
 
