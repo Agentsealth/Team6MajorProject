@@ -47,7 +47,7 @@ public class EyeCandyMaster : MonoBehaviour
 
     public void KillCandy()
     {
-        HLSparks.SetActive(false);
+        HLSparks.transform.localPosition = new Vector3(0f, 100f, 0f);
     }
 
 }
