@@ -22,6 +22,10 @@ public class GrindstoneLogic : MonoBehaviour
     private bool isGuard;
     public bool playerInPos;
     public bool playerHere;
+
+    public GameObject Sparks;
+    public GameObject SparkPosition;
+    public GameObject[] sparkObjs;
     void Start()
     {
         initialPosition = transform.position;
@@ -40,6 +44,10 @@ public class GrindstoneLogic : MonoBehaviour
         }
         if (i >= 100 && otherOther != null)
         {
+            isGrinding = false;
+            
+
+            KillSparks();
             Destroy(otherOther);
             if (isHandle)
             {
@@ -87,7 +95,9 @@ public class GrindstoneLogic : MonoBehaviour
                 {
                     transform.position = new Vector3(initialPosition.x, initialPosition.y, 4.94f );
                     otherOther.transform.position = transform.position = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z + endPosition);
-
+                    GameObject temp = GameObject.Instantiate(Sparks, SparkPosition.transform) as GameObject;
+                    temp.transform.localPosition = new Vector3(0, 0, 0);
+                    temp.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     otherOther.transform.eulerAngles = new Vector3(0, 0, 0);
                     i++;
                 }
@@ -98,10 +108,24 @@ public class GrindstoneLogic : MonoBehaviour
             {
                 {
                     otherOther.transform.position =  initialPosition;
-                   
                     otherOther.transform.eulerAngles = new Vector3(0, 0, 0);
+                    Destroy(GameObject.FindGameObjectWithTag("Sparks"));
+                    
                 }
             }
+        }
+        sparkObjs = GameObject.FindGameObjectsWithTag("Sparks");
+        for(int o = 0; o < sparkObjs.Length - 10; o++)
+        {
+            Destroy(sparkObjs[o]);
+        }
+    }
+
+    void KillSparks()
+    {
+        for (int o = 0; o < sparkObjs.Length ; o++)
+        {
+            Destroy(sparkObjs[o]);
         }
 
     }
