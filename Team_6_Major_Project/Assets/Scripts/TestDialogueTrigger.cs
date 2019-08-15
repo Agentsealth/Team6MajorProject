@@ -6,12 +6,17 @@ public class TestDialogueTrigger : MonoBehaviour
 {
     public bool inRange = false;
     public bool inDialogue = false;
+    public bool dialogueDoneforDay = false;
+    public ItemSlot[] slots;
+    public ItemSlot SlotNumber;
     public Dialogue dialogue;
     public DialogueManager dialogueManager;
     public CustomerAI customerAI;
+    public int CustomerNumber;
     public int gold;
     public PlayerStats playerStats;
     public float dist;
+    public float delay = 2f;
 
 
     // Start is called before the first frame update
@@ -20,8 +25,9 @@ public class TestDialogueTrigger : MonoBehaviour
         dialogueManager = FindObjectOfType<DialogueManager>();
         customerAI =this.gameObject.GetComponent<CustomerAI>();
         playerStats = FindObjectOfType<PlayerStats>();
-        dialogue.sentences[3] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
-            + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
+        slots = FindObjectsOfType<ItemSlot>();
+        //dialogue.sentences[3] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
+        //    + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
     }
 
     // Update is called once per frame
@@ -39,26 +45,96 @@ public class TestDialogueTrigger : MonoBehaviour
 
         if(inRange == true)
         {
-            if(Input.GetKeyDown("e"))
+            if (dialogueDoneforDay == false)
             {
-                TriggerDialogue();
-                inDialogue = dialogueManager.inChat;
-            }
-            else if(Input.GetKeyDown("g"))
-            {
-                dialogueManager.DisplayNextSentence();
-                inDialogue = dialogueManager.inChat;
-                if (inDialogue == false)
+                if (Input.GetKeyDown("e"))
                 {
-                    customerAI.waypointIndex++;
+                    TriggerDialogue();                   
+                    CustomerNumber = playerStats.CustomerOrderNumber;
+                    playerStats.CustomerOrderNumber++;
+                    inDialogue = dialogueManager.inChat;
+                }
+                else if (Input.GetKeyDown("g"))
+                {
+                    dialogueManager.DisplayNextSentence();
+                    inDialogue = dialogueManager.inChat;
+                    if (inDialogue == false)
+                    {
+                        WaypointUpdate();
+                        customerAI.setSlotWayPoint();
+                        dialogueDoneforDay = true;
+                    }
                 }
             }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+    public void SetItemSlot()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (CustomerNumber == slots[i].slotNumber)
+            {
+                SlotNumber = slots[i];
+                CheckItem();
+            }
+        }
+    }
+
+    public void CheckItem()
+    {
+        if(SlotNumber.bladeType == dialogue.bladeType)
+        {
+            if(SlotNumber.bladeMaterial == dialogue.bladeMaterial)
+            {
+                if(SlotNumber.guardMaterial == dialogue.guardMaterial)
+                {
+                    if(SlotNumber.handleMaterial == dialogue.handleMaterial)
+                    {
+                        playerStats.gold += gold;
+                        customerAI.waypointIndex++;
+                        Destroy(SlotNumber.sword);
+                    }
+                    else
+                    {
+                        SlotNumber.sword.transform.position = SlotNumber.badlocation.position;
+                    }
+                }
+                else
+                {
+                    SlotNumber.sword.transform.position = SlotNumber.badlocation.position;
+                }
+            }
+            else
+            {
+                SlotNumber.sword.transform.position = SlotNumber.badlocation.position;
+            }
+        }
+        else
+        {
+            SlotNumber.sword.transform.position = SlotNumber.badlocation.position;
         }
     }
 
     public void TriggerDialogue()
     {
          dialogueManager.StartDialogue(dialogue);
+    }
+
+    public void WaypointUpdate()
+    {
+        if (customerAI.waypointIndex == 3)
+        {
+            CheckItem();
+        }
+        else
+        {
+            customerAI.waypointIndex++;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -76,7 +152,7 @@ public class TestDialogueTrigger : MonoBehaviour
                         {
                             playerStats.gold += gold;
                             Destroy(other.gameObject);
-                            customerAI.waypointIndex++;
+                            WaypointUpdate();
                         }
                     }
                 }

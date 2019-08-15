@@ -7,6 +7,8 @@ public class CustomerAI : MonoBehaviour
 {
     public GameObject[] waypoints;
 
+    public GameObject[] slotwayPoints;
+
     public int waypointIndex = 0;
 
     public NavMeshAgent agent;
@@ -19,6 +21,7 @@ public class CustomerAI : MonoBehaviour
     void Start()
     {
         dialogue = this.gameObject.GetComponent<TestDialogueTrigger>();
+        slotwayPoints = GameObject.FindGameObjectsWithTag("SlotWayPoint");
     }
 
     // Update is called once per frame
@@ -36,10 +39,34 @@ public class CustomerAI : MonoBehaviour
             {
                 return;
             }
+            else if(waypointIndex == 3)
+            {
+                dialogue.SetItemSlot();
+            }
             else
             {
                 waypointIndex++;
             }
+        }
+    }
+
+    public void setSlotWayPoint()
+    {
+        if(dialogue.CustomerNumber == 1)
+        {
+            waypoints[3] = slotwayPoints[2];
+        }
+        else if(dialogue.CustomerNumber == 2)
+        {
+            waypoints[3] = slotwayPoints[1];
+        }
+        else if (dialogue.CustomerNumber == 3)
+        {
+            waypoints[3] = slotwayPoints[0];
+        }
+        else
+        {
+            waypoints[3] = slotwayPoints[0];
         }
     }
 }
