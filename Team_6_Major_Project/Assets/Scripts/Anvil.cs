@@ -25,6 +25,7 @@ public class Anvil : MonoBehaviour
 
     public GameObject[] sheets;
     public GameObject[] blades;
+    public GameObject[] crit;
 
     private MoveToPos MTP;
 
@@ -51,9 +52,9 @@ public class Anvil : MonoBehaviour
 
         if (isHammering)
         {
-            if (Input.GetAxis("Mouse X")  < -0.7f)
+            if (Input.GetAxis("Mouse X") < -0.7f)
             {
-               hammer.transform.position = new Vector3(hammer.transform.position.x - 0.01f, hammer.transform.position.y, hammer.transform.position.z);
+                hammer.transform.position = new Vector3(hammer.transform.position.x - 0.01f, hammer.transform.position.y, hammer.transform.position.z);
             }
             if (Input.GetAxis("Mouse X") > 0.7f)
             {
@@ -72,14 +73,14 @@ public class Anvil : MonoBehaviour
         }
     }
 
-    
+
 
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.gameObject.tag == "Iron Ingot")
         {
-            
+
             if (other.gameObject.GetComponent<Ingot>().ready == true)
             {
 
@@ -92,13 +93,15 @@ public class Anvil : MonoBehaviour
                     if (ingots.Count == 0)
                     {
                         ingotCount++;
-                        MTP.gotoAnvil();
+                        //MTP.gotoAnvil();
                         other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                         other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                         //other.transform.position = drop.transform.position;
-                        if(ingotplace1 == "empty")
+                        if (ingotplace1 == "empty")
                         {
                             other.transform.position = ingotplace[0].transform.position;
+                            other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                            other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
                             ingots.Add(other.gameObject);
                             ingotplace1 = "full";
 
@@ -108,21 +111,25 @@ public class Anvil : MonoBehaviour
                     {
                         if (other.gameObject.GetComponent<Ingot>().material == ingots[0].GetComponent<Ingot>().material)
                         {
-                            MTP.gotoAnvil();
+                            //MTP.gotoAnvil();
                             other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                             //other.transform.position = drop.transform.position;
                             if (ingotplace2 == "empty")
                             {
                                 other.transform.position = ingotplace[1].transform.position;
+                                other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                                other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
                                 ingots.Add(other.gameObject);
                                 ingotplace2 = "full";
                                 ingotCount++;
 
                             }
-                            else if(ingotplace3 == "empty")
+                            else if (ingotplace3 == "empty")
                             {
                                 other.transform.position = ingotplace[2].transform.position;
+                                other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                                other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
                                 ingots.Add(other.gameObject);
                                 ingotplace3 = "full";
                                 ingotCount++;
@@ -143,7 +150,7 @@ public class Anvil : MonoBehaviour
                 return;
             }
         }
-        else if(other.gameObject.tag == "Iron Sheet")
+        else if (other.gameObject.tag == "Iron Sheet")
         {
             if (other.gameObject.GetComponent<Sheet>().ready == true)
             {
@@ -172,17 +179,17 @@ public class Anvil : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Iron Ingot")
+        if (other.gameObject.tag == "Iron Ingot")
         {
             ingotCount = 0;
         }
-        else if(other.gameObject.tag == "Iron Sheet")
+        else if (other.gameObject.tag == "Iron Sheet")
         {
             other.gameObject.GetComponent<Sheet>().quality = Quality;
             Quality = 0;
             sheetCount = 0;
         }
-        else if(other.gameObject.tag == "Iron Blade")
+        else if (other.gameObject.tag == "Iron Blade")
         {
             other.gameObject.GetComponent<Blade>().quality = (Quality + sheetQuality) / 2;
             Quality = 0;
@@ -197,7 +204,7 @@ public class Anvil : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
-                MTP.gotoAnvil();
+                //MTP.gotoAnvil();
                 gameSlider.SetActive(true);
                 gameSlider.GetComponent<SliderMiniGame>().repeat = 0;
                 gameSlider.GetComponent<SliderMiniGame>().inUseAnvil = true;
@@ -206,7 +213,7 @@ public class Anvil : MonoBehaviour
 
                 var position = new Vector3(Random.Range(-3.9f, -3.6f), 0.79f, Random.Range(7.4f, 7.6f));
                 Instantiate(CritPoint, position, Quaternion.identity);
-                
+
             }
         }
         else
@@ -217,52 +224,53 @@ public class Anvil : MonoBehaviour
 
     public void anvilIngot()
     {
-        //if(ingotCount > 0)
-        //{
-            isHammering = false;
-            MTP.returnToPos();
-            hammer.transform.position = hammerOriginalPos;
+        isHammering = false;
+        //MTP.returnToPos();
+        hammer.transform.position = hammerOriginalPos;
 
         if (ingots.Count == 1)
-            {
-                GameObject sheet = Instantiate(sheets[0], drop.position, Quaternion.identity);
-                int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
-                sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
-                Destroy(ingots[0]);
-                ingots.RemoveRange(0, ingots.Count);
-                ingotCount = 0;
-                ingotplace1 = "empty";
-            }
-            if (ingots.Count == 2)
-            {
-                GameObject sheet = Instantiate(sheets[1], drop.position, Quaternion.identity);
-                int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
-                sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
-                Destroy(ingots[0]);
-                Destroy(ingots[1]);
-                ingots.RemoveRange(0, ingots.Count);
-                ingotCount = 0;
-                ingotplace1 = "empty";
-                ingotplace2 = "empty";
+        {
+            GameObject sheet = Instantiate(sheets[0], drop.position, Quaternion.identity);
+            int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
+            sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
+            Destroy(ingots[0]);
+            ingots.RemoveRange(0, ingots.Count);
+            ingotCount = 0;
+            DestroyCrit();
+            ingotplace1 = "empty";
+        }
+        if (ingots.Count == 2)
+        {
+            GameObject sheet = Instantiate(sheets[1], drop.position, Quaternion.identity);
+            int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
+            sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
+            Destroy(ingots[0]);
+            Destroy(ingots[1]);
+            ingots.RemoveRange(0, ingots.Count);
+            ingotCount = 0;
+            DestroyCrit();
+            ingotplace1 = "empty";
+            ingotplace2 = "empty";
 
-            }
-            if (ingots.Count == 3)
-            {
-                GameObject sheet = Instantiate(sheets[2], drop.position, Quaternion.identity);
-                int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
-                sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
-                Destroy(ingots[0]);
-                Destroy(ingots[1]);
-                Destroy(ingots[2]);
-                ingots.RemoveRange(0, ingots.Count);
-                ingotCount = 0;
-                ingotplace1 = "empty";
-                ingotplace2 = "empty";
-                ingotplace3 = "empty";
+        }
+        if (ingots.Count == 3)
+        {
+            GameObject sheet = Instantiate(sheets[2], drop.position, Quaternion.identity);
+            int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
+            sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
+            Destroy(ingots[0]);
+            Destroy(ingots[1]);
+            Destroy(ingots[2]);
+            ingots.RemoveRange(0, ingots.Count);
+            ingotCount = 0;
+            DestroyCrit();
+            ingotplace1 = "empty";
+            ingotplace2 = "empty";
+            ingotplace3 = "empty";
 
-            }
-        //}
+        }
     }
+
 
     public void anvilSheet()
     {
@@ -270,12 +278,8 @@ public class Anvil : MonoBehaviour
         {
             isHammering = false;
 
-            MTP.returnToPos();
+            //MTP.returnToPos();
             hammer.transform.position = hammerOriginalPos;
-            for(var i = 0; i < GameObject.FindGameObjectsWithTag("CriticalPoint").Length; i++)
-            {
-                Destroy(GameObject.FindGameObjectsWithTag("CriticalPoint")[i]);
-            }
             if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
             {
                 GameObject small = Instantiate(blades[0], drop.position, Quaternion.identity);
@@ -283,6 +287,7 @@ public class Anvil : MonoBehaviour
                 small.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
                 Destroy(sheet[0]);
                 sheet.RemoveRange(0, sheet.Count);
+                DestroyCrit();
                 sheetCount = 0;
             }
             if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(1))
@@ -292,6 +297,7 @@ public class Anvil : MonoBehaviour
                 medium.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
                 Destroy(sheet[0]);
                 sheet.RemoveRange(0, sheet.Count);
+                DestroyCrit();
                 sheetCount = 0;
             }
             if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(2))
@@ -301,8 +307,17 @@ public class Anvil : MonoBehaviour
                 large.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
                 Destroy(sheet[0]);
                 sheet.RemoveRange(0, sheet.Count);
+                DestroyCrit();
                 sheetCount = 0;
             }
+        }
+    }
+
+    public void DestroyCrit()
+    {
+        for (var i = 0; i < GameObject.FindGameObjectsWithTag("CriticalPoint").Length; i++)
+        {
+            Destroy(GameObject.FindGameObjectsWithTag("CriticalPoint")[i]);
         }
     }
 
