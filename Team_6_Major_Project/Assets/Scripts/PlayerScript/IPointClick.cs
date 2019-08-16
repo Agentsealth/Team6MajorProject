@@ -26,5 +26,9 @@ public class IPointClick : MonoBehaviour
         {
             shop.BuyBronze();
         }
+        else if (material == Ore.OreMaterial.coal)
+        {
+            shop.BuyCoal();
+        }
     }
 }

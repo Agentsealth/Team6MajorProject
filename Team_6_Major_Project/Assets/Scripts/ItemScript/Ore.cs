@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Ore : MonoBehaviour
 {
-    public enum OreMaterial { iron, steel, bronze };
+    public enum OreMaterial { iron, steel, bronze, coal };
 
     public OreMaterial material;
+
+    public Smorge smorge;
+
+    public float timeToDestroy;
+    public float timeDecrease;
 
     public Material[] textures;
 
@@ -19,8 +24,18 @@ public class Ore : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {      
+        if(material == OreMaterial.coal)
+        {
+            if(timeToDestroy > 0)
+            {
+                timeToDestroy -= timeDecrease * Time.deltaTime;
+                if(timeToDestroy <= 0.01)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+        }
     }
     
     void TextureChange()
@@ -36,6 +51,10 @@ public class Ore : MonoBehaviour
         else if (material == OreMaterial.bronze)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[2];
+        }
+        else if (material == OreMaterial.coal)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = textures[3];
         }
     }
 }

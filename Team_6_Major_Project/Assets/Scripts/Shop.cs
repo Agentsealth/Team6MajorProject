@@ -8,10 +8,12 @@ public class Shop : MonoBehaviour
     public int ironCost;
     public int bronzeCost;
     public int steelCost;
+    public int coalCost;
 
     public Text ironCostText;
     public Text bronzeCostText;
     public Text steelCostText;
+    public Text coalCostText;
 
     public PlayerStats playerStats;
 
@@ -27,6 +29,7 @@ public class Shop : MonoBehaviour
         ironCostText.text = "Iron Ore (" + ironCost + ")";
         bronzeCostText.text = "Bronze Ore (" + bronzeCost + ")";
         steelCostText.text = "Steel Ore (" + steelCost + ")";
+        coalCostText.text = "Coal (" + coalCost + ")";
 
     }
 
@@ -67,4 +70,16 @@ public class Shop : MonoBehaviour
 
         }
     }
+
+    public void BuyCoal()
+    {
+        if (playerStats.gold >= coalCost)
+        {
+            playerStats.gold -= coalCost;
+            ore.GetComponent<Ore>().material = Ore.OreMaterial.coal;
+            Instantiate(ore, drop.position, Quaternion.identity);
+
+        }
+    }
+
 }
