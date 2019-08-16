@@ -21,51 +21,27 @@ public class Furnace : MonoBehaviour
     public int goldMediumHeat;
     public int goldLargeHeat;
 
-    [Range(0,100)]
-    public float temperture;
+    public bool smorgeOn = false;
 
-    public float tempertureGain;
-    public float tempertureLoss;
-    public Slider tempertureIndicator;
     // Start is called before the first frame update
     void Start()
     {
-        temperture = 100;
-        tempertureIndicator.maxValue = 100;
-        tempertureIndicator.value = 100;
-        tempertureIndicator.minValue = 0;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (temperture <= 100 && temperture >= 0)
-        {
-            TempertureLoss();
-        }
-        else
-        {
-            temperture = 0;
-            tempertureIndicator.value = temperture;
-        }
+        
     }
 
-    void TempertureLoss()
-    {
-        temperture -= tempertureLoss * Time.deltaTime;
-        tempertureIndicator.value = temperture;
-    }
 
-    void TempertureGain()
-    {
-        temperture += tempertureGain * Time.deltaTime;
-        tempertureIndicator.value = temperture;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (temperture > 30)
+        if (smorgeOn == true)
         {
+
             if (other.gameObject.tag == "Iron Ingot")
             {
                 if (other.gameObject.GetComponent<Ingot>().ready == false)
@@ -100,4 +76,5 @@ public class Furnace : MonoBehaviour
             return;
         }
     }
+    
 }

@@ -13,6 +13,8 @@ public class Smelter : MonoBehaviour
 
     public GameObject ironIngot;
 
+    public bool smorgeOn = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,21 +34,28 @@ public class Smelter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Iron Ore")
+        if (smorgeOn == true)
         {
-            if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.iron)
+            if (other.gameObject.tag == "Iron Ore")
             {
-                ironOre++;
+                if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.iron)
+                {
+                    ironOre++;
+                }
+                else if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.steel)
+                {
+                    steelOre++;
+                }
+                else if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.bronze)
+                {
+                    bronzeOre++;
+                }
+                Destroy(other.gameObject);
             }
-            else if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.steel)
-            {
-                steelOre++;
-            }
-            else if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.bronze)
-            {
-                bronzeOre++;
-            }
-            Destroy(other.gameObject);
+        }
+        else
+        {
+            return;
         }
     }
 

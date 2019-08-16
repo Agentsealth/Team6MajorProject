@@ -14,6 +14,10 @@ public class TestDialogueTrigger : MonoBehaviour
     public CustomerAI customerAI;
     public int CustomerNumber;
     public int gold;
+    public int randomtype;
+    public int randomblademat;
+    public int randomguardmat;
+    public int randomhandlemat;
     public PlayerStats playerStats;
     public float dist;
     public float delay = 2f;
@@ -26,8 +30,16 @@ public class TestDialogueTrigger : MonoBehaviour
         customerAI =this.gameObject.GetComponent<CustomerAI>();
         playerStats = FindObjectOfType<PlayerStats>();
         slots = FindObjectsOfType<ItemSlot>();
-        //dialogue.sentences[3] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
-        //    + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
+        randomtype = Random.Range(0, 3);
+        randomblademat = Random.Range(0, 3);
+        randomguardmat = Random.Range(0, 3);
+        randomhandlemat = Random.Range(0, 3);
+        dialogue.bladeType = (Sword.SwordType)randomtype;
+        dialogue.bladeMaterial = (Sword.MaterialBlade)randomblademat;
+        dialogue.guardMaterial = (Sword.MaterialGuard)randomguardmat;
+        dialogue.handleMaterial = (Sword.MaterialHandle)randomhandlemat;
+        dialogue.sentences[1] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
+            + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
     }
 
     // Update is called once per frame
