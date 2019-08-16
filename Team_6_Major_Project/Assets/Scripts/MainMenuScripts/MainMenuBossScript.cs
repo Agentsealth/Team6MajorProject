@@ -17,6 +17,12 @@ public class MainMenuBossScript : MonoBehaviour
     public GameObject Music;
     public GameObject OptionsMaster;
     // Start is called before the first frame update
+
+    IEnumerator MenuDelay(GameObject menuPart)
+    {
+        yield return new WaitForSeconds(0.75f);
+        menuPart.SetActive(true);
+    }
     public void PlayGame()
     {
         DontDestroyOnLoad(Music);
@@ -27,12 +33,13 @@ public class MainMenuBossScript : MonoBehaviour
     public void ShowOptions()
     {
         MainMenu.SetActive(false);
-        Options.SetActive(true);
+        StartCoroutine(MenuDelay(Options));
     }
 
     public void ShowMenu()
     {
-        MainMenu.SetActive(true);
+        StartCoroutine(MenuDelay(MainMenu));
+
         Options.SetActive(false);
     }
 

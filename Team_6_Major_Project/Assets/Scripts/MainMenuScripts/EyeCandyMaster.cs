@@ -18,6 +18,7 @@ public class EyeCandyMaster : MonoBehaviour
 
     private Quaternion rotA;
     private Quaternion rotB;
+    private int speed;
     private float delayTime = 0;
     // Start is called before the first frame update
     IEnumerator WaitAndMove(float delayTime)
@@ -25,12 +26,13 @@ public class EyeCandyMaster : MonoBehaviour
         yield return new WaitForSeconds(delayTime); // start at time X
         float startTime = Time.time; // Time.time contains current frame time, so remember starting point
         Debug.Log("Kek");
-        while (Time.time - startTime <= 1)
+        while (GrindStone.transform.localRotation != rotB)
         { // until one second passed
-            GrindStone.transform.rotation = Quaternion.RotateTowards(rotA, rotB, (Time.time - startTime) * 50);
-            yield return 0.1f;
+            GrindStone.transform.rotation = Quaternion.RotateTowards(rotA, rotB, (Time.time - startTime) * speed);
+            yield return 1f;
         }
     }
+
 
 
 
@@ -41,7 +43,8 @@ public class EyeCandyMaster : MonoBehaviour
         HLSparks.transform.localPosition = new Vector3(0f, 0.295f, -0.57f);
         //GrindStone.transform.localRotation = Quaternion.Euler(96.860f,-7.941f,0f);
         rotA = GrindStone.transform.localRotation;
-        rotB = Quaternion.Euler(96.860f, 0, 0f);
+        rotB = Quaternion.Euler(95, 0, 0f);
+        speed = 50;
         StartCoroutine(WaitAndMove(delayTime));
     }
 
@@ -53,6 +56,7 @@ public class EyeCandyMaster : MonoBehaviour
         //GrindStone.transform.localRotation = Quaternion.Euler(89.235f, -7.941f, 0f);
         rotA = GrindStone.transform.localRotation;
         rotB = Quaternion.Euler(90f, 0, 0f);
+        speed = 50;
         StartCoroutine(WaitAndMove(delayTime));
 
     }
@@ -65,10 +69,18 @@ public class EyeCandyMaster : MonoBehaviour
         HLSparks.transform.localPosition = new Vector3(0f, -0.482f, -0.57f);
         //GrindStone.transform.localRotation = Quaternion.Euler(81.752f, -7.941f, 0f);
         rotA = GrindStone.transform.localRotation;
-        rotB = Quaternion.Euler(85f, -0, 0f);
+        rotB = Quaternion.Euler(85f, 0, 0f);
+        speed = 50;
         StartCoroutine(WaitAndMove(delayTime));
 
 
+    }
+
+    public void SpinGrinder()
+    {
+        float temp = GrindStone.transform.localRotation.x + 720;
+        StopAllCoroutines();
+        GrindStone.GetComponent<Animator>().Play("optionSpin", -1,0);
     }
 
     public void KillCandy()
