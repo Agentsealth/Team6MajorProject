@@ -358,7 +358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe3ea8f2e6fdba4f934f774a3963f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSpinning: 0
 --- !u!95 &114626853
 Animator:
   serializedVersion: 3
@@ -2800,7 +2799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c85d33452c6f1634aa83ae852778c766, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.371
+      value: -0.203
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c85d33452c6f1634aa83ae852778c766, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2854,10 +2853,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 7.7496877
       objectReference: {fileID: 0}
+    - target: {fileID: 3300000, guid: c85d33452c6f1634aa83ae852778c766, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: f2706145134ec664b89174f95bcacba2, type: 3}
     - target: {fileID: 2300000, guid: c85d33452c6f1634aa83ae852778c766, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 257bbd40a62399449a84c8de5ab3b01a, type: 2}
+      objectReference: {fileID: 2100000, guid: 24948d7d9f107254f8da3ed4bad66751, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c85d33452c6f1634aa83ae852778c766, type: 3}
 --- !u!1 &1560268808

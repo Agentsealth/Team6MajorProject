@@ -1901,9 +1901,11 @@ MonoBehaviour:
   ironCost: 35
   bronzeCost: 70
   steelCost: 100
+  coalCost: 0
   ironCostText: {fileID: 2071655415}
   bronzeCostText: {fileID: 723375478}
   steelCostText: {fileID: 1671960685}
+  coalCostText: {fileID: 0}
   playerStats: {fileID: 0}
   ore: {fileID: 1699057911180373133, guid: 51f8b1758f2e4e149b7207e429ee0417, type: 3}
   drop: {fileID: 433006762}
@@ -3208,6 +3210,7 @@ MonoBehaviour:
   smeltTime: 0
   ironIngot: {fileID: 3255687643613962733, guid: ad744323ba9b2a04ca39fd31668151ea,
     type: 3}
+  smorgeOn: 0
 --- !u!65 &719668097
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4089,10 +4092,7 @@ MonoBehaviour:
   goldSmallHeat: 2
   goldMediumHeat: 2
   goldLargeHeat: 2
-  temperture: 0
-  tempertureGain: 0
-  tempertureLoss: 0
-  tempertureIndicator: {fileID: 0}
+  smorgeOn: 0
 --- !u!65 &818910667
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4983,6 +4983,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7693181304944339361, guid: 82f655dcc42c7064d85c92349b5b57e0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.133
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693181304942570305, guid: 82f655dcc42c7064d85c92349b5b57e0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 24948d7d9f107254f8da3ed4bad66751, type: 2}
     m_RemovedComponents:
     - {fileID: 7693181304944571776, guid: 82f655dcc42c7064d85c92349b5b57e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 82f655dcc42c7064d85c92349b5b57e0, type: 3}
@@ -7348,6 +7358,10 @@ MonoBehaviour:
   customerAI: {fileID: 0}
   CustomerNumber: 0
   gold: 50
+  randomtype: 0
+  randomblademat: 0
+  randomguardmat: 0
+  randomhandlemat: 0
   playerStats: {fileID: 0}
   dist: 0
   delay: 2
