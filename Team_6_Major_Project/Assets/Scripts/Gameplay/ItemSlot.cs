@@ -39,10 +39,10 @@ public class ItemSlot : MonoBehaviour
             sword = other.gameObject;
             sword.transform.position = placelocation.position;
             SetItemSlot();
-            bladeType = other.gameObject.GetComponent<Sword>().swordType;
-            bladeMaterial = other.gameObject.GetComponent<Sword>().materialBlade;
-            guardMaterial = other.gameObject.GetComponent<Sword>().materialGuard;
-            handleMaterial = other.gameObject.GetComponent<Sword>().materialHandle;                  
+            bladeType = sword.GetComponent<Sword>().swordType;
+            bladeMaterial = sword.GetComponent<Sword>().materialBlade;
+            guardMaterial = sword.GetComponent<Sword>().materialGuard;
+            handleMaterial = sword.GetComponent<Sword>().materialHandle;                  
         }
     }
 

@@ -107,6 +107,11 @@ public class PlayerRayCast : MonoBehaviour
             {
                 hit.transform.gameObject.GetComponent<IPointClick>().OnPointerClick();
             }
+
+            if (hit.transform.gameObject.GetComponent<QuestPointClick>() != null)
+            {
+                hit.transform.gameObject.GetComponent<QuestPointClick>().OnPointerClick();
+            }
         }
     }
 
