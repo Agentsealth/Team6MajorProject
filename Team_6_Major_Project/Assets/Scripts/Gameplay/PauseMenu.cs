@@ -39,7 +39,6 @@ public class PauseMenu : MonoBehaviour
                 Cursor.visible = false;
                 playerController.lookSemsitivity = 3;
                 isPaused = false;
-                StartCoroutine(MenuDelay(MainPauseMenu));
                 return;
             }
         }

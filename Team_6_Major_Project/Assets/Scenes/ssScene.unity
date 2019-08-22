@@ -8117,13 +8117,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Book_V4
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6b18ea68076489047a29876c98815641, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b18ea68076489047a29876c98815641, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b18ea68076489047a29876c98815641, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -823.99994
+      value: -1255
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b18ea68076489047a29876c98815641, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8177,6 +8181,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e791c8a891ddcf448af52cdd93fc4aa8, type: 2}
+    - target: {fileID: 2300000, guid: 6b18ea68076489047a29876c98815641, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b18ea68076489047a29876c98815641, type: 3}
 --- !u!1 &1643410347
@@ -11773,13 +11781,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6214174874482033297}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.49999917, y: -0, z: -0, w: 0.8660259}
   m_LocalPosition: {x: 0.06400013, y: 0.9370003, z: -0.24800014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1037569783}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60.000004, y: 0, z: 0}
 --- !u!114 &6266952150733122189
 MonoBehaviour:
   m_ObjectHideFlags: 0
