@@ -9,6 +9,7 @@ public class QuestDropPoint : MonoBehaviour
     public Sword.MaterialBlade swordBladeMaterial;
     public Sword.MaterialGuard swordGuardMaterial;
     public Sword.MaterialHandle swordHandleMaterial;
+    public int quality;
 
     public Ingot.IngotMaterial ingotMaterial;
 
@@ -45,6 +46,17 @@ public class QuestDropPoint : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        CheckSword(other);
+        CheckBlade(other);
+        CheckGuard(other);
+        CheckHandle(other);
+        CheckIngot(other);
+        CheckOre(other);
+        CheckSheet(other);
+    }
+
+    public void CheckSword(Collider other)
+    {
         if (other.gameObject.tag == "Iron Sword")
         {
             item = other.gameObject;
@@ -53,6 +65,75 @@ public class QuestDropPoint : MonoBehaviour
             swordBladeMaterial = item.GetComponent<Sword>().materialBlade;
             swordGuardMaterial = item.GetComponent<Sword>().materialGuard;
             swordHandleMaterial = item.GetComponent<Sword>().materialHandle;
+            quality = item.GetComponent<Sword>().quality;
+            player.QuestHandIn();
+        }
+    }
+
+    public void CheckGuard(Collider other)
+    {
+        if (other.gameObject.tag == "Iron Guard")
+        {
+            item = other.gameObject;
+            item.transform.position = placelocation.position;
+            guardMaterial = item.GetComponent<Guard>().material;       
+            player.QuestHandIn();
+        }
+    }
+
+    public void CheckIngot(Collider other)
+    {
+        if (other.gameObject.tag == "Iron Ingot")
+        {
+            item = other.gameObject;
+            item.transform.position = placelocation.position;
+            ingotMaterial = item.GetComponent<Ingot>().material;
+            player.QuestHandIn();
+        }
+    }
+
+    public void CheckOre(Collider other)
+    {
+        if (other.gameObject.tag == "Iron Ore")
+        {
+            item = other.gameObject;
+            item.transform.position = placelocation.position;
+            oreMaterial = item.GetComponent<Ore>().material;
+            player.QuestHandIn();
+        }
+    }
+
+    public void CheckBlade(Collider other)
+    {
+        if (other.gameObject.tag == "Iron Blade")
+        {
+            item = other.gameObject;
+            item.transform.position = placelocation.position;
+            bladeMaterial = item.GetComponent<Blade>().material;
+            bladeType = item.GetComponent<Blade>().size;
+            player.QuestHandIn();
+        }
+    }
+
+    public void CheckHandle(Collider other)
+    {
+        if (other.gameObject.tag == "Iron Handle")
+        {
+            item = other.gameObject;
+            item.transform.position = placelocation.position;
+            handleMaterial = item.GetComponent<Handle>().material;
+            player.QuestHandIn();
+        }
+    }
+
+    public void CheckSheet(Collider other)
+    {
+        if (other.gameObject.tag == "Iron Sheet")
+        {
+            item = other.gameObject;
+            item.transform.position = placelocation.position;
+            sheetMaterial = item.GetComponent<Sheet>().material;
+            sheetType = item.GetComponent<Sheet>().size;
             player.QuestHandIn();
         }
     }

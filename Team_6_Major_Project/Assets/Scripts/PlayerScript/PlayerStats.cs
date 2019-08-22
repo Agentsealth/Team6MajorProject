@@ -28,7 +28,7 @@ public class PlayerStats : MonoBehaviour
                 if(questes[i].goal.IsReached())
                 {
                     gold += questes[i].goldReward;
-                    questes[i].Complete();
+                    questes[i].Complete();                    
                     questes.Remove(questes[i]);
                 }
             }

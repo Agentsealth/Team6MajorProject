@@ -21,10 +21,15 @@ public class Quest
 
     public QuestGoal goal;
 
+    public QuestGiver giver;
+
     public void Complete()
     {
         isActive = false;
+        giver.questWindow.SetActive(false);
         goal.currentAmount = 0;
+        giver.gameObject.GetComponent<BoxCollider>().enabled = true;
+
     }
    
 }

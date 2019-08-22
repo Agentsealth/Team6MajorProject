@@ -30,9 +30,13 @@ public class QuestGoal
 
     public QuestDropPoint questDrop;
 
+    public int minAmount;
+    public int maxAmount;
+
+    public int requiredQuality;
+
     public int requiredAmount;
     public int currentAmount;
-
 
     public bool IsReached()
     {
@@ -43,26 +47,11 @@ public class QuestGoal
     {
          SwordCheck();
          IngotCheck();
-         if (goalType == GoalType.Ore)
-         {
-             currentAmount++;
-         }
-            if (goalType == GoalType.Guard)
-            {
-                currentAmount++;
-            }
-            if (goalType == GoalType.Handle)
-            {
-                currentAmount++;
-            }
-            if (goalType == GoalType.Sheet)
-            {
-                currentAmount++;
-            }
-            if (goalType == GoalType.Blade)
-            {
-                currentAmount++;
-            }
+         OreCheck();
+         GuardCheck();
+         HandleCheck();
+         SheetCheck();
+         BladeCheck();
     }
 
     public void SwordCheck()
@@ -72,7 +61,8 @@ public class QuestGoal
             if (questDrop.swordBladeType == swordBladeType &&
                 questDrop.swordBladeMaterial == swordBladeMaterial &&
                 questDrop.swordGuardMaterial == swordGuardMaterial &&
-                questDrop.swordHandleMaterial == swordHandleMaterial)
+                questDrop.swordHandleMaterial == swordHandleMaterial &&
+                questDrop.quality >= requiredQuality)
             {
 
                 currentAmount++;
@@ -104,7 +94,82 @@ public class QuestGoal
 
     public void OreCheck()
     {
+        if (goalType == GoalType.Ore)
+        {
+            if (questDrop.oreMaterial == oreMaterial)
+            {
+                currentAmount++;
+                questDrop.Destroy();
+            }
+            else
+            {
+                questDrop.item.transform.position = questDrop.badlocation.position;
+            }
+        }
+    }
 
+    public void GuardCheck()
+    {
+        if (goalType == GoalType.Guard)
+        {
+            if (questDrop.guardMaterial == guardMaterial)
+            {
+                currentAmount++;
+                questDrop.Destroy();
+            }
+            else
+            {
+                questDrop.item.transform.position = questDrop.badlocation.position;
+            }
+        }
+    }
+
+    public void HandleCheck()
+    {
+        if (goalType == GoalType.Handle)
+        {
+            if (questDrop.handleMaterial == handleMaterial)
+            {
+                currentAmount++;
+                questDrop.Destroy();
+            }
+            else
+            {
+                questDrop.item.transform.position = questDrop.badlocation.position;
+            }
+        }
+    }
+
+    public void SheetCheck()
+    {
+        if (goalType == GoalType.Sheet)
+        {
+            if (questDrop.sheetMaterial == sheetMaterial && questDrop.sheetType == sheetType)
+            {
+                currentAmount++;
+                questDrop.Destroy();
+            }
+            else
+            {
+                questDrop.item.transform.position = questDrop.badlocation.position;
+            }
+        }
+    }
+
+    public void BladeCheck()
+    {
+        if (goalType == GoalType.Blade)
+        {
+            if (questDrop.bladeMaterial == bladeMaterial && questDrop.bladeType == bladeType)
+            {
+                currentAmount++;
+                questDrop.Destroy();
+            }
+            else
+            {
+                questDrop.item.transform.position = questDrop.badlocation.position;
+            }
+        }
     }
 
 }
