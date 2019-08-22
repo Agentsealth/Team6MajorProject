@@ -30,7 +30,7 @@ public class MoveToPos : MonoBehaviour
         float startTime = Time.time; // Time.time contains current frame time, so remember starting point
         var speed = 1;
         var step = speed * Time.deltaTime;
-        while (transform.position != posB)
+        while (transform.rotation != rotB)
         { // until one second passed
             transform.position = Vector3.MoveTowards(posA, posB, (Time.time - startTime) * 10); // lerp from A to B in one second
 

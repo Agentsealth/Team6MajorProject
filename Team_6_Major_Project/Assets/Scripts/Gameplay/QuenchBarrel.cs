@@ -6,6 +6,9 @@ public class QuenchBarrel : MonoBehaviour
 {
     private string objectName;
     private Furnace furnace;
+    public GameObject smokeP;
+    public AudioSource audioSource;
+    private GameObject smokeGO;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +27,13 @@ public class QuenchBarrel : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Ingot>().ready == true)
             {
-                other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
-                other.gameObject.GetComponent<Ingot>().ready = false;
-                objectName = other.GetComponent<Ingot>().objectName;
+                //audioSource.Play();
+                smokeGO = Instantiate(smokeP, this.gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
 
-                other.gameObject.name = objectName + " (NotReady)";
+
+                other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
+                StartCoroutine(CoolIngot(other.gameObject));
+
             }
             else
             {
@@ -39,6 +44,8 @@ public class QuenchBarrel : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Sheet>().ready == true)
             {
+                //audioSource.Play();
+                smokeGO = Instantiate(smokeP, this.gameObject.transform.position, Quaternion.Euler(-90,0,0));
                 other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
                 StartCoroutine(CoolSheet(other.gameObject));
             }
@@ -55,20 +62,26 @@ public class QuenchBarrel : MonoBehaviour
 
     IEnumerator CoolSheet(GameObject other)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.5f);
         other.GetComponent<Sheet>().ready = false;
         objectName = other.GetComponent<Sheet>().objectName;
 
         other.name = objectName + " (Not Ready)";
+        yield return new WaitForSeconds(5);
+
+
     }
 
     IEnumerator CoolIngot(GameObject other)
     {
-        yield return new WaitForSeconds(2);
-        other.GetComponent<Sheet>().ready = false;
-        objectName = other.GetComponent<Sheet>().objectName;
+        yield return new WaitForSeconds(2.5f);
+
+        other.GetComponent<Ingot>().ready = false;
+        objectName = other.GetComponent<Ingot>().objectName;
 
         other.name = objectName + " (Not Ready)";
+        yield return new WaitForSeconds(5);
+       
     }
 }
 

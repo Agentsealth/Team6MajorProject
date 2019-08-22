@@ -20,6 +20,13 @@ public class EyeCandyMaster : MonoBehaviour
     private Quaternion rotB;
     private int speed;
     private float delayTime = 0;
+
+    public AudioClip MenuSwitch;
+    public AudioSource audioSource1;
+    public AudioSource audioSource2;
+    public AudioSource audioSource3;
+
+
     // Start is called before the first frame update
     IEnumerator WaitAndMove(float delayTime)
     {
@@ -29,6 +36,8 @@ public class EyeCandyMaster : MonoBehaviour
         while (GrindStone.transform.localRotation != rotB)
         { // until one second passed
             GrindStone.transform.rotation = Quaternion.RotateTowards(rotA, rotB, (Time.time - startTime) * speed);
+            MenuSwitch = GrindStone.GetComponent<AudioSource>().clip;
+            
             yield return 1f;
         }
     }
@@ -45,7 +54,10 @@ public class EyeCandyMaster : MonoBehaviour
         rotA = GrindStone.transform.localRotation;
         rotB = Quaternion.Euler(95, 0, 0f);
         speed = 50;
+
+        audioSource1.Play();
         StartCoroutine(WaitAndMove(delayTime));
+
     }
 
     public void OptionsCandy()
@@ -57,6 +69,8 @@ public class EyeCandyMaster : MonoBehaviour
         rotA = GrindStone.transform.localRotation;
         rotB = Quaternion.Euler(90f, 0, 0f);
         speed = 50;
+
+        audioSource1.Play();
         StartCoroutine(WaitAndMove(delayTime));
 
     }
@@ -71,6 +85,8 @@ public class EyeCandyMaster : MonoBehaviour
         rotA = GrindStone.transform.localRotation;
         rotB = Quaternion.Euler(85f, 0, 0f);
         speed = 50;
+
+        audioSource1.Play();
         StartCoroutine(WaitAndMove(delayTime));
 
 

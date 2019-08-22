@@ -27,6 +27,7 @@ public class CraftingTable : MonoBehaviour
     public Guard.GuardMaterial guardMaterial;
     public Blade.Typeblade bladeType;
 
+    public AudioSource craftingNoise;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +46,7 @@ public class CraftingTable : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
+                craftingNoise.Play();
                 Craft();
             }
         }

@@ -49,7 +49,8 @@ public class SliderMiniGame : MonoBehaviour
 
     public int repeat;
 
-
+    public AudioClip[] hammerDink;
+    public AudioSource dinkSource;
     // Start is called before the first frame update
     private void Start()
     {
@@ -101,6 +102,7 @@ public class SliderMiniGame : MonoBehaviour
     {
         if (repeat == maxrepeat)
         {
+            
             if (inUseAnvil == true)
             {
                 //hammer.transform.position = new Vector3(hammer.transform.position.x - 0.25f, hammer.transform.position.y, hammer.transform.position.z);
@@ -130,12 +132,14 @@ public class SliderMiniGame : MonoBehaviour
                 this.gameObject.SetActive(false);
                 inUseGrinder = false;
                 return;
-                hammer.GetComponent<Animator>().Play("hammerDink", -1, 0);
                 //hammer.transform.position = new Vector3(hammer.transform.position.x + 0.05f, hammer.transform.position.y, hammer.transform.position.z);
             }
         }
         else if (Input.GetMouseButtonDown(0))
         {
+            hammer.GetComponent<Animator>().Play("hammerDink", -1, 0);
+           
+            StartCoroutine("DinkHammer");
             if (repeat < maxrepeat + 1)
             {
                 stopped = true;
@@ -175,7 +179,7 @@ public class SliderMiniGame : MonoBehaviour
                     text.text = "Bad";
                     totalQuality += badQuality;
                 }
-                hammer.GetComponent<Animator>().Play("hammerDink", -1, 0);
+                
                 if(repeat < maxrepeat)
                 {
                     anvil.Invoke("AddCritPoint", 0.5f);
@@ -185,6 +189,10 @@ public class SliderMiniGame : MonoBehaviour
         }
     }
 
+    IEnumerator DinkHammer()
+    {
+        yield return new WaitForSeconds(0.15f);
+    }
 
     private void Continue()
     {

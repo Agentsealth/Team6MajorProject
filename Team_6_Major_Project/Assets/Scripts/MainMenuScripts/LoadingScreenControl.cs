@@ -13,13 +13,17 @@ public class LoadingScreenControl : MonoBehaviour
     private float i;
     private bool startLoad;
     AsyncOperation async;
+
+    public AudioSource audioSource;
     public void LoadScreenExample()
     {
+        audioSource.Play();
         StartCoroutine(LoadingScreen());
     }
 
     IEnumerator LoadingScreen()
     {
+        
         startLoad = true;
         MainMenu.SetActive(false);
         loadingScreenObj.SetActive(true);

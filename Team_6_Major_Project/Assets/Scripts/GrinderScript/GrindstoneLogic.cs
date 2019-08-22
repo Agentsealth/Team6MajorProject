@@ -26,15 +26,19 @@ public class GrindstoneLogic : MonoBehaviour
     public GameObject Sparks;
     public GameObject SparkPosition;
     public GameObject[] sparkObjs;
+
+    public AudioSource grindingSound;
     void Start()
     {
         initialPosition = transform.position;
         MTP = GameObject.FindObjectOfType<MoveToPos>();
+        StartCoroutine("pitchShift");
     }
 
     // Update is called once per frame
     void Update()
     {
+        //grindingSound.pitch = Random.Range(0.5f, 1.5f);
         if (playerHere)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -45,7 +49,8 @@ public class GrindstoneLogic : MonoBehaviour
         if (i >= 100 && otherOther != null)
         {
             isGrinding = false;
-            
+            grindingSound.Stop();
+
 
             KillSparks();
             Destroy(otherOther);
@@ -75,11 +80,15 @@ public class GrindstoneLogic : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && playerInPos)
         {
+            grindingSound.pitch = Random.Range(0.75f, 1.25f);
+
             isGrinding = true;
+            grindingSound.Play();
         }
         if(Input.GetKeyUp(KeyCode.Space))
         {
             isGrinding = false;
+            grindingSound.Stop();
         }
         if (otherOther != null)
         {
@@ -130,10 +139,10 @@ public class GrindstoneLogic : MonoBehaviour
 
     }
 
-    void yes()
+    IEnumerator pitchShift()
     {
-        
-
+        yield return new WaitForSeconds(1);
+        StartCoroutine("pitchShift");
     }
 
     private void OnTriggerEnter(Collider other)

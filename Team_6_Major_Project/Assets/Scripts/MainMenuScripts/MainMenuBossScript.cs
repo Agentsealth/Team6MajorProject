@@ -16,6 +16,12 @@ public class MainMenuBossScript : MonoBehaviour
 
     public GameObject Music;
     public GameObject OptionsMaster;
+
+    public AudioClip audioClip;
+    public AudioSource audioSource;
+
+
+
     // Start is called before the first frame update
 
     IEnumerator MenuDelay(GameObject menuPart)
@@ -33,6 +39,7 @@ public class MainMenuBossScript : MonoBehaviour
     public void ShowOptions()
     {
         MainMenu.SetActive(false);
+        audioSource.Play();
         StartCoroutine(MenuDelay(Options));
     }
 
@@ -40,6 +47,7 @@ public class MainMenuBossScript : MonoBehaviour
     {
         StartCoroutine(MenuDelay(MainMenu));
 
+        audioSource.Play();
         Options.SetActive(false);
     }
 
@@ -51,6 +59,9 @@ public class MainMenuBossScript : MonoBehaviour
         AudioOptions.SetActive(true);
         DisplayOptions.SetActive(false);
         GameplayOptions.SetActive(false);
+
+        audioSource.Play();
+
     }
 
     public void ShowDisplayOptions()
@@ -62,6 +73,9 @@ public class MainMenuBossScript : MonoBehaviour
         AudioOptions.SetActive(false);
         DisplayOptions.SetActive(true);
         GameplayOptions.SetActive(false);
+
+        audioSource.Play();
+
     }
 
     public void ShowGameplayOptions()
@@ -73,6 +87,9 @@ public class MainMenuBossScript : MonoBehaviour
         AudioOptions.SetActive(false);
         DisplayOptions.SetActive(false);
         GameplayOptions.SetActive(true);
+
+        audioSource.Play();
+
     }
 
     private void Update()

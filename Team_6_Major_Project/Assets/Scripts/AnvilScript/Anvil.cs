@@ -38,6 +38,7 @@ public class Anvil : MonoBehaviour
     private bool isHammering;
     private Vector3 hammerOriginalPos;
     public GameObject CritPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,7 +94,7 @@ public class Anvil : MonoBehaviour
                     if (ingots.Count == 0)
                     {
                         ingotCount++;
-                        //MTP.gotoAnvil();
+                        MTP.gotoAnvil();
                         other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                         other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                         //other.transform.position = drop.transform.position;
@@ -111,7 +112,7 @@ public class Anvil : MonoBehaviour
                     {
                         if (other.gameObject.GetComponent<Ingot>().material == ingots[0].GetComponent<Ingot>().material)
                         {
-                            //MTP.gotoAnvil();
+                            MTP.gotoAnvil();
                             other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                             //other.transform.position = drop.transform.position;
@@ -204,7 +205,7 @@ public class Anvil : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
-                //MTP.gotoAnvil();
+                MTP.gotoAnvil();
                 gameSlider.SetActive(true);
                 gameSlider.GetComponent<SliderMiniGame>().repeat = 0;
                 gameSlider.GetComponent<SliderMiniGame>().inUseAnvil = true;
@@ -225,7 +226,7 @@ public class Anvil : MonoBehaviour
     public void anvilIngot()
     {
         isHammering = false;
-        //MTP.returnToPos();
+        MTP.returnToPos();
         hammer.transform.position = hammerOriginalPos;
 
         if (ingots.Count == 1)
@@ -278,7 +279,7 @@ public class Anvil : MonoBehaviour
         {
             isHammering = false;
 
-            //MTP.returnToPos();
+            MTP.returnToPos();
             hammer.transform.position = hammerOriginalPos;
             if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
             {
