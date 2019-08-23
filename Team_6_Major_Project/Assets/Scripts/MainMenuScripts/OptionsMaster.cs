@@ -28,5 +28,5 @@ public class OptionsMaster : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-
+ 
 }

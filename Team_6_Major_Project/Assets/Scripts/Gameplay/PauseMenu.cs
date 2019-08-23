@@ -1,20 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
+    
+
     public GameObject MainPauseMenu;
     public GameObject OptionsMenu;
     public PlayerController playerController;
     public GameObject PauseBook;
-
+    public GameObject AudioSettings;
+    public GameObject DisplaySettings;
     public bool isPaused;
+
+    private OptionsMaster optM;
+    
+    public Slider MasterVolSlider;
+    public Toggle FullscreenToggle;
+    public GameObject FSToggleTick;
     // Start is called before the first frame update
     void Start()
     {
         playerController = GameObject.FindObjectOfType<PlayerController>();
         Debug.Log(isPaused);
+    }
+
+    private void Awake()
+    {
+        optM = GameObject.FindObjectOfType<OptionsMaster>();
     }
 
     // Update is called once per frame
@@ -45,14 +59,13 @@ public class PauseMenu : MonoBehaviour
     }
     public void DisplayOptions()
     {
-        MainPauseMenu.SetActive(false);
-        OptionsMenu.SetActive(true);
+        PauseBook.GetComponent<Animator>().Play("BookFlipBack", -1, 0f);
     }
 
     public void DisplayMenu()
     {
-        MainPauseMenu.SetActive(true);
-        OptionsMenu.SetActive(false);
+        PauseBook.GetComponent<Animator>().Play("BookFlipFront", -1, 0f);
+
     }
 
 
@@ -63,4 +76,66 @@ public class PauseMenu : MonoBehaviour
     }
 
 
+    public void Unpause()
+    {
+        PauseBook.GetComponent<Animator>().Play("BookDown", -1, 0f);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        playerController.lookSemsitivity = 3;
+        isPaused = false;
+        return;
+    }
+
+
+    public void ShowAudioOptions()
+    {
+        DisplaySettings.SetActive(false);
+        AudioSettings.SetActive(true);
+        MasterVolSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+        
+    }
+
+
+    public void ShowDisplayOptions()
+    {
+        
+        DisplaySettings.SetActive(true);
+        AudioSettings.SetActive(false);
+        FullscreenToggle.isOn = PlayerPrefsX.GetBool("FullScreenMode");
+        
+    }
+
+    public void SaveAudioOptions()
+    {
+        PlayerPrefs.SetFloat("MasterVolume", MasterVolSlider.value);
+
+        PlayerPrefs.Save();
+        
+    }
+    public void ToggleFullscreen()
+    {
+        Debug.Log("0");
+    
+
+        if(FullscreenToggle.isOn == false)
+        {
+            Debug.Log("1");
+
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+
+            FullscreenToggle.isOn = true;
+            PlayerPrefsX.SetBool("FullScreenMode", true);
+
+            
+        }
+        if(FullscreenToggle.isOn == true)
+        {
+            Debug.Log("2");
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+
+            FullscreenToggle.isOn = false;
+            PlayerPrefsX.SetBool("FullScreenMode", false);
+            
+        }
+    }
 }
