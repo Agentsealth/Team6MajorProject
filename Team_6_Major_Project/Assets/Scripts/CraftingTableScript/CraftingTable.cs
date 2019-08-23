@@ -111,6 +111,8 @@ public class CraftingTable : MonoBehaviour
             small.GetComponent<Sword>().materialBlade = (Sword.MaterialBlade)bladeMaterial;
             small.GetComponent<Sword>().materialGuard = (Sword.MaterialGuard)guardMaterial;
             small.GetComponent<Sword>().materialHandle = (Sword.MaterialHandle)handleMaterial;
+            AverageQuality();
+            small.GetComponent<Sword>().quality = totalQuality;
             Destroy(blade);
             Destroy(handle);
             Destroy(guard);
@@ -127,6 +129,8 @@ public class CraftingTable : MonoBehaviour
             medium.GetComponent<Sword>().materialBlade = (Sword.MaterialBlade)bladeMaterial;
             medium.GetComponent<Sword>().materialGuard = (Sword.MaterialGuard)guardMaterial;
             medium.GetComponent<Sword>().materialHandle = (Sword.MaterialHandle)handleMaterial;
+            AverageQuality();
+            medium.GetComponent<Sword>().quality = totalQuality;
             Destroy(blade);
             Destroy(handle);
             Destroy(guard);
@@ -143,6 +147,8 @@ public class CraftingTable : MonoBehaviour
             large.GetComponent<Sword>().materialBlade = (Sword.MaterialBlade)bladeMaterial;
             large.GetComponent<Sword>().materialGuard = (Sword.MaterialGuard)guardMaterial;
             large.GetComponent<Sword>().materialHandle = (Sword.MaterialHandle)handleMaterial;
+            AverageQuality();
+            large.GetComponent<Sword>().quality = totalQuality;
             Destroy(blade);
             Destroy(handle);
             Destroy(guard);
@@ -154,11 +160,9 @@ public class CraftingTable : MonoBehaviour
             bladeCount = 0;
         }
     }
-    public void OnTriggerExit(Collider other)
+
+    public void AverageQuality()
     {
-        if (other.gameObject.tag == "Iron Sword")
-        {
-            totalQuality = (handleQuality + guardQuality + bladeQuality) / 3;
-        }
+        totalQuality = (handleQuality + guardQuality + bladeQuality) / 3;
     }
 }

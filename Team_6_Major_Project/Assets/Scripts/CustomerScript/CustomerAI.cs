@@ -22,6 +22,10 @@ public class CustomerAI : MonoBehaviour
     {
         dialogue = this.gameObject.GetComponent<TestDialogueTrigger>();
         slotwayPoints = GameObject.FindGameObjectsWithTag("SlotWayPoint");
+        waypoints[0] = GameObject.FindGameObjectWithTag("Waypoint 0");
+        waypoints[1] = GameObject.FindGameObjectWithTag("Waypoint 1");
+        waypoints[2] = GameObject.FindGameObjectWithTag("Waypoint 2");
+        waypoints[4] = GameObject.FindGameObjectWithTag("Waypoint 3");
     }
 
     // Update is called once per frame
@@ -42,6 +46,10 @@ public class CustomerAI : MonoBehaviour
             else if(waypointIndex == 3)
             {
                 dialogue.SetItemSlot();
+            }
+            else if(waypointIndex == 4)
+            {
+                Destroy(gameObject);
             }
             else
             {
