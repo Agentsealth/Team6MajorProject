@@ -12,8 +12,6 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gold = 500;
-        CustomerOrderNumber = 1;
         goldText.text = "Gold Coins: " + gold;
 
     }
