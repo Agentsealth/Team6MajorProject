@@ -13,12 +13,14 @@ public class MoveToPos : MonoBehaviour
     private Vector3 resetPos;
     private Quaternion resetRot;
     private PlayerController playerController;
+   
     public GameObject loc1;
     public GameObject loc2;
     public GameObject loc3;
     public GameObject loc4;
     public GameObject options;
     private GrindstoneLogic gsLogic;
+    
     void Start()
     {
         playerController = this.gameObject.GetComponent<PlayerController>();
@@ -37,23 +39,13 @@ public class MoveToPos : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(rotA, rotB, (Time.time - startTime) * 250);
             yield return 0.1f;
         }
-        while (transform.position != posB)
-        {
-            yield return 0.1f;
-        }
+
     }
 
     private void Update()
     {
-        
 
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            returnToPos();
 
-        }
-
-       
     }
 
     public void gotoGrinder()

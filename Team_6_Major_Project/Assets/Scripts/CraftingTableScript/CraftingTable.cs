@@ -108,11 +108,11 @@ public class CraftingTable : MonoBehaviour
         if(bladeType == Blade.Typeblade.small)
         {
             GameObject small = Instantiate(sword[0], sworddrop.position, Quaternion.identity);
-            small.GetComponent<Sword>().materialBlade = (Sword.MaterialBlade)bladeMaterial;
-            small.GetComponent<Sword>().materialGuard = (Sword.MaterialGuard)guardMaterial;
-            small.GetComponent<Sword>().materialHandle = (Sword.MaterialHandle)handleMaterial;
+            small.GetComponent<SwordTempVer>().materialBlade = (SwordTempVer.MaterialBlade)bladeMaterial;
+            small.GetComponent<SwordTempVer>().materialGuard = (SwordTempVer.MaterialGuard)guardMaterial;
+            small.GetComponent<SwordTempVer>().materialHandle = (SwordTempVer.MaterialHandle)handleMaterial;
             AverageQuality();
-            small.GetComponent<Sword>().quality = totalQuality;
+            small.GetComponent<SwordTempVer>().quality = totalQuality;
             Destroy(blade);
             Destroy(handle);
             Destroy(guard);
@@ -126,11 +126,11 @@ public class CraftingTable : MonoBehaviour
         else if (bladeType == Blade.Typeblade.medium)
         {
             GameObject medium = Instantiate(sword[1], sworddrop.position, Quaternion.identity);
-            medium.GetComponent<Sword>().materialBlade = (Sword.MaterialBlade)bladeMaterial;
-            medium.GetComponent<Sword>().materialGuard = (Sword.MaterialGuard)guardMaterial;
-            medium.GetComponent<Sword>().materialHandle = (Sword.MaterialHandle)handleMaterial;
+            medium.GetComponent<SwordTempVer>().materialBlade = (SwordTempVer.MaterialBlade)bladeMaterial;
+            medium.GetComponent<SwordTempVer>().materialGuard = (SwordTempVer.MaterialGuard)guardMaterial;
+            medium.GetComponent<SwordTempVer>().materialHandle = (SwordTempVer.MaterialHandle)handleMaterial;
             AverageQuality();
-            medium.GetComponent<Sword>().quality = totalQuality;
+            medium.GetComponent<SwordTempVer>().quality = totalQuality;
             Destroy(blade);
             Destroy(handle);
             Destroy(guard);
@@ -144,11 +144,11 @@ public class CraftingTable : MonoBehaviour
         else if (bladeType == Blade.Typeblade.large)
         {
             GameObject large = Instantiate(sword[2], sworddrop.position, Quaternion.identity);
-            large.GetComponent<Sword>().materialBlade = (Sword.MaterialBlade)bladeMaterial;
-            large.GetComponent<Sword>().materialGuard = (Sword.MaterialGuard)guardMaterial;
-            large.GetComponent<Sword>().materialHandle = (Sword.MaterialHandle)handleMaterial;
+            large.GetComponent<SwordTempVer>().materialBlade = (SwordTempVer.MaterialBlade)bladeMaterial;
+            large.GetComponent<SwordTempVer>().materialGuard = (SwordTempVer.MaterialGuard)guardMaterial;
+            large.GetComponent<SwordTempVer>().materialHandle = (SwordTempVer.MaterialHandle)handleMaterial;
             AverageQuality();
-            large.GetComponent<Sword>().quality = totalQuality;
+            large.GetComponent<SwordTempVer>().quality = totalQuality;
             Destroy(blade);
             Destroy(handle);
             Destroy(guard);

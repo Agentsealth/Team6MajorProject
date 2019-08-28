@@ -35,10 +35,17 @@ public class SwordTempVer : MonoBehaviour
     public Material[] textures;
 
     public int quality;
+
+    private PlayerStats playerStats;
+
+    public GameObject AuctionParticles;
+    private Collider Other;
     // Start is called before the first frame update
     void Start()
     {
+
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponentInChildren<Shop>();
+        auctionText = GameObject.FindGameObjectWithTag("AuctionText").GetComponent<Text>();
         coalCost = shop.coalCost;
         ironCost = shop.ironCost;
         steelCost = shop.steelCost;
@@ -48,7 +55,9 @@ public class SwordTempVer : MonoBehaviour
         TextureChangeHandle();
         //AuctionPrice();
         curCost = 1.0f;
+        playerStats = GameObject.FindObjectOfType<PlayerStats>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -60,31 +69,63 @@ public class SwordTempVer : MonoBehaviour
         {
             AuctionPrice();
 
-            StartCoroutine("RunAuction");
         }
     }
 
 
     public IEnumerator RunAuction()
     {
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(0.01f);
+        this.gameObject.transform.position = new Vector3(13.85f, 0.95f, -6.65f);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
 
         float startTime = Time.time; // Time.time contains current frame time, so remember starting point
-        var step = speed * Time.deltaTime;
         while (curCost != cost)
         {
             speed = (1 - (curCost / cost)) * 1;
-            if (speed <= 0.045f)
+            if (speed <= 0.06f)
             {
-                speed = 0.045f;
+                speed = 0.06f;
             }
             curCost = Mathf.MoveTowards(curCost, cost, speed);
-            auctionText.text = "Sale: " + ((int)curCost).ToString();
+            var aT = auctionText.rectTransform;
+            auctionText.GetComponent<Animator>().enabled = false;
+            aT.localScale = new Vector3(2 - speed, 2 - speed, 2 - speed);
+            auctionText.text = "Value: " + ((int)curCost).ToString();
             yield return 0.1f;
 
         }
+        
         yield return 0.1f;
+        if(curCost == cost)
+        {
+            StopAllCoroutines();
+            auctionText.GetComponent<Animator>().enabled = true;
 
+            auctionText.GetComponent<Animator>().Play("EndAuction", -1, 0);
+            Other.enabled = true;
+            Instantiate(AuctionParticles, Other.transform.position, Quaternion.Euler(0,90,0));
+            playerStats.IncreaseMoney(cost);
+            Destroy(this.gameObject);
+            
+        }
+    }
+
+
+    public void DoAuction()
+    {
+        for(float i = curCost; i < cost; i++)
+        {
+
+            speed = (1 - (curCost / cost)) * 1;
+            if (speed <= 0.06f)
+            {
+                speed = 0.06f;
+            }
+            curCost = Mathf.MoveTowards(curCost, cost, speed);
+            auctionText.text = "Sale: " + ((int)curCost).ToString();
+            
+        }
     }
 
     public void AuctionPrice()
@@ -167,5 +208,26 @@ public class SwordTempVer : MonoBehaviour
             gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = textures[2];
             handleIngotCost = bronzeCost;
         }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if(other.gameObject.tag == "AuctionTable")
+        {
+            Other = other;
+            other.enabled = false;
+            AuctionPrice();
+
+            this.gameObject.GetComponent<PickUp>().isHolding = false;
+            this.gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+
+            StartCoroutine("RunAuction");
+        }
+       
+
+
     }
 }

@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 8266437360234052195}
   - component: {fileID: 8266437360234052193}
   - component: {fileID: 8266437360234052192}
-  - component: {fileID: 8266437360234052124}
+  - component: {fileID: 4743734525589423851}
   - component: {fileID: 96140100006129479}
   m_Layer: 10
   m_Name: ShortSword
@@ -346,7 +346,7 @@ MonoBehaviour:
   item: {fileID: 8266437360234052199}
   tempParent: {fileID: 0}
   isHolding: 0
---- !u!114 &8266437360234052124
+--- !u!114 &4743734525589423851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,18 +355,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 8266437360234052199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a76578503fc1a94ab51090061bd7b75, type: 3}
+  m_Script: {fileID: 11500000, guid: 253fa9cbdcc0fff4d8164dd3b10daa4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swordType: 0
   materialBlade: 0
   materialHandle: 0
   materialGuard: 0
+  cost: 0
+  costToMake: 0
+  bladeIngot: 0
+  steelCost: 0
+  ironCost: 0
+  bronzeCost: 0
+  coalCost: 0
+  bladeIngotCost: 0
+  guardIngotCost: 0
+  handleIngotCost: 0
+  curCost: 0
+  speed: 0
+  auctionText: {fileID: 0}
+  shop: {fileID: 0}
   textures:
   - {fileID: 2100000, guid: 12b03d6e0aad6bd47830386889e34da9, type: 2}
   - {fileID: 2100000, guid: 8d6843dfe3fb65e4fb52caa5c668c138, type: 2}
   - {fileID: 2100000, guid: d1e7fa1b8f0422340bbded6a3435293e, type: 2}
   quality: 0
+  AuctionParticles: {fileID: 849923679052135908, guid: f42a3f1caa816114982a2bf20b473996,
+    type: 3}
 --- !u!65 &96140100006129479
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -94,7 +94,6 @@ public class Anvil : MonoBehaviour
                     if (ingots.Count == 0)
                     {
                         ingotCount++;
-                        MTP.gotoAnvil();
                         other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                         other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                         //other.transform.position = drop.transform.position;

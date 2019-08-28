@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 1641546125763195915}
   - component: {fileID: 1641546125763195913}
   - component: {fileID: 1641546125763195912}
-  - component: {fileID: 1641546125763196020}
+  - component: {fileID: 8608077662970225579}
   - component: {fileID: 7289700051885302063}
   m_Layer: 10
   m_Name: newSmallSword
@@ -255,7 +255,7 @@ MonoBehaviour:
   item: {fileID: 1641546125763195919}
   tempParent: {fileID: 0}
   isHolding: 0
---- !u!114 &1641546125763196020
+--- !u!114 &8608077662970225579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,13 +264,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1641546125763195919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a76578503fc1a94ab51090061bd7b75, type: 3}
+  m_Script: {fileID: 11500000, guid: 253fa9cbdcc0fff4d8164dd3b10daa4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swordType: 0
   materialBlade: 0
   materialHandle: 0
   materialGuard: 0
+  cost: 0
+  costToMake: 0
+  bladeIngot: 0
+  steelCost: 0
+  ironCost: 0
+  bronzeCost: 0
+  coalCost: 0
+  bladeIngotCost: 0
+  guardIngotCost: 0
+  handleIngotCost: 0
+  curCost: 0
+  speed: 0
+  auctionText: {fileID: 0}
+  shop: {fileID: 0}
+  textures: []
   quality: 0
 --- !u!65 &7289700051885302063
 BoxCollider:
