@@ -87,7 +87,7 @@ public class SwordTempVer : MonoBehaviour
             {
                 speed = 0.06f;
             }
-            curCost = Mathf.MoveTowards(curCost, cost, speed);
+            curCost = Mathf.MoveTowards(curCost, cost, 4 * speed);
             var aT = auctionText.rectTransform;
             auctionText.GetComponent<Animator>().enabled = false;
             aT.localScale = new Vector3(2 - speed, 2 - speed, 2 - speed);
@@ -105,7 +105,7 @@ public class SwordTempVer : MonoBehaviour
             auctionText.GetComponent<Animator>().Play("EndAuction", -1, 0);
             Other.enabled = true;
             Instantiate(AuctionParticles, Other.transform.position, Quaternion.Euler(0,90,0));
-            playerStats.IncreaseMoney(cost);
+            //playerStats.IncreaseMoney(cost);
             Destroy(this.gameObject);
             
         }
