@@ -10,19 +10,31 @@ public static class SaveLoad
     public static void Save(GameData saveGame)
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create("C:/Users/s181545/Desktop/" + saveGame.saveGameName + ".sav");
+        FileStream file = new FileStream(Application.persistentDataPath + "/" + saveGame.saveGameName + ".sav", FileMode.Create);
         bf.Serialize(file, saveGame);
         file.Close();
         Debug.Log("Saved Game: " + saveGame.saveGameName);
 
     }
 
+    public static bool CheckFileExist(string gameToLoad)
+    {
+        if (File.Exists(Application.persistentDataPath + "/" + gameToLoad + ".sav"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public static GameData Load(string gameToLoad)
     {
-        if(File.Exists("C:/Users/s181545/Desktop/" + gameToLoad + ".sav"))
+        if(File.Exists(Application.persistentDataPath + "/" + gameToLoad + ".sav"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open("C:/Users/s181545/Desktop/" + gameToLoad + ".sav", FileMode.Open);
+            FileStream file = new FileStream(Application.persistentDataPath + "/" + gameToLoad + ".sav", FileMode.Open);
             GameData loadedGame = (GameData)bf.Deserialize(file);
             file.Close();
             Debug.Log("Loaded Game" + loadedGame.saveGameName);
