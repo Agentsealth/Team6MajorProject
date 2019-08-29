@@ -14,6 +14,9 @@ public class Ingot : MonoBehaviour
     public PickUp ingotPickup;
 
     public Material[] textures;
+
+    public Material thisMat;
+    public Shader shader;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,7 @@ public class Ingot : MonoBehaviour
     void Update()
     {
         Smelt();
+
     }
 
     void Smelt()
@@ -42,6 +46,10 @@ public class Ingot : MonoBehaviour
             {
                 ready = true;
                 this.gameObject.name = objectName + " (Ready)";
+                var NewMat = new Material(shader);
+                this.gameObject.GetComponent<MeshRenderer>().material = NewMat;
+                NewMat.SetInt("Vector1_B7DBC96B", 1);
+
             }
         }        
     }

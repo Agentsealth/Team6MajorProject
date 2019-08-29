@@ -102,8 +102,8 @@ GameObject:
   - component: {fileID: 7739103084379047962}
   - component: {fileID: 7739103084379047960}
   - component: {fileID: 7739103084379047961}
-  - component: {fileID: 7675310187825943008}
   - component: {fileID: 1768532921301769534}
+  - component: {fileID: 7708219402258520257}
   m_Layer: 10
   m_Name: LongSword
   m_TagString: Iron Sword
@@ -164,7 +164,20 @@ MonoBehaviour:
   item: {fileID: 7739103084379047966}
   tempParent: {fileID: 0}
   isHolding: 0
---- !u!114 &7675310187825943008
+--- !u!65 &1768532921301769534
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7739103084379047966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9555173, y: 0.15143871, z: 0.33636856}
+  m_Center: {x: -0.813066, y: 0.017175898, z: -0.0034689903}
+--- !u!114 &7708219402258520257
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,7 +186,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7739103084379047966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 253fa9cbdcc0fff4d8164dd3b10daa4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a76578503fc1a94ab51090061bd7b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swordType: 1
@@ -201,19 +214,6 @@ MonoBehaviour:
   quality: 0
   AuctionParticles: {fileID: 849923679052135908, guid: f42a3f1caa816114982a2bf20b473996,
     type: 3}
---- !u!65 &1768532921301769534
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7739103084379047966}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9555173, y: 0.15143871, z: 0.33636856}
-  m_Center: {x: -0.813066, y: 0.017175898, z: -0.0034689903}
 --- !u!1 &8530594862093489622
 GameObject:
   m_ObjectHideFlags: 0

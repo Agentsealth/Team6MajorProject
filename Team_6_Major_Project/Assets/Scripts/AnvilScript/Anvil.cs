@@ -111,7 +111,6 @@ public class Anvil : MonoBehaviour
                     {
                         if (other.gameObject.GetComponent<Ingot>().material == ingots[0].GetComponent<Ingot>().material)
                         {
-                            MTP.gotoAnvil();
                             other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                             //other.transform.position = drop.transform.position;

@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355753090571222372}
-  m_Mesh: {fileID: 4300000, guid: 9b38c7824db47c44aa5c2c1ba8fa3452, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 1e19499bc0981a749a4af6e13a7fef4c, type: 3}
 --- !u!23 &1355753090568954788
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 14e755eda2bf49442b4490e1c4128f9d, type: 2}
+  - {fileID: 2100000, guid: 4f40d22b3ac49c543ab963c68385ddb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -148,6 +148,8 @@ MonoBehaviour:
   smeltTime: 0
   ingotPickup: {fileID: 0}
   textures:
-  - {fileID: 2100000, guid: 14e755eda2bf49442b4490e1c4128f9d, type: 2}
+  - {fileID: 2100000, guid: 4f40d22b3ac49c543ab963c68385ddb3, type: 2}
   - {fileID: 2100000, guid: e3da3cd9818b09f44893487518343baf, type: 2}
   - {fileID: 2100000, guid: 2903c90e2afe05f44b098f3e91c258e7, type: 2}
+  thisMat: {fileID: 2100000, guid: 4f40d22b3ac49c543ab963c68385ddb3, type: 2}
+  shader: {fileID: 4800000, guid: 1cfc27d27304ff345a3f44a5d5be4cb2, type: 3}

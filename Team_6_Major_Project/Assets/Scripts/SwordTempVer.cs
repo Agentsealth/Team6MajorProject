@@ -112,21 +112,7 @@ public class SwordTempVer : MonoBehaviour
     }
 
 
-    public void DoAuction()
-    {
-        for(float i = curCost; i < cost; i++)
-        {
-
-            speed = (1 - (curCost / cost)) * 1;
-            if (speed <= 0.06f)
-            {
-                speed = 0.06f;
-            }
-            curCost = Mathf.MoveTowards(curCost, cost, speed);
-            auctionText.text = "Sale: " + ((int)curCost).ToString();
-            
-        }
-    }
+  
 
     public void AuctionPrice()
     {
