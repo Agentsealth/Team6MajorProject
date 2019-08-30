@@ -92,9 +92,9 @@ public class MainMenuBossScript : MonoBehaviour
 
     }
 
-    private void Update()
+    public void QuitGame()
     {
-       
+        Application.Quit();
     }
 
 }
