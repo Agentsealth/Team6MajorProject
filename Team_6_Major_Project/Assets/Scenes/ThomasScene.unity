@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 47013545}
   - component: {fileID: 47013544}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: SaveName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -824,6 +824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 123592819}
+  - component: {fileID: 123592820}
   m_Layer: 5
   m_Name: SaveScreen
   m_TagString: Untagged
@@ -858,6 +859,53 @@ RectTransform:
   m_AnchoredPosition: {x: -212, y: 69}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &123592820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123592818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2102963dffbfa3448d1976aac73fe40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
+  saveGameName: My Saved Game
+  player: {fileID: 0}
+  playerCamera: {fileID: 0}
+  motor: {fileID: 0}
+  day: {fileID: 2098343695}
+  oreList: []
+  guardList: []
+  handleList: []
+  bladeList: []
+  sheetList: []
+  ingotList: []
+  swordList: []
+  autoSaveSlot1: {fileID: 1903154175}
+  autoSaveSlot2: {fileID: 1704802238}
+  autoSaveSlot3: {fileID: 79825204}
+  saveName: {fileID: 47013544}
+  dayProgress: {fileID: 223898586}
+  dateTime: {fileID: 1318218744}
+  Ore: {fileID: 2646501466652627063, guid: 5586e196762edea45a9e65ed39f28d5a, type: 3}
+  guard: {fileID: 3812608953104703530, guid: 6070545d16057344aaf8be289d6f416b, type: 3}
+  handle: {fileID: 8234311213502857610, guid: 6b96eaf3fafad1a4db98340ca55ee4f4, type: 3}
+  ingot: {fileID: 1355753090571222372, guid: 8ac784e5b44a3f24aab405b0b5e05b6f, type: 3}
+  blade:
+  - {fileID: 5620047885242174686, guid: cc686baad5de53146ab95ec24f6b570c, type: 3}
+  - {fileID: 2649782487980379710, guid: a9b88b59ed642e04383f9e8de9d911dc, type: 3}
+  - {fileID: 1149039118250727108, guid: e5ca8fd324ff57c40a742cb7628ed972, type: 3}
+  sheet:
+  - {fileID: 6149075225909756848, guid: 2c95143b5d41a8f4f906faf996658bc2, type: 3}
+  - {fileID: 3438516735236097051, guid: dff1ea98fd8a1884e9c8f9d585ba2e4d, type: 3}
+  - {fileID: 5539234142792360697, guid: 3624ccafcd71f3749ac915e28f14df54, type: 3}
+  sword:
+  - {fileID: 8266437360234052199, guid: 27cc3c72d8c73ce4cb0ff220fdcc1823, type: 3}
+  - {fileID: 7739103084379047966, guid: cf1fbb52ebd827a4783782fbfe1f56c1, type: 3}
+  - {fileID: 710953866555272097, guid: 7f5acf1082b5d3246936418de06b704a, type: 3}
 --- !u!1 &132851060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,7 +2297,7 @@ GameObject:
   - component: {fileID: 223898587}
   - component: {fileID: 223898586}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: DayNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2507,7 +2555,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'AutoSave2
+  m_Text: 'Autosave_2
 
 '
 --- !u!222 &268249395
@@ -4759,9 +4807,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'AutoSave1
-
-'
+  m_Text: Autosave_1
 --- !u!222 &486039844
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7389,7 +7435,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 940253648}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 123592820}
+        m_MethodName: Load
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &940253648
@@ -9083,6 +9140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: 
+  saveGameName: My Saved Game
   player: {fileID: 0}
   playerCamera: {fileID: 0}
   motor: {fileID: 0}
@@ -9094,12 +9152,12 @@ MonoBehaviour:
   sheetList: []
   ingotList: []
   swordList: []
-  autoSaveSlot1: {fileID: 0}
-  autoSaveSlot2: {fileID: 0}
-  autoSaveSlot3: {fileID: 0}
-  saveName: {fileID: 0}
-  dayProgress: {fileID: 0}
-  dateTime: {fileID: 0}
+  autoSaveSlot1: {fileID: 1903154175}
+  autoSaveSlot2: {fileID: 1704802238}
+  autoSaveSlot3: {fileID: 79825204}
+  saveName: {fileID: 47013544}
+  dayProgress: {fileID: 223898586}
+  dateTime: {fileID: 1318218744}
   Ore: {fileID: 2646501466652627063, guid: 5586e196762edea45a9e65ed39f28d5a, type: 3}
   guard: {fileID: 3812608953104703530, guid: 6070545d16057344aaf8be289d6f416b, type: 3}
   handle: {fileID: 8234311213502857610, guid: 6b96eaf3fafad1a4db98340ca55ee4f4, type: 3}
@@ -9619,7 +9677,7 @@ GameObject:
   - component: {fileID: 1318218745}
   - component: {fileID: 1318218744}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: Date/Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10796,7 +10854,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AutoSave3
+  m_Text: Autosave_3
 --- !u!222 &1499548900
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12414,7 +12472,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1754889891}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 123592820}
+        m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1754889891
@@ -13352,7 +13421,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1903154178}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 123592820}
+        m_MethodName: SetSave1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1903154178

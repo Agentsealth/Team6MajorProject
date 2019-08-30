@@ -13,9 +13,9 @@ public static class SaveLoad
         FileStream file = new FileStream(Application.persistentDataPath + "/" + saveGame.saveGameName + ".sav", FileMode.Create);
         bf.Serialize(file, saveGame);
         file.Close();
-        Debug.Log("Saved Game: " + saveGame.saveGameName);
-
+        
     }
+
 
     public static bool CheckFileExist(string gameToLoad)
     {

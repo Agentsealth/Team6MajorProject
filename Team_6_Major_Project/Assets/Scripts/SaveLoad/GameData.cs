@@ -116,8 +116,6 @@ public class GameData
 {
     public string saveGameName;
 
-    public string Description;
-
     public float playerPosX;
     public float playerPosY;
     public float playerPosZ;
