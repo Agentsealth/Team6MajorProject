@@ -5,6 +5,7 @@ using UnityEngine;
 public class Smorge : MonoBehaviour
 {
     public Furnace furance;
+    public Furnace furance2;
     public Smelter smelter;
     public float time;
     public float timeDecrease;
@@ -26,6 +27,8 @@ public class Smorge : MonoBehaviour
         {
             smorgeOn = true;
             furance.smorgeOn = smorgeOn;
+            furance2.smorgeOn = smorgeOn;
+
             smelter.smorgeOn = smorgeOn;
             if (smorgeOn == true)
             {
@@ -37,6 +40,8 @@ public class Smorge : MonoBehaviour
         {
             smorgeOn = false;
             furance.smorgeOn = smorgeOn;
+            furance2.smorgeOn = smorgeOn;
+
             smelter.smorgeOn = smorgeOn;
             if (smorgeOn == false)
             {

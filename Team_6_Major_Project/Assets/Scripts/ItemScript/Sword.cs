@@ -38,6 +38,8 @@ public class Sword : MonoBehaviour
 
     public GameObject AuctionParticles;
     private Collider Other;
+
+    public GameObject AuctionMan;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,20 +54,13 @@ public class Sword : MonoBehaviour
         AuctionPrice();
         curCost = 1.0f;
         auctionText = GameObject.FindGameObjectWithTag("AuctionText").GetComponent<Text>();
-
+        AuctionMan = GameObject.FindGameObjectWithTag("AuctionMan");
     }
 
     // Update is called once per frame
     void Update()
     {
         /*Auduction code put in sword will need to be moved */
-        speed = (1 -(curCost / cost)) * 100;
-        if(speed <= 0.5f)
-        {
-            speed = 0.5f;
-        }
-        curCost = Mathf.MoveTowards(curCost, cost, speed * Time.deltaTime);
-        auctionText.text = "Sale: " + ((int)curCost).ToString(); ;
 
     }
 
@@ -154,7 +149,7 @@ public class Sword : MonoBehaviour
     public IEnumerator RunAuction()
     {
         yield return new WaitForSeconds(0.01f);
-        this.gameObject.transform.position = new Vector3(13.85f, 0.95f, -6.65f);
+        this.gameObject.transform.position = Other.transform.position;
         this.gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
 
         float startTime = Time.time; // Time.time contains current frame time, so remember starting point
@@ -197,7 +192,7 @@ public class Sword : MonoBehaviour
             Other = other;
             other.enabled = false;
             AuctionPrice();
-
+            //AuctionMan.GetComponent<Animator>().Play("AhhYesAnAuction", -1, 0);
             this.gameObject.GetComponent<PickUp>().isHolding = false;
             this.gameObject.GetComponent<Rigidbody>().useGravity = false;
 
