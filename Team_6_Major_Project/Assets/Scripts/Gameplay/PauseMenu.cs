@@ -20,6 +20,9 @@ public class PauseMenu : MonoBehaviour
     public Slider MasterVolSlider;
     public Toggle FullscreenToggle;
     public GameObject FSToggleTick;
+
+    public GameObject PlayerCamera;
+    public GameObject MenuCamera;
     // Start is called before the first frame update
     void Start()
     {
@@ -142,6 +145,7 @@ public class PauseMenu : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        PlayerCamera.SetActive(false);
+        MenuCamera.SetActive(true);
     }
 }

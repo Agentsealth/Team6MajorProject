@@ -20,8 +20,8 @@ public class MainMenuBossScript : MonoBehaviour
     public AudioClip audioClip;
     public AudioSource audioSource;
 
-
-
+    public GameObject MenuCamera;
+    public GameObject PlayerCamera;
     // Start is called before the first frame update
 
     IEnumerator MenuDelay(GameObject menuPart)
@@ -31,9 +31,9 @@ public class MainMenuBossScript : MonoBehaviour
     }
     public void PlayGame()
     {
-        DontDestroyOnLoad(Music);
-        DontDestroyOnLoad(OptionsMaster);
-        SceneManager.LoadScene("ssScene");
+        Music.SetActive(false);
+        MenuCamera.SetActive(false);
+        PlayerCamera.SetActive(true);
     }
 
     public void ShowOptions()
@@ -96,5 +96,7 @@ public class MainMenuBossScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+
 
 }
