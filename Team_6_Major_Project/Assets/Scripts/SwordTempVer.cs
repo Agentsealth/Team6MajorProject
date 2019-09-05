@@ -65,7 +65,7 @@ public class SwordTempVer : MonoBehaviour
         /*Auduction code put in sword will need to be moved */
         /* 
         */
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             AuctionPrice();
 

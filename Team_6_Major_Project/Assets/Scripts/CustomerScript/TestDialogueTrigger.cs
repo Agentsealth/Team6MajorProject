@@ -7,6 +7,7 @@ public class TestDialogueTrigger : MonoBehaviour
     public bool inRange = false;
     public bool inDialogue = false;
     public bool dialogueDoneforDay = false;
+    public bool dialogueStart = false;
     public ItemSlot[] slots;
     public ItemSlot SlotNumber;
     public Dialogue dialogue;
@@ -59,14 +60,15 @@ public class TestDialogueTrigger : MonoBehaviour
         {
             if (dialogueDoneforDay == false)
             {
-                if (Input.GetKeyDown("e"))
+                if (Input.GetKeyDown(KeyCode.Space) && dialogueStart == false)
                 {
                     TriggerDialogue();                   
                     CustomerNumber = playerStats.CustomerOrderNumber;
                     playerStats.CustomerOrderNumber++;
                     inDialogue = dialogueManager.inChat;
+                    dialogueStart = true;
                 }
-                else if (Input.GetKeyDown("g"))
+                else if (Input.GetKeyDown(KeyCode.Space))
                 {
                     dialogueManager.DisplayNextSentence();
                     inDialogue = dialogueManager.inChat;
@@ -75,6 +77,7 @@ public class TestDialogueTrigger : MonoBehaviour
                         WaypointUpdate();
                         customerAI.setSlotWayPoint();
                         dialogueDoneforDay = true;
+                        dialogueStart = false;
                     }
                 }
             }

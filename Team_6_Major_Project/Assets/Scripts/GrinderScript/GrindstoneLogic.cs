@@ -78,14 +78,14 @@ public class GrindstoneLogic : MonoBehaviour
             playerInPos = false;
             MTP.returnToPos();
         }
-        if (Input.GetKeyDown(KeyCode.Space) && playerInPos)
+        if (Input.GetKeyDown(KeyCode.F) && playerInPos)
         {
             grindingSound.pitch = Random.Range(0.75f, 1.25f);
 
             isGrinding = true;
             grindingSound.Play();
         }
-        if(Input.GetKeyUp(KeyCode.Space))
+        if(Input.GetKeyUp(KeyCode.F))
         {
             isGrinding = false;
             grindingSound.Stop();
