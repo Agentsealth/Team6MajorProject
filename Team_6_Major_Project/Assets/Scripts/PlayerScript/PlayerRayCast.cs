@@ -9,19 +9,22 @@ public class PlayerRayCast : MonoBehaviour
     [SerializeField]
     Camera cam;
     [SerializeField]
-    private float distanceToSee = 3.0f; 
+    private float distanceToSee = 3.0f;
     [SerializeField]
     private Transform playerHand;
     [SerializeField]
     private int objectInHand;
     RaycastHit hit;
+    RaycastHit positionHit;
     Ray ray;
     public GameObject hoverOver;
     public Text hoverOverText;
     public GameObject floatingTextPrefab;
     public Vector3 viewport;
+    public Vector3 lookAt;
     public float halfXScale;
     public float halfYScale;
+    public Vector3 point;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +36,7 @@ public class PlayerRayCast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        ray = cam.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(this.transform.position, this.transform.forward * distanceToSee, Color.red);
         HoverOver();
         if (Input.GetMouseButtonDown(0))
@@ -58,9 +61,9 @@ public class PlayerRayCast : MonoBehaviour
     private void RaycastUp()
     {
        if(objectInHand > 0)
-        {
+       {
             
-        }
+       }
     }
 
     private void HoverOver()

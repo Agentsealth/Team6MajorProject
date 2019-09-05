@@ -96,7 +96,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!135 &2646501466377059983
 SphereCollider:
@@ -152,6 +152,8 @@ MonoBehaviour:
   item: {fileID: 2646501466652627063}
   tempParent: {fileID: 0}
   isHolding: 0
+  direction: {x: 0, y: 0, z: 0}
+  startpoint: {x: 0, y: 0, z: 0}
 --- !u!114 &4195661357841193374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1efbe5d7ea2cd2840a16c6c4bcdda0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
   itemPosX: 0
   itemPosY: 0
   itemPosZ: 0
