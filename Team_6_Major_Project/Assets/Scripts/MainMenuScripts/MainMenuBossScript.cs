@@ -13,7 +13,7 @@ public class MainMenuBossScript : MonoBehaviour
     public GameObject AudioButton;
     public GameObject DisplayButton;
     public GameObject GameplayButton;
-
+    public GameObject Player;
     public GameObject Music;
     public GameObject OptionsMaster;
 
@@ -22,6 +22,8 @@ public class MainMenuBossScript : MonoBehaviour
 
     public GameObject MenuCamera;
     public GameObject PlayerCamera;
+
+    public GameObject SaveScreen;
     // Start is called before the first frame update
 
     IEnumerator MenuDelay(GameObject menuPart)
@@ -29,11 +31,29 @@ public class MainMenuBossScript : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         menuPart.SetActive(true);
     }
+
+    public void Start()
+    {
+        Player.GetComponent<PlayerController>().enabled = false;
+        Player.GetComponent<PlayerMotor>().enabled = false;
+    }
     public void PlayGame()
     {
         Music.SetActive(false);
         MenuCamera.SetActive(false);
         PlayerCamera.SetActive(true);
+        SaveScreen.SetActive(false);
+        Player.GetComponent<PlayerController>().enabled = true;
+        Player.GetComponent<PlayerMotor>().enabled = true;
+        MainMenu.SetActive(true);
+
+
+    }
+
+    public void ShowSaves()
+    {
+        SaveScreen.SetActive(true);
+        MainMenu.SetActive(false);
     }
 
     public void ShowOptions()

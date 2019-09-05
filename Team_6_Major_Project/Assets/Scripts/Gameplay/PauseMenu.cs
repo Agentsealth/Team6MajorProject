@@ -147,5 +147,6 @@ public class PauseMenu : MonoBehaviour
     {
         PlayerCamera.SetActive(false);
         MenuCamera.SetActive(true);
+        
     }
 }
