@@ -81,7 +81,7 @@ public class PickUp : MonoBehaviour
     {
         if (Physics.Raycast(ray, out hit, distanceTohit))
         {
-            startpoint = hit.transform.position;
+            startpoint = hit.point;
             Debug.Log(startpoint);
         }
     }
