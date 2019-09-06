@@ -9,6 +9,9 @@ public class Ore : MonoBehaviour
     public OreMaterial material;
 
     public Smorge smorge;
+    public PickUp orePickup;
+
+    public int place;
 
     public float timeToDestroy;
     public float timeDecrease;
@@ -20,6 +23,7 @@ public class Ore : MonoBehaviour
     void Start()
     {
         TextureChange();
+        orePickup = this.gameObject.GetComponent<PickUp>();
     }
 
     // Update is called once per frame
@@ -32,7 +36,9 @@ public class Ore : MonoBehaviour
                 timeToDestroy -= timeDecrease * Time.deltaTime;
                 if(timeToDestroy <= 0.01)
                 {
-                    Destroy(this.gameObject);
+                    smorge.Empty();
+                    smorge.place = place;
+                    Destroy(gameObject);
                 }
             }
         }
