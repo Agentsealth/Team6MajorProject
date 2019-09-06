@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2646501466377059983}
   - component: {fileID: 2646501466377059977}
   - component: {fileID: 2646501466377059976}
-  - component: {fileID: 4195661357841193374}
   m_Layer: 10
   m_Name: SM_Ore_Coal
   m_TagString: Iron Ore
@@ -32,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2646501466652627063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.849, y: -0.214, z: 4.704}
-  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -154,42 +153,3 @@ MonoBehaviour:
   isHolding: 0
   direction: {x: 0, y: 0, z: 0}
   startpoint: {x: 0, y: 0, z: 0}
---- !u!114 &4195661357841193374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2646501466652627063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1efbe5d7ea2cd2840a16c6c4bcdda0d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPosX: 0
-  itemPosY: 0
-  itemPosZ: 0
-  itemRotX: 0
-  itemRotY: 0
-  itemRotZ: 0
-  swordType: 0
-  swordBladeMat: 0
-  swordHandleMat: 0
-  swordGuardMat: 0
-  swordQuality: 0
-  oreItem: 0
-  oreMat: 0
-  handleMat: 0
-  handleQuality: 0
-  guardMat: 0
-  guardQuality: 0
-  bladeSize: 0
-  bladeMat: 0
-  bladeQuality: 0
-  ingotMat: 0
-  ingotReady: 0
-  ingotName: 
-  sheetSize: 0
-  sheetMat: 0
-  sheetQuality: 0
-  myOre: {fileID: 0}

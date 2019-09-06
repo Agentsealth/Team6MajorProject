@@ -316,6 +316,41 @@ public class SaveLoadMenuTest : MonoBehaviour
 
             motor.RotateCamera(loadedGame.cameraRotX);
 
+            foreach (Ore go in GameObject.FindObjectsOfType<Ore>())
+            {
+                Destroy(go.transform.gameObject);
+            }
+
+            foreach (Guard go in GameObject.FindObjectsOfType<Guard>())
+            {
+                Destroy(go.transform.gameObject);
+            }
+
+            foreach (Handle go in GameObject.FindObjectsOfType<Handle>())
+            {
+                Destroy(go.transform.gameObject);
+            }
+
+            foreach (Blade go in GameObject.FindObjectsOfType<Blade>())
+            {
+                Destroy(go.transform.gameObject);
+            }
+
+            foreach (Sheet go in GameObject.FindObjectsOfType<Sheet>())
+            {
+                Destroy(go.transform.gameObject);
+            }
+
+            foreach (Ingot go in GameObject.FindObjectsOfType<Ingot>())
+            {
+                Destroy(go.transform.gameObject);
+            }
+
+            foreach (Sword go in GameObject.FindObjectsOfType<Sword>())
+            {
+                Destroy(go.transform.gameObject);
+            }
+
             for (int i = 0; i < loadedGame.oreCount; i++)
             {
                 Vector3 pos = new Vector3(loadedGame.OreInfoList[i].OrePosX, loadedGame.OreInfoList[i].OrePosY, loadedGame.OreInfoList[i].OrePosZ);
@@ -428,6 +463,7 @@ public class SaveLoadMenuTest : MonoBehaviour
                     newSword.GetComponent<Sword>().quality = loadedGame.SwordInfoList[i].SwordQuality;
                 }
             }
+
             loadButton.SetActive(false);
             saveButton.SetActive(false);
 
