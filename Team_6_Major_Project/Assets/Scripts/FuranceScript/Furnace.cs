@@ -115,7 +115,16 @@ public class Furnace : MonoBehaviour
                 if (other.gameObject.GetComponent<Sheet>().ready == false)
                 {
                     other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     other.gameObject.GetComponent<Sheet>().smeltTime = ironHeat;
+                    other.gameObject.GetComponent<Sheet>().furance = this;
+
+                    if (sheetplace1 == "empty")
+                    {
+                        other.transform.position = sheetplace.transform.position;
+                        other.gameObject.GetComponent<Sheet>().place = 1;
+                        sheetplace1 = "full";
+                    }
                 }
                 else
                 {
@@ -133,6 +142,14 @@ public class Furnace : MonoBehaviour
         else
         {
             return;
+        }
+    }
+
+    public void SheetEmpty()
+    {
+        if (sheetPlace == 1)
+        {
+            sheetplace1 = "empty";
         }
     }
 

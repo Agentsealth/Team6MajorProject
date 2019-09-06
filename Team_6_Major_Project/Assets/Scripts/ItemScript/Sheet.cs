@@ -16,6 +16,10 @@ public class Sheet : MonoBehaviour
     public float smeltTime;
     public int quality;
     public PickUp sheetPickup;
+    public Furnace furance;
+    public Rigidbody rigid;
+
+    public int place;
 
     public Material[] textures;
 
@@ -27,6 +31,7 @@ public class Sheet : MonoBehaviour
     {
         sheetPickup = this.gameObject.GetComponent<PickUp>();
         objectName = this.gameObject.name;
+        rigid = this.gameObject.GetComponent<Rigidbody>();
         TextureChange();
         if (ready == false)
         {
@@ -54,6 +59,9 @@ public class Sheet : MonoBehaviour
                 this.gameObject.GetComponent<MeshRenderer>().material = NewMat;
                 NewMat.SetInt("Vector1_B7DBC96B", 1);
                 NewMat.SetTexture("Texture2D_45580971", thisTexture);
+                rigid.isKinematic = false;
+                furance.ingotPlace = place;
+                furance.Empty();
             }
         }
     }
