@@ -167,9 +167,6 @@ public class GrindstoneLogic : MonoBehaviour
                 //MPTP.gotoGrinder();
                 
 
-                otherOther = other.gameObject;
-                other.transform.position = new Vector3(0, 0, 0);
-                other.transform.parent = null;
 
 
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -178,6 +175,17 @@ public class GrindstoneLogic : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        {
+            if (other.gameObject.tag == "Iron Sheet")
+            {
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+            }
+        }
     }
 
 
