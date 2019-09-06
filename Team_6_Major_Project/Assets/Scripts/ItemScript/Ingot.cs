@@ -12,8 +12,11 @@ public class Ingot : MonoBehaviour
     public string objectName;
     public float smeltTime;
     public PickUp ingotPickup;
+    public Furnace furance;
 
     public Material[] textures;
+
+    public int place;
 
     public Shader shader;
 
@@ -52,6 +55,7 @@ public class Ingot : MonoBehaviour
                 this.gameObject.GetComponent<MeshRenderer>().material = NewMat;
                 NewMat.SetInt("Vector1_B7DBC96B", 1);
                 NewMat.SetTexture("Texture2D_45580971", thisTexture);
+                furance.ingotPlace = place;
             }
         }        
     }

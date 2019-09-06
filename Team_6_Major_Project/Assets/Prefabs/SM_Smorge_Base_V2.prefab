@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &72569530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72569531}
+  m_Layer: 10
+  m_Name: Ingot_Position_2_L
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &72569531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72569530}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.998, y: 0.7259028, z: 0.274}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &238300026
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +122,96 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &495198355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 495198356}
+  m_Layer: 10
+  m_Name: Ingot_Position_1_L
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &495198356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495198355}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.998, y: 0.7259028, z: 0.158}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!1 &783685165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783685166}
+  m_Layer: 10
+  m_Name: Ingot_Position_3_L
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783685166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783685165}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.8, y: 0.7259028, z: 0.09}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!1 &1461702487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1461702488}
+  m_Layer: 10
+  m_Name: Ingot_Position_4_L
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1461702488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461702487}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.8, y: 0.7259028, z: 0.341}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &1623365200
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +396,36 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &1759285376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1759285377}
+  m_Layer: 10
+  m_Name: Ingot_Position_6_L
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1759285377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759285376}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.601, y: 0.7259028, z: 0.256}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &1925466583
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +518,36 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &2048240994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2048240995}
+  m_Layer: 10
+  m_Name: Ingot_Position_5_L
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2048240995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048240994}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.601, y: 0.7259028, z: 0.027}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &449859683530200311
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1341834696876362862}
   m_Layer: 10
-  m_Name: Position_1
+  m_Name: Ore_Position_1
   m_TagString: Iron Ore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,7 +618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1695976613209047088}
   m_Layer: 10
-  m_Name: Position_2
+  m_Name: Ore_Position_2
   m_TagString: Iron Ore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -565,7 +745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2134497480959343064}
   m_Layer: 10
-  m_Name: Position_6
+  m_Name: Ore_Position_6
   m_TagString: Iron Ore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -672,7 +852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2748377994808847785}
   m_Layer: 10
-  m_Name: Position_4
+  m_Name: Ore_Position_4
   m_TagString: Iron Ore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -793,6 +973,96 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &3223362165889486547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3223362165889127155}
+  m_Layer: 10
+  m_Name: Ingot_Position_3_R
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3223362165889127155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3223362165889486547}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -0.721, y: 0.7259028, z: 0.12670328}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!1 &3332458168962192658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3332458168961763634}
+  m_Layer: 10
+  m_Name: Ingot_Position_4_R
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3332458168961763634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3332458168962192658}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -0.721, y: 0.7259028, z: 0.37750378}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!1 &3499989397005154303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3499989397005642719}
+  m_Layer: 10
+  m_Name: Ingot_Position_5_R
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3499989397005642719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3499989397005154303}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -0.893, y: 0.7259028, z: 0.21360852}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &3616293796713011781
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +1073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3616293796712580709}
   m_Layer: 10
-  m_Name: Position_3
+  m_Name: Ore_Position_3
   m_TagString: Iron Ore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,7 +1103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5792976144544116907}
   m_Layer: 10
-  m_Name: Position_5
+  m_Name: Ore_Position_5
   m_TagString: Iron Ore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -853,6 +1123,66 @@ Transform:
   m_Father: {fileID: 9086465525390140020}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6145732337269155821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6145732337268734925}
+  m_Layer: 10
+  m_Name: Ingot_Position_6_R
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6145732337268734925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6145732337269155821}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -0.893, y: 0.7259028, z: 0.46440902}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!1 &6573578110039100532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6573578110039330900}
+  m_Layer: 10
+  m_Name: Ingot_Position_2_R
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6573578110039330900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6573578110039100532}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -0.572, y: 0.7259028, z: 0.30992603}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &6879095127191407966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1416,16 @@ MonoBehaviour:
   goldSmallHeat: 2
   goldMediumHeat: 2
   goldLargeHeat: 2
+  ingotPlace: 0
+  sheetPlace: 0
+  ingotplace:
+  - {fileID: 8972273981540733677}
+  - {fileID: 6573578110039330900}
+  - {fileID: 3223362165889127155}
+  - {fileID: 3332458168961763634}
+  - {fileID: 3499989397005642719}
+  - {fileID: 6145732337268734925}
+  sheetplace: {fileID: 3332458168961763634}
   smorgeOn: 0
 --- !u!65 &3155531378117842995
 BoxCollider:
@@ -1269,6 +1609,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8972273981540306637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8972273981540733677}
+  m_Layer: 10
+  m_Name: Ingot_Position_1_R
+  m_TagString: Iron Ingot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8972273981540733677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972273981540306637}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -0.572, y: 0.7259028, z: 0.059125528}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &9086465524569176065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,6 +1769,18 @@ Transform:
   - {fileID: 2748377994808847785}
   - {fileID: 5792976144544116907}
   - {fileID: 2134497480959343064}
+  - {fileID: 8972273981540733677}
+  - {fileID: 6573578110039330900}
+  - {fileID: 3223362165889127155}
+  - {fileID: 3332458168961763634}
+  - {fileID: 3499989397005642719}
+  - {fileID: 6145732337268734925}
+  - {fileID: 495198356}
+  - {fileID: 72569531}
+  - {fileID: 783685166}
+  - {fileID: 1461702488}
+  - {fileID: 2048240995}
+  - {fileID: 1759285377}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1568,6 +1950,16 @@ MonoBehaviour:
   goldSmallHeat: 2
   goldMediumHeat: 2
   goldLargeHeat: 2
+  ingotPlace: 0
+  sheetPlace: 0
+  ingotplace:
+  - {fileID: 495198356}
+  - {fileID: 72569531}
+  - {fileID: 783685166}
+  - {fileID: 1461702488}
+  - {fileID: 2048240995}
+  - {fileID: 1759285377}
+  sheetplace: {fileID: 1461702488}
   smorgeOn: 0
 --- !u!65 &9086465526180957533
 BoxCollider:
