@@ -511,7 +511,7 @@ PrefabInstance:
         Select either Guard or Handle
 
 
-        Hold [Space] to grind, let go to avoid bumps'
+        Hold [E] to grind'
       objectReference: {fileID: 0}
     - target: {fileID: 792148344, guid: 40914cd42201c6648910995523effc1d, type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -6048,15 +6048,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951518475}
-  m_LocalRotation: {x: -0.25881925, y: 0.0000023692846, z: -0.00000062957406, w: -0.9659258}
-  m_LocalPosition: {x: 0, y: 0, z: 0.11}
+  m_LocalRotation: {x: -0.00000065565104, y: 0.0000024514989, z: 0.0000000050932267,
+    w: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.129}
   m_LocalScale: {x: 0.006585666, y: 0.0065856655, z: 0.0065856655}
   m_Children:
   - {fileID: 1379949248}
   - {fileID: 1913409707}
   m_Father: {fileID: 282298366}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 30.000002, y: 360, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 360, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 8.01, y: 1.12}
@@ -8542,7 +8543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 52.1, y: -42.100006}
+  m_AnchoredPosition: {x: 52.1, y: -98.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1336356453
@@ -10258,7 +10259,7 @@ RectTransform:
   m_GameObject: {fileID: 1650174825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.9306631, y: 1.9306631, z: 1.9306631}
   m_Children:
   - {fileID: 1664153986}
   - {fileID: 1762470949}
@@ -10268,7 +10269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 42.5, y: -10.5}
+  m_AnchoredPosition: {x: 42.5, y: -56.5}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650174827

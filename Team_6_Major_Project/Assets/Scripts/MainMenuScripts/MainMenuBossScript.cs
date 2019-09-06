@@ -40,14 +40,16 @@ public class MainMenuBossScript : MonoBehaviour
     }
     public void PlayGame()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Music.SetActive(false);
         MenuCamera.SetActive(false);
         PlayerCamera.SetActive(true);
         SaveScreen.SetActive(false);
         Player.GetComponent<PlayerController>().enabled = true;
         Player.GetComponent<PlayerMotor>().enabled = true;
-        MainMenu.SetActive(true);
         playerCanvas.enabled = true;
+        MainMenu.SetActive(true);
 
     }
 

@@ -78,14 +78,14 @@ public class GrindstoneLogic : MonoBehaviour
             playerInPos = false;
             MTP.returnToPos();
         }
-        if (Input.GetKeyDown(KeyCode.F) && playerInPos)
+        if (Input.GetKeyDown(KeyCode.E) && playerInPos)
         {
             grindingSound.pitch = Random.Range(0.75f, 1.25f);
 
             isGrinding = true;
             grindingSound.Play();
         }
-        if(Input.GetKeyUp(KeyCode.F))
+        if(Input.GetKeyUp(KeyCode.E))
         {
             isGrinding = false;
             grindingSound.Stop();
@@ -165,7 +165,7 @@ public class GrindstoneLogic : MonoBehaviour
                 otherQuality = other.GetComponent<Sheet>().quality;
                 quality = 100;
                 //MPTP.gotoGrinder();
-                
+                otherOther = other.gameObject;
 
 
 

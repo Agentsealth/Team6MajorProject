@@ -23,6 +23,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject PlayerCamera;
     public GameObject MenuCamera;
+
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -145,9 +147,21 @@ public class PauseMenu : MonoBehaviour
 
     public void BackToMenu()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        StartCoroutine("showcursor");
         PlayerCamera.SetActive(false);
         MenuCamera.SetActive(true);
         playerCanvas.enabled = false;
+        Player.GetComponent<PlayerController>().enabled = false;
+        Player.GetComponent<PlayerMotor>().enabled = false;
+        
+    }
 
+    IEnumerator showcursor()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
