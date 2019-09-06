@@ -21,6 +21,8 @@ public class Smorge : MonoBehaviour
     public string objectName;
     public bool smorgeOn = false;
 
+    public Transform badplace;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,6 +111,9 @@ public class Smorge : MonoBehaviour
             }
             else
             {
+                other.transform.position = badplace.transform.position;
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 return;
             }
         }

@@ -35,6 +35,7 @@ public class Furnace : MonoBehaviour
 
     public Transform[] ingotplace;
     public Transform sheetplace;
+    public Transform badplace;
 
     public bool smorgeOn = false;
 
@@ -105,6 +106,7 @@ public class Furnace : MonoBehaviour
                 }
                 else
                 {
+                    other.transform.position = badplace.transform.position;
                     return;
                 }
             }
@@ -117,6 +119,9 @@ public class Furnace : MonoBehaviour
                 }
                 else
                 {
+                    other.transform.position = badplace.transform.position;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                     return;
                 }
             }

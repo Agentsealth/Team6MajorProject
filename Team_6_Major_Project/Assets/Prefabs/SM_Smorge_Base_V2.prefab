@@ -638,6 +638,36 @@ Transform:
   m_Father: {fileID: 9086465525390140020}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1984016419117664994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4892724093699498246}
+  m_Layer: 10
+  m_Name: Bad_Drop_Position
+  m_TagString: Iron Ore
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4892724093699498246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984016419117664994}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.1437003, y: 0.119, z: 1.141}
+  m_LocalScale: {x: 0.77675664, y: 0.77675664, z: 0.77675664}
+  m_Children: []
+  m_Father: {fileID: 9086465525390140020}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2067725602346217721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1456,7 @@ MonoBehaviour:
   - {fileID: 3499989397005642719}
   - {fileID: 6145732337268734925}
   sheetplace: {fileID: 3332458168961763634}
+  badplace: {fileID: 4892724093699498246}
   smorgeOn: 0
 --- !u!65 &3155531378117842995
 BoxCollider:
@@ -1518,6 +1549,7 @@ MonoBehaviour:
   timeIncrease: 30
   objectName: 
   smorgeOn: 0
+  badplace: {fileID: 4892724093699498246}
 --- !u!1 &8182375084607822644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,6 +1813,7 @@ Transform:
   - {fileID: 1461702488}
   - {fileID: 2048240995}
   - {fileID: 1759285377}
+  - {fileID: 4892724093699498246}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1960,6 +1993,7 @@ MonoBehaviour:
   - {fileID: 2048240995}
   - {fileID: 1759285377}
   sheetplace: {fileID: 1461702488}
+  badplace: {fileID: 0}
   smorgeOn: 0
 --- !u!65 &9086465526180957533
 BoxCollider:
