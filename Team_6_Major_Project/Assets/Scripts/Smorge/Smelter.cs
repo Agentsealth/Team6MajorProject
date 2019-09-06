@@ -14,7 +14,8 @@ public class Smelter : MonoBehaviour
     public GameObject ironIngot;
 
     public bool smorgeOn = false;
-
+    public GameObject SmorgeBowl;
+    public GameObject SmorgeLever;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,8 @@ public class Smelter : MonoBehaviour
         {
             if (other.gameObject.tag == "Iron Ore")
             {
+                SmorgeBowl.GetComponent<Animator>().Play("BucketPourMetal", -1, 0);
+                SmorgeLever.GetComponent<Animator>().Play("LeverPourMetal", -1, 0);
                 if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.iron)
                 {
                     ironOre++;
