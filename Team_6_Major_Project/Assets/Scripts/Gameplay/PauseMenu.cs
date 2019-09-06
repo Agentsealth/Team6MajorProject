@@ -5,8 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
-    
 
+    public Canvas playerCanvas;
     public GameObject MainPauseMenu;
     public GameObject OptionsMenu;
     public PlayerController playerController;
@@ -147,6 +147,7 @@ public class PauseMenu : MonoBehaviour
     {
         PlayerCamera.SetActive(false);
         MenuCamera.SetActive(true);
-        
+        playerCanvas.enabled = false;
+
     }
 }

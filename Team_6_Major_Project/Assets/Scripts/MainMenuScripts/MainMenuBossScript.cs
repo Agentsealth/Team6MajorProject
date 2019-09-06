@@ -24,6 +24,7 @@ public class MainMenuBossScript : MonoBehaviour
     public GameObject PlayerCamera;
 
     public GameObject SaveScreen;
+    public Canvas playerCanvas;
     // Start is called before the first frame update
 
     IEnumerator MenuDelay(GameObject menuPart)
@@ -46,7 +47,7 @@ public class MainMenuBossScript : MonoBehaviour
         Player.GetComponent<PlayerController>().enabled = true;
         Player.GetComponent<PlayerMotor>().enabled = true;
         MainMenu.SetActive(true);
-
+        playerCanvas.enabled = true;
 
     }
 
