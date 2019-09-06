@@ -62,6 +62,7 @@ public class Furnace : MonoBehaviour
                 if (other.gameObject.GetComponent<Ingot>().ready == false)
                 {
                     other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     other.gameObject.GetComponent<Ingot>().smeltTime = ironHeat;
                     other.gameObject.GetComponent<Ingot>().furance = this;
 

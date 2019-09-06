@@ -13,6 +13,7 @@ public class Ingot : MonoBehaviour
     public float smeltTime;
     public PickUp ingotPickup;
     public Furnace furance;
+    public Rigidbody rigid;
 
     public Material[] textures;
 
@@ -26,6 +27,7 @@ public class Ingot : MonoBehaviour
     void Start()
     {
         ingotPickup = this.gameObject.GetComponent<PickUp>();
+        rigid = this.gameObject.GetComponent<Rigidbody>();
         objectName = this.gameObject.name;
         TextureChange();
         if (ready == false)
@@ -49,13 +51,15 @@ public class Ingot : MonoBehaviour
             smeltTime -= 1 * Time.deltaTime;
             if (smeltTime <= 0)
             {
-                ready = true;
+                ready = true;              
                 this.gameObject.name = objectName + " (Ready)";
                 var NewMat = new Material(shader);
                 this.gameObject.GetComponent<MeshRenderer>().material = NewMat;
                 NewMat.SetInt("Vector1_B7DBC96B", 1);
                 NewMat.SetTexture("Texture2D_45580971", thisTexture);
+                rigid.isKinematic = false;
                 furance.ingotPlace = place;
+                furance.Empty();
             }
         }        
     }
