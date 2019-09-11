@@ -9,11 +9,13 @@ public class Sword : MonoBehaviour
     public enum MaterialBlade { iron, steel, bronze };
     public enum MaterialHandle { iron, steel, bronze };
     public enum MaterialGuard { iron, steel, bronze };
+    public enum EnchantType { none, chill, flame, spark, toxin, necro, bless }
 
     public SwordType swordType;
     public MaterialBlade materialBlade;
     public MaterialHandle materialHandle;
     public MaterialGuard materialGuard;
+    public EnchantType enchantType;
 
     public int cost;
     public int costToMake;
