@@ -13,6 +13,11 @@ public class DialogueManager : MonoBehaviour
 
     public bool inChat = false;
 
+    public int special1TextFile;
+
+    public int special2TextFile;
+
+
     private void Start()
     {
         sentences = new Queue<string>();

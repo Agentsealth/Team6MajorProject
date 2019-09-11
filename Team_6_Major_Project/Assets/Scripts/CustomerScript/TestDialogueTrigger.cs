@@ -13,6 +13,7 @@ public class TestDialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public DialogueManager dialogueManager;
     public CustomerAI customerAI;
+    public int currentTextNumber;
     public int CustomerNumber;
     public int gold;
     public int randomtype;
@@ -31,16 +32,35 @@ public class TestDialogueTrigger : MonoBehaviour
         customerAI =this.gameObject.GetComponent<CustomerAI>();
         playerStats = FindObjectOfType<PlayerStats>();
         slots = FindObjectsOfType<ItemSlot>();
-        randomtype = Random.Range(0, 3);
-        randomblademat = Random.Range(0, 3);
-        randomguardmat = Random.Range(0, 3);
-        randomhandlemat = Random.Range(0, 3);
-        dialogue.bladeType = (Sword.SwordType)randomtype;
-        dialogue.bladeMaterial = (Sword.MaterialBlade)randomblademat;
-        dialogue.guardMaterial = (Sword.MaterialGuard)randomguardmat;
-        dialogue.handleMaterial = (Sword.MaterialHandle)randomhandlemat;
-        dialogue.sentences[1] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
+        if (dialogue.special == false)
+        {
+            randomtype = Random.Range(0, 3);
+            randomblademat = Random.Range(0, 3);
+            randomguardmat = Random.Range(0, 3);
+            randomhandlemat = Random.Range(0, 3);
+            dialogue.bladeType = (Sword.SwordType)randomtype;
+            dialogue.bladeMaterial = (Sword.MaterialBlade)randomblademat;
+            dialogue.guardMaterial = (Sword.MaterialGuard)randomguardmat;
+            dialogue.handleMaterial = (Sword.MaterialHandle)randomhandlemat;
+            dialogue.sentences[1] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
             + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
+        }
+        else
+        {
+            if (dialogue.specialIndex == 1)
+            {
+                currentTextNumber = dialogueManager.special1TextFile;
+            }
+            else if (dialogue.specialIndex == 2)
+            {
+                currentTextNumber = dialogueManager.special2TextFile;
+            }
+
+            if (dialogue.textfile[currentTextNumber] != null)
+            {
+                dialogue.sentences = (dialogue.textfile[currentTextNumber].text.Split('\n'));
+            }
+        }
     }
 
     // Update is called once per frame
@@ -110,6 +130,14 @@ public class TestDialogueTrigger : MonoBehaviour
                 {
                     if(SlotNumber.handleMaterial == dialogue.handleMaterial)
                     {
+                        if (dialogue.specialIndex == 1)
+                        {
+                            dialogueManager.special1TextFile += 1;
+                        }
+                        else if (dialogue.specialIndex == 2)
+                        {
+                            dialogueManager.special2TextFile += 1;
+                        }
                         playerStats.gold += gold;
                         customerAI.waypointIndex++;
                         Destroy(SlotNumber.sword);
@@ -152,26 +180,26 @@ public class TestDialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Iron Sword")
-        {
-            Debug.Log(other.ToString());
-            if(other.gameObject.GetComponent<Sword>().swordType == dialogue.bladeType)
-            {
-                if(other.gameObject.GetComponent<Sword>().materialBlade == dialogue.bladeMaterial)
-                {
-                    if (other.gameObject.GetComponent<Sword>().materialGuard == dialogue.guardMaterial)
-                    {
-                        if (other.gameObject.GetComponent<Sword>().materialHandle == dialogue.handleMaterial)
-                        {
-                            playerStats.gold += gold;
-                            Destroy(other.gameObject);
-                            WaypointUpdate();
-                        }
-                    }
-                }
-            }
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.tag == "Iron Sword")
+    //    {
+    //        Debug.Log(other.ToString());
+    //        if(other.gameObject.GetComponent<Sword>().swordType == dialogue.bladeType)
+    //        {
+    //            if(other.gameObject.GetComponent<Sword>().materialBlade == dialogue.bladeMaterial)
+    //            {
+    //                if (other.gameObject.GetComponent<Sword>().materialGuard == dialogue.guardMaterial)
+    //                {
+    //                    if (other.gameObject.GetComponent<Sword>().materialHandle == dialogue.handleMaterial)
+    //                    {
+    //                        playerStats.gold += gold;
+    //                        Destroy(other.gameObject);
+    //                        WaypointUpdate();
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
 }
