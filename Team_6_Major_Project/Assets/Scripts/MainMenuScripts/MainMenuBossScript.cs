@@ -25,6 +25,8 @@ public class MainMenuBossScript : MonoBehaviour
 
     public GameObject SaveScreen;
     public Canvas playerCanvas;
+
+    public OptionsMaster optionsMaster;
     // Start is called before the first frame update
 
     IEnumerator MenuDelay(GameObject menuPart)
@@ -61,6 +63,7 @@ public class MainMenuBossScript : MonoBehaviour
 
     public void ShowOptions()
     {
+        
         MainMenu.SetActive(false);
         audioSource.Play();
         StartCoroutine(MenuDelay(Options));

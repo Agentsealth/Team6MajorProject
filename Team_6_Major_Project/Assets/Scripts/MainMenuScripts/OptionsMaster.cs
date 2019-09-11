@@ -28,5 +28,9 @@ public class OptionsMaster : MonoBehaviour
         PlayerPrefs.Save();
     }
 
- 
+    public void updateOptions()
+    {
+        MasterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+
+    }
 }
