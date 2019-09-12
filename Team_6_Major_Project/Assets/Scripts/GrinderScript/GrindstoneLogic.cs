@@ -88,6 +88,7 @@ public class GrindstoneLogic : MonoBehaviour
         }
         if(Input.GetKeyUp(KeyCode.E))
         {
+            sheet.transform.position = initialPosition;
             isGrinding = false;
             grindingSound.Stop();
         }
@@ -96,9 +97,9 @@ public class GrindstoneLogic : MonoBehaviour
 
             if (isGrinding)
             {
-                sheet.transform.position = initialPosition;
-                //transform.position = new Vector3(initialPosition.x, initialPosition.y, 4.94f );
-                sheet.transform.position = transform.position = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z + endPosition);
+                
+                    //transform.position = new Vector3(initialPosition.x, initialPosition.y, 4.94f );
+                    sheet.transform.position = transform.position = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z + endPosition);
                     GameObject temp = GameObject.Instantiate(Sparks, SparkPosition.transform) as GameObject;
                     temp.transform.localPosition = new Vector3(0, 0, 0);
                     temp.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
@@ -161,9 +162,11 @@ public class GrindstoneLogic : MonoBehaviour
         {
             quality = quality - 10;
             isGrinding = false;
-            
+            sheet.transform.position = initialPosition;
+
+
         }
-        if(other.gameObject.tag == "Iron Sheet")
+        if (other.gameObject.tag == "Iron Sheet")
         {
             if (other.GetComponent<Sheet>().size == Sheet.TypeSheet.small)
             {
