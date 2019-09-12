@@ -15,6 +15,5 @@ public class RotateToPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Player.transform);
     }
 }
