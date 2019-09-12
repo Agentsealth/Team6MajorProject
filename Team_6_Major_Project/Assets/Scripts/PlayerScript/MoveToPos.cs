@@ -81,6 +81,33 @@ public class MoveToPos : MonoBehaviour
         
     }
 
+    public void gotoEnchant()
+    {
+        resetPos = transform.position;
+        resetRot = transform.rotation;
+        playerController.speed = 0;
+        playerController.lookSemsitivity = 0;
+        posA = transform.position;
+        posB = loc3.transform.position;
+        rotA = transform.rotation;
+        rotB = loc3.transform.rotation;
+        StartCoroutine(WaitAndMove(delayTime));
+
+    }
+
+    public void gotoLathe()
+    {
+        resetPos = transform.position;
+        resetRot = transform.rotation;
+        playerController.speed = 0;
+        playerController.lookSemsitivity = 0;
+        posA = transform.position;
+        posB = loc4.transform.position;
+        rotA = transform.rotation;
+        rotB = loc4.transform.rotation;
+        StartCoroutine(WaitAndMove(delayTime));
+
+    }
     public void returnToPos()
     {
         StopCoroutine(WaitAndMove(delayTime));

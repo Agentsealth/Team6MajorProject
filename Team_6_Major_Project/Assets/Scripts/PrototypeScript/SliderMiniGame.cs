@@ -55,7 +55,7 @@ public class SliderMiniGame : MonoBehaviour
     private void Start()
     {
         anvil = GameObject.Find("Anvil").GetComponentInChildren<Anvil>();
-        grinder = GameObject.Find("Grinder").GetComponent<Grinder>();
+        //grinder = GameObject.Find("Grinder").GetComponent<Grinder>();
     }
 
     // Update is called once per frame

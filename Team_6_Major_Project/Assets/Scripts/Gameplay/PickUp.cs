@@ -30,6 +30,8 @@ public class PickUp : MonoBehaviour
 
     private void Update()
     {
+        tempParent = GameObject.Find("Parent");
+
         ray = cam.ScreenPointToRay(Input.mousePosition);
         startpoint = ray.origin + (ray.direction * distanceTohit);
 
