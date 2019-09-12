@@ -1301,6 +1301,26 @@ PrefabInstance:
       propertyPath: loc4
       value: 
       objectReference: {fileID: 1849459178}
+    - target: {fileID: 7267120353848688869, guid: a293f25cf93078441984559e5537192d,
+        type: 3}
+      propertyPath: MenuCamera
+      value: 
+      objectReference: {fileID: 688298339}
+    - target: {fileID: 7267120353848688869, guid: a293f25cf93078441984559e5537192d,
+        type: 3}
+      propertyPath: playerCanvas
+      value: 
+      objectReference: {fileID: 1979110303}
+    - target: {fileID: 7267120353207013773, guid: a293f25cf93078441984559e5537192d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267120353207013778, guid: a293f25cf93078441984559e5537192d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7267120353023372142, guid: a293f25cf93078441984559e5537192d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1348,26 +1368,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: dd5551aec3447cd4ea8f35111869ac05,
         type: 3}
-    - target: {fileID: 7267120353848688869, guid: a293f25cf93078441984559e5537192d,
-        type: 3}
-      propertyPath: MenuCamera
-      value: 
-      objectReference: {fileID: 688298339}
-    - target: {fileID: 7267120353848688869, guid: a293f25cf93078441984559e5537192d,
-        type: 3}
-      propertyPath: playerCanvas
-      value: 
-      objectReference: {fileID: 1979110303}
-    - target: {fileID: 7267120353207013773, guid: a293f25cf93078441984559e5537192d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7267120353207013778, guid: a293f25cf93078441984559e5537192d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7267120353077777431, guid: a293f25cf93078441984559e5537192d,
         type: 3}
       propertyPath: m_IsActive
@@ -2654,6 +2654,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1785391448556864532, guid: 316f21e24a762f541be4e1866b9bf05c,
+        type: 3}
+      propertyPath: prompt
+      value: 
+      objectReference: {fileID: 1673044858}
+    - target: {fileID: 1785391448556864532, guid: 316f21e24a762f541be4e1866b9bf05c,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 617753350}
+    - target: {fileID: 1785391448556864532, guid: 316f21e24a762f541be4e1866b9bf05c,
+        type: 3}
+      propertyPath: Grindstone
+      value: 
+      objectReference: {fileID: 254126500}
     - target: {fileID: 1785391448746187586, guid: 316f21e24a762f541be4e1866b9bf05c,
         type: 3}
       propertyPath: m_IsActive
@@ -3056,6 +3071,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40914cd42201c6648910995523effc1d, type: 3}
+--- !u!1 &254126500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1785391448523420892, guid: 316f21e24a762f541be4e1866b9bf05c,
+    type: 3}
+  m_PrefabInstance: {fileID: 224631534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &278323544
 GameObject:
   m_ObjectHideFlags: 0
@@ -8789,36 +8810,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anvil
       objectReference: {fileID: 0}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: ingotplace.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: gameSlider
-      value: 
-      objectReference: {fileID: 1650174825}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: wrongIngotDrop
-      value: 
-      objectReference: {fileID: 943437879}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: ingotplace.Array.data[0]
-      value: 
-      objectReference: {fileID: 943437879}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: ingotplace.Array.data[1]
-      value: 
-      objectReference: {fileID: 943437879}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: ingotplace.Array.data[2]
-      value: 
-      objectReference: {fileID: 943437879}
     - target: {fileID: 4291175538170913703, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8874,6 +8865,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: ingotplace.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: gameSlider
+      value: 
+      objectReference: {fileID: 1650174825}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: wrongIngotDrop
+      value: 
+      objectReference: {fileID: 943437879}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: ingotplace.Array.data[0]
+      value: 
+      objectReference: {fileID: 943437879}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: ingotplace.Array.data[1]
+      value: 
+      objectReference: {fileID: 943437879}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: ingotplace.Array.data[2]
+      value: 
+      objectReference: {fileID: 943437879}
     - target: {fileID: 7903956388518483979, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
