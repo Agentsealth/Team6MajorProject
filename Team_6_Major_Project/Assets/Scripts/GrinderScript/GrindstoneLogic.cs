@@ -7,7 +7,6 @@ public class GrindstoneLogic : MonoBehaviour
     public bool isGrinding;
     public bool canGrind;
     // Start is called before the first frame update
-    GameObject otherOther = null;
     public GameObject handle;
     public GameObject guard;
     public GameObject options;
@@ -38,6 +37,8 @@ public class GrindstoneLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         //grindingSound.pitch = Random.Range(0.5f, 1.5f);
         if (playerHere)
         {
@@ -46,14 +47,14 @@ public class GrindstoneLogic : MonoBehaviour
                 MTP.returnToPos();
             }
         }
-        if (i >= 100 && otherOther != null)
+        if (i >= 100 && sheet != null)
         {
             isGrinding = false;
             grindingSound.Stop();
 
 
             KillSparks();
-            Destroy(otherOther);
+            Destroy(sheet);
             if (isHandle)
             {
                 GameObject craftedHandle = Instantiate(handle, initialPosition + new Vector3(1, 0.25f, 0.21f), Quaternion.identity);
@@ -90,41 +91,39 @@ public class GrindstoneLogic : MonoBehaviour
             isGrinding = false;
             grindingSound.Stop();
         }
-        if (otherOther != null)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-               
-                otherOther.GetComponent<Rigidbody>().isKinematic = false;
-                otherOther.transform.position = new Vector3(0,0,0);
-            }
+        if (sheet != null)
+        {         
 
             if (isGrinding)
             {
-                {
-                    transform.position = new Vector3(initialPosition.x, initialPosition.y, 4.94f );
-                    otherOther.transform.position = transform.position = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z + endPosition);
+                sheet.transform.position = initialPosition;
+                //transform.position = new Vector3(initialPosition.x, initialPosition.y, 4.94f );
+                sheet.transform.position = transform.position = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z + endPosition);
                     GameObject temp = GameObject.Instantiate(Sparks, SparkPosition.transform) as GameObject;
                     temp.transform.localPosition = new Vector3(0, 0, 0);
                     temp.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                    otherOther.transform.eulerAngles = new Vector3(0, 0, 0);
+                    sheet.transform.eulerAngles = new Vector3(0, 0, 0);
                     i++;
-                }
+                
 
 
             }
             if (!isGrinding)
             {
-                {
-                    otherOther.transform.position =  initialPosition;
-                    otherOther.transform.eulerAngles = new Vector3(0, 0, 0);
-                    Destroy(GameObject.FindGameObjectWithTag("Sparks"));
+                
                     
-                }
+                    sheet.transform.eulerAngles = new Vector3(0, 0, 0);
+                    Destroy(GameObject.FindGameObjectWithTag("Sparks"));
+                    Destroy(GameObject.FindGameObjectWithTag("Sparks"));
+
+
             }
         }
         sparkObjs = GameObject.FindGameObjectsWithTag("Sparks");
-        for(int o = 0; o < sparkObjs.Length - 10; o++)
+
+        ExitGrinder();
+
+        for (int o = 0; o < sparkObjs.Length - 10; o++)
         {
             Destroy(sparkObjs[o]);
         }
@@ -137,6 +136,17 @@ public class GrindstoneLogic : MonoBehaviour
             Destroy(sparkObjs[o]);
         }
 
+    }
+
+    public void ExitGrinder( )
+    {
+        if(sheet.GetComponent<PickUp>().isHolding)
+        {
+            sheet.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            canGrind = false;
+            isGrinding = false;
+
+        }
     }
 
     IEnumerator pitchShift()
@@ -157,21 +167,25 @@ public class GrindstoneLogic : MonoBehaviour
         {
             if (other.GetComponent<Sheet>().size == Sheet.TypeSheet.small)
             {
-                canGrind = true;
                 sheet = other.gameObject;
-                other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
+
+                sheet.GetComponent<Sheet>().sheetPickup.isHolding = false;
+
+                sheet.GetComponent<Rigidbody>().isKinematic = true;
+                //sheet.GetComponent<Rigidbody>().useGravity = true;
+                sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                sheet.transform.eulerAngles = new Vector3(0, 0, 0);
+                canGrind = true;
 
 
                 otherQuality = other.GetComponent<Sheet>().quality;
                 quality = 100;
                 //MPTP.gotoGrinder();
-                //otherOther = other.gameObject;
+                //sheet = other.gameObject;
 
 
 
-                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                other.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                other.transform.eulerAngles = new Vector3(0, 0, 0);
+                
             }
         }
 
@@ -184,6 +198,8 @@ public class GrindstoneLogic : MonoBehaviour
             {
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 canGrind = false;
+                isGrinding = false;
+
             }
         }
     }

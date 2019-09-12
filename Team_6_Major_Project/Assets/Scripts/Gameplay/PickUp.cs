@@ -21,6 +21,8 @@ public class PickUp : MonoBehaviour
     public Vector3 direction;
     public Vector3 startpoint;
 
+    public Vector3 itemPos;
+
     private void Start()
     {
         scale = item.transform.localScale;
@@ -34,8 +36,9 @@ public class PickUp : MonoBehaviour
 
         ray = cam.ScreenPointToRay(Input.mousePosition);
         startpoint = ray.origin + (ray.direction * distanceTohit);
-
-        distance = Vector3.Distance(item.transform.position, tempParent.transform.position);
+        item = this.gameObject;
+        itemPos = item.transform.position;
+        distance = Vector3.Distance(itemPos, tempParent.transform.position);
         if(distance >= 3f)
         {
             isHolding = false;
