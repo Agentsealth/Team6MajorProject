@@ -12,6 +12,8 @@ public class ItemSlot : MonoBehaviour
     public Sword.MaterialGuard guardMaterial;
     public Sword.MaterialHandle handleMaterial;
 
+    public int quality;
+
     public TestDialogueTrigger[] npc;
 
     public GameObject sword;
@@ -42,7 +44,8 @@ public class ItemSlot : MonoBehaviour
             bladeType = sword.GetComponent<Sword>().swordType;
             bladeMaterial = sword.GetComponent<Sword>().materialBlade;
             guardMaterial = sword.GetComponent<Sword>().materialGuard;
-            handleMaterial = sword.GetComponent<Sword>().materialHandle;                  
+            handleMaterial = sword.GetComponent<Sword>().materialHandle;
+            quality = sword.GetComponent<Sword>().quality;
         }
     }
 

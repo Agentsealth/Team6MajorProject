@@ -153,46 +153,46 @@ public class QuestGiver : MonoBehaviour
     {
         if(goal.goalType == QuestGoal.GoalType.Sword)
         {
-            goal.swordBladeType = (Sword.SwordType)Random.Range(0, 3);
-            goal.swordBladeMaterial = (Sword.MaterialBlade)Random.Range(0, 3);
-            goal.swordGuardMaterial = (Sword.MaterialGuard)Random.Range(0, 3);
-            goal.swordHandleMaterial = (Sword.MaterialHandle)Random.Range(0, 3);
+            goal.swordBladeType = (Sword.SwordType)Random.Range(1, 4);
+            goal.swordBladeMaterial = (Sword.MaterialBlade)Random.Range(1, 4);
+            goal.swordGuardMaterial = (Sword.MaterialGuard)Random.Range(1, 4);
+            goal.swordHandleMaterial = (Sword.MaterialHandle)Random.Range(1, 4);
             quest.description = "A farmer near the northpart of town requires " + goal.requiredAmount.ToString() + " " + goal.swordBladeType.ToString() + " " 
                 + goal.swordBladeMaterial.ToString() + " blade with " + goal.swordGuardMaterial.ToString() + " guard and " 
                 + goal.swordHandleMaterial.ToString() + " handle with quality of " + goal.requiredQuality.ToString() + " or higher.";
         }
         else if (goal.goalType == QuestGoal.GoalType.Blade)
         {
-            goal.bladeType = (Blade.Typeblade)Random.Range(0, 3);
-            goal.bladeMaterial = (Blade.BladeMaterial)Random.Range(0, 3);
+            goal.bladeType = (Blade.Typeblade)Random.Range(1, 4);
+            goal.bladeMaterial = (Blade.BladeMaterial)Random.Range(1, 4);
             quest.description = "A farmer near the northpart of town requires " + goal.requiredAmount.ToString() + " " + goal.bladeType.ToString() + " "
                 + goal.swordBladeMaterial.ToString() + " blade.";
         }
         else if (goal.goalType == QuestGoal.GoalType.Guard)
         {
-            goal.bladeType = (Blade.Typeblade)Random.Range(0, 3);
-            goal.bladeMaterial = (Blade.BladeMaterial)Random.Range(0, 3);
+            goal.bladeType = (Blade.Typeblade)Random.Range(1, 4);
+            goal.bladeMaterial = (Blade.BladeMaterial)Random.Range(1, 4);
             quest.description = "A farmer near the northpart of town requires " + goal.requiredAmount.ToString() + " " + goal.guardMaterial.ToString() + " "
                 + " guard.";
         }
         else if (goal.goalType == QuestGoal.GoalType.Handle)
         {
-            goal.bladeType = (Blade.Typeblade)Random.Range(0, 3);
-            goal.bladeMaterial = (Blade.BladeMaterial)Random.Range(0, 3);
+            goal.bladeType = (Blade.Typeblade)Random.Range(1, 4);
+            goal.bladeMaterial = (Blade.BladeMaterial)Random.Range(1, 4);
             quest.description = "A farmer near the northpart of town requires " + goal.requiredAmount.ToString() + " " + goal.handleMaterial.ToString() + " "
                 + " handle.";
         }
         else if (goal.goalType == QuestGoal.GoalType.Ingot)
         {
-            goal.bladeType = (Blade.Typeblade)Random.Range(0, 3);
-            goal.bladeMaterial = (Blade.BladeMaterial)Random.Range(0, 3);
+            goal.bladeType = (Blade.Typeblade)Random.Range(1, 4);
+            goal.bladeMaterial = (Blade.BladeMaterial)Random.Range(1, 4);
             quest.description = "A farmer near the northpart of town requires " + goal.requiredAmount.ToString() + " " + goal.ingotMaterial.ToString() + " "
                  + " ingot.";
         }
         else if (goal.goalType == QuestGoal.GoalType.Sheet)
         {
-            goal.bladeType = (Blade.Typeblade)Random.Range(0, 3);
-            goal.bladeMaterial = (Blade.BladeMaterial)Random.Range(0, 3);
+            goal.bladeType = (Blade.Typeblade)Random.Range(1, 4);
+            goal.bladeMaterial = (Blade.BladeMaterial)Random.Range(1, 4);
             quest.description = "A farmer near the northpart of town requires " + goal.requiredAmount.ToString() + " " + goal.sheetType.ToString() + " "
                 + goal.sheetMaterial.ToString() + " sheet.";
         }

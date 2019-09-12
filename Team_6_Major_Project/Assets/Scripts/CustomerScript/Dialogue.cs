@@ -8,7 +8,7 @@ public class Dialogue
     public string npcName;
     public bool special;
     public int specialIndex;
-
+    
     public Sword.SwordType bladeType;
     public Sword.MaterialBlade bladeMaterial;
     public Sword.MaterialGuard guardMaterial;
@@ -20,3 +20,4 @@ public class Dialogue
     public string[] sentences;
 
 }
+

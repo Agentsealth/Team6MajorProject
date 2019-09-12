@@ -130,6 +130,8 @@ MonoBehaviour:
   item: {fileID: 1149039118250727108}
   tempParent: {fileID: 0}
   isHolding: 0
+  direction: {x: 0, y: 0, z: 0}
+  startpoint: {x: 0, y: 0, z: 0}
 --- !u!114 &7189716871489386262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec27a805203ebe4f8378f8894990bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 2
+  size: 3
   material: 0
   quality: 0
   textures:

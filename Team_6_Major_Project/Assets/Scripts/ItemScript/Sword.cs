@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Sword : MonoBehaviour
 {
-    public enum SwordType { small, medium, large };
-    public enum MaterialBlade { iron, steel, bronze };
-    public enum MaterialHandle { iron, steel, bronze };
-    public enum MaterialGuard { iron, steel, bronze };
+    public enum SwordType { none, small, medium, large };
+    public enum MaterialBlade { none, iron, steel, bronze };
+    public enum MaterialHandle { none, iron, steel, bronze };
+    public enum MaterialGuard { none, iron, steel, bronze };
     public enum EnchantType { none, chill, flame, spark, toxin, necro, bless }
 
     public SwordType swordType;

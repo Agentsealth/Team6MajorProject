@@ -9,7 +9,11 @@ public class DialogueManager : MonoBehaviour
 
     public Queue<string> sentences;
 
+    public List<string> banterSentences;
+
     public Animator animator;
+
+    public int index;
 
     public bool inChat = false;
 
@@ -37,6 +41,31 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
+    public void BanterDialogue(Dialogue dialogue, int banterIndex)
+    {
+        animator.SetBool("IsOpen", true);
+        inChat = true;
+        sentences.Clear();
+
+        foreach (string sentence in dialogue.sentences)
+        {
+            banterSentences.Add(sentence);
+        }
+        index = banterIndex;
+        StartCoroutine(TypeBanterSentence(banterSentences[index]));
+
+    }
+
+    public void BanterDialogueSentence()
+    {      
+        if (sentences.Count == 0 || string.IsNullOrEmpty(banterSentences[index + 1]))
+        {
+            EndDialogue();
+            inChat = false;
+            return;
+        }      
+    }
+
     public void DisplayNextSentence()
     {
         string sentence = sentences.Dequeue();
@@ -49,6 +78,16 @@ public class DialogueManager : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator TypeBanterSentence(string sentence)
+    {
+        dialogueText.text = " ";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;           
+        }
     }
 
     IEnumerator TypeSentence(string sentence)

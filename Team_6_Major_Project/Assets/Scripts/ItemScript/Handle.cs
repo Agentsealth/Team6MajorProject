@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Handle : MonoBehaviour
 {
-    public enum HandleMaterial { iron, steel, bronze };
+    public enum HandleMaterial {none, iron, steel, bronze };
 
     public HandleMaterial material;
 

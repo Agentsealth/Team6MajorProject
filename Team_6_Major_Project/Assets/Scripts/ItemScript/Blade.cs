@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Blade : MonoBehaviour
 {
-    public enum Typeblade {small, medium, large };
-    public enum BladeMaterial {iron, steel, bronze };
+    public enum Typeblade {none, small, medium, large };
+    public enum BladeMaterial {none, iron, steel, bronze };
 
     public Typeblade size;
     public BladeMaterial material;

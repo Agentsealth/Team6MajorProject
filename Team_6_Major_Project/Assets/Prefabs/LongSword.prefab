@@ -164,6 +164,8 @@ MonoBehaviour:
   item: {fileID: 7739103084379047966}
   tempParent: {fileID: 0}
   isHolding: 0
+  direction: {x: 0, y: 0, z: 0}
+  startpoint: {x: 0, y: 0, z: 0}
 --- !u!65 &1768532921301769534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -189,10 +191,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a76578503fc1a94ab51090061bd7b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordType: 1
+  swordType: 2
   materialBlade: 0
   materialHandle: 0
   materialGuard: 0
+  enchantType: 0
   cost: 0
   costToMake: 0
   bladeIngot: 0
@@ -214,6 +217,7 @@ MonoBehaviour:
   quality: 0
   AuctionParticles: {fileID: 849923679052135908, guid: f42a3f1caa816114982a2bf20b473996,
     type: 3}
+  AuctionMan: {fileID: 0}
 --- !u!1 &8530594862093489622
 GameObject:
   m_ObjectHideFlags: 0
