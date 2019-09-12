@@ -165,7 +165,7 @@ public class GrindstoneLogic : MonoBehaviour
                 otherQuality = other.GetComponent<Sheet>().quality;
                 quality = 100;
                 //MPTP.gotoGrinder();
-                otherOther = other.gameObject;
+                //otherOther = other.gameObject;
 
 
 
@@ -183,7 +183,7 @@ public class GrindstoneLogic : MonoBehaviour
             if (other.gameObject.tag == "Iron Sheet")
             {
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-
+                canGrind = false;
             }
         }
     }

@@ -8,6 +8,9 @@ public class grindstoneSpinner : MonoBehaviour
     public float speed;
     private MoveToPos MTP;
     private GrindstoneLogic gsLogic;
+    public GameObject Grindstone;
+    public GameObject prompt;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +22,20 @@ public class grindstoneSpinner : MonoBehaviour
     void Update()
     {
 
-        transform.Rotate(speed * Time.deltaTime, 0, 0);
+        Grindstone.transform.Rotate(speed * Time.deltaTime, 0, 0);
         
     }
 
     private void OnMouseOver()
     {
+        float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
+        if (dist < 5)
+        {
+            prompt.SetActive(true);
+            prompt.transform.localScale = new Vector3(prompt.transform.localScale.x + dist, 1, 1);
+        }
+        else prompt.SetActive(false);
+        
         if (gsLogic.canGrind == true)
         {
 
@@ -34,5 +45,11 @@ public class grindstoneSpinner : MonoBehaviour
 
             }
         }
+    }
+
+    private void OnMouseExit()
+    {
+        prompt.SetActive(false);
+
     }
 }
