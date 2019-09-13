@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 57c551190f05af84aa4af124e965d019, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 64a6bec4f276c494594271d3c772c3af, type: 2}
 --- !u!1 &1119074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,7 +3321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318117706}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -439.93, y: 23.129988, z: -20.75}
+  m_LocalPosition: {x: -438.74, y: 23.129988, z: -18.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400993288}
@@ -4852,8 +4852,8 @@ MonoBehaviour:
     specialNpc:
     - {fileID: 3338124924813261125, guid: 08822487b93868f47ac3eb012b8b9ae2, type: 3}
     slotspecial: 0
-    count: 4
-    rate: 1
+    count: 2
+    rate: 0.01
   nextDay: 0
   spawn: {fileID: 318117707}
   timeBetweenDays: 5
@@ -8811,6 +8811,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anvil
       objectReference: {fileID: 0}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: ingotplace.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: gameSlider
+      value: 
+      objectReference: {fileID: 1650174825}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: wrongIngotDrop
+      value: 
+      objectReference: {fileID: 943437879}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: ingotplace.Array.data[0]
+      value: 
+      objectReference: {fileID: 943437879}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: ingotplace.Array.data[1]
+      value: 
+      objectReference: {fileID: 943437879}
+    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
+        type: 3}
+      propertyPath: ingotplace.Array.data[2]
+      value: 
+      objectReference: {fileID: 943437879}
     - target: {fileID: 4291175538170913703, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8866,36 +8896,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: ingotplace.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: gameSlider
-      value: 
-      objectReference: {fileID: 1650174825}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: wrongIngotDrop
-      value: 
-      objectReference: {fileID: 943437879}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: ingotplace.Array.data[0]
-      value: 
-      objectReference: {fileID: 943437879}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: ingotplace.Array.data[1]
-      value: 
-      objectReference: {fileID: 943437879}
-    - target: {fileID: 4291175538725459775, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
-        type: 3}
-      propertyPath: ingotplace.Array.data[2]
-      value: 
-      objectReference: {fileID: 943437879}
     - target: {fileID: 7903956388518483979, guid: 7a3faf6774ca1f440a4da110f3ea2c6f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9869,6 +9869,7 @@ MonoBehaviour:
   isHolding: 0
   direction: {x: 0, y: 0, z: 0}
   startpoint: {x: 0, y: 0, z: 0}
+  itemPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1073866895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12479,7 +12480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380994944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -438.17, y: 22.299988, z: -15.38}
+  m_LocalPosition: {x: -438.71, y: 22.299988, z: -17.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400993288}
@@ -17145,7 +17146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912800578}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -437.59, y: 22.629988, z: -17.45}
+  m_LocalPosition: {x: -438.72, y: 22.629988, z: -17.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400993288}
