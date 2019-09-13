@@ -9,6 +9,7 @@ public class TestDialogueTrigger : MonoBehaviour
     public bool inDialogue = false;
     public bool dialogueDoneforDay = false;
     public bool dialogueStart = false;
+    public bool banterChat = false;
 
     public ItemSlot[] slots;
     public ItemSlot SlotNumber;
@@ -208,6 +209,20 @@ public class TestDialogueTrigger : MonoBehaviour
                     }
                 }
             }
+            else if (banterChat == true)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    dialogueManager.DisplayNextSentence();
+                    inDialogue = dialogueManager.inChat;
+                    if (inDialogue == false)
+                    {
+                        playerStats.gold += cost;
+                        customerAI.waypointIndex++;
+                        Destroy(SlotNumber.sword);
+                    }
+                }
+            }
             else
             {
                 return;
@@ -250,26 +265,43 @@ public class TestDialogueTrigger : MonoBehaviour
                 if(SlotNumber.guardMaterial == dialogue.guardMaterial)
                 {
                     if(SlotNumber.handleMaterial == dialogue.handleMaterial)
-                    {
-                        if (dialogue.specialIndex == 1)
+                    {                     
+                        if (dialogue.special == false)
                         {
-                            dialogueManager.special1TextFile += 1;
+                            quality = SlotNumber.quality;
+                            Tip();
+
+                            dialogue.sentences[5] = "Quality Test: " + quality;
+                            Banter();
+                            if (Input.GetKeyDown(KeyCode.Space))
+                            {
+                                dialogueManager.BanterEndSentence();
+                                inDialogue = dialogueManager.inChat;
+                                playerStats.gold += cost;
+                                customerAI.waypointIndex++;
+                                Destroy(SlotNumber.sword);
+                            }
                         }
-                        else if (dialogue.specialIndex == 2)
+                        else
                         {
-                            dialogueManager.special2TextFile += 1;
-                        }
-                        quality = SlotNumber.quality;
-                        Tip();
-                        dialogue.sentences[5] = "Quality Test: " + quality;
-                        Banter();
-                        if (Input.GetKeyDown(KeyCode.Space))
-                        {
-                            dialogueManager.BanterDialogueSentence();
-                            inDialogue = dialogueManager.inChat;
-                            playerStats.gold += cost;
-                            customerAI.waypointIndex++;
-                            Destroy(SlotNumber.sword);
+                            if (dialogue.specialIndex == 1)
+                            {
+                                dialogueManager.special1TextFile += 1;
+                                currentTextNumber = dialogueManager.special1TextFile;
+                                if (dialogue.textfile[currentTextNumber] != null)
+                                {
+                                    dialogue.sentences = (dialogue.textfile[currentTextNumber].text.Split('\n'));
+                                }
+                            }
+                            else if (dialogue.specialIndex == 2)
+                            {
+                                dialogueManager.special2TextFile += 1;
+                            }
+
+                            quality = SlotNumber.quality;
+                            Tip();
+                            TriggerDialogue();
+                            banterChat = true;
                         }
                     }
                     else

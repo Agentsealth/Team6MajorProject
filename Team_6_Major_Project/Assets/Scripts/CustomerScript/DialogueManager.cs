@@ -60,10 +60,19 @@ public class DialogueManager : MonoBehaviour
     {      
         if (sentences.Count == 0 || string.IsNullOrEmpty(banterSentences[index + 1]))
         {
+            dialogueText.text = " ";
             EndDialogue();
             inChat = false;
             return;
         }      
+    }
+
+    public void BanterEndSentence()
+    {
+            dialogueText.text = " ";
+            animator.SetBool("IsOpen", false);
+            EndDialogue();
+            inChat = false;
     }
 
     public void DisplayNextSentence()
