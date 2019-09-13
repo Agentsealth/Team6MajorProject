@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6886552dd49803d448a612b676f548dc
+guid: fa7ad84746627814b962a5a64c40b1f3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -178,7 +178,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 1
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -262,8 +262,24 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
+    - boneName: Left_thigh_JNT
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     - boneName: Right_thigh_JNT
       humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Left_leg_JNT
+      humanName: LeftLowerLeg
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -278,16 +294,16 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Right_ankle_JNT
-      humanName: RightFoot
+    - boneName: Left_ankle_JNT
+      humanName: LeftFoot
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Right_toe_JNT
-      humanName: RightToes
+    - boneName: Right_ankle_JNT
+      humanName: RightFoot
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -310,64 +326,8 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Neck
-      humanName: UpperChest
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Right_Calvicale_JNT
-      humanName: RightShoulder
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Right_Shoulder_JNT
-      humanName: RightUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Right_Arm_JNT
-      humanName: RightLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Right_Wrist_JNT
-      humanName: RightHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
     - boneName: Head
       humanName: Head
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Right_Eye_JNT
-      humanName: RightEye
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Left_Eye_JNT
-      humanName: LeftEye
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -382,8 +342,24 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
+    - boneName: Right_Calvicale_JNT
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     - boneName: Left_Shoulder_JNT
       humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Right_Shoulder_JNT
+      humanName: RightUpperArm
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -398,6 +374,14 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
+    - boneName: Right_Arm_JNT
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     - boneName: Left_Wrist_JNT
       humanName: LeftHand
       limit:
@@ -406,24 +390,8 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Left_thigh_JNT
-      humanName: LeftUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Left_leg_JNT
-      humanName: LeftLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Left_ankle_JNT
-      humanName: LeftFoot
+    - boneName: Right_Wrist_JNT
+      humanName: RightHand
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -432,6 +400,30 @@ ModelImporter:
         modified: 0
     - boneName: Left_toe_JNT
       humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Right_toe_JNT
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Left_Eye_JNT
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Right_Eye_JNT
+      humanName: RightEye
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -678,20 +670,28 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
+    - boneName: Neck
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     skeleton:
-    - name: NG_walk_v4(Clone)
+    - name: NG_walk_v6(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: root
-      parentName: NG_walk_v4(Clone)
+      parentName: NG_walk_v6(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.70699894, y: 0.7072146, z: -8.6595606e-17, w: -1.32028834e-20}
       scale: {x: 1, y: 1, z: 1}
     - name: pelvis
       parentName: root
-      position: {x: -1.0209764, y: 0.000014662743, z: -0.000029649314}
+      position: {x: -1.0260332, y: 0.000016212463, z: -0.000029649314}
       rotation: {x: 0.0000026604507, y: 0.017452406, z: -0.00015241712, w: 0.9998477}
       scale: {x: 1, y: 1, z: 1}
     - name: Left_thigh_JNT
@@ -707,12 +707,12 @@ ModelImporter:
     - name: Left_ankle_JNT
       parentName: Left_leg_JNT
       position: {x: -0.48839054, y: 0.0043174857, z: -0.047048766}
-      rotation: {x: 0.6568706, y: 0.2857699, z: -0.3150251, w: 0.622588}
+      rotation: {x: 0.6133842, y: 0.32558253, z: -0.42877573, w: 0.57784706}
       scale: {x: 1, y: 1, z: 1}
     - name: Left_ball_JNT
       parentName: Left_ankle_JNT
       position: {x: -0.07633182, y: -0.07417268, z: 0.010599094}
-      rotation: {x: 0.058398936, y: 0.007552466, z: -0.010651768, w: 0.9982079}
+      rotation: {x: 0.034368936, y: 0.12584136, z: 0.18454237, w: 0.9741288}
       scale: {x: 1, y: 1, z: 1}
     - name: Left_toe_JNT
       parentName: Left_ball_JNT
@@ -1017,12 +1017,12 @@ ModelImporter:
     - name: Right_ankle_JNT
       parentName: Right_leg_JNT
       position: {x: 0.48839018, y: -0.004317629, z: 0.04704873}
-      rotation: {x: 0.46214864, y: 0.5352394, z: -0.51165897, w: 0.4879985}
+      rotation: {x: 0.45202458, y: 0.5005202, z: -0.55838937, w: 0.4830679}
       scale: {x: 1, y: 1, z: 1}
     - name: Right_ball_JNT
       parentName: Right_ankle_JNT
       position: {x: 0.076331876, y: 0.07417264, z: -0.010598766}
-      rotation: {x: -0.014640581, y: -0.00027013427, z: 0.0033167526, w: 0.9998873}
+      rotation: {x: 0.000961118, y: 0.08546994, z: 0.008675815, w: 0.99630255}
       scale: {x: 1, y: 1, z: 1}
     - name: Right_toe_JNT
       parentName: Right_ball_JNT
@@ -1030,7 +1030,7 @@ ModelImporter:
       rotation: {x: 0.5, y: -0.5, z: 0.5, w: -0.5}
       scale: {x: 1, y: 1, z: 1}
     - name: ROOT_CTRL
-      parentName: NG_walk_v4(Clone)
+      parentName: NG_walk_v6(Clone)
       position: {x: -0, y: 0.00000032145562, z: 1.0658141e-16}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
