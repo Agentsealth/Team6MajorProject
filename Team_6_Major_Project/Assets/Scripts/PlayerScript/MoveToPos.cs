@@ -25,6 +25,8 @@ public class MoveToPos : MonoBehaviour
     {
         playerController = this.gameObject.GetComponent<PlayerController>();
         gsLogic = GameObject.FindObjectOfType<GrindstoneLogic>();
+        resetPos = transform.position;
+        resetRot = transform.rotation;
     }
     IEnumerator WaitAndMove(float delayTime)
     {
@@ -44,7 +46,10 @@ public class MoveToPos : MonoBehaviour
 
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            returnToPos();
+        }
 
     }
 
@@ -83,6 +88,8 @@ public class MoveToPos : MonoBehaviour
 
     public void gotoEnchant()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         resetPos = transform.position;
         resetRot = transform.rotation;
         playerController.speed = 0;
