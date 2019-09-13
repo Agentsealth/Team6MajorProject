@@ -45,7 +45,7 @@ public class CustomerAI : MonoBehaviour
             }
             else if(waypointIndex == 3)
             {
-                dialogue.SetItemSlot();
+                dialogue.CheckItemSlot();
             }
             else if(waypointIndex == 4)
             {

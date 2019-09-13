@@ -204,6 +204,7 @@ public class TestDialogueTrigger : MonoBehaviour
                         customerAI.setSlotWayPoint();
                         dialogueDoneforDay = true;
                         dialogueStart = false;
+                        SetItemSlot();
                     }
                 }
             }
@@ -214,6 +215,7 @@ public class TestDialogueTrigger : MonoBehaviour
         }
     }
 
+
     public void SetItemSlot()
     {
         for (int i = 0; i < slots.Length; i++)
@@ -221,6 +223,19 @@ public class TestDialogueTrigger : MonoBehaviour
             if (CustomerNumber == slots[i].slotNumber)
             {
                 SlotNumber = slots[i];
+                SlotNumber.docketBlade.text = dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade.";
+                SlotNumber.docketGuard.text = dialogue.guardMaterial.ToString() + " guard ";
+                SlotNumber.docketHandle.text = dialogue.handleMaterial.ToString() + " handle";
+            }
+        }
+    }
+
+    public void CheckItemSlot()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (CustomerNumber == slots[i].slotNumber)
+            {
                 CheckItem();
             }
         }

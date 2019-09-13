@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class ItemSlot : MonoBehaviour
     public Sword.MaterialBlade bladeMaterial;
     public Sword.MaterialGuard guardMaterial;
     public Sword.MaterialHandle handleMaterial;
+
+    public Text docketBlade;
+    public Text docketHandle;
+    public Text docketGuard;
 
     public int quality;
 
