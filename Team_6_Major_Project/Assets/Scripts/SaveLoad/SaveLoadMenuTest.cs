@@ -14,6 +14,7 @@ public class SaveLoadMenuTest : MonoBehaviour
     public GameObject playerCamera;
     public PlayerMotor motor;
     public GameObject day;
+    public UpgradeShop upgradeShop;
     public List<Ore> oreList = new List<Ore>();
     public List<Guard> guardList = new List<Guard>();
     public List<Handle> handleList = new List<Handle>();
@@ -47,6 +48,7 @@ public class SaveLoadMenuTest : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         motor = player.GetComponent<PlayerMotor>();
         playerCamera = GameObject.FindWithTag("MainCamera");
+        upgradeShop = GameObject.FindGameObjectWithTag("UpgradeShop").GetComponent<UpgradeShop>();
     }
 
     public void SetSave1()
@@ -142,6 +144,8 @@ public class SaveLoadMenuTest : MonoBehaviour
         newSaveGame.dayNumber = day.GetComponent<DayProgression>().nextDay + 1;
 
         newSaveGame.cameraRotX = playerCamera.transform.rotation.eulerAngles.x;
+
+        newSaveGame.upgradeInfo.enchantingUpgrade = upgradeShop.upgradedEnchanting;
 
 
         foreach (Ore go in GameObject.FindObjectsOfType<Ore>())
@@ -313,7 +317,8 @@ public class SaveLoadMenuTest : MonoBehaviour
             player.GetComponent<PlayerStats>().CustomerOrderNumber = loadedGame.customerOrderNumber;
             day.GetComponent<DayProgression>().nextDay = loadedGame.dayNumber - 1;
             day.GetComponent<DayProgression>().dayText.text = "Day " + (loadedGame.dayNumber).ToString();
-
+            upgradeShop.upgradedEnchanting = loadedGame.upgradeInfo.enchantingUpgrade;
+            upgradeShop.LoadEnchanting();
             motor.RotateCamera(loadedGame.cameraRotX);
 
             foreach (Ore go in GameObject.FindObjectsOfType<Ore>())

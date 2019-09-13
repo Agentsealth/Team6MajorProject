@@ -115,6 +115,11 @@ public class PlayerRayCast : MonoBehaviour
             {
                 hit.transform.gameObject.GetComponent<QuestPointClick>().OnPointerClick();
             }
+
+            if (hit.transform.gameObject.GetComponent<UpgradePointClick>() != null)
+            {
+                hit.transform.gameObject.GetComponent<UpgradePointClick>().OnPointerClick();
+            }
         }
     }
 
