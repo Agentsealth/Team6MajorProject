@@ -112,6 +112,13 @@ public class SwordInfo
 }
 
 [System.Serializable]
+public class UpgradeInfo
+{
+    public bool enchantingUpgrade;
+}
+
+
+[System.Serializable]
 public class GameData
 {
     public string saveGameName;
@@ -145,4 +152,6 @@ public class GameData
     public List<SheetInfo> SheetInfoList = new List<SheetInfo>();
     public List<IngotInfo> IngotInfoList = new List<IngotInfo>();
     public List<SwordInfo> SwordInfoList = new List<SwordInfo>();
+
+    public UpgradeInfo upgradeInfo = new UpgradeInfo();
 }
