@@ -1749,10 +1749,10 @@ MonoBehaviour:
     npcName: Speical Bob
     special: 1
     specialIndex: 1
-    bladeType: 0
-    bladeMaterial: 0
-    guardMaterial: 0
-    handleMaterial: 0
+    bladeType: 1
+    bladeMaterial: 2
+    guardMaterial: 2
+    handleMaterial: 2
     textfile:
     - {fileID: 4900000, guid: 507d673180f651d4f9508fdbe388eaf3, type: 3}
     - {fileID: 4900000, guid: 95897d3d9b6c3674083595a479bea5de, type: 3}
@@ -1767,6 +1767,7 @@ MonoBehaviour:
     - Special Text 4
   dialogueManager: {fileID: 0}
   customerAI: {fileID: 3338124924234318316}
+  shop: {fileID: 0}
   currentTextNumber: 0
   CustomerNumber: 0
   gold: 50
@@ -1774,6 +1775,17 @@ MonoBehaviour:
   randomblademat: 0
   randomguardmat: 0
   randomhandlemat: 0
+  bladeIngot: 0
+  costToMake: 0
+  steelCost: 0
+  ironCost: 0
+  bronzeCost: 0
+  coalCost: 0
+  bladeIngotCost: 0
+  guardIngotCost: 0
+  handleIngotCost: 0
+  cost: 0
+  quality: 0
   playerStats: {fileID: 0}
   dist: 0
   delay: 2
