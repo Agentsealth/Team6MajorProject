@@ -17,11 +17,6 @@ public class PromptScript : MonoBehaviour
     void Update()
     {
         prompt.transform.LookAt(player.transform);
-
-    }
-
-    private void OnMouseOver()
-    {
         float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
         if (dist < 3)
         {
@@ -29,10 +24,15 @@ public class PromptScript : MonoBehaviour
             prompt.transform.localScale = new Vector3(0.0003f * dist, 0.0003f * dist, 0.0003f * dist);
         }
         else prompt.SetActive(false);
+
+    }
+
+    private void OnMouseOver()
+    {
+        
     }
     private void OnMouseExit()
     {
-        prompt.SetActive(false);
 
     }
 
