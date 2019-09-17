@@ -46,6 +46,10 @@ public class GrindstoneLogic : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 MTP.returnToPos();
+                canGrind = false;
+                isGrinding = false;
+                playerInPos = false;
+                playerHere = false;
             }
         }
         if (i >= 100 && sheet != null)
@@ -87,7 +91,7 @@ public class GrindstoneLogic : MonoBehaviour
             isGrinding = true;
             grindingSound.Play();
         }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Input.GetKeyUp(KeyCode.Mouse0) && playerInPos)
         {
             sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
 
@@ -97,22 +101,16 @@ public class GrindstoneLogic : MonoBehaviour
         if (sheet != null)
         {
 
-            if (isGrinding)
+            if (isGrinding && playerInPos)
             {
-
-
                 sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.3f);
-
                 GameObject temp = GameObject.Instantiate(Sparks, SparkPosition.transform) as GameObject;
                 temp.transform.localPosition = new Vector3(0, 0, 0);
                 temp.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 sheet.transform.eulerAngles = new Vector3(0, 0, 0);
                 i++;
-
-
-
             }
-            if (!isGrinding)
+            if (!isGrinding && playerInPos)
             {
                 //prevent sheet from having issues with the PickUp script
                 sheet.GetComponent<Sheet>().sheetPickup.isHolding = false; 
@@ -122,8 +120,6 @@ public class GrindstoneLogic : MonoBehaviour
                 sheet.transform.eulerAngles = new Vector3(0, 0, 0);
                 Destroy(GameObject.FindGameObjectWithTag("Sparks"));
                 Destroy(GameObject.FindGameObjectWithTag("Sparks"));
-
-
             }
         }
         sparkObjs = GameObject.FindGameObjectsWithTag("Sparks");
@@ -231,11 +227,6 @@ public class GrindstoneLogic : MonoBehaviour
 
                     otherQuality = Parent.transform.GetChild(0).gameObject.GetComponent<Sheet>().quality;
                     quality = 100;
-                    //MPTP.gotoGrinder();
-                    //sheet = other.gameObject;
-
-
-
 
                 }
             } else

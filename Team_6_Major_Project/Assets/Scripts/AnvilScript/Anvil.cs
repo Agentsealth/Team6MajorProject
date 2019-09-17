@@ -35,7 +35,7 @@ public class Anvil : MonoBehaviour
     public static string ingotplace2 = "empty";
     public static string ingotplace3 = "empty";
 
-    private bool isHammering;
+    public bool isHammering;
     private Vector3 hammerOriginalPos;
     public GameObject CritPoint;
 

@@ -25,6 +25,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject MenuCamera;
 
     public GameObject Player;
+    public GrindstoneLogic gsLogic;
+    public Anvil anvil;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && gsLogic.isGrinding == false && anvil.isHammering == false)
         {
             if (isPaused == false)
             {
