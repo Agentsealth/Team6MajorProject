@@ -2,29 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class grindstoneSpinner : MonoBehaviour
+public class GrindstoneSpike : MonoBehaviour
 {
-    float degrees;
-    public float speed;
-    public GameObject Grindstone;
-   
+    public GrindstoneLogic gsLogic;
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        Grindstone.transform.Rotate(speed * Time.deltaTime, 0, 0);
         
     }
 
-    private void OnMouseOver()
+    private void OnTriggerEnter(Collider other)
     {
-        
-
+        if(other.gameObject.tag == "Iron Sheet")
+        {
+            gsLogic.ObstacleHit();
+        }
     }
-
 }

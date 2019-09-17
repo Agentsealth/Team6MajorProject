@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GrindstoneLogic : MonoBehaviour
 {
+    public GameObject Parent;
+
     public bool isGrinding;
     public bool canGrind;
     // Start is called before the first frame update
@@ -37,9 +39,8 @@ public class GrindstoneLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
-
-        //grindingSound.pitch = Random.Range(0.5f, 1.5f);
         if (playerHere)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -79,43 +80,48 @@ public class GrindstoneLogic : MonoBehaviour
             playerInPos = false;
             MTP.returnToPos();
         }
-        if (Input.GetKeyDown(KeyCode.E) && playerInPos)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && playerInPos)
         {
             grindingSound.pitch = Random.Range(0.75f, 1.25f);
 
             isGrinding = true;
             grindingSound.Play();
         }
-        if(Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            sheet.transform.position = initialPosition;
+            sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
+
             isGrinding = false;
             grindingSound.Stop();
         }
         if (sheet != null)
-        {         
+        {
 
             if (isGrinding)
             {
-                
-                    //transform.position = new Vector3(initialPosition.x, initialPosition.y, 4.94f );
-                    sheet.transform.position = transform.position = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z + endPosition);
-                    GameObject temp = GameObject.Instantiate(Sparks, SparkPosition.transform) as GameObject;
-                    temp.transform.localPosition = new Vector3(0, 0, 0);
-                    temp.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                    sheet.transform.eulerAngles = new Vector3(0, 0, 0);
-                    i++;
-                
+
+
+                sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.3f);
+
+                GameObject temp = GameObject.Instantiate(Sparks, SparkPosition.transform) as GameObject;
+                temp.transform.localPosition = new Vector3(0, 0, 0);
+                temp.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                sheet.transform.eulerAngles = new Vector3(0, 0, 0);
+                i++;
+
 
 
             }
             if (!isGrinding)
             {
-                
-                    
-                    sheet.transform.eulerAngles = new Vector3(0, 0, 0);
-                    Destroy(GameObject.FindGameObjectWithTag("Sparks"));
-                    Destroy(GameObject.FindGameObjectWithTag("Sparks"));
+                //prevent sheet from having issues with the PickUp script
+                sheet.GetComponent<Sheet>().sheetPickup.isHolding = false; 
+                sheet.GetComponent<Rigidbody>().isKinematic = true;
+                sheet.GetComponent<Rigidbody>().useGravity = true;
+
+                sheet.transform.eulerAngles = new Vector3(0, 0, 0);
+                Destroy(GameObject.FindGameObjectWithTag("Sparks"));
+                Destroy(GameObject.FindGameObjectWithTag("Sparks"));
 
 
             }
@@ -130,18 +136,18 @@ public class GrindstoneLogic : MonoBehaviour
         }
     }
 
-    void KillSparks()
+    void KillSparks() //Destroy particles being rapidly spawned (NOTE: There's probably a better way of doing this)
     {
-        for (int o = 0; o < sparkObjs.Length ; o++)
+        for (int o = 0; o < sparkObjs.Length; o++)
         {
             Destroy(sparkObjs[o]);
         }
 
     }
 
-    public void ExitGrinder( )
+    public void ExitGrinder() //Disables booleans to aid with player picking up and prevention of snap backing
     {
-        if(sheet.GetComponent<PickUp>().isHolding)
+        if (sheet.GetComponent<PickUp>().isHolding)
         {
             sheet.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             canGrind = false;
@@ -150,51 +156,16 @@ public class GrindstoneLogic : MonoBehaviour
         }
     }
 
-    IEnumerator pitchShift()
+    IEnumerator pitchShift() //Change pitch of Audio for variety
     {
         yield return new WaitForSeconds(1);
         StartCoroutine("pitchShift");
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "gsHazard")
-        {
-            quality = quality - 10;
-            isGrinding = false;
-            sheet.transform.position = initialPosition;
 
+   
 
-        }
-        if (other.gameObject.tag == "Iron Sheet")
-        {
-            if (other.GetComponent<Sheet>().size == Sheet.TypeSheet.small)
-            {
-                sheet = other.gameObject;
-
-                sheet.GetComponent<Sheet>().sheetPickup.isHolding = false;
-
-                sheet.GetComponent<Rigidbody>().isKinematic = true;
-                //sheet.GetComponent<Rigidbody>().useGravity = true;
-                sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                sheet.transform.eulerAngles = new Vector3(0, 0, 0);
-                canGrind = true;
-
-
-                otherQuality = other.GetComponent<Sheet>().quality;
-                quality = 100;
-                //MPTP.gotoGrinder();
-                //sheet = other.gameObject;
-
-
-
-                
-            }
-        }
-
-    }
-
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other) //same as exiting, implemented due to snap back issues
     {
         {
             if (other.gameObject.tag == "Iron Sheet")
@@ -207,18 +178,27 @@ public class GrindstoneLogic : MonoBehaviour
         }
     }
 
-
-    public void chooseHandle()
+    public void ObstacleHit() //When the sheet hits a spike or ditch
     {
-        options.SetActive(false);
-        isHandle = true;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        playerInPos = true;
-
+        quality = quality - 10;
+        isGrinding = false;
+        sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
     }
 
-    public void chooseGuard()
+    public void chooseHandle() //Player chooses to make a handle
+    {
+        if (isGrinding)
+        {
+            options.SetActive(false);
+            isHandle = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
+            playerInPos = true;
+        }
+    }
+
+    public void chooseGuard() //player chooses to make a guard
     {
         options.SetActive(false);
         Debug.Log("Aaaaaa");
@@ -229,6 +209,41 @@ public class GrindstoneLogic : MonoBehaviour
         playerInPos = true;
     }
 
- 
+    private void OnMouseOver() //Player hovers over grindstone and hits F to put down sheet. No longer collision based.
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            int cCount = Parent.transform.childCount;
+            if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet")
+            {
 
+                {
+                    sheet = Parent.transform.GetChild(0).gameObject;
+                    sheet.GetComponent<Rigidbody>().useGravity = false;
+
+                    sheet.GetComponent<Sheet>().sheetPickup.isHolding = false;
+
+                    sheet.GetComponent<Rigidbody>().isKinematic = true;
+                    sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
+                    sheet.transform.eulerAngles = new Vector3(0, 0, 0);
+                    canGrind = true;
+
+
+                    otherQuality = Parent.transform.GetChild(0).gameObject.GetComponent<Sheet>().quality;
+                    quality = 100;
+                    //MPTP.gotoGrinder();
+                    //sheet = other.gameObject;
+
+
+
+
+                }
+            } else
+            {
+                MTP.gotoGrinder();
+            }        
+        }
+    }
 }
+
+
