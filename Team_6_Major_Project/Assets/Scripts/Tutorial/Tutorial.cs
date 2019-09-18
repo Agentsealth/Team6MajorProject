@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
+    //idk if will use 1 panel or multiple
     public GameObject tutPanel01, tutPanel02, tutPanel03; //make array later or something idk
     //public GameObject[] tutPanels = new GameObject[1];
     [TextArea(3, 5)]
@@ -25,6 +26,7 @@ public class Tutorial : MonoBehaviour
         /*if (panelPos + 1 < tutPanels.Length && textPos + 1 < texts.Length)
         {
             ++textPos;
+            ++panelPos;
         }*/
     }
 
