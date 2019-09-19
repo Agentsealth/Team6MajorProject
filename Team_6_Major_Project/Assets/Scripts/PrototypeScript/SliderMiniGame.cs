@@ -102,7 +102,7 @@ public class SliderMiniGame : MonoBehaviour
     {
         if (repeat == maxrepeat)
         {
-            
+            anvil.selected = false;
             if (inUseAnvil == true)
             {
                 //hammer.transform.position = new Vector3(hammer.transform.position.x - 0.25f, hammer.transform.position.y, hammer.transform.position.z);

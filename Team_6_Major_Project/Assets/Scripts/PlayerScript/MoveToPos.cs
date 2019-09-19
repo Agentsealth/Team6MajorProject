@@ -18,13 +18,15 @@ public class MoveToPos : MonoBehaviour
     public GameObject loc2;
     public GameObject loc3;
     public GameObject loc4;
-    public GameObject options;
+    public GameObject[] options;
     private GrindstoneLogic gsLogic;
+    private Anvil anvilLogic;
     
     void Start()
     {
         playerController = this.gameObject.GetComponent<PlayerController>();
         gsLogic = GameObject.FindObjectOfType<GrindstoneLogic>();
+        anvilLogic = GameObject.FindObjectOfType<Anvil>();
         resetPos = transform.position;
         resetRot = transform.rotation;
     }
@@ -55,34 +57,62 @@ public class MoveToPos : MonoBehaviour
 
     public void gotoGrinder()
     {
-       
-            
-        resetPos = transform.position;
-        resetRot = transform.rotation;
-        playerController.speed = 0;
-        playerController.lookSemsitivity = 0;
-        posA = transform.position;
-        posB = loc1.transform.position;
-        rotA = transform.rotation;
-        rotB = loc1.transform.rotation;
-        StartCoroutine(WaitAndMove(delayTime));
-        options.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        gsLogic.playerHere = true;
+
+        if (gsLogic.selected == false)
+        {
+            gsLogic.selected = true;
+            resetPos = transform.position;
+            resetRot = transform.rotation;
+            playerController.speed = 0;
+            playerController.lookSemsitivity = 0;
+            posA = transform.position;
+            posB = loc1.transform.position;
+            rotA = transform.rotation;
+            rotB = loc1.transform.rotation;
+            StartCoroutine(WaitAndMove(delayTime));
+            options[0].SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            gsLogic.playerHere = true;
+        }
+        else
+        {
+            return;
+        }
     }
 
     public void gotoAnvil()
     {
-        resetPos = transform.position;
-        resetRot = transform.rotation;
-        playerController.speed = 0;
-        playerController.lookSemsitivity = 0;
-        posA = transform.position;
-        posB = loc2.transform.position;
-        rotA = transform.rotation;
-        rotB = loc2.transform.rotation;
-        StartCoroutine(WaitAndMove(delayTime));
+        if (anvilLogic.selected == false)
+        {
+            anvilLogic.selected = true;
+            resetPos = transform.position;
+            resetRot = transform.rotation;
+            playerController.speed = 0;
+            playerController.lookSemsitivity = 0;
+            posA = transform.position;
+            posB = loc2.transform.position;
+            rotA = transform.rotation;
+            rotB = loc2.transform.rotation;
+            StartCoroutine(WaitAndMove(delayTime));
+            if (anvilLogic.sheetCount > 0)
+            {
+                options[1].SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+
+            }
+            else
+            {
+                anvilLogic.buttonSelected = true;
+                anvilLogic.resetValue = false;
+
+            }
+        }
+        else
+        {
+            return;
+        }
         
     }
 
@@ -129,7 +159,7 @@ public class MoveToPos : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         StartCoroutine(WaitAndMove(delayTime));
         gsLogic.playerHere = false;
-        options.SetActive(false);
+        options[0].SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 

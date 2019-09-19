@@ -28,6 +28,7 @@ public class CraftingTable : MonoBehaviour
     public Blade.Typeblade bladeType;
 
     public AudioSource craftingNoise;
+    public CraftingBook craftingBook;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +72,18 @@ public class CraftingTable : MonoBehaviour
                 bladeQuality = other.gameObject.GetComponent<Blade>().quality;
                 blade = other.gameObject;
                 bladeCount++;
+                if(bladeType == (Blade.Typeblade)1)
+                {
+                    craftingBook.swordBlade[0].color = Color.green;
+                }
+                else if (bladeType == (Blade.Typeblade)2)
+                {
+                    craftingBook.swordBlade[1].color = Color.green;
+                }
+                else if (bladeType == (Blade.Typeblade)3)
+                {
+                    craftingBook.swordBlade[2].color = Color.green;
+                }
             }
         }
         else if(other.gameObject.tag == "Iron Guard")
@@ -84,7 +97,11 @@ public class CraftingTable : MonoBehaviour
                 guardMaterial = other.gameObject.GetComponent<Guard>().material;
                 guardQuality = other.gameObject.GetComponent<Guard>().quality;
                 guard = other.gameObject;
-                guardCount++;
+                for (int i = 0; i < craftingBook.swordGuard.Length; i++)
+                {
+                    craftingBook.swordGuard[i].color = Color.green;
+                }
+                guardCount++;              
             }
         }
         else if(other.gameObject.tag == "Iron Handle")
@@ -98,6 +115,10 @@ public class CraftingTable : MonoBehaviour
                 handleMaterial = other.gameObject.GetComponent<Handle>().material;
                 handleQuality = other.gameObject.GetComponent<Handle>().quality;
                 handle = other.gameObject;
+                for (int i = 0; i < craftingBook.swordHandle.Length; i++)
+                {
+                    craftingBook.swordHandle[i].color = Color.green;
+                }
                 handleCount++;
             }
         }
@@ -122,6 +143,7 @@ public class CraftingTable : MonoBehaviour
             handleCount = 0;
             guardCount = 0;
             bladeCount = 0;
+            
         }
         else if (bladeType == Blade.Typeblade.medium)
         {
@@ -158,6 +180,14 @@ public class CraftingTable : MonoBehaviour
             handleCount = 0;
             guardCount = 0;
             bladeCount = 0;
+        }
+
+        for (int i = 0; i < craftingBook.swordGuard.Length; i++)
+        {
+            craftingBook.swordGuard[i].color = Color.black;
+            craftingBook.swordBlade[i].color = Color.black;
+            craftingBook.swordHandle[i].color = Color.black;
+
         }
     }
 

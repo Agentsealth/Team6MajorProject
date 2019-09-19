@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5620047885242174686
+--- !u!1 &2531865445362394285
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5620047885242208510}
-  - component: {fileID: 5620047885245108446}
-  - component: {fileID: 5620047885244109342}
-  - component: {fileID: 7649815624307505583}
-  - component: {fileID: 2652814137312101245}
-  - component: {fileID: 3938420967817247918}
-  - component: {fileID: 4797912454918072412}
-  m_Layer: 10
-  m_Name: Short Blade
-  m_TagString: Iron Blade
+  - component: {fileID: 2531865445362759821}
+  - component: {fileID: 2531865445361432749}
+  - component: {fileID: 2531865445360466541}
+  - component: {fileID: 4779067977262532847}
+  - component: {fileID: 2965748332141633736}
+  - component: {fileID: 4742248317411347358}
+  - component: {fileID: 8151128127605519635}
+  m_Layer: 0
+  m_Name: DoubleAxeBlade
+  m_TagString: Iron Axe Blade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5620047885242208510
+--- !u!4 &2531865445362759821
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5620047885242174686}
-  m_LocalRotation: {x: 0.0000009960104, y: 0.7071067, z: -0.00000071762315, w: 0.70710695}
-  m_LocalPosition: {x: -5.722, y: 0.78339285, z: 4.242}
+  m_GameObject: {fileID: 2531865445362394285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.960828, y: 0.2652, z: -1.5554123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: -90, z: -180}
---- !u!33 &5620047885245108446
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2531865445361432749
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5620047885242174686}
-  m_Mesh: {fileID: 4300000, guid: 38b98733402482d45934ead2f7da5b60, type: 3}
---- !u!23 &5620047885244109342
+  m_GameObject: {fileID: 2531865445362394285}
+  m_Mesh: {fileID: 4300000, guid: 1b90b6cb912f1ca4192bef34caa64e46, type: 3}
+--- !u!23 &2531865445360466541
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5620047885242174686}
+  m_GameObject: {fileID: 2531865445362394285}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d6843dfe3fb65e4fb52caa5c668c138, type: 2}
+  - {fileID: 2100000, guid: 1b90b6cb912f1ca4192bef34caa64e46, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,29 +81,42 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &7649815624307505583
+--- !u!65 &4779067977262532847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531865445362394285}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2698605, y: 0.019437775, z: 0.35141802}
+  m_Center: {x: -0.000000007450581, y: -0.0000000023283064, z: 0.000000007450581}
+--- !u!54 &2965748332141633736
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5620047885242174686}
+  m_GameObject: {fileID: 2531865445362394285}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2652814137312101245
+--- !u!114 &4742248317411347358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5620047885242174686}
+  m_GameObject: {fileID: 2531865445362394285}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 157ef8c69625afd4599916d299b0e261, type: 3}
@@ -114,43 +127,30 @@ MonoBehaviour:
   objectPos: {x: 0, y: 0, z: 0}
   distance: 0
   canHold: 1
-  item: {fileID: 5620047885242174686}
+  item: {fileID: 2531865445362394285}
   tempParent: {fileID: 0}
   isHolding: 0
   direction: {x: 0, y: 0, z: 0}
   startpoint: {x: 0, y: 0, z: 0}
   itemPos: {x: 0, y: 0, z: 0}
---- !u!114 &3938420967817247918
+--- !u!114 &8151128127605519635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5620047885242174686}
+  m_GameObject: {fileID: 2531865445362394285}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bec27a805203ebe4f8378f8894990bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blade: 1
-  axe: 0
-  size: 1
+  blade: 2
+  axe: 2
+  size: 0
   material: 0
   quality: 0
   textures:
   - {fileID: 2100000, guid: 12b03d6e0aad6bd47830386889e34da9, type: 2}
   - {fileID: 2100000, guid: 8d6843dfe3fb65e4fb52caa5c668c138, type: 2}
   - {fileID: 2100000, guid: d1e7fa1b8f0422340bbded6a3435293e, type: 2}
---- !u!65 &4797912454918072412
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5620047885242174686}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.094491296, y: 0.016692348, z: 1.0131905}
-  m_Center: {x: 0.000000013038518, y: 0.0041068587, z: 2.891061e-16}

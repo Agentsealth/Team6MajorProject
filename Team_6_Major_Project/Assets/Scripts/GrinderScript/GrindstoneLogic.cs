@@ -19,14 +19,17 @@ public class GrindstoneLogic : MonoBehaviour
     public MoveToPos MTP;
     private int quality;
     private int otherQuality;
+
     private bool isHandle;
     private bool isGuard;
     public bool playerInPos;
     public bool playerHere;
+    public bool selected;
 
     public GameObject Sparks;
     public GameObject SparkPosition;
     public GameObject[] sparkObjs;
+
 
     public AudioSource grindingSound;
     void Start()
@@ -55,6 +58,7 @@ public class GrindstoneLogic : MonoBehaviour
         if (i >= 100 && sheet != null)
         {
             isGrinding = false;
+            selected = false;
             grindingSound.Stop();
 
 
@@ -67,6 +71,7 @@ public class GrindstoneLogic : MonoBehaviour
                 craftedHandle.GetComponent<Handle>().material = (Handle.HandleMaterial)(materialIndex);
                 craftedHandle.GetComponent<Handle>().quality = (quality + otherQuality) / 2;
                 isHandle = false;
+                selected = false;
 
             }
             if (isGuard)
@@ -77,6 +82,7 @@ public class GrindstoneLogic : MonoBehaviour
                 craftedGuard.GetComponent<Guard>().quality = (quality + otherQuality) / 2;
 
                 isGuard = false;
+                selected = false;
 
             }
             i = 0;
@@ -84,6 +90,7 @@ public class GrindstoneLogic : MonoBehaviour
             playerInPos = false;
             MTP.returnToPos();
         }
+
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerInPos)
         {
             grindingSound.pitch = Random.Range(0.75f, 1.25f);
@@ -91,6 +98,7 @@ public class GrindstoneLogic : MonoBehaviour
             isGrinding = true;
             grindingSound.Play();
         }
+
         if (Input.GetKeyUp(KeyCode.Mouse0) && playerInPos)
         {
             sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
@@ -98,6 +106,7 @@ public class GrindstoneLogic : MonoBehaviour
             isGrinding = false;
             grindingSound.Stop();
         }
+
         if (sheet != null)
         {
 
@@ -122,6 +131,7 @@ public class GrindstoneLogic : MonoBehaviour
                 Destroy(GameObject.FindGameObjectWithTag("Sparks"));
             }
         }
+
         sparkObjs = GameObject.FindGameObjectsWithTag("Sparks");
 
         ExitGrinder();
@@ -183,21 +193,19 @@ public class GrindstoneLogic : MonoBehaviour
 
     public void chooseHandle() //Player chooses to make a handle
     {
-        if (isGrinding)
-        {
+ 
             options.SetActive(false);
             isHandle = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
             playerInPos = true;
-        }
+  
     }
 
     public void chooseGuard() //player chooses to make a guard
     {
         options.SetActive(false);
-        Debug.Log("Aaaaaa");
 
         isGuard = true;
         Cursor.visible = false;
@@ -213,26 +221,30 @@ public class GrindstoneLogic : MonoBehaviour
             if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet")
             {
 
-                {
-                    sheet = Parent.transform.GetChild(0).gameObject;
-                    sheet.GetComponent<Rigidbody>().useGravity = false;
+                sheet = Parent.transform.GetChild(0).gameObject;
+                sheet.GetComponent<Rigidbody>().useGravity = false;
 
-                    sheet.GetComponent<Sheet>().sheetPickup.isHolding = false;
+                sheet.GetComponent<Sheet>().sheetPickup.isHolding = false;
 
-                    sheet.GetComponent<Rigidbody>().isKinematic = true;
-                    sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
-                    sheet.transform.eulerAngles = new Vector3(0, 0, 0);
-                    canGrind = true;
+                sheet.GetComponent<Rigidbody>().isKinematic = true;
+                sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
+                sheet.transform.eulerAngles = new Vector3(0, 0, 0);
+                canGrind = true;
 
 
-                    otherQuality = Parent.transform.GetChild(0).gameObject.GetComponent<Sheet>().quality;
-                    quality = 100;
+                otherQuality = Parent.transform.GetChild(0).gameObject.GetComponent<Sheet>().quality;
+                quality = 100;
 
-                }
-            } else
+                
+            }
+            else
             {
                 MTP.gotoGrinder();
             }        
+        }
+        else
+        {
+            return;
         }
     }
 }
