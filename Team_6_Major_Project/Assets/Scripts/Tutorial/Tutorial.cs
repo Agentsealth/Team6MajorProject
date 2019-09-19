@@ -7,7 +7,7 @@ public class Tutorial : MonoBehaviour
 {
     //idk if will use 1 panel or multiple
     public GameObject tutPanel01, tutPanel02, tutPanel03; //make array later or something idk
-    public GameObject[] tutPanels = new GameObject[1];
+    //public GameObject[] tutPanels = new GameObject[1];
     [TextArea(3, 5)]
     public string[] texts = new string[1]; //array of strings for Tutorial panel
     public int textPos = 0; //current position in string array
@@ -15,12 +15,15 @@ public class Tutorial : MonoBehaviour
     public Text currentText = null; //String currently displayed in Text
     public Button nextButton = null; //button to move onto next step
 
-    public GameObject dialogueTrigger;
+    public GameObject dayProgresion;
+    public PlayerController controller;
+    public TestDialogueTrigger dialogueTrigger;
 
     void Awake()
     {
         nextButton = GetComponent<Button>();
-        //dialogueTrigger = GetComponent<TestDialogueTrigger>();
+        controller = GetComponent<PlayerController>();
+        dialogueTrigger = GetComponent<TestDialogueTrigger>();
     }
 
     public void NextButton()
@@ -29,11 +32,14 @@ public class Tutorial : MonoBehaviour
         {
             ++textPos;
             //++panelPos;
+            if(textPos == 1)
+            {
+                dayProgresion.SetActive(true);
+            }
         }
         else/* if (textPos >= texts.Length)*/
         {
             tutPanel01.SetActive(false);
-            dialogueTrigger.SetActive(true);
 
         }
 
