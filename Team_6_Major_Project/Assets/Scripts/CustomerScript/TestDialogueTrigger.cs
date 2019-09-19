@@ -174,7 +174,7 @@ public class TestDialogueTrigger : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(gameObject.transform.position, playerStats.gameObject.transform.position);
-        if(dist <= 7)
+        if(dist <= 3.2)
         {
             inRange = true;
         }
@@ -187,7 +187,7 @@ public class TestDialogueTrigger : MonoBehaviour
         {
             if (dialogueDoneforDay == false)
             {
-                if (Input.GetKeyDown(KeyCode.Space) && dialogueStart == false)
+                if (Input.GetKeyDown(KeyCode.F) && dialogueStart == false)
                 {
                     TriggerDialogue();                   
                     CustomerNumber = playerStats.CustomerOrderNumber;
@@ -195,7 +195,7 @@ public class TestDialogueTrigger : MonoBehaviour
                     inDialogue = dialogueManager.inChat;
                     dialogueStart = true;
                 }
-                else if (Input.GetKeyDown(KeyCode.Space))
+                else if (Input.GetKeyDown(KeyCode.F))
                 {
                     dialogueManager.DisplayNextSentence();
                     inDialogue = dialogueManager.inChat;
@@ -211,7 +211,7 @@ public class TestDialogueTrigger : MonoBehaviour
             }
             else if (banterChat == true)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.F))
                 {
                     dialogueManager.DisplayNextSentence();
                     inDialogue = dialogueManager.inChat;
@@ -273,7 +273,7 @@ public class TestDialogueTrigger : MonoBehaviour
 
                             dialogue.sentences[5] = "Quality Test: " + quality;
                             Banter();
-                            if (Input.GetKeyDown(KeyCode.Space))
+                            if (Input.GetKeyDown(KeyCode.F))
                             {
                                 dialogueManager.BanterEndSentence();
                                 inDialogue = dialogueManager.inChat;

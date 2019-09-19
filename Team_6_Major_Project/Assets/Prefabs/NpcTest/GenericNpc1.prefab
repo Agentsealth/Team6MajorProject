@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2725667086160766157}
-  - component: {fileID: 2725667086150978379}
+  - component: {fileID: 4899774177105375629}
   - component: {fileID: 2725667087746056582}
   - component: {fileID: 2725667087746056581}
   - component: {fileID: 2725667087746056578}
@@ -38,7 +38,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2725667086150978379
+--- !u!95 &4899774177105375629
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -47,11 +47,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2725667086160476461}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 47e892520d1e5f343bf5066be9aa841d, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3d365eeae0cee30479d2afa84c15b5ae, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -103,6 +103,7 @@ MonoBehaviour:
   inDialogue: 0
   dialogueDoneforDay: 0
   dialogueStart: 0
+  banterChat: 0
   slots: []
   SlotNumber: {fileID: 0}
   dialogue:
@@ -269,6 +270,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3d365eeae0cee30479d2afa84c15b5ae, type: 2}
+    - target: {fileID: 9500000, guid: 4ddb108925b14e1429bc84f5deeb1084, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ddb108925b14e1429bc84f5deeb1084, type: 3}
 --- !u!4 &4186567006357948378 stripped
