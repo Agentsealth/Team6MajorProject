@@ -16,14 +16,17 @@ public class Tutorial : MonoBehaviour
     public Button nextButton = null; //button to move onto next step
 
     public GameObject dayProgresion;
-    public PlayerController controller;
-    public TestDialogueTrigger dialogueTrigger;
+
+    private PlayerController _controller;
+    public TestDialogueTrigger _dialogueTrigger;
+
+    public bool inchat;
 
     void Awake()
     {
         nextButton = GetComponent<Button>();
-        controller = GetComponent<PlayerController>();
-        dialogueTrigger = GetComponent<TestDialogueTrigger>();
+        _controller = GetComponent<PlayerController>();
+       // _dialogueTrigger.inDialogue = false;
     }
 
     public void NextButton()
@@ -32,14 +35,20 @@ public class Tutorial : MonoBehaviour
         {
             ++textPos;
             //++panelPos;
-            if(textPos == 1)
+            if (textPos == 2)
             {
-                dayProgresion.SetActive(true);
+                dayProgresion.SetActive(true);            
             }
-        }
-        else/* if (textPos >= texts.Length)*/
-        {
-            tutPanel01.SetActive(false);
+
+            _dialogueTrigger = GameObject.FindObjectOfType<TestDialogueTrigger>();
+            if (_dialogueTrigger.inDialogue == true)
+            {
+                inchat = _dialogueTrigger.inDialogue;
+            }
+            else
+            {
+                inchat = _dialogueTrigger.inDialogue;
+            }
 
         }
 
@@ -48,10 +57,17 @@ public class Tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if (inchat == false)
         {
-            currentText.text = texts[textPos];
-            NextButton();
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                currentText.text = texts[textPos];
+                NextButton();
+            }
+        }
+        else
+        {
+            return;
         }
 
     }
