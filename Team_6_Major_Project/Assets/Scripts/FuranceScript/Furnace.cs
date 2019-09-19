@@ -71,36 +71,48 @@ public class Furnace : MonoBehaviour
                     {
                         other.transform.position = ingotplace[0].transform.position;
                         other.gameObject.GetComponent<Ingot>().place = 1;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
                         ingotplace1 = "full";
                     }
                     else if (ingotplace2 == "empty")
                     {
                         other.transform.position = ingotplace[1].transform.position;
                         other.gameObject.GetComponent<Ingot>().place = 2;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
                         ingotplace2 = "full";
                     }
                     else if (ingotplace3 == "empty")
                     {
                         other.transform.position = ingotplace[2].transform.position;
                         other.gameObject.GetComponent<Ingot>().place = 3;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
                         ingotplace3 = "full";
                     }
                     else if (ingotplace4 == "empty")
                     {
                         other.transform.position = ingotplace[3].transform.position;
                         other.gameObject.GetComponent<Ingot>().place = 4;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
                         ingotplace4 = "full";
                     }
                     else if (ingotplace5 == "empty")
                     {
                         other.transform.position = ingotplace[4].transform.position;
                         other.gameObject.GetComponent<Ingot>().place = 5;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
                         ingotplace5 = "full";
                     }
                     else if (ingotplace6 == "empty")
                     {
                         other.transform.position = ingotplace[5].transform.position;
                         other.gameObject.GetComponent<Ingot>().place = 6;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
                         ingotplace6 = "full";
                     }
                 }
@@ -123,6 +135,8 @@ public class Furnace : MonoBehaviour
                     {
                         other.transform.position = sheetplace.transform.position;
                         other.gameObject.GetComponent<Sheet>().place = 1;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
                         sheetplace1 = "full";
                     }
                 }

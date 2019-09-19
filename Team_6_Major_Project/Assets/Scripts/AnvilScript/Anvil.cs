@@ -18,7 +18,18 @@ public class Anvil : MonoBehaviour
 
     public GameObject gameSlider;
     public GameObject hammer;
+    public GameObject Parent;
+    public GameObject options;
+    public GameObject axe;
+
+
     public bool usingSlider = false;
+    public bool isHammering;
+    public bool selected;
+    public bool buttonSelected;
+    public bool resetValue;
+    public bool isSwordBlade;
+    public bool isAxeBlade;
 
     public List<GameObject> ingots = new List<GameObject>();
     public List<GameObject> sheet = new List<GameObject>();
@@ -35,7 +46,6 @@ public class Anvil : MonoBehaviour
     public static string ingotplace2 = "empty";
     public static string ingotplace3 = "empty";
 
-    public bool isHammering;
     private Vector3 hammerOriginalPos;
     public GameObject CritPoint;
 
@@ -50,6 +60,27 @@ public class Anvil : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (buttonSelected == true)
+        {
+
+            usingSlider = true;
+            isHammering = true;
+            if(resetValue == false)
+            {
+                resetValue = true;
+                gameSlider.SetActive(true);
+                gameSlider.GetComponent<SliderMiniGame>().repeat = 0;
+                gameSlider.GetComponent<SliderMiniGame>().inUseAnvil = true;
+            }
+
+            var position = new Vector3(Random.Range(-3.9f, -3.6f), 0.79f, Random.Range(7.4f, 7.6f));
+            Instantiate(CritPoint, position, Quaternion.identity);
+        }
+        else
+        {
+            return;
+        }
 
         if (isHammering)
         {
@@ -69,16 +100,80 @@ public class Anvil : MonoBehaviour
             {
                 hammer.transform.position = new Vector3(hammer.transform.position.x, hammer.transform.position.y, hammer.transform.position.z + 0.01f);
             }
+        }
 
+    } 
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Iron Ingot")
+        {
+            ingotCount = 0;
+        }
+        else if (other.gameObject.tag == "Iron Sheet")
+        {
+            other.gameObject.GetComponent<Sheet>().quality = Quality;
+            Quality = 0;
+            sheetCount = 0;
+        }
+        else if (other.gameObject.tag == "Iron Blade")
+        {
+            other.gameObject.GetComponent<Blade>().quality = (Quality + sheetQuality) / 2;
+            Quality = 0;
+            sheetQuality = 0;
         }
     }
 
-
-
-    private void OnTriggerEnter(Collider other)
+    private void OnMouseOver()
     {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                int cCount = Parent.transform.childCount;
+                if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet" ||
+                    cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Ingot")
+                {
+                    //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
+                    help(Parent.transform.GetChild(0));
+                   
+                }
+                else
+                {
+                    MTP.gotoAnvil();
+                }
 
+            }
+    }
+
+    public void chooseSword() //Player chooses to make a swordBlade
+    {
+        options.SetActive(false);
+        buttonSelected = true;
+        isSwordBlade = true;
+        resetValue = false;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        //playerInPos = true;
+
+    }
+
+    public void chooseAxe() //player chooses to make a AxeBlade
+    {
+        options.SetActive(false);
+        buttonSelected = true;
+        isAxeBlade = true;
+        resetValue = false;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+
+        //playerInPos = true;
+    }
+
+    public void help(Transform other)
+    {
         if (other.gameObject.tag == "Iron Ingot")
         {
 
@@ -155,8 +250,9 @@ public class Anvil : MonoBehaviour
             {
                 other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
                 other.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                other.transform.position = drop.transform.position;
-
+                other.transform.position = ingotplace[0].transform.position;
+                other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
 
                 if (sheetCount > 1)
                 {
@@ -173,51 +269,6 @@ public class Anvil : MonoBehaviour
             {
                 return;
             }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Iron Ingot")
-        {
-            ingotCount = 0;
-        }
-        else if (other.gameObject.tag == "Iron Sheet")
-        {
-            other.gameObject.GetComponent<Sheet>().quality = Quality;
-            Quality = 0;
-            sheetCount = 0;
-        }
-        else if (other.gameObject.tag == "Iron Blade")
-        {
-            other.gameObject.GetComponent<Blade>().quality = (Quality + sheetQuality) / 2;
-            Quality = 0;
-            sheetQuality = 0;
-        }
-    }
-
-    private void OnMouseOver()
-    {
-        if (ingots.Count > 0 || sheetCount > 0)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
-                MTP.gotoAnvil();
-                gameSlider.SetActive(true);
-                gameSlider.GetComponent<SliderMiniGame>().repeat = 0;
-                gameSlider.GetComponent<SliderMiniGame>().inUseAnvil = true;
-                usingSlider = true;
-                isHammering = true;
-
-                var position = new Vector3(Random.Range(-3.9f, -3.6f), 0.79f, Random.Range(7.4f, 7.6f));
-                Instantiate(CritPoint, position, Quaternion.identity);
-
-            }
-        }
-        else
-        {
-            return;
         }
     }
 
@@ -269,6 +320,7 @@ public class Anvil : MonoBehaviour
             ingotplace3 = "empty";
 
         }
+        buttonSelected = false;
     }
 
 
@@ -280,35 +332,54 @@ public class Anvil : MonoBehaviour
 
             MTP.returnToPos();
             hammer.transform.position = hammerOriginalPos;
-            if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
+            if (isSwordBlade == true)
             {
-                GameObject small = Instantiate(blades[0], drop.position, Quaternion.identity);
-                int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
-                small.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
-                Destroy(sheet[0]);
-                sheet.RemoveRange(0, sheet.Count);
-                DestroyCrit();
-                sheetCount = 0;
+                if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
+                {
+                    GameObject small = Instantiate(blades[0], drop.position, Quaternion.identity);
+                    int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
+                    small.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
+                    Destroy(sheet[0]);
+                    sheet.RemoveRange(0, sheet.Count);
+                    DestroyCrit();
+                    sheetCount = 0;
+                }
+                if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(1))
+                {
+                    GameObject medium = Instantiate(blades[1], drop.position, Quaternion.identity);
+                    int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
+                    medium.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
+                    Destroy(sheet[0]);
+                    sheet.RemoveRange(0, sheet.Count);
+                    DestroyCrit();
+                    sheetCount = 0;
+                }
+                if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(2))
+                {
+                    GameObject large = Instantiate(blades[2], drop.position, Quaternion.identity);
+                    int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
+                    large.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
+                    Destroy(sheet[0]);
+                    sheet.RemoveRange(0, sheet.Count);
+                    DestroyCrit();
+                    sheetCount = 0;
+                }
+                isSwordBlade = false;
+                buttonSelected = false;
+
             }
-            if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(1))
+            else if (isAxeBlade == true)
             {
-                GameObject medium = Instantiate(blades[1], drop.position, Quaternion.identity);
-                int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
-                medium.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
-                Destroy(sheet[0]);
-                sheet.RemoveRange(0, sheet.Count);
-                DestroyCrit();
-                sheetCount = 0;
-            }
-            if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(2))
-            {
-                GameObject large = Instantiate(blades[2], drop.position, Quaternion.identity);
-                int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
-                large.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
-                Destroy(sheet[0]);
-                sheet.RemoveRange(0, sheet.Count);
-                DestroyCrit();
-                sheetCount = 0;
+                if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
+                {
+                    GameObject small = Instantiate(axe, drop.position, Quaternion.identity);
+                    int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
+                    small.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
+                    Destroy(sheet[0]);
+                    sheet.RemoveRange(0, sheet.Count);
+                    DestroyCrit();
+                    sheetCount = 0;
+                }
             }
         }
     }
