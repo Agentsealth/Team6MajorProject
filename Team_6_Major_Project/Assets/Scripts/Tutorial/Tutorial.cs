@@ -31,7 +31,7 @@ public class Tutorial : MonoBehaviour
 
     public void NextButton()
     {
-        if (/*panelPos + 1 < tutPanels.Length &&*/ textPos + 1 < texts.Length)
+        if (textPos + 1 < texts.Length)
         {
             ++textPos;
             //++panelPos;
