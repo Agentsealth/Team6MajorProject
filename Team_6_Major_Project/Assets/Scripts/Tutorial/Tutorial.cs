@@ -22,10 +22,13 @@ public class Tutorial : MonoBehaviour
 
     public bool inchat;
 
+    public bool isTutorialing;
+
     void Awake()
     {
         nextButton = GetComponent<Button>();
         _controller = GetComponent<PlayerController>();
+        isTutorialing = true;
        // _dialogueTrigger.inDialogue = false;
     }
 
@@ -33,23 +36,59 @@ public class Tutorial : MonoBehaviour
     {
         if (textPos + 1 < texts.Length)
         {
-            ++textPos;
+            textPos++;
             //++panelPos;
-            if (textPos == 2)
+            if (textPos == 1)
             {
                 dayProgresion.SetActive(true);            
             }
-
-            _dialogueTrigger = GameObject.FindObjectOfType<TestDialogueTrigger>();
-            if (_dialogueTrigger.inDialogue == true)
+            if(textPos == 2)
             {
-                inchat = _dialogueTrigger.inDialogue;
-            }
-            else
+                tutPanel01.SetActive(false);
+                inchat = true;
+            }  
+            if(textPos == 4)
             {
-                inchat = _dialogueTrigger.inDialogue;
-            }
+                tutPanel01.SetActive(false);
+                inchat = true;
 
+            }
+            if (textPos == 6)
+            {
+                tutPanel01.SetActive(false);
+                inchat = true;
+
+            }
+            if (textPos == 8)
+            {
+                tutPanel01.SetActive(false);
+                inchat = true;
+
+            }
+            if (textPos == 9)
+            {
+                tutPanel01.SetActive(false);
+                inchat = true;
+
+            }
+            if (textPos == 10)
+            {
+                tutPanel01.SetActive(false);
+                inchat = true;
+
+            }
+            if (textPos == 11)
+            {
+                tutPanel01.SetActive(false);
+                inchat = true;
+
+            }
+            if (textPos == 12)
+            {
+                inchat = true;
+                tutPanel01.SetActive(false);
+
+            }
         }
 
     }
@@ -59,7 +98,7 @@ public class Tutorial : MonoBehaviour
     {
         if (inchat == false)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) )
             {
                 currentText.text = texts[textPos];
                 NextButton();
@@ -70,5 +109,32 @@ public class Tutorial : MonoBehaviour
             return;
         }
 
+       
+
+    }
+    public void CanvasToggleOn()
+    {
+
+        tutPanel01.SetActive(true);
+        inchat = false;
+    }
+
+
+    public void CanvasToggleOnV2()
+    {
+
+        tutPanel01.SetActive(true);
+   
+    }
+    public void TutorialNextStep(int expectedTextPos)
+    {
+        if(expectedTextPos != textPos)
+        {
+            if(textPos == expectedTextPos - 1)
+            {
+                currentText.text = texts[expectedTextPos];
+                textPos = expectedTextPos;
+            }
+        }
     }
 }

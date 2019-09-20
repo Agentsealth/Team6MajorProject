@@ -39,10 +39,11 @@ public class Furnace : MonoBehaviour
 
     public bool smorgeOn = false;
 
+    public Tutorial tut;
     // Start is called before the first frame update
     void Start()
     {
-
+        tut = FindObjectOfType<Tutorial>();
     }
 
     // Update is called once per frame
@@ -62,11 +63,17 @@ public class Furnace : MonoBehaviour
             {
                 if (other.gameObject.GetComponent<Ingot>().ready == false)
                 {
+                    if (tut.textPos == 10)
+                    {
+                        tut.CanvasToggleOn();
+
+                    }
+                    tut.TutorialNextStep(10);
                     other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                     other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     other.gameObject.GetComponent<Ingot>().smeltTime = ironHeat;
                     other.gameObject.GetComponent<Ingot>().furance = this;
-
+                    
                     if (ingotplace1 == "empty")
                     {
                         other.transform.position = ingotplace[0].transform.position;

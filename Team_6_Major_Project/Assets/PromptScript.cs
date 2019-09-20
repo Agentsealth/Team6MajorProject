@@ -7,6 +7,8 @@ public class PromptScript : MonoBehaviour
     public GameObject player;
 
     public GameObject prompt;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +20,12 @@ public class PromptScript : MonoBehaviour
     {
         prompt.transform.LookAt(player.transform);
         float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
-        if (dist < 0.5f)
+        if (dist < 3f)
         {
             prompt.SetActive(true);
             prompt.transform.localScale = new Vector3(0.0003f * dist, 0.0003f * dist, 0.0003f * dist);
         }
+       
         else prompt.SetActive(false);
 
     }
