@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2646501466652627063}
-  m_Mesh: {fileID: 4300000, guid: f51f53a3d85400042b07d9446e0b244a, type: 3}
+  m_Mesh: {fileID: 4300000, guid: bdb7fa39f2ec2b64189a1d9fac2c4f39, type: 3}
 --- !u!23 &2646501466650693303
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d1e7fa1b8f0422340bbded6a3435293e, type: 2}
+  - {fileID: 2100000, guid: 93730c1a36198d548af51323854552d0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,13 +124,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: 3
   smorge: {fileID: 0}
+  orePickup: {fileID: 0}
+  place: 0
   timeToDestroy: 0
   timeDecrease: 0
   textures:
-  - {fileID: 2100000, guid: 12b03d6e0aad6bd47830386889e34da9, type: 2}
-  - {fileID: 2100000, guid: 8d6843dfe3fb65e4fb52caa5c668c138, type: 2}
-  - {fileID: 2100000, guid: d1e7fa1b8f0422340bbded6a3435293e, type: 2}
-  - {fileID: 2100000, guid: 58fdccfa67c1db94ab3fe430bd1bc348, type: 2}
+  - {fileID: 2100000, guid: 574fd092793d40c4abd417e3522bb06c, type: 2}
+  - {fileID: 2100000, guid: 93730c1a36198d548af51323854552d0, type: 2}
+  - {fileID: 2100000, guid: 1e8025712ff77a74d8e17368fd878388, type: 2}
+  - {fileID: 2100000, guid: b587edddf2f9c634194af6a0316a8302, type: 2}
 --- !u!114 &2646501466377059976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,3 +155,5 @@ MonoBehaviour:
   isHolding: 0
   direction: {x: 0, y: 0, z: 0}
   startpoint: {x: 0, y: 0, z: 0}
+  itemPos: {x: 0, y: 0, z: 0}
+  playerRightArm: {fileID: 0}

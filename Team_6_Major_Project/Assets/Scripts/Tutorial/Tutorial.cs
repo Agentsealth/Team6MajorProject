@@ -132,6 +132,8 @@ public class Tutorial : MonoBehaviour
         {
             if(textPos == expectedTextPos - 1)
             {
+                tutPanel01.SetActive(true);
+
                 currentText.text = texts[expectedTextPos];
                 textPos = expectedTextPos;
             }

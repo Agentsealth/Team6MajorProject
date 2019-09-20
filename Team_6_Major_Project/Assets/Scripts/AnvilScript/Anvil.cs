@@ -136,22 +136,18 @@ public class Anvil : MonoBehaviour
                 {
 
                 //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
-                if (tut.textPos == 11)
-                {
-                 tut.CanvasToggleOnV2();
-
-                  }
-                tut.TutorialNextStep(11);
+   
                 help(Parent.transform.GetChild(0));
                    
                 }
                 else
                 {
                     MTP.gotoAnvil();
-                
-            }
+                    tut.TutorialNextStep(12);
 
             }
+
+        }
     }
 
     public void chooseSword() //Player chooses to make a swordBlade
@@ -259,7 +255,7 @@ public class Anvil : MonoBehaviour
             if (other.gameObject.GetComponent<Sheet>().ready == true)
             {
                 other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
-                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 other.transform.position = ingotplace[0].transform.position;
                 other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
                 other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
@@ -344,6 +340,12 @@ public class Anvil : MonoBehaviour
             hammer.transform.position = hammerOriginalPos;
             if (isSwordBlade == true)
             {
+                if (tut.textPos == 12)
+                {
+                    tut.CanvasToggleOn();
+
+                }
+                tut.TutorialNextStep(12);
                 if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
                 {
                     GameObject small = Instantiate(blades[0], drop.position, Quaternion.identity);

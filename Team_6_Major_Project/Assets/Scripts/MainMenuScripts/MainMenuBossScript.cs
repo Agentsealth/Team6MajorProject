@@ -40,6 +40,11 @@ public class MainMenuBossScript : MonoBehaviour
         Player.GetComponent<PlayerController>().enabled = false;
         Player.GetComponent<PlayerMotor>().enabled = false;
     }
+
+    public void enablePlayerCanvas()
+    {
+        playerCanvas.enabled = true;
+    }
     public void PlayGame()
     {
         Cursor.lockState = CursorLockMode.Locked;
