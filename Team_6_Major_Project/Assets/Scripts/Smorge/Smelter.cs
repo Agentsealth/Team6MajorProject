@@ -16,9 +16,13 @@ public class Smelter : MonoBehaviour
     public bool smorgeOn = false;
     public GameObject SmorgeBowl;
     public GameObject SmorgeLever;
+
+    private bool hasTuted;
+    public Tutorial tut;
     // Start is called before the first frame update
     void Start()
     {
+        tut = FindObjectOfType<Tutorial>();
     }
 
     // Update is called once per frame
@@ -39,6 +43,11 @@ public class Smelter : MonoBehaviour
         {
             if (other.gameObject.tag == "Iron Ore")
             {
+                if(tut.textPos == 9)
+                {
+                    tut.CanvasToggleOn();
+                }
+                tut.TutorialNextStep(9);
                 SmorgeBowl.GetComponent<Animator>().Play("BucketPourMetal", -1, 0);
                 SmorgeLever.GetComponent<Animator>().Play("LeverPourMetal", -1, 0);
                 if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.iron)

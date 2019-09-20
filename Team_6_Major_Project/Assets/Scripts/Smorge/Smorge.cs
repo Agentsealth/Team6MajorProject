@@ -22,18 +22,28 @@ public class Smorge : MonoBehaviour
     public bool smorgeOn = false;
 
     public Transform badplace;
-
+    private bool hasTuted = false;
+    public Tutorial tut;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         time = 0;
         objectName = this.gameObject.name;
+        tut = FindObjectOfType<Tutorial>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(time > 0)
+        float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
+        if (dist < 3 && tut.textPos == 6)
+        {
+            tut.CanvasToggleOn();
+        }
+
+        if (time > 0)
         {
             smorgeOn = true;
             furance.smorgeOn = smorgeOn;
@@ -43,6 +53,12 @@ public class Smorge : MonoBehaviour
             if (smorgeOn == true)
             {
                 this.gameObject.name = objectName + " (Ready)";
+                if (tut.textPos == 8)
+                {
+                    tut.CanvasToggleOn();
+                }
+                tut.TutorialNextStep(8);
+
             }
             time -= timeDecrease * Time.deltaTime;
         }

@@ -10,6 +10,7 @@ public class TestDialogueTrigger : MonoBehaviour
     public bool dialogueDoneforDay = false;
     public bool dialogueStart = false;
     public bool banterChat = false;
+    public bool tutorial;
 
     public ItemSlot[] slots;
     public ItemSlot SlotNumber;
@@ -43,21 +44,23 @@ public class TestDialogueTrigger : MonoBehaviour
     public float dist;
     public float delay = 2f;
 
-
+    public Tutorial tut;
     // Start is called before the first frame update
     void Start()
     {
+
         dialogueManager = FindObjectOfType<DialogueManager>();
         customerAI =this.gameObject.GetComponent<CustomerAI>();
         playerStats = FindObjectOfType<PlayerStats>();
         slots = FindObjectsOfType<ItemSlot>();
+        tut = FindObjectOfType<Tutorial>();
 
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponentInChildren<Shop>();
         coalCost = shop.coalCost;
         ironCost = shop.ironCost;
         steelCost = shop.steelCost;
         bronzeCost = shop.bronzeCost;
-        if (dialogue.special == false)
+        if (dialogue.special == false && tutorial == false)
         {
             randomtype = Random.Range(1, 4);
             randomblademat = Random.Range(1, 4);
@@ -74,7 +77,7 @@ public class TestDialogueTrigger : MonoBehaviour
             dialogue.sentences[2] = "I will pay " + (costToMake + 10);
             dialogue.sentences[3] = "Good bye";
         }
-        else
+        else if(dialogue.special == true)
         {
             if (dialogue.specialIndex == 1)
             {
@@ -89,6 +92,15 @@ public class TestDialogueTrigger : MonoBehaviour
             {
                 dialogue.sentences = (dialogue.textfile[currentTextNumber].text.Split('\n'));
             }
+        }
+        else if(tutorial == true)
+        {
+            Price();
+            dialogue.sentences[0] = "Hello, my name is " + dialogue.npcName;
+            dialogue.sentences[1] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with "
+            + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
+            dialogue.sentences[2] = "I will pay " + (costToMake + 10);
+            dialogue.sentences[3] = "Good bye";
         }
     }
 
@@ -187,7 +199,7 @@ public class TestDialogueTrigger : MonoBehaviour
         {
             if (dialogueDoneforDay == false)
             {
-                if (Input.GetKeyDown(KeyCode.F) && dialogueStart == false)
+                if (Input.GetKeyDown(KeyCode.Space) && dialogueStart == false)
                 {
                     TriggerDialogue();                   
                     CustomerNumber = playerStats.CustomerOrderNumber;
@@ -195,23 +207,24 @@ public class TestDialogueTrigger : MonoBehaviour
                     inDialogue = dialogueManager.inChat;
                     dialogueStart = true;
                 }
-                else if (Input.GetKeyDown(KeyCode.F))
+                else if (Input.GetKeyDown(KeyCode.Space))
                 {
                     dialogueManager.DisplayNextSentence();
                     inDialogue = dialogueManager.inChat;
                     if (inDialogue == false)
                     {
+                        tut.CanvasToggleOn();
                         WaypointUpdate();
                         customerAI.setSlotWayPoint();
                         dialogueDoneforDay = true;
                         dialogueStart = false;
-                        SetItemSlot();
+                        SetItemSlot();                        
                     }
                 }
             }
             else if (banterChat == true)
             {
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     dialogueManager.DisplayNextSentence();
                     inDialogue = dialogueManager.inChat;
