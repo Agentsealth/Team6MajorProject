@@ -29,12 +29,15 @@ public class DayProgression : MonoBehaviour
     public float searchCountDown = 1f;
 
     public Text dayText;
+    public Tutorial tut;
 
     public SpawnState state = SpawnState.counting;
 
     private void Start()
     {
         dayCountDown = timeBetweenDays;
+        tut = GameObject.FindObjectOfType<Tutorial>().GetComponent<Tutorial>();
+
     }
 
     private void Update()
@@ -120,7 +123,16 @@ public class DayProgression : MonoBehaviour
             }
             else
             {
-                SpawnNpc(_day.genericNpc[0]);
+                if(tut.isTutorialing == true)
+                {
+                    SpawnNpc(_day.genericNpc[0]);
+
+                }
+                else
+                {
+                    SpawnNpc(_day.genericNpc[1]);
+
+                }
             }
             yield return new WaitForSeconds(1f / _day.rate);
         }

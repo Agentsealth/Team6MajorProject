@@ -22,6 +22,8 @@ public class Shop : MonoBehaviour
     public Transform drop;
 
 
+    public Tutorial tut;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,13 +32,22 @@ public class Shop : MonoBehaviour
         bronzeCostText.text = "Bronze Ore (" + bronzeCost + ")";
         steelCostText.text = "Steel Ore (" + steelCost + ")";
         coalCostText.text = "Coal (" + coalCost + ")";
-
+        tut = FindObjectOfType<Tutorial>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
+        if(dist < 3)
+        {
+            if(tut.textPos == 4)
+            {
+                tut.CanvasToggleOn();
+            }
+            tut.TutorialNextStep(4);
+        }
     }
 
     public void BuyIron()

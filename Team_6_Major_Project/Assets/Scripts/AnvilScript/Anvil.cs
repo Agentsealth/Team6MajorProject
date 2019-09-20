@@ -49,12 +49,14 @@ public class Anvil : MonoBehaviour
     private Vector3 hammerOriginalPos;
     public GameObject CritPoint;
 
+    public Tutorial tut;
     // Start is called before the first frame update
     void Start()
     {
         hammerOriginalPos = hammer.transform.position;
         MTP = GameObject.FindObjectOfType<MoveToPos>();
         Timer = time;
+        tut = FindObjectOfType<Tutorial>();
     }
 
     // Update is called once per frame
@@ -132,14 +134,22 @@ public class Anvil : MonoBehaviour
                 if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet" ||
                     cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Ingot")
                 {
-                    //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
-                    help(Parent.transform.GetChild(0));
+
+                //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
+                if (tut.textPos == 11)
+                {
+                 tut.CanvasToggleOnV2();
+
+                  }
+                tut.TutorialNextStep(11);
+                help(Parent.transform.GetChild(0));
                    
                 }
                 else
                 {
                     MTP.gotoAnvil();
-                }
+                
+            }
 
             }
     }
