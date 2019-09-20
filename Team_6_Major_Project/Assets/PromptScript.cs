@@ -18,7 +18,7 @@ public class PromptScript : MonoBehaviour
     {
         prompt.transform.LookAt(player.transform);
         float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
-        if (dist < 3)
+        if (dist < 0.5f)
         {
             prompt.SetActive(true);
             prompt.transform.localScale = new Vector3(0.0003f * dist, 0.0003f * dist, 0.0003f * dist);

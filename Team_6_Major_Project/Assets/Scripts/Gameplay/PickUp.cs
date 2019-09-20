@@ -23,15 +23,20 @@ public class PickUp : MonoBehaviour
 
     public Vector3 itemPos;
 
+    public GameObject playerRightArm;
+
     private void Start()
     {
         scale = item.transform.localScale;
         tempParent = GameObject.Find("Parent");
         cam = Camera.main;
+        playerRightArm = GameObject.FindGameObjectWithTag("RightArm");
     }
 
     private void Update()
     {
+        playerRightArm = GameObject.FindGameObjectWithTag("RightArm");
+
         tempParent = GameObject.Find("Parent");
 
         ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -50,10 +55,12 @@ public class PickUp : MonoBehaviour
             item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             item.transform.parent = tempParent.transform;
             item.transform.position = tempParent.transform.position;
-
+            item.transform.localRotation = Quaternion.Euler(0, 0, 0);
            
             if (Input.GetMouseButtonDown(1))
             {
+                playerRightArm.GetComponent<Animator>().Play("ThrowingObject");
+
                 RaycastObject();
                 direction = (this.transform.position - startpoint).normalized;
                 item.GetComponent<Rigidbody>().AddForce(-direction * throwForce);
@@ -65,6 +72,8 @@ public class PickUp : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0))
                 {
+                    playerRightArm.GetComponent<Animator>().Play("DroppingObjec");
+
                     isHolding = false;
                     canHold = true;
                 }
@@ -97,6 +106,7 @@ public class PickUp : MonoBehaviour
         {
             if (canHold == true)
             {
+                playerRightArm.GetComponent<Animator>().Play("HoldingObject", -1, 0f);
                 isHolding = true;
                 item.GetComponent<Rigidbody>().useGravity = false;
                 item.GetComponent<Rigidbody>().detectCollisions = true;
