@@ -12,7 +12,6 @@ public class DayProgression : MonoBehaviour
     {
         public string name;
         public GameObject[] genericNpc;
-        public GameObject[] specialNpc;
         public int slotspecial;
         public int count;
         public float rate;
@@ -82,7 +81,6 @@ public class DayProgression : MonoBehaviour
             newDay.count = week[0].count;
             newDay.rate = week[0].rate;
             newDay.genericNpc = week[0].genericNpc;
-            newDay.specialNpc = week[0].specialNpc;
             week.Add(newDay);
             dayText.text = "Day " + (nextDay + 1).ToString();
             Debug.Log("New day added");
@@ -117,12 +115,7 @@ public class DayProgression : MonoBehaviour
         {
             _day.slotspecial = _day.count - 1;
 
-            if (i == _day.slotspecial)
-            {
-                SpawnNpc(_day.specialNpc[0]);
-            }
-            else
-            {
+          
                 if(tut.isTutorialing == true)
                 {
                     SpawnNpc(_day.genericNpc[0]);
@@ -133,7 +126,6 @@ public class DayProgression : MonoBehaviour
                     SpawnNpc(_day.genericNpc[1]);
 
                 }
-            }
             yield return new WaitForSeconds(1f / _day.rate);
         }
 
