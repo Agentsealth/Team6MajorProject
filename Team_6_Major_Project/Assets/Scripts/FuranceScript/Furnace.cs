@@ -63,12 +63,10 @@ public class Furnace : MonoBehaviour
             {
                 if (other.gameObject.GetComponent<Ingot>().ready == false)
                 {
-                    if (tut.textPos == 10)
+                    if (tut.textPos == 9 || tut.textPos == 8)
                     {
-                        tut.CanvasToggleOn();
-
+                        tut.ProgressTutorial(9);
                     }
-                    tut.TutorialNextStep(10);
                     other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
                     other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     other.gameObject.GetComponent<Ingot>().smeltTime = ironHeat;
@@ -133,6 +131,18 @@ public class Furnace : MonoBehaviour
             {
                 if (other.gameObject.GetComponent<Sheet>().ready == false)
                 {
+                    if (tut.textPos == 13 || tut.textPos == 12)
+                    {
+                        tut.ProgressTutorial(13);
+                        tut.ProgressTutorial(13);
+
+                    }
+                    if (tut.textPos == 17 || tut.textPos == 16)
+                    {
+                        tut.ProgressTutorial(17);
+                        tut.ProgressTutorial(17);
+
+                    }
                     other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
                     other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     other.gameObject.GetComponent<Sheet>().smeltTime = ironHeat;

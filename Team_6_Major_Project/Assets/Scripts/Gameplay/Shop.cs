@@ -24,6 +24,7 @@ public class Shop : MonoBehaviour
 
     public Tutorial tut;
     public GameObject player;
+    private bool hasRun = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,13 +41,12 @@ public class Shop : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
-        if(dist < 3)
+        if (dist < 3 && hasRun == false)
         {
-            if(tut.textPos == 4)
+            if(tut.textPos == 3 || tut.textPos == 2)
             {
-                tut.CanvasToggleOn();
+                tut.ProgressTutorial(3);
             }
-            tut.TutorialNextStep(4);
         }
     }
 

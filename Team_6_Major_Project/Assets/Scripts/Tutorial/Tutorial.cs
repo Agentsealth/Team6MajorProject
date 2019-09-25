@@ -23,6 +23,7 @@ public class Tutorial : MonoBehaviour
     public bool inchat;
 
     public bool isTutorialing;
+    private bool firstBit = false;
 
     void Awake()
     {
@@ -34,109 +35,92 @@ public class Tutorial : MonoBehaviour
 
     public void NextButton()
     {
-        if (textPos + 1 < texts.Length)
+        if (firstBit == false)
+        {
+            textPos = 0;
+            inchat = false;
+            firstBit = true;
+            return;
+        }
+        if (textPos + 1 < texts.Length && firstBit == true)
         {
             textPos++;
+            currentText.text = texts[textPos];
+
             //++panelPos;
-            if (textPos == 1)
-            {
-                dayProgresion.SetActive(true);            
-            }
-            if(textPos == 2)
-            {
-                tutPanel01.SetActive(false);
-                inchat = true;
-            }  
-            if(textPos == 4)
-            {
-                tutPanel01.SetActive(false);
-                inchat = true;
 
-            }
-            if (textPos == 6)
+            switch (textPos)
             {
-                tutPanel01.SetActive(false);
-                inchat = true;
-
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 13:
+                case 14:
+                case 15:
+                case 17:
+                case 18:
+                case 19:
+                case 20:
+                case 21:
+                case 22:
+                    tutPanel01.SetActive(false);
+                    inchat = true;
+                    break;
+                case 25:
+                    tutPanel01.SetActive(false);
+                    inchat = true;
+                    isTutorialing = false;
+                    break;
             }
-            if (textPos == 8)
-            {
-                tutPanel01.SetActive(false);
-                inchat = true;
 
-            }
-            if (textPos == 9)
-            {
-                tutPanel01.SetActive(false);
-                inchat = true;
-
-            }
-            if (textPos == 10)
-            {
-                tutPanel01.SetActive(false);
-                inchat = true;
-
-            }
-            if (textPos == 11)
-            {
-                tutPanel01.SetActive(false);
-                inchat = true;
-
-            }
-            if (textPos == 12)
-            {
-                inchat = true;
-                tutPanel01.SetActive(false);
-
-            }
-        }
+        } 
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inchat == false)
+        if (textPos == 1)
         {
-            if (Input.GetKeyDown(KeyCode.F) )
+            dayProgresion.SetActive(true);
+        }
+        if (isTutorialing == true)
+        {
+
+
+            if (inchat == false)
             {
-                currentText.text = texts[textPos];
-                NextButton();
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    currentText.text = texts[textPos];
+
+                    NextButton();
+                }
             }
-        }
-        else
-        {
-            return;
-        }
-
-       
-
-    }
-    public void CanvasToggleOn()
-    {
-
-        tutPanel01.SetActive(true);
-        inchat = false;
-    }
-
-
-    public void CanvasToggleOnV2()
-    {
-
-        tutPanel01.SetActive(true);
-   
-    }
-    public void TutorialNextStep(int expectedTextPos)
-    {
-        if(expectedTextPos != textPos)
-        {
-            if(textPos == expectedTextPos - 1)
+            else
             {
-                tutPanel01.SetActive(true);
-
-                currentText.text = texts[expectedTextPos];
-                textPos = expectedTextPos;
+                return;
             }
+
         }
+
+    }
+
+    public void ProgressTutorial(int neededPos)
+    {
+        if (isTutorialing)
+        {
+            inchat = false;
+            tutPanel01.SetActive(true);
+            textPos = neededPos;
+            currentText.text = texts[textPos];
+        }
+        
+
     }
 }

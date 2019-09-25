@@ -138,13 +138,23 @@ public class Anvil : MonoBehaviour
                 //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
    
                 help(Parent.transform.GetChild(0));
-                   
+                if (tut.textPos == 11 || tut.textPos == 10)
+                {
+                    tut.ProgressTutorial(10);
+                    tut.ProgressTutorial(10);
+
                 }
+            }
                 else
                 {
                     MTP.gotoAnvil();
-                    tut.TutorialNextStep(12);
+                if (tut.textPos == 11 || tut.textPos == 10)
+                {
+                    tut.ProgressTutorial(11);
+                    tut.ProgressTutorial(11);
 
+                }
+                
             }
 
         }
@@ -185,7 +195,10 @@ public class Anvil : MonoBehaviour
 
             if (other.gameObject.GetComponent<Ingot>().ready == true)
             {
-
+                if (tut.textPos == 10 || tut.textPos == 9)
+                {
+                    tut.ProgressTutorial(10);
+                }
                 if (ingots.Count > 3)
                 {
                     other.gameObject.transform.position = wrongIngotDrop.position;
@@ -254,6 +267,7 @@ public class Anvil : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Sheet>().ready == true)
             {
+
                 other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 other.transform.position = ingotplace[0].transform.position;
@@ -282,6 +296,16 @@ public class Anvil : MonoBehaviour
     {
         isHammering = false;
         MTP.returnToPos();
+        if (tut.textPos == 12 || tut.textPos == 11)
+        {
+            tut.ProgressTutorial(12);
+            tut.ProgressTutorial(12);
+
+        }
+        if (tut.textPos == 14 || tut.textPos == 13)
+        {
+            tut.ProgressTutorial(14);
+        }
         hammer.transform.position = hammerOriginalPos;
 
         if (ingots.Count == 1)
@@ -340,12 +364,7 @@ public class Anvil : MonoBehaviour
             hammer.transform.position = hammerOriginalPos;
             if (isSwordBlade == true)
             {
-                if (tut.textPos == 12)
-                {
-                    tut.CanvasToggleOn();
 
-                }
-                tut.TutorialNextStep(12);
                 if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
                 {
                     GameObject small = Instantiate(blades[0], drop.position, Quaternion.identity);

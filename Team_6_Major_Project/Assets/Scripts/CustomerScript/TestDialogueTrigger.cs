@@ -213,12 +213,13 @@ public class TestDialogueTrigger : MonoBehaviour
                     inDialogue = dialogueManager.inChat;
                     if (inDialogue == false)
                     {
-                        tut.CanvasToggleOn();
+                        tut.ProgressTutorial(1);
                         WaypointUpdate();
                         customerAI.setSlotWayPoint();
                         dialogueDoneforDay = true;
                         dialogueStart = false;
-                        SetItemSlot();                        
+                        SetItemSlot();
+                        return;
                     }
                 }
             }

@@ -25,11 +25,11 @@ public class ItemSlot : MonoBehaviour
     public Transform badlocation;
     public Transform placelocation;
 
-
+    public Tutorial tut;
     // Start is called before the first frame update
     void Start()
     {
-        
+        tut = FindObjectOfType<Tutorial>();
     }
 
     // Update is called once per frame
@@ -42,6 +42,10 @@ public class ItemSlot : MonoBehaviour
     {
         if (other.gameObject.tag == "Iron Sword")
         {
+            if (tut.textPos == 22 || tut.textPos == 21)
+            {
+                tut.ProgressTutorial(22);
+            }
             npc = FindObjectsOfType<TestDialogueTrigger>();
             sword = other.gameObject;
             sword.transform.position = placelocation.position;

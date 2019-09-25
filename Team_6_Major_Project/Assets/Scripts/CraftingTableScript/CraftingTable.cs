@@ -29,10 +29,12 @@ public class CraftingTable : MonoBehaviour
 
     public AudioSource craftingNoise;
     public CraftingBook craftingBook;
+
+    public Tutorial tut;
     // Start is called before the first frame update
     void Start()
     {
-        
+        tut = FindObjectOfType<Tutorial>();
     }
 
     // Update is called once per frame
@@ -48,6 +50,10 @@ public class CraftingTable : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 craftingNoise.Play();
+                if (tut.textPos == 21 || tut.textPos == 20)
+                {
+                    tut.ProgressTutorial(21);
+                }
                 Craft();
             }
         }
@@ -61,6 +67,10 @@ public class CraftingTable : MonoBehaviour
     {
         if(other.gameObject.tag == "Iron Blade")
         {
+            if (tut.textPos == 15 || tut.textPos == 14)
+            {
+                tut.ProgressTutorial(15);
+            }
             if (bladeCount > 1)
             {
                 other.gameObject.transform.position = sidedrop.position;

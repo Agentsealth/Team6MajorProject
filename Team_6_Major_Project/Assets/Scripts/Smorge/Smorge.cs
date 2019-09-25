@@ -38,9 +38,9 @@ public class Smorge : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
-        if (dist < 3 && tut.textPos == 6)
+        if (dist < 3 && tut.textPos == 5 || dist < 3 && tut.textPos == 4)
         {
-            tut.CanvasToggleOn();
+            tut.ProgressTutorial(5);
         }
 
         if (time > 0)
@@ -53,11 +53,10 @@ public class Smorge : MonoBehaviour
             if (smorgeOn == true)
             {
                 this.gameObject.name = objectName + " (Ready)";
-                if (tut.textPos == 8)
+                if (tut.textPos == 7 || tut.textPos == 6)
                 {
-                    tut.CanvasToggleOn();
+                    tut.ProgressTutorial(7);
                 }
-                tut.TutorialNextStep(8);
 
             }
             time -= timeDecrease * Time.deltaTime;

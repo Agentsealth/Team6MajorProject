@@ -43,11 +43,10 @@ public class Smelter : MonoBehaviour
         {
             if (other.gameObject.tag == "Iron Ore")
             {
-                if(tut.textPos == 9)
+                if (tut.textPos == 8 || tut.textPos == 7)
                 {
-                    tut.CanvasToggleOn();
+                    tut.ProgressTutorial(8);
                 }
-                tut.TutorialNextStep(9);
                 SmorgeBowl.GetComponent<Animator>().Play("BucketPourMetal", -1, 0);
                 SmorgeLever.GetComponent<Animator>().Play("LeverPourMetal", -1, 0);
                 if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.iron)

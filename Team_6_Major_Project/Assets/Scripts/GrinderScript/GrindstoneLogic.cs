@@ -32,11 +32,13 @@ public class GrindstoneLogic : MonoBehaviour
 
 
     public AudioSource grindingSound;
+    public Tutorial tut;
     void Start()
     {
         initialPosition = transform.position;
         MTP = GameObject.FindObjectOfType<MoveToPos>();
         StartCoroutine("pitchShift");
+        tut = FindObjectOfType<Tutorial>();
     }
 
     // Update is called once per frame
@@ -84,6 +86,10 @@ public class GrindstoneLogic : MonoBehaviour
                 isGuard = false;
                 selected = false;
 
+            }
+            if (tut.textPos == 20 || tut.textPos == 19)
+            {
+                tut.ProgressTutorial(20);
             }
             i = 0;
             canGrind = false;
@@ -193,8 +199,11 @@ public class GrindstoneLogic : MonoBehaviour
 
     public void chooseHandle() //Player chooses to make a handle
     {
- 
-            options.SetActive(false);
+        if (tut.textPos == 19 || tut.textPos == 18)
+        {
+            tut.ProgressTutorial(19);
+        }
+        options.SetActive(false);
             isHandle = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -205,6 +214,10 @@ public class GrindstoneLogic : MonoBehaviour
 
     public void chooseGuard() //player chooses to make a guard
     {
+        if (tut.textPos == 19 || tut.textPos == 18)
+        {
+            tut.ProgressTutorial(19);
+        }
         options.SetActive(false);
 
         isGuard = true;
@@ -220,7 +233,10 @@ public class GrindstoneLogic : MonoBehaviour
             int cCount = Parent.transform.childCount;
             if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet")
             {
-
+                if (tut.textPos == 17 || tut.textPos == 16)
+                {
+                    tut.ProgressTutorial(17);
+                }
                 sheet = Parent.transform.GetChild(0).gameObject;
                 sheet.GetComponent<Rigidbody>().useGravity = false;
 
@@ -240,6 +256,10 @@ public class GrindstoneLogic : MonoBehaviour
             else
             {
                 MTP.gotoGrinder();
+                if (tut.textPos == 18 || tut.textPos == 17)
+                {
+                    tut.ProgressTutorial(18);
+                }
             }        
         }
         else
