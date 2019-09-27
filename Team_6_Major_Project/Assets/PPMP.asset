@@ -13,85 +13,9 @@ MonoBehaviour:
   m_Name: PPMP
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 114077252079303854}
-  - {fileID: 114265149919332638}
-  - {fileID: 114759379764811964}
---- !u!114 &114077252079303854
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  focusDistance:
-    overrideState: 1
-    value: 0.1
-  aperture:
-    overrideState: 1
-    value: 0.1
-  focalLength:
-    overrideState: 1
-    value: 41
-  kernelSize:
-    overrideState: 1
-    value: 1
---- !u!114 &114265149919332638
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
-  m_Name: Bloom
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  intensity:
-    overrideState: 1
-    value: 1
-  threshold:
-    overrideState: 1
-    value: 0.1
-  softKnee:
-    overrideState: 1
-    value: 0.704
-  clamp:
-    overrideState: 0
-    value: 65472
-  diffusion:
-    overrideState: 0
-    value: 7
-  anamorphicRatio:
-    overrideState: 0
-    value: 0
-  color:
-    overrideState: 1
-    value: {r: 1, g: 1, b: 1, a: 1}
-  fastMode:
-    overrideState: 0
-    value: 0
-  dirtTexture:
-    overrideState: 1
-    value: {fileID: 0}
-    defaultState: 1
-  dirtIntensity:
-    overrideState: 1
-    value: 0
---- !u!114 &114759379764811964
+  - {fileID: 114341372704491428}
+  - {fileID: 114847713586199762}
+--- !u!114 &114341372704491428
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
   m_Name: ColorGrading
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -115,8 +39,8 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 1
   tonemapper:
-    overrideState: 1
-    value: 1
+    overrideState: 0
+    value: 2
   toneCurveToeStrength:
     overrideState: 0
     value: 0
@@ -161,11 +85,11 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 1
-    value: 0.23
+    overrideState: 0
+    value: 0.06
   contrast:
     overrideState: 0
-    value: 0
+    value: -3.6
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -194,14 +118,14 @@ MonoBehaviour:
     overrideState: 0
     value: 100
   lift:
-    overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    overrideState: 1
+    value: {x: 1, y: 1, z: 1, w: -0.015847977}
   gamma:
-    overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    overrideState: 1
+    value: {x: 1, y: 1, z: 1, w: -0.17432645}
   gain:
-    overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    overrideState: 1
+    value: {x: 1, y: 1, z: 1, w: -0.39619648}
   masterCurve:
     overrideState: 0
     value:
@@ -1402,3 +1326,29 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
+--- !u!114 &114847713586199762
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  spectralLut:
+    overrideState: 1
+    value: {fileID: 2800000, guid: 3aac3087967ea4fae858ec0494fd24d9, type: 3}
+    defaultState: 1
+  intensity:
+    overrideState: 1
+    value: 0.06
+  fastMode:
+    overrideState: 1
+    value: 0
