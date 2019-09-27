@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PPMP
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 114341372704491428}
+  - {fileID: 114724344077136368}
   - {fileID: 114847713586199762}
---- !u!114 &114341372704491428
+--- !u!114 &114724344077136368
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27,7 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
   m_Name: ColorGrading
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -40,7 +40,7 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 0
-    value: 2
+    value: 0
   toneCurveToeStrength:
     overrideState: 0
     value: 0
@@ -79,17 +79,17 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   saturation:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: -19.93
   brightness:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 0
-    value: 0.06
+    overrideState: 1
+    value: 0.3
   contrast:
-    overrideState: 0
-    value: -3.6
+    overrideState: 1
+    value: -21.05
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -119,13 +119,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: -0.015847977}
+    value: {x: 1, y: 1, z: 1, w: -0.25356573}
   gamma:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: -0.17432645}
+    value: {x: 1, y: 1, z: 1, w: 0.110935}
   gain:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: -0.39619648}
+    value: {x: 1, y: 1, z: 1, w: 0.30110934}
   masterCurve:
     overrideState: 0
     value:
