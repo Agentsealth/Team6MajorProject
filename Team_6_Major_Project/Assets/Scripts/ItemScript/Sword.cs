@@ -97,16 +97,52 @@ public class Sword : MonoBehaviour
         {
             gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material = textures[0];
             bladeIngotCost = ironCost;
+            if (swordType == SwordType.small)
+            {
+                this.gameObject.name = "Short Iron Sword";
+            }
+            else if (swordType == SwordType.medium)
+            {
+                this.gameObject.name = "Long Iron Sword";
+            }
+            else if (swordType == SwordType.large)
+            {
+                this.gameObject.name = "Bastard Iron Sword";
+            }
         }
         else if (materialBlade == MaterialBlade.steel)
         {
             gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material = textures[1];
             bladeIngotCost = steelCost;
+            if (swordType == SwordType.small)
+            {
+                this.gameObject.name = "Short Steel Sword";
+            }
+            else if (swordType == SwordType.medium)
+            {
+                this.gameObject.name = "Long Steel Sword";
+            }
+            else if (swordType == SwordType.large)
+            {
+                this.gameObject.name = "Bastard Steel Sword";
+            }
         }
         else if (materialBlade == MaterialBlade.bronze)
         {
             gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material = textures[2];
             bladeIngotCost = bronzeCost;
+            if (swordType == SwordType.small)
+            {
+                this.gameObject.name = "Short Bronze Sword";
+            }
+            else if (swordType == SwordType.medium)
+            {
+                this.gameObject.name = "Long Bronze Sword";
+            }
+            else if (swordType == SwordType.large)
+            {
+                this.gameObject.name = "Bastard Bronze Sword";
+            }
         }
     }
 

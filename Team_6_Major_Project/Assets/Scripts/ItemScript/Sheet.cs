@@ -30,9 +30,9 @@ public class Sheet : MonoBehaviour
     void Start()
     {
         sheetPickup = this.gameObject.GetComponent<PickUp>();
-        objectName = this.gameObject.name;
         rigid = this.gameObject.GetComponent<Rigidbody>();
         TextureChange();
+        objectName = this.gameObject.name;
         if (ready == false)
         {
             this.gameObject.name = objectName + " (Not Ready)";
@@ -72,19 +72,52 @@ public class Sheet : MonoBehaviour
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[0];
             thisTexture = textures[0].mainTexture;
-
+            if(size == TypeSheet.small)
+            {
+                this.gameObject.name = "Small Iron Sheet";
+            }
+            else if (size == TypeSheet.medium)
+            {
+                this.gameObject.name = "Medium Iron Sheet";
+            }
+            else if (size == TypeSheet.large)
+            {
+                this.gameObject.name = "Large Iron Sheet";
+            }
         }
         else if (material == SheetMaterial.steel)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[1];
             thisTexture = textures[0].mainTexture;
-
+            if (size == TypeSheet.small)
+            {
+                this.gameObject.name = "Small Steel Sheet";
+            }
+            else if (size == TypeSheet.medium)
+            {
+                this.gameObject.name = "Medium Steel Sheet";
+            }
+            else if (size == TypeSheet.large)
+            {
+                this.gameObject.name = "Large Steel Sheet";
+            }
         }
         else if (material == SheetMaterial.bronze)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[2];
             thisTexture = textures[0].mainTexture;
-
+            if (size == TypeSheet.small)
+            {
+                this.gameObject.name = "Small Bronze Sheet";
+            }
+            else if (size == TypeSheet.medium)
+            {
+                this.gameObject.name = "Medium Bronze Sheet";
+            }
+            else if (size == TypeSheet.large)
+            {
+                this.gameObject.name = "Large Bronze Sheet";
+            }
         }
     }
 }

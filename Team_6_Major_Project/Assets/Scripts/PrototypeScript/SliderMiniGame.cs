@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class SliderMiniGame : MonoBehaviour
 {
-    [SerializeField]
-    private Text text;
+    //[SerializeField]
+    //private Text text;
     [SerializeField]
     private int maxrepeat = 5;
     [SerializeField]
@@ -146,37 +146,37 @@ public class SliderMiniGame : MonoBehaviour
                 repeat++;
                 if (slider.value <= badRange / 2)
                 {
-                    text.text = "Bad";
+                    //text.text = "Bad";
                     totalQuality += badQuality;
                 }
                 else if (slider.value > badRange / 2 && slider.value <= ((badRange / 2) + (goodRange / 2)))
                 {
-                    text.text = "Good";
+                    //text.text = "Good";
                     totalQuality += goodQuality;
                 }
                 else if (slider.value > ((badRange / 2) + (goodRange / 2)) && slider.value <= ((badRange / 2) + (goodRange / 2) + (greatRange / 2)))
                 {
-                    text.text = "Great";
+                    //text.text = "Great";
                     totalQuality += greatQuality;
                 }
                 else if (slider.value > ((badRange / 2) + (goodRange / 2) + (greatRange / 2)) && slider.value <= ((badRange / 2) + (goodRange / 2) + (greatRange / 2) + perfectRange))
                 {
-                    text.text = "Perfect";
+                    //text.text = "Perfect";
                     totalQuality += perfectQuality;
                 }
                 else if (slider.value > (slider.maxValue - (badRange / 2) - (goodRange / 2) - (greatRange / 2)) && slider.value <= (slider.maxValue - (badRange / 2) - (goodRange / 2)))
                 {
-                    text.text = "Great";
+                    //text.text = "Great";
                     totalQuality += greatQuality;
                 }
                 else if (slider.value > (slider.maxValue - (badRange / 2) - (goodRange / 2)) && slider.value <= slider.maxValue - (badRange / 2))
                 {
-                    text.text = "Good";
+                    //text.text = "Good";
                     totalQuality += goodQuality;
                 }
                 else if (slider.value > slider.maxValue - (badRange / 2) && slider.value <= slider.maxValue)
                 {
-                    text.text = "Bad";
+                    //text.text = "Bad";
                     totalQuality += badQuality;
                 }
                 

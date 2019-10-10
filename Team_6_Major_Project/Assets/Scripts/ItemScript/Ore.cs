@@ -49,18 +49,22 @@ public class Ore : MonoBehaviour
         if(material == OreMaterial.iron)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[0];
+            this.gameObject.name = "Iron Chunk";
         }
         else if(material == OreMaterial.steel)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[1];
+            this.gameObject.name = "Steel Chunk";
         }
         else if (material == OreMaterial.bronze)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[2];
+            this.gameObject.name = "Bronze Chunk";
         }
         else if (material == OreMaterial.coal)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[3];
+            this.gameObject.name = "Coal Chunk";
         }
     }
 }

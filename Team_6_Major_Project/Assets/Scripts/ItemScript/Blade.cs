@@ -34,14 +34,50 @@ public class Blade : MonoBehaviour
         if (material == BladeMaterial.iron)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[0];
+            if (size == Typeblade.small)
+            {
+                this.gameObject.name = "Small Iron Blade";
+            }
+            else if (size == Typeblade.medium)
+            {
+                this.gameObject.name = "Large Iron Blade";
+            }
+            else if (size == Typeblade.large)
+            {
+                this.gameObject.name = "Bastard Iron Blade";
+            }
         }
         else if (material == BladeMaterial.steel)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[1];
+            if (size == Typeblade.small)
+            {
+                this.gameObject.name = "Small Steel Blade";
+            }
+            else if (size == Typeblade.medium)
+            {
+                this.gameObject.name = "Large Steel Blade";
+            }
+            else if (size == Typeblade.large)
+            {
+                this.gameObject.name = "Bastard Steel Blade";
+            }
         }
         else if (material == BladeMaterial.bronze)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[2];
+            if (size == Typeblade.small)
+            {
+                this.gameObject.name = "Small Bronze Blade";
+            }
+            else if (size == Typeblade.medium)
+            {
+                this.gameObject.name = "Large Bronze Blade";
+            }
+            else if (size == Typeblade.large)
+            {
+                this.gameObject.name = "Bastard Bronze Blade";
+            }
         }
     }
 }

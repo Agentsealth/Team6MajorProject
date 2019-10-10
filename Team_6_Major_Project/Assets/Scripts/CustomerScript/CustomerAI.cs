@@ -62,7 +62,7 @@ public class CustomerAI : MonoBehaviour
     {
         if(dialogue.CustomerNumber == 1)
         {
-            waypoints[3] = slotwayPoints[2];
+            waypoints[3] = slotwayPoints[0];
         }
         else if(dialogue.CustomerNumber == 2)
         {
@@ -70,11 +70,11 @@ public class CustomerAI : MonoBehaviour
         }
         else if (dialogue.CustomerNumber == 3)
         {
-            waypoints[3] = slotwayPoints[0];
+            waypoints[3] = slotwayPoints[2];
         }
         else
         {
-            waypoints[3] = slotwayPoints[0];
+            return;
         }
     }
 }

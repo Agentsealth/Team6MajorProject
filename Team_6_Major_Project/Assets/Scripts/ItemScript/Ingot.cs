@@ -70,19 +70,22 @@ public class Ingot : MonoBehaviour
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[0];
             thisTexture = textures[0].mainTexture;
-
+            this.gameObject.name = "Iron Ingot";
 
         }
         else if (material == IngotMaterial.steel)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[1];
             thisTexture = textures[1].mainTexture;
+            this.gameObject.name = "Steel Ingot";
+
 
         }
         else if (material == IngotMaterial.bronze)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[2];
             thisTexture = textures[2].mainTexture;
+            this.gameObject.name = "Bronze Ingot";
 
         }
     }

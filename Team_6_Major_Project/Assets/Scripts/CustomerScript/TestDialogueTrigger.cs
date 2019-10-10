@@ -223,20 +223,20 @@ public class TestDialogueTrigger : MonoBehaviour
                     }
                 }
             }
-            else if (banterChat == true)
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    dialogueManager.DisplayNextSentence();
-                    inDialogue = dialogueManager.inChat;
-                    if (inDialogue == false)
-                    {
-                        playerStats.gold += cost;
-                        customerAI.waypointIndex++;
-                        Destroy(SlotNumber.sword);
-                    }
-                }
-            }
+            //else if (banterChat == true)
+            //{
+            //    if (Input.GetKeyDown(KeyCode.Space))
+            //    {
+            //        dialogueManager.DisplayNextSentence();
+            //        inDialogue = dialogueManager.inChat;
+            //        if (inDialogue == false)
+            //        {
+            //            playerStats.gold += cost;
+            //            customerAI.waypointIndex++;
+            //            Destroy(SlotNumber.sword);
+            //        }
+            //    }
+            //}
             else
             {
                 return;
@@ -284,17 +284,9 @@ public class TestDialogueTrigger : MonoBehaviour
                         {
                             quality = SlotNumber.quality;
                             Tip();
-
-                            dialogue.sentences[5] = "Quality Test: " + quality;
-                            Banter();
-                            if (Input.GetKeyDown(KeyCode.F))
-                            {
-                                dialogueManager.BanterEndSentence();
-                                inDialogue = dialogueManager.inChat;
-                                playerStats.gold += cost;
-                                customerAI.waypointIndex++;
-                                Destroy(SlotNumber.sword);
-                            }
+                            playerStats.gold += cost;
+                            customerAI.waypointIndex++;
+                            Destroy(SlotNumber.sword);
                         }
                         else
                         {

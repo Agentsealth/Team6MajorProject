@@ -29,14 +29,17 @@ public class Guard : MonoBehaviour
         if (material == GuardMaterial.iron)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[0];
+            this.gameObject.name = "Iron Guard";
         }
         else if (material == GuardMaterial.steel)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[1];
+            this.gameObject.name = "Steel Guard";
         }
         else if (material == GuardMaterial.bronze)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[2];
+            this.gameObject.name = "Bronze Guard";
         }
     }
 

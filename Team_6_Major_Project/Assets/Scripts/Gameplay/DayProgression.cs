@@ -80,7 +80,7 @@ public class DayProgression : MonoBehaviour
             newDay.name = "Day " + (nextDay + 1).ToString();
             newDay.count = week[0].count;
             newDay.rate = week[0].rate;
-            newDay.genericNpc = week[0].genericNpc;
+            newDay.genericNpc = week[1].genericNpc;
             week.Add(newDay);
             dayText.text = "Day " + (nextDay + 1).ToString();
             Debug.Log("New day added");
@@ -111,6 +111,7 @@ public class DayProgression : MonoBehaviour
     {
         Debug.Log("Spawning Wave: " + _day.name);
         state = SpawnState.Spawning;
+        bool spawnedtut = false;
         for(int i = 0; i < _day.count; i++)
         {
             _day.slotspecial = _day.count - 1;
@@ -118,7 +119,15 @@ public class DayProgression : MonoBehaviour
           
                 if(tut.isTutorialing == true)
                 {
-                    SpawnNpc(_day.genericNpc[0]);
+                    if (spawnedtut == false)
+                    {
+                        SpawnNpc(_day.genericNpc[0]);
+                        spawnedtut = true;
+                    }
+                    else
+                    {
+                        SpawnNpc(_day.genericNpc[1]);
+                    }
 
                 }
                 else
