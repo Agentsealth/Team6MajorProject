@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1917,6 +1917,7 @@ MonoBehaviour:
   sword: {fileID: 0}
   badlocation: {fileID: 1521410249}
   placelocation: {fileID: 1511127108}
+  tut: {fileID: 0}
 --- !u!65 &182969476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2046,6 +2047,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   startpoint: {x: 0, y: 0, z: 0}
   itemPos: {x: 0, y: 0, z: 0}
+  playerRightArm: {fileID: 0}
 --- !u!54 &188634663
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2302,6 +2304,7 @@ MonoBehaviour:
   sword: {fileID: 0}
   badlocation: {fileID: 437930201}
   placelocation: {fileID: 2056864780}
+  tut: {fileID: 0}
 --- !u!1 &204501645
 GameObject:
   m_ObjectHideFlags: 0
@@ -6145,6 +6148,7 @@ MonoBehaviour:
   dialogueDoneforDay: 0
   dialogueStart: 0
   banterChat: 0
+  tutorial: 0
   slots: []
   SlotNumber: {fileID: 0}
   dialogue:
@@ -6191,6 +6195,7 @@ MonoBehaviour:
   playerStats: {fileID: 0}
   dist: 0
   delay: 2
+  tut: {fileID: 0}
 --- !u!136 &577030213
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7472,6 +7477,7 @@ MonoBehaviour:
   sheetplace: {fileID: 0}
   badplace: {fileID: 0}
   smorgeOn: 0
+  tut: {fileID: 0}
 --- !u!65 &732511920
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7900,6 +7906,113 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773520415}
   m_CullTransparentMesh: 0
+--- !u!1 &796214416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796214421}
+  - component: {fileID: 796214420}
+  - component: {fileID: 796214419}
+  - component: {fileID: 796214418}
+  - component: {fileID: 796214417}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &796214417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796214416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ea76bdd1051d1498174db4204cc11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f637ee5ad28e8824fbe498ccaec1af12, type: 2}
+  texture: {fileID: 0}
+--- !u!64 &796214418
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796214416}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &796214419
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796214416}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f637ee5ad28e8824fbe498ccaec1af12, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &796214420
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796214416}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &796214421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796214416}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 3.945, y: 1.868, z: 17.56}
+  m_LocalScale: {x: 0.2106396, y: 1, z: 0.31538442}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 81
+  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
 --- !u!1 &798677352
 GameObject:
   m_ObjectHideFlags: 0
@@ -8322,6 +8435,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   startpoint: {x: 0, y: 0, z: 0}
   itemPos: {x: 0, y: 0, z: 0}
+  playerRightArm: {fileID: 0}
 --- !u!54 &829896858
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8446,6 +8560,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   startpoint: {x: 0, y: 0, z: 0}
   itemPos: {x: 0, y: 0, z: 0}
+  playerRightArm: {fileID: 0}
 --- !u!54 &845636356
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8563,6 +8678,8 @@ MonoBehaviour:
   objectName: 
   smorgeOn: 0
   badplace: {fileID: 0}
+  tut: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1001 &879357681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9215,7 +9332,8 @@ MonoBehaviour:
   loc2: {fileID: 1658941121}
   loc3: {fileID: 0}
   loc4: {fileID: 918991410}
-  options: {fileID: 1685901893}
+  options:
+  - {fileID: 0}
 --- !u!1 &949305393
 GameObject:
   m_ObjectHideFlags: 0
@@ -9699,7 +9817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abbe02c19d9e07a4b8db25cd37da8e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 132851062}
   maxrepeat: 5
   badQuality: 0
   goodQuality: 1
@@ -10562,6 +10679,8 @@ MonoBehaviour:
   guardMaterial: 0
   bladeType: 0
   craftingNoise: {fileID: 1642560076}
+  craftingBook: {fileID: 0}
+  tut: {fileID: 0}
 --- !u!65 &1119536507
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12427,6 +12546,8 @@ MonoBehaviour:
   playerStats: {fileID: 0}
   ore: {fileID: 2646501466652627063, guid: 5586e196762edea45a9e65ed39f28d5a, type: 3}
   drop: {fileID: 1989185778}
+  tut: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &1417148117
 GameObject:
   m_ObjectHideFlags: 0
@@ -14420,12 +14541,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1195863691}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1685901893 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 354484042781564776, guid: 82f655dcc42c7064d85c92349b5b57e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1195863691}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1691346172
 GameObject:
   m_ObjectHideFlags: 0
@@ -15740,6 +15855,7 @@ MonoBehaviour:
   smorgeOn: 0
   SmorgeBowl: {fileID: 0}
   SmorgeLever: {fileID: 0}
+  tut: {fileID: 0}
 --- !u!65 &1833892942
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15878,6 +15994,7 @@ MonoBehaviour:
   sword: {fileID: 0}
   badlocation: {fileID: 931358850}
   placelocation: {fileID: 757466957}
+  tut: {fileID: 0}
 --- !u!65 &1847430797
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16732,6 +16849,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   startpoint: {x: 0, y: 0, z: 0}
   itemPos: {x: 0, y: 0, z: 0}
+  playerRightArm: {fileID: 0}
 --- !u!54 &2057370618
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17364,8 +17482,6 @@ MonoBehaviour:
   - name: Day 1
     genericNpc:
     - {fileID: 2725667086160476461, guid: eef5631a237f17d4a971168c48ee0200, type: 3}
-    specialNpc:
-    - {fileID: 3338124924813261125, guid: 08822487b93868f47ac3eb012b8b9ae2, type: 3}
     slotspecial: 0
     count: 2
     rate: 0.1
@@ -17375,6 +17491,7 @@ MonoBehaviour:
   dayCountDown: 0
   searchCountDown: 1
   dayText: {fileID: 1838946596}
+  tut: {fileID: 0}
   state: 2
 --- !u!1 &2098852723
 GameObject:
@@ -17507,6 +17624,7 @@ MonoBehaviour:
   sword: {fileID: 0}
   badlocation: {fileID: 193620062}
   placelocation: {fileID: 488862951}
+  tut: {fileID: 0}
 --- !u!1 &2105736775
 GameObject:
   m_ObjectHideFlags: 0
@@ -18233,6 +18351,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   startpoint: {x: 0, y: 0, z: 0}
   itemPos: {x: 0, y: 0, z: 0}
+  playerRightArm: {fileID: 0}
 --- !u!54 &6498046162063387999
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class DayProgression : MonoBehaviour
 {
     public enum SpawnState { Spawning, waiting, counting }
 
+    public SaveLoadMenuTest save;
+
     [System.Serializable]
     public class Day
     {
@@ -80,10 +82,12 @@ public class DayProgression : MonoBehaviour
             newDay.name = "Day " + (nextDay + 1).ToString();
             newDay.count = week[0].count;
             newDay.rate = week[0].rate;
-            newDay.genericNpc = week[1].genericNpc;
+            newDay.genericNpc = week[0].genericNpc;
             week.Add(newDay);
             dayText.text = "Day " + (nextDay + 1).ToString();
             Debug.Log("New day added");
+            save.Save();
+
         }
         else
         {
