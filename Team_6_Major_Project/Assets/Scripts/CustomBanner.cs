@@ -14,7 +14,7 @@ public class CustomBanner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (File.Exists(Application.persistentDataPath + "/" + "customeBanner" + ".png"))
+        if (File.Exists(Application.persistentDataPath + "/" + "customBanner" + ".png"))
         {
             fileData = File.ReadAllBytes(Application.persistentDataPath + "/" + "customeBanner" + ".png");
             tex = new Texture2D(2, 2);
