@@ -30,6 +30,7 @@ public class Anvil : MonoBehaviour
     public bool resetValue;
     public bool isSwordBlade;
     public bool isAxeBlade;
+    public bool canHammer;
 
     public List<GameObject> ingots = new List<GameObject>();
     public List<GameObject> sheet = new List<GameObject>();
@@ -130,7 +131,8 @@ public class Anvil : MonoBehaviour
     {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                int cCount = Parent.transform.childCount;
+            canHammer = true;
+            int cCount = Parent.transform.childCount;
                 if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet" ||
                     cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Ingot")
                 {
