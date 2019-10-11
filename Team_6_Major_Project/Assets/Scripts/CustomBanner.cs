@@ -9,20 +9,43 @@ public class CustomBanner : MonoBehaviour
 {
     public Material material;
     public Texture texture;
-    Texture2D tex = null;
-    byte[] fileData;
+    public Sprite sprite;
+    public Texture2D tex = null;
+    private byte[] fileData;
+    public string path;
     // Start is called before the first frame update
     void Start()
     {
-        if (File.Exists(Application.persistentDataPath + "/" + "customBanner" + ".png"))
+        path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+        if (!Directory.Exists(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/" + "Redacted6"))
         {
-            fileData = File.ReadAllBytes(Application.persistentDataPath + "/" + "customBanner" + ".png");
+            Directory.CreateDirectory(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/" + "Redacted6");
+        }
+
+        if(!File.Exists(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/" + "Redacted6" + "/" + "customBanner" + ".png"))
+        {
+            tex = texture as Texture2D;
+            fileData = tex.EncodeToPNG();
+            File.WriteAllBytes(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/" + "Redacted6" + "/" + "customBanner" + ".png", fileData);
+        }
+        else
+        {
+            fileData = File.ReadAllBytes(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/" + "Redacted6" + "/" + "customBanner" + ".png");
             tex = new Texture2D(2, 2);
             tex.LoadImage(fileData);
             Material customMat = this.gameObject.GetComponent<MeshRenderer>().material;
             customMat.SetTexture("Texture2D_EE4CDF5F", tex);
-
         }
+
+        //if (File.Exists(Application.persistentDataPath + "/" + "customBanner" + ".png"))
+        //{
+        //    fileData = File.ReadAllBytes(Application.persistentDataPath + "/" + "customBanner" + ".png");
+        //    tex = new Texture2D(2, 2);
+        //    tex.LoadImage(fileData);
+        //    Material customMat = this.gameObject.GetComponent<MeshRenderer>().material;
+        //    customMat.SetTexture("Texture2D_EE4CDF5F", tex);
+
+        //}
         texture = tex;
         material.mainTexture = texture;
     }
