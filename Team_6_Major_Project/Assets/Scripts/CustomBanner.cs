@@ -16,7 +16,7 @@ public class CustomBanner : MonoBehaviour
     {
         if (File.Exists(Application.persistentDataPath + "/" + "customBanner" + ".png"))
         {
-            fileData = File.ReadAllBytes(Application.persistentDataPath + "/" + "customeBanner" + ".png");
+            fileData = File.ReadAllBytes(Application.persistentDataPath + "/" + "customBanner" + ".png");
             tex = new Texture2D(2, 2);
             tex.LoadImage(fileData);
         }
