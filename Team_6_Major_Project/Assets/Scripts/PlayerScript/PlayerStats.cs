@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        goldText.text = "Gold Coins: " + gold;
+        goldText.text = gold.ToString();
 
     }
 
@@ -36,7 +36,7 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        goldText.text = "Gold Coins: " + gold;
+        goldText.text = gold.ToString();
         if(CustomerOrderNumber > 3)
         {
             CustomerOrderNumber = 1;
