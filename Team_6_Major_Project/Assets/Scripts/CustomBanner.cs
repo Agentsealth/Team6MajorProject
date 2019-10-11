@@ -19,6 +19,9 @@ public class CustomBanner : MonoBehaviour
             fileData = File.ReadAllBytes(Application.persistentDataPath + "/" + "customBanner" + ".png");
             tex = new Texture2D(2, 2);
             tex.LoadImage(fileData);
+            Material customMat = this.gameObject.GetComponent<MeshRenderer>().material;
+            customMat.SetTexture("Texture2D_EE4CDF5F", tex);
+
         }
         texture = tex;
         material.mainTexture = texture;

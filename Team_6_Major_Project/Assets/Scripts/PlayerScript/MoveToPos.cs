@@ -38,9 +38,21 @@ public class MoveToPos : MonoBehaviour
         var step = speed * Time.deltaTime;
         while (transform.rotation != rotB)
         { // until one second passed
-            transform.position = Vector3.MoveTowards(posA, posB, (Time.time - startTime) * 10); // lerp from A to B in one second
-
             transform.rotation = Quaternion.RotateTowards(rotA, rotB, (Time.time - startTime) * 250);
+            yield return 0.1f;
+        }
+
+    }
+
+    IEnumerator WaitAndMoveTo(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime); // start at time X
+        float startTime = Time.time; // Time.time contains current frame time, so remember starting point
+        var speed = 1;
+        var step = speed * Time.deltaTime;
+        while (transform.position != posB)
+        { // until one second passed
+            transform.position = Vector3.MoveTowards(posA, posB, (Time.time - startTime) * 10); // lerp from A to B in one second
             yield return 0.1f;
         }
 
@@ -70,6 +82,8 @@ public class MoveToPos : MonoBehaviour
             rotA = transform.rotation;
             rotB = loc1.transform.rotation;
             StartCoroutine(WaitAndMove(delayTime));
+            StartCoroutine(WaitAndMoveTo(delayTime));
+
             options[0].SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -95,6 +109,8 @@ public class MoveToPos : MonoBehaviour
             rotA = transform.rotation;
             rotB = loc2.transform.rotation;
             StartCoroutine(WaitAndMove(delayTime));
+            StartCoroutine(WaitAndMoveTo(delayTime));
+
             if (anvilLogic.sheetCount > 0)
             {
                 options[1].SetActive(true);
@@ -129,6 +145,8 @@ public class MoveToPos : MonoBehaviour
         rotA = transform.rotation;
         rotB = loc3.transform.rotation;
         StartCoroutine(WaitAndMove(delayTime));
+        StartCoroutine(WaitAndMoveTo(delayTime));
+
 
     }
 
@@ -143,6 +161,8 @@ public class MoveToPos : MonoBehaviour
         rotA = transform.rotation;
         rotB = loc4.transform.rotation;
         StartCoroutine(WaitAndMove(delayTime));
+        StartCoroutine(WaitAndMoveTo(delayTime));
+
 
     }
     public void returnToPos()
@@ -158,6 +178,8 @@ public class MoveToPos : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         StartCoroutine(WaitAndMove(delayTime));
+        StartCoroutine(WaitAndMoveTo(delayTime));
+
         gsLogic.playerHere = false;
         options[0].SetActive(false);
         Cursor.visible = false;
