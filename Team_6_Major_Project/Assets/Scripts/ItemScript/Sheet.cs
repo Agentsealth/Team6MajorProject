@@ -88,7 +88,7 @@ public class Sheet : MonoBehaviour
         else if (material == SheetMaterial.steel)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[1];
-            thisTexture = textures[0].mainTexture;
+            thisTexture = textures[1].mainTexture;
             if (size == TypeSheet.small)
             {
                 this.gameObject.name = "Small Steel Sheet";
@@ -105,10 +105,11 @@ public class Sheet : MonoBehaviour
         else if (material == SheetMaterial.bronze)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = textures[2];
-            thisTexture = textures[0].mainTexture;
+            thisTexture = textures[2].mainTexture;
             if (size == TypeSheet.small)
             {
                 this.gameObject.name = "Small Bronze Sheet";
+
             }
             else if (size == TypeSheet.medium)
             {
