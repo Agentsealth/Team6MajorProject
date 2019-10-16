@@ -14,6 +14,7 @@ public class PickUp : MonoBehaviour
     private float distanceTohit = 10.0f;
 
     public bool canHold = true;
+    public bool shopHold = false;
     public GameObject item;
     public GameObject tempParent;
     public bool isHolding = false;
@@ -56,6 +57,7 @@ public class PickUp : MonoBehaviour
             item.transform.parent = tempParent.transform;
             item.transform.position = tempParent.transform.position;
             item.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            shopHold = false;
            
             if (Input.GetMouseButtonDown(1))
             {
@@ -85,7 +87,16 @@ public class PickUp : MonoBehaviour
         {
             objectPos = item.transform.position;
             item.transform.parent = null;
-            item.GetComponent<Rigidbody>().useGravity = true;
+            if (shopHold == true)
+            {
+                item.GetComponent<Rigidbody>().useGravity = false;
+                item.GetComponent<Rigidbody>().isKinematic = true;
+
+            }
+            else
+            {
+                item.GetComponent<Rigidbody>().useGravity = true;
+            }
             item.transform.position = objectPos;
             canHold = true;
         }
@@ -107,7 +118,7 @@ public class PickUp : MonoBehaviour
             if (canHold == true)
             {
                 playerRightArm.GetComponent<Animator>().Play("HoldingObject", -1, 0f);
-                isHolding = true;
+                isHolding = true;             
                 item.GetComponent<Rigidbody>().useGravity = false;
                 item.GetComponent<Rigidbody>().detectCollisions = true;
                 item.transform.localScale = scale;

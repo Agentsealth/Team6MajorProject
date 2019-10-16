@@ -49,6 +49,8 @@ public class ItemSlot : MonoBehaviour
             npc = FindObjectsOfType<TestDialogueTrigger>();
             sword = other.gameObject;
             sword.transform.position = placelocation.position;
+            sword.transform.rotation = placelocation.rotation;
+            sword.GetComponent<PickUp>().shopHold = true;
             SetItemSlot();
             bladeType = sword.GetComponent<Sword>().swordType;
             bladeMaterial = sword.GetComponent<Sword>().materialBlade;
