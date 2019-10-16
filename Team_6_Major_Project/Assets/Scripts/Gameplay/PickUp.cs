@@ -126,6 +126,22 @@ public class PickUp : MonoBehaviour
         }
     }
 
+    private void OnMouseEnter()
+    {
+        if (this.gameObject.transform.childCount > 0)
+        {
+            this.gameObject.transform.Find("Highlight").gameObject.SetActive(true);
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (this.gameObject.transform.childCount > 0)
+        {
+            this.gameObject.transform.Find("Highlight").gameObject.SetActive(false);
+        }
+    }
+
     //private void OnMouseUp()
     //{
     //    isHolding = false;
