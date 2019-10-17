@@ -57,12 +57,16 @@ public class PickUp : MonoBehaviour
             item.transform.parent = tempParent.transform;
             item.transform.position = tempParent.transform.position;
             item.transform.localRotation = Quaternion.Euler(0, 0, 0);
-            shopHold = false;
-           
+            if (shopHold == true)
+            {
+                item.GetComponent<Rigidbody>().useGravity = true;
+                item.GetComponent<Rigidbody>().isKinematic = false;
+                shopHold = false;
+            }
             if (Input.GetMouseButtonDown(1))
             {
                 playerRightArm.GetComponent<Animator>().Play("ThrowingObject");
-
+                
                 RaycastObject();
                 direction = (this.transform.position - startpoint).normalized;
                 item.GetComponent<Rigidbody>().AddForce(-direction * throwForce);
@@ -118,7 +122,17 @@ public class PickUp : MonoBehaviour
             if (canHold == true)
             {
                 playerRightArm.GetComponent<Animator>().Play("HoldingObject", -1, 0f);
-                isHolding = true;             
+                isHolding = true;
+                if (shopHold == true)
+                {
+                    item.GetComponent<Rigidbody>().useGravity = false;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+
+                }
+                else
+                {
+                    item.GetComponent<Rigidbody>().useGravity = true;
+                }
                 item.GetComponent<Rigidbody>().useGravity = false;
                 item.GetComponent<Rigidbody>().detectCollisions = true;
                 item.transform.localScale = scale;

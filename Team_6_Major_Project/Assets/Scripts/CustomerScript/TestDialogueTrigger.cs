@@ -11,6 +11,7 @@ public class TestDialogueTrigger : MonoBehaviour
     public bool dialogueStart = false;
     public bool banterChat = false;
     public bool tutorial;
+    public bool delayCustomer = false;
 
     public ItemSlot[] slots;
     public ItemSlot SlotNumber;
@@ -43,12 +44,13 @@ public class TestDialogueTrigger : MonoBehaviour
 
     public float dist;
     public float delay = 2f;
+    public float delayInteraction = 300f;
 
     public Tutorial tut;
     // Start is called before the first frame update
     void Start()
     {
-
+        delayInteraction = 300;
         dialogueManager = FindObjectOfType<DialogueManager>();
         customerAI =this.gameObject.GetComponent<CustomerAI>();
         playerStats = FindObjectOfType<PlayerStats>();
@@ -195,6 +197,11 @@ public class TestDialogueTrigger : MonoBehaviour
             inRange = false;
         }
 
+        if(delayCustomer == true)
+        {
+            delayInteraction--;
+        }
+
         if(inRange == true)
         {
             if (dialogueDoneforDay == false)
@@ -223,20 +230,6 @@ public class TestDialogueTrigger : MonoBehaviour
                     }
                 }
             }
-            //else if (banterChat == true)
-            //{
-            //    if (Input.GetKeyDown(KeyCode.Space))
-            //    {
-            //        dialogueManager.DisplayNextSentence();
-            //        inDialogue = dialogueManager.inChat;
-            //        if (inDialogue == false)
-            //        {
-            //            playerStats.gold += cost;
-            //            customerAI.waypointIndex++;
-            //            Destroy(SlotNumber.sword);
-            //        }
-            //    }
-            //}
             else
             {
                 return;
@@ -281,12 +274,25 @@ public class TestDialogueTrigger : MonoBehaviour
                     if(SlotNumber.handleMaterial == dialogue.handleMaterial)
                     {                     
                         if (dialogue.special == false)
-                        {
-                            quality = SlotNumber.quality;
-                            Tip();
-                            playerStats.gold += cost;
-                            customerAI.waypointIndex++;
-                            Destroy(SlotNumber.sword);
+                        {                        
+                            if(delayCustomer == false)
+                            {
+                                delayCustomer = true;
+                            }
+
+                            if (delayInteraction > 0)
+                            {
+
+                            }
+                            else
+                            {
+                                quality = SlotNumber.quality;
+                                Tip();
+                                playerStats.gold += cost;
+                                customerAI.waypointIndex++;
+                                Destroy(SlotNumber.sword);
+                                delayCustomer = false;
+                            }
                         }
                         else
                         {
