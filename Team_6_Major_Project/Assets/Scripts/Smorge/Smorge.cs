@@ -21,6 +21,8 @@ public class Smorge : MonoBehaviour
     public string objectName;
     public bool smorgeOn = false;
 
+    public GameObject fireParent;
+
     public Transform badplace;
     private bool hasTuted = false;
     public Tutorial tut;
@@ -48,7 +50,7 @@ public class Smorge : MonoBehaviour
             smorgeOn = true;
             furance.smorgeOn = smorgeOn;
             furance2.smorgeOn = smorgeOn;
-
+            fireParent.SetActive(true);
             smelter.smorgeOn = smorgeOn;
             if (smorgeOn == true)
             {
@@ -63,6 +65,8 @@ public class Smorge : MonoBehaviour
         }
         else
         {
+            fireParent.SetActive(false);
+
             smorgeOn = false;
             furance.smorgeOn = smorgeOn;
             furance2.smorgeOn = smorgeOn;

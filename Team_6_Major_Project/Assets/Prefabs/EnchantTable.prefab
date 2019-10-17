@@ -1,5 +1,375 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &642715519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 642715520}
+  - component: {fileID: 642715522}
+  - component: {fileID: 642715521}
+  m_Layer: 5
+  m_Name: RuneImage (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &642715520
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642715519}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 311}
+  m_LocalScale: {x: 0.9883154, y: 1.0057645, z: 0.98831534}
+  m_Children: []
+  m_Father: {fileID: 4939037031667466784}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 36, y: 305}
+  m_SizeDelta: {x: 121.5, y: 121.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &642715522
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642715519}
+  m_CullTransparentMesh: 0
+--- !u!114 &642715521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642715519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!1 &795803661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 795803662}
+  - component: {fileID: 795803664}
+  - component: {fileID: 795803663}
+  m_Layer: 5
+  m_Name: RuneImage (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &795803662
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795803661}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 311}
+  m_LocalScale: {x: 0.9883154, y: 1.0057645, z: 0.98831534}
+  m_Children: []
+  m_Father: {fileID: 4939037031667466784}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 378, y: 305}
+  m_SizeDelta: {x: 121.5, y: 121.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &795803664
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795803661}
+  m_CullTransparentMesh: 0
+--- !u!114 &795803663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795803661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!1 &1432121594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1432121595}
+  - component: {fileID: 1432121597}
+  - component: {fileID: 1432121596}
+  m_Layer: 5
+  m_Name: RuneImage (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1432121595
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432121594}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 311}
+  m_LocalScale: {x: 0.9883154, y: 1.0057645, z: 0.98831534}
+  m_Children: []
+  m_Father: {fileID: 4939037031667466784}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -647, y: 305}
+  m_SizeDelta: {x: 121.5, y: 121.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1432121597
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432121594}
+  m_CullTransparentMesh: 0
+--- !u!114 &1432121596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432121594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!1 &1712142362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1712142363}
+  - component: {fileID: 1712142365}
+  - component: {fileID: 1712142364}
+  m_Layer: 5
+  m_Name: RuneImage (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1712142363
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712142362}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 311}
+  m_LocalScale: {x: 0.9883154, y: 1.0057645, z: 0.98831534}
+  m_Children: []
+  m_Father: {fileID: 4939037031667466784}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -298, y: 305}
+  m_SizeDelta: {x: 121.5, y: 121.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1712142365
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712142362}
+  m_CullTransparentMesh: 0
+--- !u!114 &1712142364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712142362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!1 &1830362043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1830362044}
+  - component: {fileID: 1830362046}
+  - component: {fileID: 1830362045}
+  m_Layer: 5
+  m_Name: RuneImage (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1830362044
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830362043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 311}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4939037031667466784}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 718, y: 306}
+  m_SizeDelta: {x: 121.5, y: 121.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1830362046
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830362043}
+  m_CullTransparentMesh: 0
+--- !u!114 &1830362045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830362043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!65 &4939037031258945202
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25,7 +395,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90fa33e7ece35044b0ea1f89d219cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Runes:
+  - {fileID: 21300000, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300002, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300004, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300006, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300008, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300010, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300012, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300014, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300016, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300018, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300020, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300022, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300024, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300026, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300028, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300030, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300032, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300034, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300036, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300038, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300040, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300042, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300044, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300046, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300048, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300050, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
   SelectedRune: 0
+  runeImage: {fileID: 1830362045}
 --- !u!65 &4939037031328096985
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51,7 +449,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90fa33e7ece35044b0ea1f89d219cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Runes:
+  - {fileID: 21300000, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300002, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300004, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300006, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300008, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300010, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300012, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300014, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300016, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300018, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300020, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300022, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300024, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300026, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300028, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300030, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300032, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300034, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300036, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300038, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300040, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300042, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300044, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300046, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300048, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300050, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
   SelectedRune: 0
+  runeImage: {fileID: 795803663}
 --- !u!1 &4939037031478699903
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +726,11 @@ RectTransform:
   m_LocalScale: {x: 0.0003136652, y: 0.0003281087, z: 0.00031366522}
   m_Children:
   - {fileID: 4939037031817513916}
+  - {fileID: 1830362044}
+  - {fileID: 795803662}
+  - {fileID: 642715520}
+  - {fileID: 1712142363}
+  - {fileID: 1432121595}
   m_Father: {fileID: 4939037033041367212}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 30.000002, y: -90.00001, z: 0}
@@ -522,7 +953,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90fa33e7ece35044b0ea1f89d219cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Runes:
+  - {fileID: 21300000, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300002, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300004, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300006, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300008, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300010, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300012, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300014, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300016, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300018, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300020, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300022, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300024, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300026, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300028, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300030, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300032, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300034, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300036, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300038, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300040, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300042, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300044, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300046, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300048, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300050, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
   SelectedRune: 0
+  runeImage: {fileID: 642715521}
 --- !u!1 &4939037031951664316
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +1086,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90fa33e7ece35044b0ea1f89d219cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Runes:
+  - {fileID: 21300000, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300002, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300004, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300006, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300008, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300010, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300012, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300014, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300016, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300018, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300020, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300022, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300024, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300026, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300028, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300030, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300032, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300034, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300036, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300038, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300040, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300042, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300044, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300046, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300048, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300050, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
   SelectedRune: 0
+  runeImage: {fileID: 1712142364}
 --- !u!65 &4939037032486841539
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -653,7 +1140,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90fa33e7ece35044b0ea1f89d219cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Runes:
+  - {fileID: 21300000, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300002, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300004, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300006, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300008, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300010, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300012, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300014, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300016, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300018, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300020, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300022, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300024, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300026, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300028, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300030, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300032, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300034, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300036, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300038, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300040, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300042, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300044, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300046, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300048, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
+  - {fileID: 21300050, guid: 84750ce16b3c59e4ea3255bb09338b7c, type: 3}
   SelectedRune: 0
+  runeImage: {fileID: 1432121596}
 --- !u!1 &4939037033041367213
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,9 +1178,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4939037033041367212}
+  - component: {fileID: 2055763010}
   m_Layer: 0
   m_Name: EnchantTable
-  m_TagString: Untagged
+  m_TagString: Enchanting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -677,7 +1193,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4939037033041367213}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.36, y: 1.2803323, z: -2.3629727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -693,6 +1209,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2055763010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939037033041367213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e70345d9fc28bf4dbb239b607df16c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  prompt: {fileID: 0}
 --- !u!1 &4939037033129994912
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +1384,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 711947cddbb88194b863c2ef1b10ccaf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f701444b60791df4b9a7311f98d7836f, type: 2}
+      objectReference: {fileID: 2100000, guid: d4b39628e4fb62e45876f43436ed14bd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711947cddbb88194b863c2ef1b10ccaf, type: 3}
 --- !u!4 &4939037031259335724 stripped
@@ -939,7 +1469,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 711947cddbb88194b863c2ef1b10ccaf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f701444b60791df4b9a7311f98d7836f, type: 2}
+      objectReference: {fileID: 2100000, guid: d4b39628e4fb62e45876f43436ed14bd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711947cddbb88194b863c2ef1b10ccaf, type: 3}
 --- !u!4 &4939037031327709271 stripped
@@ -1024,7 +1554,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 711947cddbb88194b863c2ef1b10ccaf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f701444b60791df4b9a7311f98d7836f, type: 2}
+      objectReference: {fileID: 2100000, guid: d4b39628e4fb62e45876f43436ed14bd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711947cddbb88194b863c2ef1b10ccaf, type: 3}
 --- !u!4 &4939037031935327245 stripped
@@ -1109,7 +1639,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 711947cddbb88194b863c2ef1b10ccaf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f701444b60791df4b9a7311f98d7836f, type: 2}
+      objectReference: {fileID: 2100000, guid: d4b39628e4fb62e45876f43436ed14bd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711947cddbb88194b863c2ef1b10ccaf, type: 3}
 --- !u!4 &4939037032485900910 stripped
@@ -1194,18 +1724,18 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 711947cddbb88194b863c2ef1b10ccaf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f701444b60791df4b9a7311f98d7836f, type: 2}
+      objectReference: {fileID: 2100000, guid: d4b39628e4fb62e45876f43436ed14bd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711947cddbb88194b863c2ef1b10ccaf, type: 3}
---- !u!1 &4939037032486873693 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100002, guid: 711947cddbb88194b863c2ef1b10ccaf,
-    type: 3}
-  m_PrefabInstance: {fileID: 4939037032486841599}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4939037032487237245 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 711947cddbb88194b863c2ef1b10ccaf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4939037032486841599}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4939037032486873693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 711947cddbb88194b863c2ef1b10ccaf,
     type: 3}
   m_PrefabInstance: {fileID: 4939037032486841599}
   m_PrefabAsset: {fileID: 0}

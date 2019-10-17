@@ -105,10 +105,11 @@ MonoBehaviour:
   dialogueStart: 0
   banterChat: 0
   tutorial: 1
+  delayCustomer: 0
   slots: []
   SlotNumber: {fileID: 0}
   dialogue:
-    npcName: BobTutorial
+    npcName: Dwayne Pipe
     special: 0
     specialIndex: 0
     bladeType: 1
@@ -152,6 +153,7 @@ MonoBehaviour:
   playerStats: {fileID: 0}
   dist: 0
   delay: 2
+  delayInteraction: 300
   tut: {fileID: 0}
 --- !u!195 &8098427251304123296
 NavMeshAgent:

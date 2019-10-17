@@ -22,6 +22,7 @@ public class MoveToPos : MonoBehaviour
     private GrindstoneLogic gsLogic;
     private Anvil anvilLogic;
     
+    public 
     void Start()
     {
         playerController = this.gameObject.GetComponent<PlayerController>();
@@ -134,6 +135,7 @@ public class MoveToPos : MonoBehaviour
 
     public void gotoEnchant()
     {
+        this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         resetPos = transform.position;
@@ -167,6 +169,7 @@ public class MoveToPos : MonoBehaviour
     }
     public void returnToPos()
     {
+
         StopCoroutine(WaitAndMove(delayTime));
         StopAllCoroutines();
         posB = resetPos;

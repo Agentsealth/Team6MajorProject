@@ -12,6 +12,8 @@ public class EnchantTable : MonoBehaviour
     public string EnchantString;
     private GameObject sword;
     public Text text;
+
+    public MoveToPos MTP;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,13 @@ public class EnchantTable : MonoBehaviour
         //sword = null;
     }
 
-
+    private void OnMouseOver()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            MTP.gotoEnchant();
+        }
+    }
     public void Enchant()
     {
 
