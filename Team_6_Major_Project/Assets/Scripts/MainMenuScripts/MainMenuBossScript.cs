@@ -80,6 +80,7 @@ public class MainMenuBossScript : MonoBehaviour
 
         audioSource.Play();
         Options.SetActive(false);
+        SaveScreen.SetActive(false);
     }
 
     public void ShowAudioOptions()

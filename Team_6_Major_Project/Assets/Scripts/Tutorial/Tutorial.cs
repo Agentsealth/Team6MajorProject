@@ -35,6 +35,8 @@ public class Tutorial : MonoBehaviour
 
     public void NextButton()
     {
+        this.gameObject.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+        this.gameObject.GetComponent<AudioSource>().Play();
         if (firstBit == false)
         {
             textPos = 0;
