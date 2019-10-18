@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Sword : MonoBehaviour
 {
     public enum SwordType { none, small, medium, large };
-    public enum MaterialBlade { none, iron, steel, bronze };
-    public enum MaterialHandle { none, iron, steel, bronze };
-    public enum MaterialGuard { none, iron, steel, bronze };
+    public enum MaterialBlade { none, bronze, iron, steel };
+    public enum MaterialHandle { none, bronze, iron, steel };
+    public enum MaterialGuard { none, bronze, iron, steel };
     public enum EnchantType { none, chill, flame, spark, toxin, necro, bless }
 
     public SwordType swordType;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ore : MonoBehaviour
 {
-    public enum OreMaterial { iron, steel, bronze, coal };
+    public enum OreMaterial { bronze, iron, steel, coal };
 
     public OreMaterial material;
 

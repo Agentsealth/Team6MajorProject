@@ -66,9 +66,10 @@ public class Anvil : MonoBehaviour
 
         if (buttonSelected == true)
         {
-
+            //sets the sliders/hammering bool to true to play minigame
             usingSlider = true;
             isHammering = true;
+
             if(resetValue == false)
             {
                 resetValue = true;

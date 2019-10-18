@@ -84,7 +84,6 @@ public class DayProgression : MonoBehaviour
             newDay.rate = week[0].rate;
             newDay.genericNpc = week[0].genericNpc;
             week.Add(newDay);
-            dayText.text = "Day " + (nextDay + 1).ToString();
             Debug.Log("New day added");
             save.Save();
 
@@ -92,8 +91,7 @@ public class DayProgression : MonoBehaviour
         else
         {
             nextDay++;
-            dayText.text = "Day " + nextDay.ToString();
-
+            save.Save();
         }
     }
 
@@ -114,6 +112,7 @@ public class DayProgression : MonoBehaviour
     IEnumerator SpawnDay(Day _day)
     {
         Debug.Log("Spawning Wave: " + _day.name);
+        dayText.text = "Day " + (nextDay + 1).ToString();
         state = SpawnState.Spawning;
         bool spawnedtut = false;
         for(int i = 0; i < _day.count; i++)
@@ -149,7 +148,19 @@ public class DayProgression : MonoBehaviour
 
     void SpawnNpc (GameObject _npc)
     {
-        Instantiate(_npc, spawn.position, Quaternion.identity);
+        GameObject Npc = Instantiate(_npc, spawn.position, Quaternion.identity);
+        if(nextDay <= 5)
+        {
+            Npc.GetComponent<TestDialogueTrigger>().materialGen = 1;
+        }
+        else if(nextDay > 5 && nextDay <= 10)
+        {
+            Npc.GetComponent<TestDialogueTrigger>().materialGen = 2;
+        }
+        else if (nextDay > 10)
+        {
+            Npc.GetComponent<TestDialogueTrigger>().materialGen = 3;
+        }
         Debug.Log("Spawning Enemy " + _npc.name);
     }
 }
