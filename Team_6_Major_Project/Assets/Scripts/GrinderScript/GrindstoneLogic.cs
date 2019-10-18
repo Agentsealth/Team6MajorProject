@@ -55,6 +55,7 @@ public class GrindstoneLogic : MonoBehaviour
                 isGrinding = false;
                 playerInPos = false;
                 playerHere = false;
+
             }
         }
         if (i >= 100 && sheet != null)

@@ -44,24 +44,32 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && gsLogic.canGrind == false && anvil.isHammering == false)
         {
-            if (isPaused == false)
+            if (gsLogic.canGrind == false && anvil.isHammering == false)
             {
-                MainPauseMenu.SetActive(true);
-                PauseBook.GetComponent<Animator>().Play("BookUp", -1, 0f);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                playerController.lookSemsitivity = 0;
-                isPaused = true;
+                gsLogic.selected = false;
                 return;
             }
-            if (isPaused == true)
+            else
             {
-                PauseBook.GetComponent<Animator>().Play("BookDown", -1, 0f);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                playerController.lookSemsitivity = 3;
-                isPaused = false;
-                return;
+                if (isPaused == false)
+                {
+                    MainPauseMenu.SetActive(true);
+                    PauseBook.GetComponent<Animator>().Play("BookUp", -1, 0f);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    playerController.lookSemsitivity = 0;
+                    isPaused = true;
+                    return;
+                }
+                else if (isPaused == true)
+                {
+                    PauseBook.GetComponent<Animator>().Play("BookDown", -1, 0f);
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    playerController.lookSemsitivity = 3;
+                    isPaused = false;
+                    return;
+                }
             }
         }
     }
