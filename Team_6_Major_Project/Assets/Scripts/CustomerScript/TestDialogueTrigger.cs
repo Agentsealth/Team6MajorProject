@@ -38,6 +38,7 @@ public class TestDialogueTrigger : MonoBehaviour
     public int handleIngotCost;
     public int cost;
     public int quality;
+    public int materialGen;
 
 
     public PlayerStats playerStats;
@@ -62,12 +63,12 @@ public class TestDialogueTrigger : MonoBehaviour
         ironCost = shop.ironCost;
         steelCost = shop.steelCost;
         bronzeCost = shop.bronzeCost;
-        if (dialogue.special == false && tutorial == false)
+        if (tutorial == false)
         {
             randomtype = Random.Range(1, 4);
-            randomblademat = Random.Range(1, 4);
-            randomguardmat = Random.Range(1, 4);
-            randomhandlemat = Random.Range(1, 4);
+            randomblademat = Random.Range(1, materialGen);
+            randomguardmat = Random.Range(1, materialGen);
+            randomhandlemat = Random.Range(1, materialGen);
             dialogue.bladeType = (Sword.SwordType)randomtype;
             dialogue.bladeMaterial = (Sword.MaterialBlade)randomblademat;
             dialogue.guardMaterial = (Sword.MaterialGuard)randomguardmat;
@@ -78,22 +79,6 @@ public class TestDialogueTrigger : MonoBehaviour
             + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
             dialogue.sentences[2] = "I will pay " + (costToMake + 10);
             dialogue.sentences[3] = "Good bye";
-        }
-        else if(dialogue.special == true)
-        {
-            if (dialogue.specialIndex == 1)
-            {
-                currentTextNumber = dialogueManager.special1TextFile;
-            }
-            else if (dialogue.specialIndex == 2)
-            {
-                currentTextNumber = dialogueManager.special2TextFile;
-            }
-
-            if (dialogue.textfile[currentTextNumber] != null)
-            {
-                dialogue.sentences = (dialogue.textfile[currentTextNumber].text.Split('\n'));
-            }
         }
         else if(tutorial == true)
         {
@@ -138,15 +123,15 @@ public class TestDialogueTrigger : MonoBehaviour
 
     void BladeMatCheck()
     {
-        if (dialogue.bladeMaterial == (Sword.MaterialBlade)1)
+        if (dialogue.bladeMaterial == (Sword.MaterialBlade)2)
         {
             bladeIngotCost = ironCost;
         }
-        else if (dialogue.bladeMaterial == (Sword.MaterialBlade)2)
+        else if (dialogue.bladeMaterial == (Sword.MaterialBlade)3)
         {
             bladeIngotCost = steelCost;
         }
-        else if (dialogue.bladeMaterial == (Sword.MaterialBlade)3)
+        else if (dialogue.bladeMaterial == (Sword.MaterialBlade)1)
         {
             bladeIngotCost = bronzeCost;
         }
@@ -154,15 +139,15 @@ public class TestDialogueTrigger : MonoBehaviour
 
     void GuardMatCheck()
     {
-        if (dialogue.guardMaterial == (Sword.MaterialGuard)1)
+        if (dialogue.guardMaterial == (Sword.MaterialGuard)2)
         {
             guardIngotCost = ironCost;
         }
-        else if (dialogue.guardMaterial == (Sword.MaterialGuard)2)
+        else if (dialogue.guardMaterial == (Sword.MaterialGuard)3)
         {
             guardIngotCost = steelCost;
         }
-        else if (dialogue.guardMaterial == (Sword.MaterialGuard)3)
+        else if (dialogue.guardMaterial == (Sword.MaterialGuard)1)
         {
             guardIngotCost = bronzeCost;
         }
@@ -170,15 +155,15 @@ public class TestDialogueTrigger : MonoBehaviour
 
     void HandleMatCheck()
     {
-        if (dialogue.handleMaterial == (Sword.MaterialHandle)1)
+        if (dialogue.handleMaterial == (Sword.MaterialHandle)2)
         {
             handleIngotCost = ironCost;
         }
-        else if (dialogue.handleMaterial == (Sword.MaterialHandle)2)
+        else if (dialogue.handleMaterial == (Sword.MaterialHandle)3)
         {
             handleIngotCost = steelCost;
         }
-        else if (dialogue.handleMaterial == (Sword.MaterialHandle)3)
+        else if (dialogue.handleMaterial == (Sword.MaterialHandle)1)
         {
             handleIngotCost = bronzeCost;
         }

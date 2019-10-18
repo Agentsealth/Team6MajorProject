@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ingot : MonoBehaviour
 {
-    public enum IngotMaterial {none, iron, steel, bronze };
+    public enum IngotMaterial {none, bronze, iron, steel };
 
     public IngotMaterial material;
 

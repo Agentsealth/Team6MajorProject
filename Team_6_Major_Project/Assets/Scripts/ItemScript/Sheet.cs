@@ -6,7 +6,7 @@ public class Sheet : MonoBehaviour
 {
 
     public enum TypeSheet { small, medium, large };
-    public enum SheetMaterial { none, iron, steel, bronze };
+    public enum SheetMaterial { none, bronze, iron, steel };
 
     public TypeSheet size;
     public SheetMaterial material;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Guard : MonoBehaviour
 {
-    public enum GuardMaterial {none, iron, steel, bronze };
+    public enum GuardMaterial {none, bronze, iron, steel };
 
     public GuardMaterial material;
 

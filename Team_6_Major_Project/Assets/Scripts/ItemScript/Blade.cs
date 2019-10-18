@@ -7,7 +7,7 @@ public class Blade : MonoBehaviour
     public enum TypeBlade {none, sword, axe }
     public enum AxeBlade {none, oneSide, twoSide }
     public enum Typeblade {none, small, medium, large };
-    public enum BladeMaterial {none, iron, steel, bronze };
+    public enum BladeMaterial {none, bronze, iron, steel };
 
     public TypeBlade blade;
     public AxeBlade axe;
