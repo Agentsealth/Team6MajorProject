@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4170,7 +4170,7 @@ PrefabInstance:
         type: 3}
       propertyPath: goldText
       value: 
-      objectReference: {fileID: 245728280}
+      objectReference: {fileID: 1227255008}
     - target: {fileID: 7267120353207013779, guid: a293f25cf93078441984559e5537192d,
         type: 3}
       propertyPath: m_Enabled
@@ -13541,10 +13541,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.81991
       objectReference: {fileID: 0}
-    - target: {fileID: 3300000, guid: 4721a369ac4900b43ae6e7c15229e560, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: fe088054f147b944794375e0719faad8, type: 3}
     - target: {fileID: 2300000, guid: 4721a369ac4900b43ae6e7c15229e560, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
@@ -13569,6 +13565,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: fbd121d2fac3a9a488b1f5df86fb38df, type: 2}
+    - target: {fileID: 3300000, guid: 4721a369ac4900b43ae6e7c15229e560, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: fe088054f147b944794375e0719faad8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4721a369ac4900b43ae6e7c15229e560, type: 3}
 --- !u!1001 &565497378
@@ -31416,7 +31416,7 @@ PrefabInstance:
     - target: {fileID: 2298019009338992786, guid: 184d89b1cae1cfe4a947593510bcc9f3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.293
+      value: 0.457
       objectReference: {fileID: 0}
     - target: {fileID: 2298019009338992786, guid: 184d89b1cae1cfe4a947593510bcc9f3,
         type: 3}
@@ -31471,6 +31471,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1227255006}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1227255008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2298019009957781774, guid: 184d89b1cae1cfe4a947593510bcc9f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1227255006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1230743227
 GameObject:
   m_ObjectHideFlags: 0
@@ -50108,7 +50120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1994301749
 Transform:
   m_ObjectHideFlags: 0
