@@ -21,15 +21,23 @@ public class Smorge : MonoBehaviour
     public string objectName;
     public bool smorgeOn = false;
 
+    public Material coalMat;
+    public GameObject Smoke;
     public GameObject fireParent;
+
+    public AudioSource flameburst;
+    public AudioSource flamecrackling;
 
     public Transform badplace;
     private bool hasTuted = false;
     public Tutorial tut;
     public GameObject player;
+
+    private bool hadCoal;
     // Start is called before the first frame update
     void Start()
     {
+
         time = 0;
         objectName = this.gameObject.name;
         tut = FindObjectOfType<Tutorial>();
@@ -47,6 +55,7 @@ public class Smorge : MonoBehaviour
 
         if (time > 0)
         {
+            coalMat.SetInt("Vector1_D9D22E34", 1);
             smorgeOn = true;
             furance.smorgeOn = smorgeOn;
             furance2.smorgeOn = smorgeOn;
@@ -66,17 +75,35 @@ public class Smorge : MonoBehaviour
         else
         {
             fireParent.SetActive(false);
+            flamecrackling.Stop();
+            coalMat.SetInt("Vector1_D9D22E34", 0);
 
             smorgeOn = false;
             furance.smorgeOn = smorgeOn;
             furance2.smorgeOn = smorgeOn;
 
             smelter.smorgeOn = smorgeOn;
+
+            if(hadCoal == true)
+            {
+                StartCoroutine("StartStopSmoke");
+            }
+
             if (smorgeOn == false)
             {
                 this.gameObject.name = objectName + " (Not Ready)";
             }
         }
+    }
+
+    IEnumerator StartStopSmoke()
+    {
+        hadCoal = false;
+        Smoke.GetComponent<ParticleSystem>().Stop();
+        Smoke.GetComponent<ParticleSystem>().Play();
+        yield return new WaitForSeconds(1);
+        Smoke.GetComponent<ParticleSystem>().Stop();
+
     }
 
     public void OnTriggerEnter(Collider other)
@@ -85,6 +112,13 @@ public class Smorge : MonoBehaviour
         {
             if(other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.coal)
             {
+                hadCoal = true;
+                if(time == 0)
+                {
+                    flameburst.Play();
+                    flamecrackling.Play();
+
+                }
                 other.gameObject.GetComponent<Ore>().orePickup.isHolding = false;
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 other.gameObject.GetComponent<Ore>().smorge = this;

@@ -40,7 +40,7 @@ public class TestDialogueTrigger : MonoBehaviour
     public int quality;
     public int materialGen;
 
-
+    public AudioSource coinGain;
     public PlayerStats playerStats;
 
     public float dist;
@@ -274,6 +274,7 @@ public class TestDialogueTrigger : MonoBehaviour
                                 quality = SlotNumber.quality;
                                 Tip();
                                 playerStats.gold += cost;
+                                coinGain.Play();
                                 customerAI.waypointIndex++;
                                 Destroy(SlotNumber.sword);
                                 delayCustomer = false;
