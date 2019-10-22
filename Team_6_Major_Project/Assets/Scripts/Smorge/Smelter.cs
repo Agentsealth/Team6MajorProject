@@ -17,6 +17,9 @@ public class Smelter : MonoBehaviour
     public GameObject SmorgeBowl;
     public GameObject SmorgeLever;
 
+    public GameObject Smoke2;
+    public AudioSource ingotHardening;
+
     private bool hasTuted;
     public Tutorial tut;
     // Start is called before the first frame update
@@ -47,6 +50,7 @@ public class Smelter : MonoBehaviour
                 {
                     tut.ProgressTutorial(8);
                 }
+                Smoke2.GetComponent<ParticleSystem>().Stop();
                 SmorgeBowl.GetComponent<Animator>().Play("BucketPourMetal", -1, 0);
                 SmorgeLever.GetComponent<Animator>().Play("LeverPourMetal", -1, 0);
                 if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.iron)
@@ -78,6 +82,8 @@ public class Smelter : MonoBehaviour
             if (smeltTime <= 0)
             {
                 GameObject iron = Instantiate(ironIngot, drop.position, Quaternion.identity);
+                ingotHardening.Play();
+
                 iron.GetComponent<Ingot>().material = Ingot.IngotMaterial.iron;
                 ironOre--;
             }
@@ -88,10 +94,13 @@ public class Smelter : MonoBehaviour
     {
         if (steelOre > 0)
         {
+
             smeltTime -= 1 * Time.deltaTime;
             if (smeltTime <= 0)
             {
                 GameObject steel = Instantiate(ironIngot, drop.position, Quaternion.identity);
+                ingotHardening.Play();
+
                 steel.GetComponent<Ingot>().material = Ingot.IngotMaterial.steel;
                 steelOre--;
             }
@@ -102,10 +111,13 @@ public class Smelter : MonoBehaviour
     {
         if (bronzeOre > 0)
         {
+
             smeltTime -= 1 * Time.deltaTime;
             if (smeltTime <= 0)
             {
                 GameObject bronze = Instantiate(ironIngot, drop.position, Quaternion.identity);
+                ingotHardening.Play();
+
                 bronze.GetComponent<Ingot>().material = Ingot.IngotMaterial.bronze;
                 bronzeOre--;
             }

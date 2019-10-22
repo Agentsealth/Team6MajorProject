@@ -23,10 +23,12 @@ public class Smorge : MonoBehaviour
 
     public Material coalMat;
     public GameObject Smoke;
+    public GameObject Smoke2;
     public GameObject fireParent;
 
     public AudioSource flameburst;
     public AudioSource flamecrackling;
+    public AudioSource PlaceDown;
 
     public Transform badplace;
     private bool hasTuted = false;
@@ -56,6 +58,7 @@ public class Smorge : MonoBehaviour
         if (time > 0)
         {
             coalMat.SetInt("Vector1_D9D22E34", 1);
+            Smoke2.GetComponent<ParticleSystem>().Play();
             smorgeOn = true;
             furance.smorgeOn = smorgeOn;
             furance2.smorgeOn = smorgeOn;
@@ -74,6 +77,8 @@ public class Smorge : MonoBehaviour
         }
         else
         {
+            Smoke2.GetComponent<ParticleSystem>().Stop();
+
             fireParent.SetActive(false);
             flamecrackling.Stop();
             coalMat.SetInt("Vector1_D9D22E34", 0);
@@ -112,6 +117,7 @@ public class Smorge : MonoBehaviour
         {
             if(other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.coal)
             {
+                PlaceDown.Play();
                 hadCoal = true;
                 if(time == 0)
                 {
