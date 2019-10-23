@@ -205,7 +205,11 @@ public class TestDialogueTrigger : MonoBehaviour
                     inDialogue = dialogueManager.inChat;
                     if (inDialogue == false)
                     {
-                        tut.ProgressTutorial(1);
+                        if (tut.textPos == 1)
+                        {
+                            tut.ProgressTutorial(1);
+
+                        }
                         WaypointUpdate();
                         customerAI.setSlotWayPoint();
                         dialogueDoneforDay = true;
