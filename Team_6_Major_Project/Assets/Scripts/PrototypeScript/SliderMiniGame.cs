@@ -56,6 +56,7 @@ public class SliderMiniGame : MonoBehaviour
     {
         anvil = GameObject.Find("Anvil").GetComponentInChildren<Anvil>();
         //grinder = GameObject.Find("Grinder").GetComponent<Grinder>();
+        SliderMovement();
     }
 
     // Update is called once per frame
@@ -82,7 +83,14 @@ public class SliderMiniGame : MonoBehaviour
         }
         else
         {
-
+            if (forward == true)
+            {
+                slider.value += speed;
+            }
+            else
+            {
+                slider.value -= speed;
+            }
         }
     }
     private void SliderDirection()
