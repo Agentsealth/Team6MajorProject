@@ -67,4 +67,9 @@ public class Ore : MonoBehaviour
             this.gameObject.name = "Coal Chunk";
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        this.GetComponent<AudioSource>().Play();
+    }
 }
