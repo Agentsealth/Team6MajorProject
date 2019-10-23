@@ -9,6 +9,9 @@ public class HeadBobber : MonoBehaviour
     public float bobbingAmount = 0.2f;
     public float midpoint = 2.0f;
 
+    public AudioSource footStep;
+    public AudioClip[] footStepLib;
+    private bool hasStepped;
     void Update()
     {
         float waveslice = 0.0f;
@@ -43,5 +46,24 @@ public class HeadBobber : MonoBehaviour
         }
         transform.localPosition = vector3Transform;
 
+
+        if(this.transform.localPosition.y <= -0.045f)
+        {
+            if (!hasStepped)
+            {
+                var StepNo = Random.Range(0, 3);
+                footStep.clip = footStepLib[StepNo];
+                footStep.Play();
+                hasStepped = true;
+            }
+            
+        }
+
+
+        if (this.transform.localPosition.y > -0.045f)
+        {
+                hasStepped = false;
+
+        }
     }
 }
