@@ -132,35 +132,35 @@ public class Anvil : MonoBehaviour
     {
             if (Input.GetKeyDown(KeyCode.F))
             {
-            canHammer = true;
-            int cCount = Parent.transform.childCount;
+                canHammer = true;
+                int cCount = Parent.transform.childCount;
                 if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet" ||
                     cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Ingot")
                 {
 
-                //TODO:Fix bug where ingots can still be pick when in minigame stage will also apply with sheets
-   
-                help(Parent.transform.GetChild(0));
-                if (tut.textPos == 11 || tut.textPos == 10)
-                {
-                    tut.ProgressTutorial(10);
-                    tut.ProgressTutorial(10);
+                    help(Parent.transform.GetChild(0));
 
+                    if (tut.textPos == 11 || tut.textPos == 10)
+                    {
+                        tut.ProgressTutorial(10);
+                        tut.ProgressTutorial(10);
+
+                    }
                 }
-            }
                 else
                 {
                     MTP.gotoAnvil();
-                if (tut.textPos == 11 || tut.textPos == 10)
-                {
+                    Debug.Log(Parent.transform.GetChild(0).gameObject.name);
+                    if (tut.textPos == 11 || tut.textPos == 10)
+                    {
                     tut.ProgressTutorial(11);
                     tut.ProgressTutorial(11);
 
-                }
+                    }
                 
-            }
+                }
 
-        }
+            }
     }
 
     public void chooseSword() //Player chooses to make a swordBlade
@@ -223,6 +223,7 @@ public class Anvil : MonoBehaviour
                             ingotplace1 = "full";
 
                         }
+                        other.gameObject.GetComponent<Ingot>().ingotPickup.inHammering = true;
                     }
                     else if (ingots.Count > 0)
                     {
@@ -250,6 +251,7 @@ public class Anvil : MonoBehaviour
                                 ingotplace3 = "full";
                                 ingotCount++;
                             }
+                            other.gameObject.GetComponent<Ingot>().ingotPickup.inHammering = true;
                         }
                         else
                         {
@@ -258,6 +260,7 @@ public class Anvil : MonoBehaviour
                             warning.SetActive(true);
 
                         }
+
                     }
                 }
             }
@@ -273,7 +276,7 @@ public class Anvil : MonoBehaviour
 
                 other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                other.transform.position = ingotplace[0].transform.position;
+                other.transform.position = ingotplace[1].transform.position;
                 other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
                 other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
 
@@ -285,6 +288,7 @@ public class Anvil : MonoBehaviour
                 {
                     sheetCount++;
                     other.gameObject.GetComponent<Sheet>().quality = sheetQuality;
+                    other.gameObject.GetComponent<Sheet>().sheetPickup.inHammering = true;
                     sheet.Add(other.gameObject);
                 }
             }
