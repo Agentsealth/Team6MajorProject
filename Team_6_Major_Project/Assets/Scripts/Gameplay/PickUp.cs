@@ -15,6 +15,7 @@ public class PickUp : MonoBehaviour
 
     public bool canHold = true;
     public bool shopHold = false;
+    public bool inHammering = false;
     public GameObject item;
     public GameObject tempParent;
     public bool isHolding = false;
@@ -50,7 +51,7 @@ public class PickUp : MonoBehaviour
             isHolding = false;
         }
         
-        if(isHolding == true)
+        if(isHolding == true && inHammering == false)
         {
             item.GetComponent<Rigidbody>().velocity = Vector3.zero;
             item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;

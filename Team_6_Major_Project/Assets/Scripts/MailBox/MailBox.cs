@@ -251,6 +251,7 @@ public class MailBox : MonoBehaviour
 
                             quality = mailSlot.quality;
                             Tip();
+                            playerStats.gold += cost;
                             Destroy(mailSlot.sword);
                             letterDoneforDay = false;
                             letterManager.FinishLetter();
