@@ -17138,6 +17138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: 1
   shop: {fileID: 0}
+  text: {fileID: 61990958}
 --- !u!114 &537081166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17177,18 +17178,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 61990958}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 537081165}
-        m_MethodName: OnPointerClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!222 &537081167
@@ -24661,6 +24651,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6620116585422751817, guid: 97d3ecae55cae4647ad8c6f6f13a3055,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97d3ecae55cae4647ad8c6f6f13a3055, type: 3}
 --- !u!1 &735322432
@@ -28482,6 +28477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: 2
   shop: {fileID: 0}
+  text: {fileID: 333704530}
 --- !u!114 &904192963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40616,6 +40612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: 0
   shop: {fileID: 0}
+  text: {fileID: 1622988251}
 --- !u!114 &1402578607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41736,7 +41733,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 360, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.01, y: 1.276}
+  m_AnchoredPosition: {x: 8.01, y: 1.503}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1461115477
@@ -41806,7 +41803,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461115475}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e70345d9fc28bf4dbb239b607df16c6, type: 3}
   m_Name: 
@@ -48497,7 +48494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a0e408e627d35ee4ab7bfa731bbca57d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a0e408e627d35ee4ab7bfa731bbca57d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -56630,6 +56627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: 3
   shop: {fileID: 0}
+  text: {fileID: 1335655036}
 --- !u!114 &1966983366
 MonoBehaviour:
   m_ObjectHideFlags: 0
