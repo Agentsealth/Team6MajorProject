@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class IPointClick : MonoBehaviour
 {
     public Ore.OreMaterial material;
     public Shop shop;
+    public Text text;
 
     private void Start()
     {
         shop = this.gameObject.GetComponentInParent<Shop>();
+        
     }
 
     public void OnPointerClick()
@@ -30,5 +32,16 @@ public class IPointClick : MonoBehaviour
         {
             shop.BuyCoal();
         }
+    }
+
+    private void OnMouseOver()
+    {
+        text.color = new Color32(255, 255, 0, 255);
+    }
+
+    private void OnMouseExit()
+    {
+        text.color = new Color32(255, 255, 255, 255);
+
     }
 }
