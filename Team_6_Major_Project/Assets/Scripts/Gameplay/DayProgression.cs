@@ -94,7 +94,7 @@ public class DayProgression : MonoBehaviour
         }
     }
 
-    bool NpcIsInScene()
+    public bool NpcIsInScene()
     {
         searchCountDown -= Time.deltaTime;
         if (searchCountDown <= 0f)

@@ -22,6 +22,7 @@ public class SaveLoadMenuTest : MonoBehaviour
     public List<Sheet> sheetList = new List<Sheet>();
     public List<Ingot> ingotList = new List<Ingot>();
     public List<Sword> swordList = new List<Sword>();
+    public DayProgression dayProgression;
 
     [Header("UI")]
     public GameObject autoSaveSlot1;
@@ -49,6 +50,7 @@ public class SaveLoadMenuTest : MonoBehaviour
         motor = player.GetComponent<PlayerMotor>();
         playerCamera = GameObject.FindWithTag("MainCamera");
         upgradeShop = GameObject.FindGameObjectWithTag("UpgradeShop").GetComponent<UpgradeShop>();
+        dayProgression = day.GetComponent<DayProgression>();
     }
 
     public void SetSave1()
@@ -317,6 +319,15 @@ public class SaveLoadMenuTest : MonoBehaviour
             player.GetComponent<PlayerStats>().CustomerOrderNumber = loadedGame.customerOrderNumber;
             day.GetComponent<DayProgression>().nextDay = loadedGame.dayNumber - 1;
             day.GetComponent<DayProgression>().dayText.text = "Day " + (loadedGame.dayNumber).ToString();
+            if(dayProgression.NpcIsInScene() == true)
+            {
+                foreach(GameObject go in GameObject.FindGameObjectsWithTag("NPC"))
+                {
+                    Destroy(go);
+                    Debug.Log("Destory");
+                }
+                
+            }
             upgradeShop.upgradedEnchanting = loadedGame.upgradeInfo.enchantingUpgrade;
             upgradeShop.LoadEnchanting();
             motor.RotateCamera(loadedGame.cameraRotX);
