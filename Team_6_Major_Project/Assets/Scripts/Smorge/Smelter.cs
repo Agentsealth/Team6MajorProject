@@ -20,6 +20,7 @@ public class Smelter : MonoBehaviour
     public GameObject Smoke2;
     public AudioSource ingotHardening;
 
+    public GameObject Parent;
     private bool hasTuted;
     public Tutorial tut;
     // Start is called before the first frame update
@@ -38,6 +39,59 @@ public class Smelter : MonoBehaviour
         smeltIron();
         smeltSteel();
         smeltBronze();
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            int cCount = Parent.transform.childCount;
+            if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Ore" && Parent.transform.GetChild(0).gameObject.GetComponent<Ore>().material != Ore.OreMaterial.coal)
+            {
+
+                help(Parent.transform.GetChild(0));
+
+            }
+            else
+            {
+                return;
+            }
+
+        }
+    }
+
+    public void help(Transform other)
+    {
+        if (smorgeOn == true)
+        {
+            if (other.gameObject.tag == "Iron Ore")
+            {
+                if (tut.textPos == 8 || tut.textPos == 7)
+                {
+                    tut.ProgressTutorial(8);
+                }
+                Smoke2.GetComponent<ParticleSystem>().Stop();
+                SmorgeBowl.GetComponent<Animator>().Play("BucketPourMetal", -1, 0);
+                SmorgeLever.GetComponent<Animator>().Play("LeverPourMetal", -1, 0);
+                if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.iron)
+                {
+                    ironOre++;
+                }
+                else if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.steel)
+                {
+                    steelOre++;
+                }
+                else if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.bronze)
+                {
+                    bronzeOre++;
+                }
+                Destroy(other.gameObject);
+            }
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

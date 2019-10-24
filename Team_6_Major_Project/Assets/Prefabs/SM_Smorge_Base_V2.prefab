@@ -43971,6 +43971,7 @@ GameObject:
   - component: {fileID: 565497380}
   - component: {fileID: 7766366734703443428}
   - component: {fileID: 6532436057033648641}
+  - component: {fileID: 5612367155442645638}
   m_Layer: 0
   m_Name: SM_Smorge_Door
   m_TagString: Untagged
@@ -44066,6 +44067,20 @@ MonoBehaviour:
   player: {fileID: 0}
   prompt: {fileID: 0}
 --- !u!114 &6532436057033648641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508596491391999699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e70345d9fc28bf4dbb239b607df16c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  prompt: {fileID: 0}
+--- !u!114 &5612367155442645638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60434,6 +60449,7 @@ GameObject:
   - component: {fileID: 2005210956}
   - component: {fileID: 8376690854461563025}
   - component: {fileID: 1312897510298719125}
+  - component: {fileID: 8212747541054899447}
   m_Layer: 0
   m_Name: Smelter
   m_TagString: Untagged
@@ -60539,6 +60555,7 @@ MonoBehaviour:
   SmorgeLever: {fileID: 2067725602346217721}
   Smoke2: {fileID: 2375270062639798614}
   ingotHardening: {fileID: 2840764224422047376}
+  Parent: {fileID: 0}
   tut: {fileID: 0}
 --- !u!114 &2005210956
 MonoBehaviour:
@@ -60569,6 +60586,20 @@ MonoBehaviour:
   player: {fileID: 0}
   prompt: {fileID: 0}
 --- !u!114 &1312897510298719125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6879095127191407966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e70345d9fc28bf4dbb239b607df16c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  prompt: {fileID: 0}
+--- !u!114 &8212747541054899447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84774,6 +84805,7 @@ GameObject:
   - component: {fileID: 743555797}
   - component: {fileID: 8669944636046428323}
   - component: {fileID: 2656912343303301979}
+  - component: {fileID: 5258079780592280093}
   m_Layer: 0
   m_Name: Furance
   m_TagString: Untagged
@@ -84932,6 +84964,20 @@ MonoBehaviour:
   player: {fileID: 0}
   prompt: {fileID: 0}
 --- !u!114 &2656912343303301979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7618661998674895279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e70345d9fc28bf4dbb239b607df16c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  prompt: {fileID: 0}
+--- !u!114 &5258079780592280093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85149,6 +85195,7 @@ MonoBehaviour:
   Smoke: {fileID: 7691177378339330321}
   Smoke2: {fileID: 2375270062639798614}
   fireParent: {fileID: 2459134680322970186}
+  Parent: {fileID: 0}
   flameburst: {fileID: 726795130}
   flamecrackling: {fileID: 726795129}
   PlaceDown: {fileID: 8029257433284404212}
@@ -100628,6 +100675,7 @@ GameObject:
   - component: {fileID: 1634774123}
   - component: {fileID: 2590549372763386592}
   - component: {fileID: 154843647182230806}
+  - component: {fileID: 3306995068844641493}
   m_Layer: 0
   m_Name: Furance (1)
   m_TagString: Untagged
@@ -100799,6 +100847,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   prompt: {fileID: 0}
+--- !u!114 &3306995068844641493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9086465526180957535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e70345d9fc28bf4dbb239b607df16c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  prompt: {fileID: 0}
 --- !u!1001 &365836090845975388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100884,11 +100946,6 @@ PrefabInstance:
     - target: {fileID: 8047713662385506895, guid: 64bedb21fd4bf414ab6e6a479a3ee54b,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8047713662385506895, guid: 64bedb21fd4bf414ab6e6a479a3ee54b,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -101226,6 +101283,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8047713662385506895, guid: 64bedb21fd4bf414ab6e6a479a3ee54b,
         type: 3}
+      propertyPath: simulationSpeed
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047713662385506895, guid: 64bedb21fd4bf414ab6e6a479a3ee54b,
+        type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
@@ -101243,11 +101305,6 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8047713662385506895, guid: 64bedb21fd4bf414ab6e6a479a3ee54b,
-        type: 3}
-      propertyPath: simulationSpeed
-      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64bedb21fd4bf414ab6e6a479a3ee54b, type: 3}

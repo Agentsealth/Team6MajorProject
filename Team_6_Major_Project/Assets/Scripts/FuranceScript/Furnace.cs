@@ -40,6 +40,8 @@ public class Furnace : MonoBehaviour
     public bool smorgeOn = false;
 
     public Tutorial tut;
+
+    public GameObject Parent;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +54,146 @@ public class Furnace : MonoBehaviour
         
     }
 
+    private void OnMouseOver()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            int cCount = Parent.transform.childCount;
+            if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet" ||
+                    cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Ingot")
+            {
+
+                help(Parent.transform.GetChild(0));
+
+            }
+            else
+            {
+                return;
+            }
+
+        }
+    }
+    public void help(Transform other)
+    {
+        if (smorgeOn == true)
+        {
+
+            if (other.gameObject.tag == "Iron Ingot")
+            {
+                if (other.gameObject.GetComponent<Ingot>().ready == false)
+                {
+                    if (tut.textPos == 9 || tut.textPos == 8)
+                    {
+                        tut.ProgressTutorial(9);
+                    }
+                    other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    other.gameObject.GetComponent<Ingot>().smeltTime = ironHeat;
+                    other.gameObject.GetComponent<Ingot>().furance = this;
+
+                    if (ingotplace1 == "empty")
+                    {
+                        other.transform.position = ingotplace[0].transform.position;
+                        other.gameObject.GetComponent<Ingot>().place = 1;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
+                        ingotplace1 = "full";
+                    }
+                    else if (ingotplace2 == "empty")
+                    {
+                        other.transform.position = ingotplace[1].transform.position;
+                        other.gameObject.GetComponent<Ingot>().place = 2;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
+                        ingotplace2 = "full";
+                    }
+                    else if (ingotplace3 == "empty")
+                    {
+                        other.transform.position = ingotplace[2].transform.position;
+                        other.gameObject.GetComponent<Ingot>().place = 3;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
+                        ingotplace3 = "full";
+                    }
+                    else if (ingotplace4 == "empty")
+                    {
+                        other.transform.position = ingotplace[3].transform.position;
+                        other.gameObject.GetComponent<Ingot>().place = 4;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
+                        ingotplace4 = "full";
+                    }
+                    else if (ingotplace5 == "empty")
+                    {
+                        other.transform.position = ingotplace[4].transform.position;
+                        other.gameObject.GetComponent<Ingot>().place = 5;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
+                        ingotplace5 = "full";
+                    }
+                    else if (ingotplace6 == "empty")
+                    {
+                        other.transform.position = ingotplace[5].transform.position;
+                        other.gameObject.GetComponent<Ingot>().place = 6;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
+                        ingotplace6 = "full";
+                    }
+                }
+                else
+                {
+                    other.transform.position = badplace.transform.position;
+                    return;
+                }
+            }
+            else if (other.gameObject.tag == "Iron Sheet")
+            {
+                if (other.gameObject.GetComponent<Sheet>().ready == false)
+                {
+                    if (tut.textPos == 13 || tut.textPos == 12)
+                    {
+                        tut.ProgressTutorial(13);
+                        tut.ProgressTutorial(13);
+
+                    }
+                    if (tut.textPos == 17 || tut.textPos == 16)
+                    {
+                        tut.ProgressTutorial(17);
+                        tut.ProgressTutorial(17);
+
+                    }
+                    other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    other.gameObject.GetComponent<Sheet>().smeltTime = ironHeat;
+                    other.gameObject.GetComponent<Sheet>().furance = this;
+
+                    if (sheetplace1 == "empty")
+                    {
+                        other.transform.position = sheetplace.transform.position;
+                        other.gameObject.GetComponent<Sheet>().place = 1;
+                        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+                        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
+                        sheetplace1 = "full";
+                    }
+                }
+                else
+                {
+                    other.transform.position = badplace.transform.position;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
 
 
     private void OnTriggerEnter(Collider other)
