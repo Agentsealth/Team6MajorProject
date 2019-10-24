@@ -2,8 +2,9 @@ fileFormatVersion: 2
 guid: 551902c287d7e404cbb9df79f2b0f271
 TextureImporter:
   fileIDToRecycleName:
-    21300000: InfoUI_0
-    21300002: InfoUI_1
+    21300000: DayPaper_UI
+    21300002: Currency_UI
+    21300004: Day1_UI
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -119,15 +120,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InfoUI_0
+      name: DayPaper_UI
       rect:
         serializedVersion: 2
-        x: 12
+        x: 13
         y: 442
-        width: 590
+        width: 589
         height: 579
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,7 +140,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: InfoUI_1
+      name: Currency_UI
       rect:
         serializedVersion: 2
         x: 643
@@ -147,13 +148,33 @@ TextureImporter:
         width: 345
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: a1d4cc5a10cc8e141a51f222c9715f82
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Day1_UI
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 476
+        width: 248
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39df00ae502e08241a94495bd6e8b93b
       vertices: []
       indices: 
       edges: []
