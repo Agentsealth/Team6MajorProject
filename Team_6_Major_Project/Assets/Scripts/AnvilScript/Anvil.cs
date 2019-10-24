@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Anvil : MonoBehaviour
 {
+    public GameObject prompt;
+    public PromptScript PS;
     public int ingotCount;
     public int sheetCount;
     public int Quality;
@@ -54,6 +56,7 @@ public class Anvil : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         hammerOriginalPos = hammer.transform.position;
         MTP = GameObject.FindObjectOfType<MoveToPos>();
         Timer = time;
@@ -132,7 +135,10 @@ public class Anvil : MonoBehaviour
     {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                canHammer = true;
+            prompt.SetActive(false);
+            PS.canShow = false;
+
+            canHammer = true;
                 int cCount = Parent.transform.childCount;
                 if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet" ||
                     cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Ingot")
@@ -302,6 +308,10 @@ public class Anvil : MonoBehaviour
     {
         isHammering = false;
         MTP.returnToPos();
+        prompt.SetActive(true);
+        PS.canShow = true;
+
+
         if (tut.textPos == 12 || tut.textPos == 11)
         {
             tut.ProgressTutorial(12);
@@ -366,6 +376,9 @@ public class Anvil : MonoBehaviour
             isHammering = false;
 
             MTP.returnToPos();
+            prompt.SetActive(true);
+            PS.canShow = true;
+
             hammer.transform.position = hammerOriginalPos;
             if (isSwordBlade == true)
             {

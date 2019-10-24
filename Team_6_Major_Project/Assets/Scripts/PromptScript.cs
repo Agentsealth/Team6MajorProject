@@ -9,9 +9,12 @@ public class PromptScript : MonoBehaviour
     public GameObject prompt;
 
     public GameObject Outline;
+
+    public bool canShow;
     // Start is called before the first frame update
     void Start()
     {
+        canShow = true;
         player = GameObject.Find("Player");
     }
 
@@ -35,7 +38,7 @@ public class PromptScript : MonoBehaviour
     {
         float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
 
-        if (dist < 3f)
+        if (dist < 3f && canShow)
         {
             Outline.SetActive(true);
             prompt.SetActive(true);
