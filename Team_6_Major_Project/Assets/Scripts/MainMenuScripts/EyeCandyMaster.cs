@@ -32,7 +32,6 @@ public class EyeCandyMaster : MonoBehaviour
     {
         yield return new WaitForSeconds(delayTime); // start at time X
         float startTime = Time.time; // Time.time contains current frame time, so remember starting point
-        Debug.Log("Kek");
         while (GrindStone.transform.localRotation != rotB)
         { // until one second passed
             GrindStone.transform.rotation = Quaternion.RotateTowards(rotA, rotB, (Time.time - startTime) * speed);

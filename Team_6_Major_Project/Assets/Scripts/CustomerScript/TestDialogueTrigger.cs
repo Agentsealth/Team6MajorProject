@@ -282,6 +282,9 @@ public class TestDialogueTrigger : MonoBehaviour
                                 customerAI.waypointIndex++;
                                 Destroy(SlotNumber.sword);
                                 delayCustomer = false;
+                                SlotNumber.docketBlade.text = "";
+                                SlotNumber.docketGuard.text = "";
+                                SlotNumber.docketHandle.text = "";
                             }
                         }
                         else

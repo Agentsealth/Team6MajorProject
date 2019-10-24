@@ -31,7 +31,6 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         playerController = GameObject.FindObjectOfType<PlayerController>();
-        Debug.Log(isPaused);
     }
 
     private void Awake()
@@ -130,12 +129,10 @@ public class PauseMenu : MonoBehaviour
     }
     public void ToggleFullscreen()
     {
-        Debug.Log("0");
     
 
         if(FullscreenToggle.isOn == false)
         {
-            Debug.Log("1");
 
             Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
 
@@ -146,7 +143,6 @@ public class PauseMenu : MonoBehaviour
         }
         if(FullscreenToggle.isOn == true)
         {
-            Debug.Log("2");
             Screen.fullScreenMode = FullScreenMode.Windowed;
 
             FullscreenToggle.isOn = false;

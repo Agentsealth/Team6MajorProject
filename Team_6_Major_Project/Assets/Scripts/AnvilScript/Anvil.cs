@@ -150,7 +150,6 @@ public class Anvil : MonoBehaviour
                 else
                 {
                     MTP.gotoAnvil();
-                    Debug.Log(Parent.transform.GetChild(0).gameObject.name);
                     if (tut.textPos == 11 || tut.textPos == 10)
                     {
                     tut.ProgressTutorial(11);
@@ -319,7 +318,6 @@ public class Anvil : MonoBehaviour
         {
             GameObject sheet = Instantiate(sheets[0], drop.position, Quaternion.identity);
             int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
-            Debug.Log(materialIndex);
             sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
             Destroy(ingots[0]);
             ingots.RemoveRange(0, ingots.Count);

@@ -70,7 +70,6 @@ public class DayProgression : MonoBehaviour
 
     void DayCompleted()
     {
-        Debug.Log("Wave Completed");
 
         state = SpawnState.counting;
         dayCountDown = timeBetweenDays;
@@ -84,7 +83,6 @@ public class DayProgression : MonoBehaviour
             newDay.rate = week[0].rate;
             newDay.genericNpc = week[0].genericNpc;
             week.Add(newDay);
-            Debug.Log("New day added");
             save.Save();
 
         }
@@ -111,7 +109,6 @@ public class DayProgression : MonoBehaviour
 
     IEnumerator SpawnDay(Day _day)
     {
-        Debug.Log("Spawning Wave: " + _day.name);
         dayText.text = "Day " + (nextDay + 1).ToString();
         state = SpawnState.Spawning;
         bool spawnedtut = false;
@@ -161,6 +158,5 @@ public class DayProgression : MonoBehaviour
         {
             Npc.GetComponent<TestDialogueTrigger>().materialGen = 3;
         }
-        Debug.Log("Spawning Enemy " + _npc.name);
     }
 }

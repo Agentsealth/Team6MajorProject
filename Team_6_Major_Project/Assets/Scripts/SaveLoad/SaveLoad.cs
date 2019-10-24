@@ -37,12 +37,10 @@ public static class SaveLoad
             FileStream file = new FileStream(Application.persistentDataPath + "/" + gameToLoad + ".sav", FileMode.Open);
             GameData loadedGame = (GameData)bf.Deserialize(file);
             file.Close();
-            Debug.Log("Loaded Game" + loadedGame.saveGameName);
             return loadedGame;
         }
         else
         {
-            Debug.Log("File doesn't exist");
             return null;
         }
     }
