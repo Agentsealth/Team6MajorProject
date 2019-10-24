@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4291175538170913703}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4291175538170913702
 GameObject:
@@ -58,6 +58,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4291175538725588413}
+  - {fileID: 1383227300371259744}
   - {fileID: 7903956388518484085}
   - {fileID: 4291175539034533253}
   - {fileID: 4291175537953973308}
@@ -81,6 +82,7 @@ GameObject:
   - component: {fileID: 4291175538725459744}
   - component: {fileID: 4291175538725459775}
   - component: {fileID: 4291175538725360030}
+  - component: {fileID: 4750468024184632701}
   m_Layer: 0
   m_Name: SM_Anvil
   m_TagString: Untagged
@@ -96,7 +98,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4291175538725360029}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.036587715, y: -0.35583156, z: 0}
+  m_LocalPosition: {x: 0.0010004044, y: -0.35583156, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4291175538170913703}
@@ -215,7 +217,17 @@ MonoBehaviour:
   - {fileID: 4291175537953973308}
   gameSlider: {fileID: 0}
   hammer: {fileID: 7903956388518484084}
+  Parent: {fileID: 0}
+  options: {fileID: 0}
+  axe: {fileID: 0}
   usingSlider: 0
+  isHammering: 0
+  selected: 0
+  buttonSelected: 0
+  resetValue: 0
+  isSwordBlade: 0
+  isAxeBlade: 0
+  canHammer: 0
   ingots: []
   sheet: []
   sheets:
@@ -230,6 +242,7 @@ MonoBehaviour:
   warning: {fileID: 0}
   CritPoint: {fileID: 5169861900474331791, guid: 217adb768201cca4e83a7646ad44e657,
     type: 3}
+  tut: {fileID: 0}
 --- !u!82 &4291175538725360030
 AudioSource:
   m_ObjectHideFlags: 0
@@ -326,6 +339,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4750468024184632701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291175538725360029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e70345d9fc28bf4dbb239b607df16c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  prompt: {fileID: 0}
+  Outline: {fileID: 6634465678518468927}
 --- !u!1 &4291175539034042789
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4291175538170913703}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4291175539031141797
 MeshFilter:
@@ -403,6 +431,83 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &6634465678518468927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1383227300371259744}
+  - component: {fileID: 7262043409194665759}
+  - component: {fileID: 3935118495334688190}
+  m_Layer: 0
+  m_Name: SM_Anvil (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1383227300371259744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634465678518468927}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.001, y: -0.361, z: 0}
+  m_LocalScale: {x: 1.0641, y: 1.0641, z: 1.0641}
+  m_Children: []
+  m_Father: {fileID: 4291175538170913703}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7262043409194665759
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634465678518468927}
+  m_Mesh: {fileID: 4300000, guid: 4d3508bbd005a4f4aaf66660af7afd35, type: 3}
+--- !u!23 &3935118495334688190
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634465678518468927}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a7cfd67d97558d5408cfc36debf75b26, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &7903956388518484084
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +523,6 @@ GameObject:
   - component: {fileID: 7903956388518483977}
   - component: {fileID: 7903956388518483976}
   - component: {fileID: 7903956388518484087}
-  - component: {fileID: 7903956388518484086}
   m_Layer: 0
   m_Name: straight peen
   m_TagString: Untagged
@@ -439,7 +543,7 @@ Transform:
   m_Children:
   - {fileID: 7871624125888749091}
   m_Father: {fileID: 4291175538170913703}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -38.563004}
 --- !u!33 &7903956388518483980
 MeshFilter:
@@ -553,19 +657,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7903956388518484086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7903956388518484084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6fea342cc70a3044a40a7af67569ccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anvil: {fileID: 4291175538725459775}
 --- !u!1 &7903956388722061249
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +685,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4291175538170913703}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 56.926003, y: 0, z: 0}
 --- !u!1001 &7903956389148472014
 PrefabInstance:
