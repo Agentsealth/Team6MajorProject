@@ -38,6 +38,7 @@ public class DayProgression : MonoBehaviour
     {
         dayCountDown = timeBetweenDays;
         tut = GameObject.FindObjectOfType<Tutorial>().GetComponent<Tutorial>();
+        save = GameObject.FindObjectOfType<SaveLoadMenuTest>().GetComponent<SaveLoadMenuTest>();
 
     }
 
