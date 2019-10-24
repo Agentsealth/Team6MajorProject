@@ -106,8 +106,16 @@ public class GrindstoneLogic : MonoBehaviour
         {
             grindingSound.pitch = Random.Range(0.75f, 1.25f);
             sheet.GetComponent<Animator>().enabled = true;
+            if (isGuard)
+            {
+                sheet.GetComponent<Animator>().Play("GrindToGuard");
 
-            sheet.GetComponent<Animator>().Play("GrindToGuard");
+            }
+            if (isHandle)
+            {
+                sheet.GetComponent<Animator>().Play("GrindToHandle");
+
+            }
             isGrinding = true;
             grindingSound.Play();
         }
