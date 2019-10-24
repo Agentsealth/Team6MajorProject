@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class UpgradePointClick : MonoBehaviour
 {
     public UpgradeShop shop;
 
     public bool enchanting;
-
+    public Text text;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,4 +23,13 @@ public class UpgradePointClick : MonoBehaviour
        
     }
 
+    private void OnMouseOver()
+    {
+        text.color = new Color32(255, 255, 0, 255);
+    }
+    private void OnMouseExit()
+    {
+        text.color = new Color32(255, 255, 255, 255);
+
+    }
 }

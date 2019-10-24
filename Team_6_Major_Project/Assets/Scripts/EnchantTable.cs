@@ -14,10 +14,14 @@ public class EnchantTable : MonoBehaviour
     public Text text;
 
     public MoveToPos MTP;
+
+    public GameObject Parent;
+
+    public GameObject outline;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Parent = GameObject.Find("Parent");
     }
 
     // Update is called once per frame
@@ -30,23 +34,36 @@ public class EnchantTable : MonoBehaviour
     {
         if(other.gameObject.tag == "Iron Sword") //checks if a sword has been put on the table
         {
-            sword = other.gameObject;
+           /* sword = other.gameObject;
             other.gameObject.GetComponent<PickUp>().isHolding = false; //player stops holding the sword forcibly
             other.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.2f, this.gameObject.transform.position.z); //moves sword to position
             //other.gameObject.GetComponent<Rigidbody>().isKinematic = true; //makes sword kinematic
-
+            */
         }
     }
-
+    
     private void OnTriggerExit(Collider other)
     {
         //sword = null;
     }
 
+    private void OnMouseExit()
+    {
+        outline.SetActive(false);
+    }
+
     private void OnMouseOver()
     {
+        outline.SetActive(true);
         if (Input.GetKeyDown(KeyCode.F))
         {
+            int cCount = Parent.transform.childCount;
+            if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sword")
+            {
+                sword = Parent.transform.GetChild(0).gameObject;
+                sword.GetComponent<PickUp>().isHolding = false; //player stops holding the sword forcibly
+                sword.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.2f, this.gameObject.transform.position.z);
+            }
             MTP.gotoEnchant();
         }
     }

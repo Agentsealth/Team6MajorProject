@@ -33,6 +33,7 @@ public class GrindstoneLogic : MonoBehaviour
 
     public AudioSource grindingSound;
     public Tutorial tut;
+    public AudioSource hitObstacle;
     void Start()
     {
         initialPosition = transform.position;
@@ -210,7 +211,7 @@ public class GrindstoneLogic : MonoBehaviour
     public void ObstacleHit() //When the sheet hits a spike or ditch
     {
         sheet.GetComponent<Animator>().enabled = false;
-        
+        hitObstacle.Play();
         quality = quality - 10;
         isGrinding = false;
         sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
