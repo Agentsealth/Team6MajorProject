@@ -41,25 +41,9 @@ public class GrindstoneLogic : MonoBehaviour
         tut = FindObjectOfType<Tutorial>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FinishGrind()
     {
-        
 
-        if (playerHere)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                MTP.returnToPos();
-                canGrind = false;
-                isGrinding = false;
-                playerInPos = false;
-                playerHere = false;
-
-            }
-        }
-        if (i >= 100 && sheet != null)
-        {
             isGrinding = false;
             selected = false;
             grindingSound.Stop();
@@ -96,12 +80,34 @@ public class GrindstoneLogic : MonoBehaviour
             canGrind = false;
             playerInPos = false;
             MTP.returnToPos();
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+
+        if (playerHere)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                MTP.returnToPos();
+                canGrind = false;
+                isGrinding = false;
+                playerInPos = false;
+                playerHere = false;
+
+            }
         }
+
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerInPos)
         {
             grindingSound.pitch = Random.Range(0.75f, 1.25f);
+            sheet.GetComponent<Animator>().enabled = true;
 
+            sheet.GetComponent<Animator>().Play("GrindToGuard");
             isGrinding = true;
             grindingSound.Play();
         }
@@ -109,6 +115,7 @@ public class GrindstoneLogic : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Mouse0) && playerInPos)
         {
             sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
+            sheet.GetComponent<Animator>().enabled = false;
 
             isGrinding = false;
             grindingSound.Stop();
@@ -119,12 +126,12 @@ public class GrindstoneLogic : MonoBehaviour
 
             if (isGrinding && playerInPos)
             {
-                sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.3f);
+                //sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.3f);
                 GameObject temp = GameObject.Instantiate(Sparks, SparkPosition.transform) as GameObject;
                 temp.transform.localPosition = new Vector3(0, 0, 0);
                 temp.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 sheet.transform.eulerAngles = new Vector3(0, 0, 0);
-                i++;
+                //i++;
             }
             if (!isGrinding && playerInPos)
             {
@@ -133,7 +140,7 @@ public class GrindstoneLogic : MonoBehaviour
                 sheet.GetComponent<Rigidbody>().isKinematic = true;
                 sheet.GetComponent<Rigidbody>().useGravity = true;
 
-                sheet.transform.eulerAngles = new Vector3(0, 0, 0);
+                //sheet.transform.eulerAngles = new Vector3(0, 0, 0);
                 Destroy(GameObject.FindGameObjectWithTag("Sparks"));
                 Destroy(GameObject.FindGameObjectWithTag("Sparks"));
             }
@@ -183,6 +190,7 @@ public class GrindstoneLogic : MonoBehaviour
         {
             if (other.gameObject.tag == "Iron Sheet")
             {
+
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 canGrind = false;
                 isGrinding = false;
@@ -193,6 +201,8 @@ public class GrindstoneLogic : MonoBehaviour
 
     public void ObstacleHit() //When the sheet hits a spike or ditch
     {
+        sheet.GetComponent<Animator>().enabled = false;
+        
         quality = quality - 10;
         isGrinding = false;
         sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
@@ -240,7 +250,7 @@ public class GrindstoneLogic : MonoBehaviour
                 }
                 sheet = Parent.transform.GetChild(0).gameObject;
                 sheet.GetComponent<Rigidbody>().useGravity = false;
-
+                sheet.GetComponent<Animator>().enabled = true;
                 sheet.GetComponent<Sheet>().sheetPickup.isHolding = false;
 
                 sheet.GetComponent<Rigidbody>().isKinematic = true;

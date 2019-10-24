@@ -26,9 +26,13 @@ public class Sheet : MonoBehaviour
     public Shader shader;
 
     public Texture thisTexture;
+
+    public GrindstoneLogic GSLogic;
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.GetComponent<Animator>().enabled = false;
+        GSLogic = FindObjectOfType<GrindstoneLogic>();
         sheetPickup = this.gameObject.GetComponent<PickUp>();
         rigid = this.gameObject.GetComponent<Rigidbody>();
         TextureChange();
@@ -37,6 +41,11 @@ public class Sheet : MonoBehaviour
         {
             this.gameObject.name = objectName + " (Not Ready)";
         }
+    }
+
+    public void finishGrind()
+    {
+        GSLogic.FinishGrind();
     }
 
     // Update is called once per frame
