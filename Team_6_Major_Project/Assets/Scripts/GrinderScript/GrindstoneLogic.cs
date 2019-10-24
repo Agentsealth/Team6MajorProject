@@ -35,7 +35,6 @@ public class GrindstoneLogic : MonoBehaviour
     public Tutorial tut;
     public AudioSource hitObstacle;
 
-    public PromptScript PS;
     void Start()
     {
 
@@ -84,8 +83,7 @@ public class GrindstoneLogic : MonoBehaviour
             canGrind = false;
             playerInPos = false;
             MTP.returnToPos();
-            PS.canShow = true;
-
+        
     }
 
     // Update is called once per frame
@@ -279,7 +277,6 @@ public class GrindstoneLogic : MonoBehaviour
             }
             else
             {
-                PS.canShow = false;
                 MTP.gotoGrinder();
                 if (tut.textPos == 18 || tut.textPos == 17)
                 {
