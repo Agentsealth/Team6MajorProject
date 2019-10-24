@@ -41,8 +41,10 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && gsLogic.canGrind == false && anvil.isHammering == false)
+        if (Input.GetKeyDown(KeyCode.Escape)) // && gsLogic.canGrind == false && anvil.isHammering == false
         {
+            BackToMenu();
+
             if (gsLogic.canGrind == false && anvil.isHammering == false)
             {
                 gsLogic.selected = false;
