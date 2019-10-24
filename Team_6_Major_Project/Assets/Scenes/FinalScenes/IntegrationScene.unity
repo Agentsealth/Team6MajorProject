@@ -1932,10 +1932,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605427798}
     m_Modifications:
-    - target: {fileID: 100000, guid: 6b18ea68076489047a29876c98815641, type: 3}
-      propertyPath: m_Name
-      value: SM_Book_V4
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b18ea68076489047a29876c98815641, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.4295115
@@ -1991,6 +1987,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 6b18ea68076489047a29876c98815641, type: 3}
       propertyPath: m_LocalScale.z
       value: 508.42258
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6b18ea68076489047a29876c98815641, type: 3}
+      propertyPath: m_Name
+      value: SM_Book_V4
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 6b18ea68076489047a29876c98815641, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5901,7 +5901,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5910,8 +5910,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 16fcfc997b00834439b3e5009a96e517,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 87408dff79036b444be2452a91c1f9fd, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -5956,8 +5957,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: af322b1030f0a844a83a672b24886bea, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6138,11 +6139,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857022693}
     m_Modifications:
-    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparks
-      objectReference: {fileID: 0}
     - target: {fileID: 39932177846234349, guid: 97b203623c80f8647830782c5ec2455b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6212,6 +6208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.08117003
+      objectReference: {fileID: 0}
+    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparks
       objectReference: {fileID: 0}
     - target: {fileID: 39932177846234348, guid: 97b203623c80f8647830782c5ec2455b,
         type: 3}
@@ -9692,10 +9693,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1461115476}
     m_Modifications:
-    - target: {fileID: 100000, guid: 6b18ea68076489047a29876c98815641, type: 3}
-      propertyPath: m_Name
-      value: SM_Book_V4
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b18ea68076489047a29876c98815641, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.4295115
@@ -9751,6 +9748,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 6b18ea68076489047a29876c98815641, type: 3}
       propertyPath: m_LocalScale.z
       value: 508.42258
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6b18ea68076489047a29876c98815641, type: 3}
+      propertyPath: m_Name
+      value: SM_Book_V4
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 6b18ea68076489047a29876c98815641, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9895,7 +9896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15766,8 +15767,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: fe903e911d9bfca4ab6a86812b22de0c, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -16044,7 +16045,7 @@ MonoBehaviour:
 
     And secondly metal to forge the sword out of.'
   - Buy 1 coal and 1 bronze. [Left Click] Buy to purchase. Then let's have a look
-    at that smorge.
+    at that smorge, located in the room behind you.
   - This is the smorge. Let's fire it up and make your first ingot.
   - Firstly place a coal in the compartment below. Try throwing it in with [Right
     Click]
@@ -16061,7 +16062,7 @@ MonoBehaviour:
   - Deja vu. Go back to the anvil and hammer than sheet into a blade. Same process
     as before.
   - "Now that you have a blade, place it on the crafting table.\t"
-  - Great. Now you'll need two more iron sheets. Make them like you did before and
+  - Great. Now you'll need two more bronze sheets. Make them like you did before and
     I'll help you later.
   - Oh and one more thing. Hot items stay hot for a very long time. So no need to
     worry about them going cold.
@@ -18296,6 +18297,11 @@ PrefabInstance:
       propertyPath: Parent
       value: 
       objectReference: {fileID: 1938328138}
+    - target: {fileID: 1829876978341647643, guid: 8c66e9b889e735f4e91d284055d0119c,
+        type: 3}
+      propertyPath: prompt
+      value: 
+      objectReference: {fileID: 573859209}
     - target: {fileID: 2463431656256915892, guid: 8c66e9b889e735f4e91d284055d0119c,
         type: 3}
       propertyPath: prompt
@@ -18306,11 +18312,6 @@ PrefabInstance:
       propertyPath: prompt
       value: 
       objectReference: {fileID: 89785784}
-    - target: {fileID: 1829876978341647643, guid: 8c66e9b889e735f4e91d284055d0119c,
-        type: 3}
-      propertyPath: prompt
-      value: 
-      objectReference: {fileID: 573859209}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c66e9b889e735f4e91d284055d0119c, type: 3}
 --- !u!1 &569225485
@@ -25742,7 +25743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -27436,7 +27437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -30229,7 +30230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -39428,7 +39429,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -39437,8 +39438,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 16fcfc997b00834439b3e5009a96e517,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 87408dff79036b444be2452a91c1f9fd, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -39483,8 +39485,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: af322b1030f0a844a83a672b24886bea, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -49085,8 +49087,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: fe903e911d9bfca4ab6a86812b22de0c, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -58689,16 +58691,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857022693}
     m_Modifications:
-    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparks (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 39932177846234349, guid: 97b203623c80f8647830782c5ec2455b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58768,6 +58760,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.081170015
+      objectReference: {fileID: 0}
+    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparks (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 39932177846234348, guid: 97b203623c80f8647830782c5ec2455b,
         type: 3}
