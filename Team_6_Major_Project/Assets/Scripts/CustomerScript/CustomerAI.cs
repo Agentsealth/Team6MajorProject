@@ -9,7 +9,10 @@ public class CustomerAI : MonoBehaviour
 
     public GameObject[] slotwayPoints;
 
+    public WaypointManager waypointManager;
+
     public int waypointIndex = 0;
+    public int waypoint1Slot;
 
     public NavMeshAgent agent;
 
@@ -21,9 +24,13 @@ public class CustomerAI : MonoBehaviour
     void Start()
     {
         dialogue = this.gameObject.GetComponent<TestDialogueTrigger>();
+        waypointManager = GameObject.FindObjectOfType<WaypointManager>().GetComponent<WaypointManager>();
         slotwayPoints = GameObject.FindGameObjectsWithTag("SlotWayPoint");
         waypoints[0] = GameObject.FindGameObjectWithTag("Waypoint 0");
-        waypoints[1] = GameObject.FindGameObjectWithTag("Waypoint 1");
+        waypointManager.Waypoint1Update();
+        //Change this
+        waypoints[1] = waypointManager.wayPoint1;
+        waypoint1Slot = waypointManager.waypointSlot1;
         waypoints[2] = GameObject.FindGameObjectWithTag("Waypoint 2");
         waypoints[4] = GameObject.FindGameObjectWithTag("Waypoint 3");
     }
@@ -31,15 +38,64 @@ public class CustomerAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dist = Vector3.Distance(gameObject.transform.position, waypoints[waypointIndex].transform.position);
-        if (dist > 1)
+        if (waypointIndex == 5)
         {
-            agent.SetDestination(waypoints[waypointIndex].transform.position);
+            waypointIndex = waypointManager.waypointIndex;
+            dist = Vector3.Distance(gameObject.transform.position, waypoints[1].transform.position);
 
         }
         else
         {
-            if (waypointIndex == 1 || waypointIndex == 2)
+            if (waypointIndex == 2)
+            {
+                dist = Vector3.Distance(gameObject.transform.position, waypoints[waypointIndex].transform.position);
+
+            }
+            else if (waypointIndex == 0)
+            {
+                waypointIndex = waypointManager.waypointIndex;
+                dist = Vector3.Distance(gameObject.transform.position, waypoints[waypointIndex].transform.position);
+            }
+            else
+            {
+                dist = Vector3.Distance(gameObject.transform.position, waypoints[waypointIndex].transform.position);
+            }
+
+        }
+
+        if (dist > 1)
+        {
+            if (waypointIndex == 5)
+            {
+                agent.SetDestination(waypoints[1].transform.position);
+            }
+            else
+            {
+                agent.SetDestination(waypoints[waypointIndex].transform.position);
+            }
+            
+
+        }
+        else
+        {
+            if(waypointIndex == 0)
+            {
+                agent.SetDestination(waypoints[waypointIndex].transform.position);
+                if (waypointIndex == 5)
+                {
+                    agent.SetDestination(waypoints[1].transform.position);
+                }
+                return;
+            }
+            if (waypointIndex == 1)
+            {
+                return;
+            }
+            else if (waypointIndex == 5)
+            {
+                return;
+            }
+            else if(waypointIndex == 2)
             {
                 return;
             }

@@ -12,7 +12,7 @@ public class HeadBobber : MonoBehaviour
     public AudioSource footStep;
     public AudioClip[] footStepLib;
     private bool hasStepped;
-    void Update()
+    void FixedUpdate()
     {
         float waveslice = 0.0f;
         float horizontal = Input.GetAxis("Horizontal");

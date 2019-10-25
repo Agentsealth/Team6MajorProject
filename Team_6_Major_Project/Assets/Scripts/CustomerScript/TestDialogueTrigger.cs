@@ -210,13 +210,24 @@ public class TestDialogueTrigger : MonoBehaviour
                             tut.ProgressTutorial(1);
 
                         }
+
                         WaypointUpdate();
                         customerAI.setSlotWayPoint();
+                        if(customerAI.waypoint1Slot == 1)
+                        {
+                            customerAI.waypointManager.waypoint1_1 = "Empty";
+                        }
+                        customerAI.waypointManager.Waypoint1Empty();
+                        //Waypoint slot is empty
                         dialogueDoneforDay = true;
                         dialogueStart = false;
                         SetItemSlot();
                         return;
                     }
+                }
+                else
+                {
+                    //Waypoint slot is full
                 }
             }
             else

@@ -33,12 +33,14 @@ public class DayProgression : MonoBehaviour
     public Tutorial tut;
 
     public SpawnState state = SpawnState.counting;
+    public WaypointManager waypointManager;
 
     private void Start()
     {
         dayCountDown = timeBetweenDays;
         tut = GameObject.FindObjectOfType<Tutorial>().GetComponent<Tutorial>();
         save = GameObject.FindObjectOfType<SaveLoadMenuTest>().GetComponent<SaveLoadMenuTest>();
+        waypointManager = GameObject.FindObjectOfType<WaypointManager>().GetComponent<WaypointManager>();
 
     }
 
@@ -124,17 +126,19 @@ public class DayProgression : MonoBehaviour
                     {
                         SpawnNpc(_day.genericNpc[0]);
                         spawnedtut = true;
+                        waypointManager.AddNpcs();
                     }
                     else
                     {
                         SpawnNpc(_day.genericNpc[1]);
+                        waypointManager.AddNpcs();
                     }
 
                 }
                 else
                 {
                     SpawnNpc(_day.genericNpc[1]);
-
+                    waypointManager.AddNpcs();          
                 }
             yield return new WaitForSeconds(1f / _day.rate);
         }
