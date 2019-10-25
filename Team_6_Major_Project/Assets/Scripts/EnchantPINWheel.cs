@@ -10,6 +10,8 @@ public class EnchantPINWheel : MonoBehaviour
     public Sprite[] Runes;
     public char SelectedRune;
     public Image runeImage;
+
+    public AudioSource wheelScroll;
     void Start()
     {
         Rune = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray(); //sets rune array to alphabet. IE Rune[0] = A. Run[25] = Z.
@@ -28,7 +30,7 @@ public class EnchantPINWheel : MonoBehaviour
             {
                 this.gameObject.transform.rotation = Quaternion.Euler(this.transform.eulerAngles.x, this.transform.eulerAngles.y, this.transform.eulerAngles.z + 13.8461538462f); //Rotates it upward (360 / 26 = 13.8461538462
                 RuneIndex++; //increase Index
-
+                wheelScroll.Play();
                 if (RuneIndex > 25) //If it exceedes the alphabet length set it to the other end.
                 {
                     RuneIndex = 0;
@@ -46,7 +48,7 @@ public class EnchantPINWheel : MonoBehaviour
             {
                 this.gameObject.transform.rotation = Quaternion.Euler(this.transform.eulerAngles.x, this.transform.eulerAngles.y, this.transform.eulerAngles.z - 13.8461538462f); //Rotates it downward (360 / 26 = 13.8461538462
                 RuneIndex--; //decreases index
-
+                wheelScroll.Play();
                 if (RuneIndex > 25) //If it exceedes the alphabet length set it to the other end.
                 {
                     RuneIndex = 0;

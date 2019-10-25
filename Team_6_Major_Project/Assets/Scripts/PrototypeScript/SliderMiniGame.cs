@@ -18,7 +18,7 @@ public class SliderMiniGame : MonoBehaviour
     [SerializeField]
     private int perfectQuality = 3;
     [SerializeField]
-    private int totalQuality = 0;
+    public int totalQuality = 0;
     [SerializeField]
     private Slider slider;
     [SerializeField]
@@ -41,6 +41,8 @@ public class SliderMiniGame : MonoBehaviour
     private Grinder grinder;
     [SerializeField]
     private GameObject hammer;
+
+    public int lastDinkAmount;
 
     public bool inUseGrinder = false;
     public bool inUseAnvil = false;
@@ -146,7 +148,7 @@ public class SliderMiniGame : MonoBehaviour
         else if (Input.GetMouseButtonDown(0))
         {
             hammer.GetComponent<Animator>().Play("hammerDink", -1, 0);
-           
+            lastDinkAmount = (int)slider.value;
             StartCoroutine("DinkHammer");
             if (repeat < maxrepeat + 1)
             {

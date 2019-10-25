@@ -41,17 +41,13 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) // && gsLogic.canGrind == false && anvil.isHammering == false
+        if (Input.GetKeyDown(KeyCode.Escape) && gsLogic.canGrind == false && anvil.isHammering == false) 
         {
-            BackToMenu();
+            //BackToMenu();
 
             if (gsLogic.canGrind == false && anvil.isHammering == false)
             {
                 gsLogic.selected = false;
-                return;
-            }
-            else
-            {
                 if (isPaused == false)
                 {
                     MainPauseMenu.SetActive(true);
@@ -74,6 +70,8 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+
+
     public void DisplayOptions()
     {
         PauseBook.GetComponent<Animator>().Play("BookFlipBack", -1, 0f);

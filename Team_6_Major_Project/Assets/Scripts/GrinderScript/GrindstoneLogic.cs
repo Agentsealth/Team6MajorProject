@@ -34,7 +34,7 @@ public class GrindstoneLogic : MonoBehaviour
     public AudioSource grindingSound;
     public Tutorial tut;
     public AudioSource hitObstacle;
-
+    public AudioSource placeDown;
     void Start()
     {
 
@@ -252,9 +252,11 @@ public class GrindstoneLogic : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
+            
             int cCount = Parent.transform.childCount;
             if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet")
             {
+                placeDown.Play();
                 if (tut.textPos == 17 || tut.textPos == 16)
                 {
                     tut.ProgressTutorial(17);

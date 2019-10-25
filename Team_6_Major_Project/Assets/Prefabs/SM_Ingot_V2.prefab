@@ -187,7 +187,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &7821618903297410330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +205,8 @@ MonoBehaviour:
   objectPos: {x: 0, y: 0, z: 0}
   distance: 0
   canHold: 1
+  shopHold: 0
+  inHammering: 0
   item: {fileID: 1355753090571222372}
   tempParent: {fileID: 0}
   isHolding: 0

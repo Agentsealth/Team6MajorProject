@@ -52,6 +52,8 @@ public class Anvil : MonoBehaviour
     private Vector3 hammerOriginalPos;
     public GameObject CritPoint;
 
+    public AudioSource placeDown;
+
     public Tutorial tut;
     // Start is called before the first frame update
     void Start()
@@ -145,7 +147,7 @@ public class Anvil : MonoBehaviour
                 {
 
                     help(Parent.transform.GetChild(0));
-
+                    placeDown.Play();
                     if (tut.textPos == 11 || tut.textPos == 10)
                     {
                         tut.ProgressTutorial(10);

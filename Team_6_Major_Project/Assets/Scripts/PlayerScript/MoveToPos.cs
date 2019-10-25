@@ -39,7 +39,7 @@ public class MoveToPos : MonoBehaviour
         var step = speed * Time.deltaTime;
         while (transform.rotation != rotB)
         { // until one second passed
-            transform.rotation = Quaternion.RotateTowards(rotA, rotB, (Time.time - startTime) * 250);
+            transform.rotation = Quaternion.RotateTowards(rotA, rotB, (Time.time - startTime) * 1000);
             yield return 0.1f;
         }
 
@@ -53,7 +53,7 @@ public class MoveToPos : MonoBehaviour
         var step = speed * Time.deltaTime;
         while (transform.position != posB)
         { // until one second passed
-            transform.position = Vector3.MoveTowards(posA, posB, (Time.time - startTime) * 10); // lerp from A to B in one second
+            transform.position = Vector3.MoveTowards(posA, posB, (Time.time - startTime) * 1000); // lerp from A to B in one second
             yield return 0.1f;
         }
 

@@ -18,6 +18,8 @@ public class EnchantTable : MonoBehaviour
     public GameObject Parent;
 
     public GameObject outline;
+
+    public AudioSource enchSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,12 +51,12 @@ public class EnchantTable : MonoBehaviour
 
     private void OnMouseExit()
     {
-        outline.SetActive(false);
+        //outline.SetActive(false);
     }
 
     private void OnMouseOver()
     {
-        outline.SetActive(true);
+        //outline.SetActive(true);
         if (Input.GetKeyDown(KeyCode.F))
         {
             int cCount = Parent.transform.childCount;
@@ -72,6 +74,7 @@ public class EnchantTable : MonoBehaviour
 
         if (sword != null) //ensure the sword is still in there.
         {
+
             //Creates a string from wheel numbers.
             EnchantString = "" + Wheel1.GetComponent<EnchantPINWheel>().SelectedRune + Wheel2.GetComponent<EnchantPINWheel>().SelectedRune +
                 Wheel3.GetComponent<EnchantPINWheel>().SelectedRune + Wheel4.GetComponent<EnchantPINWheel>().SelectedRune + Wheel5.GetComponent<EnchantPINWheel>().SelectedRune;
@@ -79,31 +82,32 @@ public class EnchantTable : MonoBehaviour
             if (EnchantString == "CHILL") //list of checks for possible enchantments and applies appropriate enchant to sword
             {
                 sword.GetComponent<Sword>().enchantType = Sword.EnchantType.chill;
+                enchSound.Play();
             }
             if (EnchantString == "FLAME")
             {
                 sword.GetComponent<Sword>().enchantType = Sword.EnchantType.flame;
-
+                enchSound.Play();
             }
             if (EnchantString == "SPARK")
             {
                 sword.GetComponent<Sword>().enchantType = Sword.EnchantType.spark;
-
+                enchSound.Play();
             }
             if (EnchantString == "TOXIN")
             {
                 sword.GetComponent<Sword>().enchantType = Sword.EnchantType.toxin;
-
+                enchSound.Play();
             }
             if (EnchantString == "NECRO")
             {
                 sword.GetComponent<Sword>().enchantType = Sword.EnchantType.necro;
-
+                enchSound.Play();
             }
             if (EnchantString == "BLESS")
             {
                 sword.GetComponent<Sword>().enchantType = Sword.EnchantType.bless;
-
+                enchSound.Play();
             }
         }
     }
