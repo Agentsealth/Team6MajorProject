@@ -74,8 +74,7 @@ public class TestDialogueTrigger : MonoBehaviour
             dialogue.guardMaterial = (Sword.MaterialGuard)randomguardmat;
             dialogue.handleMaterial = (Sword.MaterialHandle)randomhandlemat;         
             Price();
-            dialogue.sentences[0] = "Hello, my name is " + dialogue.npcName;
-            dialogue.sentences[1] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
+            dialogue.sentences[0] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
             + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
             //dialogue.sentences[2] = "I will pay " + (costToMake + 10);
             dialogue.sentences[2] = "Good bye";
