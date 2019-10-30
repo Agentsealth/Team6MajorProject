@@ -21,6 +21,7 @@ public class DayProgression : MonoBehaviour
 
     public List<Day> week;
     public int nextDay = 0;
+    public int randomNpc;
 
     public Transform spawn;
 
@@ -60,7 +61,8 @@ public class DayProgression : MonoBehaviour
 
         if(dayCountDown <= 0)
         {
-            if(state != SpawnState.Spawning)
+            randomNpc = Random.Range(1, 4);
+            if (state != SpawnState.Spawning)
             {
                 StartCoroutine(SpawnDay(week[nextDay]));
             }
@@ -130,14 +132,14 @@ public class DayProgression : MonoBehaviour
                     }
                     else
                     {
-                        SpawnNpc(_day.genericNpc[1]);
+                        SpawnNpc(_day.genericNpc[randomNpc]);
                         waypointManager.AddNpcs();
                     }
 
                 }
                 else
                 {
-                    SpawnNpc(_day.genericNpc[1]);
+                    SpawnNpc(_day.genericNpc[randomNpc]);
                     waypointManager.AddNpcs();          
                 }
             yield return new WaitForSeconds(1f / _day.rate);
