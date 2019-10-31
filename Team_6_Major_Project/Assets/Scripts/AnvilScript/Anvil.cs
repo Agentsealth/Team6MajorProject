@@ -50,7 +50,6 @@ public class Anvil : MonoBehaviour
     public static string ingotplace3 = "empty";
 
     private Vector3 hammerOriginalPos;
-    public GameObject CritPoint;
 
     public AudioSource placeDown;
 
@@ -84,7 +83,6 @@ public class Anvil : MonoBehaviour
             }
 
             var position = new Vector3(Random.Range(-3.9f, -3.6f), 0.79f, Random.Range(7.4f, 7.6f));
-            Instantiate(CritPoint, position, Quaternion.identity);
         }
         else
         {
@@ -334,7 +332,6 @@ public class Anvil : MonoBehaviour
             Destroy(ingots[0]);
             ingots.RemoveRange(0, ingots.Count);
             ingotCount = 0;
-            DestroyCrit();
             ingotplace1 = "empty";
         }
         if (ingots.Count == 2)
@@ -346,7 +343,6 @@ public class Anvil : MonoBehaviour
             Destroy(ingots[1]);
             ingots.RemoveRange(0, ingots.Count);
             ingotCount = 0;
-            DestroyCrit();
             ingotplace1 = "empty";
             ingotplace2 = "empty";
 
@@ -361,7 +357,6 @@ public class Anvil : MonoBehaviour
             Destroy(ingots[2]);
             ingots.RemoveRange(0, ingots.Count);
             ingotCount = 0;
-            DestroyCrit();
             ingotplace1 = "empty";
             ingotplace2 = "empty";
             ingotplace3 = "empty";
@@ -392,7 +387,6 @@ public class Anvil : MonoBehaviour
                     small.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
                     Destroy(sheet[0]);
                     sheet.RemoveRange(0, sheet.Count);
-                    DestroyCrit();
                     sheetCount = 0;
                 }
                 if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(1))
@@ -402,7 +396,6 @@ public class Anvil : MonoBehaviour
                     medium.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
                     Destroy(sheet[0]);
                     sheet.RemoveRange(0, sheet.Count);
-                    DestroyCrit();
                     sheetCount = 0;
                 }
                 if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(2))
@@ -412,7 +405,6 @@ public class Anvil : MonoBehaviour
                     large.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
                     Destroy(sheet[0]);
                     sheet.RemoveRange(0, sheet.Count);
-                    DestroyCrit();
                     sheetCount = 0;
                 }
                 isSwordBlade = false;
@@ -428,24 +420,9 @@ public class Anvil : MonoBehaviour
                     small.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
                     Destroy(sheet[0]);
                     sheet.RemoveRange(0, sheet.Count);
-                    DestroyCrit();
                     sheetCount = 0;
                 }
             }
         }
-    }
-
-    public void DestroyCrit()
-    {
-        for (var i = 0; i < GameObject.FindGameObjectsWithTag("CriticalPoint").Length; i++)
-        {
-            Destroy(GameObject.FindGameObjectsWithTag("CriticalPoint")[i]);
-        }
-    }
-
-    public void AddCritPoint()
-    {
-        var position = new Vector3(Random.Range(-3.9f, -3.6f), 0.79f, Random.Range(7.4f, 7.6f));
-                Instantiate(CritPoint, position, Quaternion.identity);
     }
 }

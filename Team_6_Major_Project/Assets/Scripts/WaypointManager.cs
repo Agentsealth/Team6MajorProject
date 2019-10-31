@@ -68,7 +68,7 @@ public class WaypointManager : MonoBehaviour
             else
             {
                 Npcs[2].GetComponent<CustomerAI>().waypoints[1] = waypoint1s[0];
-                Npcs[2].GetComponent<CustomerAI>().waypointIndex = 1;
+                Npcs[2  ].GetComponent<CustomerAI>().waypointIndex = 1;
             }
 
         }
