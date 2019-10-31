@@ -10,6 +10,10 @@ public class DialogueManager : MonoBehaviour
     public Queue<string> sentences;
 
     public List<string> banterSentences;
+    public string[] greetingSentences;
+    public string[] badQualitySentences;
+    public string[] neturalQualitySentences;
+    public string[] bestQualitySentences;
 
     public Animator animator;
 
@@ -21,10 +25,20 @@ public class DialogueManager : MonoBehaviour
 
     public int special2TextFile;
 
+    public TextAsset greeting;
+    public TextAsset badQuality;
+    public TextAsset neturalQuality;
+    public TextAsset bestQuality;
+
+
 
     private void Start()
     {
         sentences = new Queue<string>();
+        greetingSentences = greeting.text.Split('\n');
+        badQualitySentences = badQuality.text.Split('\n');
+        neturalQualitySentences = neturalQuality.text.Split('\n');
+        bestQualitySentences = bestQuality.text.Split('\n');
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -53,7 +67,6 @@ public class DialogueManager : MonoBehaviour
         }
         index = banterIndex;
         StartCoroutine(TypeBanterSentence(banterSentences[index]));
-
     }
 
     public void BanterDialogueSentence()

@@ -33,6 +33,11 @@ public class TestDialogueTrigger : MonoBehaviour
     public int randomblademat;
     public int randomguardmat;
     public int randomhandlemat;
+    public int randomgreeting;
+    public int randombadtext;
+    public int randomgoodtext;
+    public int randomneturaltext;
+
     public int bladeIngot;
     public int costToMake;
     public int steelCost;
@@ -78,22 +83,24 @@ public class TestDialogueTrigger : MonoBehaviour
             randomblademat = Random.Range(1, materialGen);
             randomguardmat = Random.Range(1, materialGen);
             randomhandlemat = Random.Range(1, materialGen);
+            randomgreeting = Random.Range(1, dialogueManager.greetingSentences.Length);
             dialogue.bladeType = (Sword.SwordType)randomtype;
             dialogue.bladeMaterial = (Sword.MaterialBlade)randomblademat;
             dialogue.guardMaterial = (Sword.MaterialGuard)randomguardmat;
             dialogue.handleMaterial = (Sword.MaterialHandle)randomhandlemat;         
             Price();
             dialogue.sentences[0] = "Hello";
-            dialogue.sentences[1] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
+            dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
             + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
             //dialogue.sentences[2] = "I will pay " + (costToMake + 10);
             dialogue.sentences[2] = "Good bye";
         }
         else if(tutorial == true)
         {
+            randomgreeting = Random.Range(1, dialogueManager.greetingSentences.Length);
             Price();
-            dialogue.sentences[0] = "Hello, my name is " + dialogue.npcName;
-            dialogue.sentences[1] = "I would like to order a " + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with "
+            dialogue.sentences[0] = "Hello";
+            dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with "
             + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
             //dialogue.sentences[2] = "I will pay " + (costToMake + 10);
             dialogue.sentences[2] = "Good bye";
@@ -249,6 +256,12 @@ public class TestDialogueTrigger : MonoBehaviour
                 return;
             }
         }
+
+        if (customerAI.waypointIndex == 4)
+        {
+            dialogueManager.EndDialogue();
+        }
+
     }
 
 
@@ -303,11 +316,7 @@ public class TestDialogueTrigger : MonoBehaviour
 
                             }
                             else
-                            {
-                                quality = SlotNumber.quality;                               
-                                Tip();
-                                playerStats.gold += cost;
-                                coinGain.Play();
+                            {                               
                                 if (delayAiInteraction > 0)
                                 {
 
@@ -316,8 +325,9 @@ public class TestDialogueTrigger : MonoBehaviour
                                 {
                                     customerAI.waypointIndex++;
                                 }
-                                Destroy(SlotNumber.sword);
+
                                 delayCustomer = false;
+
                                 if (delayCustomer == false)
                                 {
                                     if(image > 0)
@@ -327,13 +337,21 @@ public class TestDialogueTrigger : MonoBehaviour
                                     else
                                     {
                                         image = 1;
+                                        quality = SlotNumber.quality;
+                                        Tip();
+                                        playerStats.gold += cost;
+                                        coinGain.Play();
                                         ShowFloatingText();
+                                        Banter();                                       
+                                        Destroy(SlotNumber.sword);
+                                        SlotNumber.docketBlade.text = "";
+                                        SlotNumber.docketGuard.text = "";
+                                        SlotNumber.docketHandle.text = "";
+
                                     }
                                         
                                 }
-                                SlotNumber.docketBlade.text = "";
-                                SlotNumber.docketGuard.text = "";
-                                SlotNumber.docketHandle.text = "";
+                                
                             }                     
                     }
                     else
@@ -363,20 +381,31 @@ public class TestDialogueTrigger : MonoBehaviour
         if (quality >= 0 && quality < 25)
         {
             var.GetComponent<SpriteRenderer>().sprite = badEmo;
+            randombadtext = Random.Range(1, dialogueManager.badQualitySentences.Length);
+            dialogue.sentences[4] = dialogueManager.badQualitySentences[randombadtext];
+
         }
         else if (quality >= 25 && quality < 75)
         {
             var.GetComponent<SpriteRenderer>().sprite = neutralEmo;
+            randomneturaltext = Random.Range(1, dialogueManager.neturalQualitySentences.Length);
+            dialogue.sentences[4] = dialogueManager.neturalQualitySentences[randomneturaltext];
+
+
         }
         else if (quality >= 75 && quality <= 100)
         {
             var.GetComponent<SpriteRenderer>().sprite = goodEmo;
+            randomgoodtext = Random.Range(1, dialogueManager.bestQualitySentences.Length);
+            dialogue.sentences[4] = dialogueManager.bestQualitySentences[randomgoodtext];
+
+
         }
     }
 
     public void Banter()
     {
-        dialogueManager.BanterDialogue(dialogue, 5);
+        dialogueManager.BanterDialogue(dialogue, 4);
     }
 
     public void TriggerDialogue()
@@ -389,7 +418,7 @@ public class TestDialogueTrigger : MonoBehaviour
         if (customerAI.waypointIndex == 3)
         {
             CheckItem();
-        }
+        }             
         else
         {
             customerAI.waypointIndex++;
