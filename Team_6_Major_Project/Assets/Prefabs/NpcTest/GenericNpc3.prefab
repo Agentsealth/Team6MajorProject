@@ -36,6 +36,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3948602192101548400}
+  - {fileID: 234940572834066978}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -107,6 +108,7 @@ MonoBehaviour:
   banterChat: 0
   tutorial: 0
   delayCustomer: 0
+  delayAi: 0
   slots: []
   SlotNumber: {fileID: 0}
   dialogue:
@@ -133,6 +135,12 @@ MonoBehaviour:
   dialogueManager: {fileID: 0}
   customerAI: {fileID: 3948602190937270413}
   shop: {fileID: 0}
+  floatingImage: {fileID: 4689020096964781933, guid: d63897f0da724e34ca12deedba5279ae,
+    type: 3}
+  imagePosition: {fileID: 234940572834066978}
+  badEmo: {fileID: 21300004, guid: 9dbe9f4f5b8e2b041a4623cfe2a7241b, type: 3}
+  neutralEmo: {fileID: 21300002, guid: 9dbe9f4f5b8e2b041a4623cfe2a7241b, type: 3}
+  goodEmo: {fileID: 21300000, guid: 9dbe9f4f5b8e2b041a4623cfe2a7241b, type: 3}
   currentTextNumber: 0
   CustomerNumber: 0
   gold: 50
@@ -152,11 +160,13 @@ MonoBehaviour:
   cost: 0
   quality: 0
   materialGen: 0
+  image: 0
   coinGain: {fileID: 3948602190937270403}
   playerStats: {fileID: 0}
   dist: 0
   delay: 2
   delayInteraction: 300
+  delayAiInteraction: 100
   tut: {fileID: 0}
 --- !u!195 &3948602190937270414
 NavMeshAgent:
@@ -316,6 +326,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &8375825924751526801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 234940572834066978}
+  m_Layer: 0
+  m_Name: Image Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &234940572834066978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8375825924751526801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.886, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3948602190937270411}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3948602192101686260
 PrefabInstance:
   m_ObjectHideFlags: 0

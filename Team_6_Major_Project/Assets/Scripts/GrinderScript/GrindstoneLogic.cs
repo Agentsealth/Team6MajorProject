@@ -265,7 +265,8 @@ public class GrindstoneLogic : MonoBehaviour
         {
             
             int cCount = Parent.transform.childCount;
-            if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet")
+            if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet" && 
+                Parent.transform.GetChild(0).gameObject.GetComponent<Sheet>().ready == false)
             {
                 placeDown.Play();
                 if (tut.textPos == 17 || tut.textPos == 16)
@@ -288,7 +289,7 @@ public class GrindstoneLogic : MonoBehaviour
 
                 
             }
-            else
+            else if(sheet != null)
             {
                 MTP.gotoGrinder();
                 if (tut.textPos == 18 || tut.textPos == 17)
