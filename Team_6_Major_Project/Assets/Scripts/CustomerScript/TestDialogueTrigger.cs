@@ -12,6 +12,7 @@ public class TestDialogueTrigger : MonoBehaviour
     public bool banterChat = false;
     public bool tutorial;
     public bool delayCustomer = false;
+    public bool delayAi = false;
 
     public ItemSlot[] slots;
     public ItemSlot SlotNumber;
@@ -19,6 +20,11 @@ public class TestDialogueTrigger : MonoBehaviour
     public DialogueManager dialogueManager;
     public CustomerAI customerAI;
     public Shop shop;
+    public GameObject floatingImage;
+    public Transform imagePosition;
+    public Sprite badEmo;
+    public Sprite neutralEmo;
+    public Sprite goodEmo;
 
     public int currentTextNumber;
     public int CustomerNumber;
@@ -39,19 +45,22 @@ public class TestDialogueTrigger : MonoBehaviour
     public int cost;
     public int quality;
     public int materialGen;
+    public int image;
 
     public AudioSource coinGain;
     public PlayerStats playerStats;
 
     public float dist;
     public float delay = 2f;
-    public float delayInteraction = 300f;
+    public float delayInteraction = 200f;
+    public float delayAiInteraction = 100f;
 
     public Tutorial tut;
     // Start is called before the first frame update
     void Start()
     {
-        delayInteraction = 300;
+        delayInteraction = 200;
+        delayAiInteraction = 100;
         dialogueManager = FindObjectOfType<DialogueManager>();
         customerAI =this.gameObject.GetComponent<CustomerAI>();
         playerStats = FindObjectOfType<PlayerStats>();
@@ -187,6 +196,11 @@ public class TestDialogueTrigger : MonoBehaviour
             delayInteraction--;
         }
 
+        if(delayAi == true)
+        {
+            delayAiInteraction--;
+        }
+
         if(inRange == true)
         {
             if (dialogueDoneforDay == false)
@@ -273,11 +287,15 @@ public class TestDialogueTrigger : MonoBehaviour
                 {
                     if(SlotNumber.handleMaterial == dialogue.handleMaterial)
                     {                     
-                        if (dialogue.special == false)
-                        {                        
+                                              
                             if(delayCustomer == false)
                             {
                                 delayCustomer = true;
+                            }
+
+                            if (delayAi == false && delayInteraction <= 0)
+                            {
+                                delayAi = true;
                             }
 
                             if (delayInteraction > 0)
@@ -286,39 +304,37 @@ public class TestDialogueTrigger : MonoBehaviour
                             }
                             else
                             {
-                                quality = SlotNumber.quality;
+                                quality = SlotNumber.quality;                               
                                 Tip();
                                 playerStats.gold += cost;
                                 coinGain.Play();
-                                customerAI.waypointIndex++;
+                                if (delayAiInteraction > 0)
+                                {
+
+                                }
+                                else
+                                {
+                                    customerAI.waypointIndex++;
+                                }
                                 Destroy(SlotNumber.sword);
                                 delayCustomer = false;
+                                if (delayCustomer == false)
+                                {
+                                    if(image > 0)
+                                    {
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        image = 1;
+                                        ShowFloatingText();
+                                    }
+                                        
+                                }
                                 SlotNumber.docketBlade.text = "";
                                 SlotNumber.docketGuard.text = "";
                                 SlotNumber.docketHandle.text = "";
-                            }
-                        }
-                        else
-                        {
-                            if (dialogue.specialIndex == 1)
-                            {
-                                dialogueManager.special1TextFile += 1;
-                                currentTextNumber = dialogueManager.special1TextFile;
-                                if (dialogue.textfile[currentTextNumber] != null)
-                                {
-                                    dialogue.sentences = (dialogue.textfile[currentTextNumber].text.Split('\n'));
-                                }
-                            }
-                            else if (dialogue.specialIndex == 2)
-                            {
-                                dialogueManager.special2TextFile += 1;
-                            }
-
-                            quality = SlotNumber.quality;
-                            Tip();
-                            TriggerDialogue();
-                            banterChat = true;
-                        }
+                            }                     
                     }
                     else
                     {
@@ -338,6 +354,23 @@ public class TestDialogueTrigger : MonoBehaviour
         else
         {
             SlotNumber.sword.transform.position = SlotNumber.badlocation.position;
+        }
+    }
+
+    public void ShowFloatingText()
+    {
+        GameObject var = Instantiate(floatingImage, imagePosition.position, Quaternion.identity, transform);
+        if (quality >= 0 && quality < 25)
+        {
+            var.GetComponent<SpriteRenderer>().sprite = badEmo;
+        }
+        else if (quality >= 25 && quality < 75)
+        {
+            var.GetComponent<SpriteRenderer>().sprite = neutralEmo;
+        }
+        else if (quality >= 75 && quality <= 100)
+        {
+            var.GetComponent<SpriteRenderer>().sprite = goodEmo;
         }
     }
 

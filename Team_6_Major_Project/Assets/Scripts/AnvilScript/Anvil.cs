@@ -153,16 +153,14 @@ public class Anvil : MonoBehaviour
 
                     }
                 }
-                else
-                {
-                    MTP.gotoAnvil();
-                    if (tut.textPos == 11 || tut.textPos == 10)
-                    {
-                    tut.ProgressTutorial(11);
-                    tut.ProgressTutorial(11);
-
-                    }
-                
+                else if(ingots.Count != 0 || sheet.Count != 0)
+                {                   
+                        MTP.gotoAnvil();
+                        if (tut.textPos == 11 || tut.textPos == 10)
+                        {
+                            tut.ProgressTutorial(11);
+                            tut.ProgressTutorial(11);
+                        }               
                 }
 
             }
