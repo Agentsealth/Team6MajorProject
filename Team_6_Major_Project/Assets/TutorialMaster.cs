@@ -8,6 +8,7 @@ public class TutorialMaster : MonoBehaviour
 
     public GameObject MenuUI;
     public GameObject TutorialUI;
+    public GameObject Checklist;
 
     public Text tutTitle;
     public Text tutPurpose;
@@ -47,6 +48,22 @@ public class TutorialMaster : MonoBehaviour
     {
         Book.GetComponent<Animator>().Play("TutorialPaperFlipFront");
 
+    }
+
+    public void ToggleChecklist()
+    {
+        if (Checklist.activeSelf)
+        {
+            TutorialUI.SetActive(true);
+            Checklist.SetActive(false);
+            return;
+            
+        } else if (!Checklist.activeSelf)
+        {
+            Checklist.SetActive(true);
+            TutorialUI.SetActive(false);
+            return;
+        }
     }
 
     public void NPCTut()
