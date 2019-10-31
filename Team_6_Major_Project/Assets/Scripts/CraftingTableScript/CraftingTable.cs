@@ -52,23 +52,23 @@ public class CraftingTable : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (bladeCount > 0 && guardCount > 0 && handleCount > 0)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (bladeCount > 0 && guardCount > 0 && handleCount > 0)
             {
+
                 craftingNoise.Play();
                 if (tut.textPos == 21 || tut.textPos == 20)
                 {
                     tut.ProgressTutorial(21);
                 }
                 Craft();
+
             }
-        }
-        else
-        {
-            int cCount = Parent.transform.childCount;
-            if (Input.GetKeyDown(KeyCode.F))
+            else
             {
+                int cCount = Parent.transform.childCount;
+
                 if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Blade" ||
                     cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Guard" ||
                     cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Handle")
@@ -94,6 +94,7 @@ public class CraftingTable : MonoBehaviour
             }
             else
             {
+                bladeType = other.gameObject.GetComponent<Blade>().size;
                 if (bladeType == (Blade.Typeblade)1)
                 {
                     craftingBook.swordBlade[0].color = Color.green;
@@ -120,7 +121,6 @@ public class CraftingTable : MonoBehaviour
                     other.rotation = bastardBladePos.rotation;
                 }
                 bladeMaterial = other.gameObject.GetComponent<Blade>().material;
-                bladeType = other.gameObject.GetComponent<Blade>().size;
                 bladeQuality = other.gameObject.GetComponent<Blade>().quality;
                 blade = other.gameObject;
                 bladeCount++;
