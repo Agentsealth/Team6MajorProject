@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 1785391448205904567}
   - component: {fileID: 839010050}
   - component: {fileID: 6431706976766817594}
+  - component: {fileID: 6993014258071112502}
   m_Layer: 0
   m_Name: Spike
   m_TagString: gsHazard
@@ -149,6 +150,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gsLogic: {fileID: 1785391449767711548}
+--- !u!114 &6993014258071112502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785391448205904560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46813c72c585bc04cae2fe7f123a8904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gsLogic: {fileID: 1785391449767711548}
 --- !u!1 &1785391448347731825
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +198,7 @@ Transform:
   - {fileID: 8569847515856935224}
   - {fileID: 8216069519580147475}
   - {fileID: 1812500409}
+  - {fileID: 133939076298025047}
   - {fileID: 3339095569530046191}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -317,6 +332,7 @@ GameObject:
   - component: {fileID: 1785391448746187585}
   - component: {fileID: 1970351645}
   - component: {fileID: 5478938514528731576}
+  - component: {fileID: 5640798433537496161}
   m_Layer: 0
   m_Name: Spike
   m_TagString: gsHazard
@@ -410,6 +426,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gsLogic: {fileID: 1785391449767711548}
 --- !u!114 &5478938514528731576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785391448746187586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46813c72c585bc04cae2fe7f123a8904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gsLogic: {fileID: 1785391449767711548}
+--- !u!114 &5640798433537496161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -528,6 +557,7 @@ GameObject:
   - component: {fileID: 1785391449125059737}
   - component: {fileID: 1907613372}
   - component: {fileID: 1166663778025321518}
+  - component: {fileID: 1936183621960937097}
   m_Layer: 0
   m_Name: Spike
   m_TagString: gsHazard
@@ -621,6 +651,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gsLogic: {fileID: 1785391449767711548}
 --- !u!114 &1166663778025321518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785391449125059738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46813c72c585bc04cae2fe7f123a8904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gsLogic: {fileID: 1785391449767711548}
+--- !u!114 &1936183621960937097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -791,7 +834,6 @@ MonoBehaviour:
   handle: {fileID: 8234311213502857610, guid: 6b96eaf3fafad1a4db98340ca55ee4f4, type: 3}
   guard: {fileID: 3812608953104703530, guid: 6070545d16057344aaf8be289d6f416b, type: 3}
   options: {fileID: 8569847515341233717}
-  sheet: {fileID: 0}
   i: 0
   endPosition: 0.1
   MTP: {fileID: 0}
@@ -803,8 +845,8 @@ MonoBehaviour:
   sparkObjs: []
   grindingSound: {fileID: 8216069521336879109}
   tut: {fileID: 0}
-  hitObstacle: {fileID: 0}
-  placeDown: {fileID: 0}
+  hitObstacle: {fileID: 6026215932563129776}
+  placeDown: {fileID: 6026215932563129776}
 --- !u!54 &1785391449767711681
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1043,6 +1085,7 @@ GameObject:
   - component: {fileID: 1785391449875910471}
   - component: {fileID: 910984964}
   - component: {fileID: 8971608160325020324}
+  - component: {fileID: 9105312786557631142}
   m_Layer: 0
   m_Name: Spike
   m_TagString: gsHazard
@@ -1148,6 +1191,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gsLogic: {fileID: 1785391449767711548}
+--- !u!114 &9105312786557631142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785391449875910464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46813c72c585bc04cae2fe7f123a8904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gsLogic: {fileID: 1785391449767711548}
+--- !u!1 &2775956789294580417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 133939076298025047}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &133939076298025047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2775956789294580417}
+  m_LocalRotation: {x: -0, y: 0.00000058114523, z: -0, w: 1}
+  m_LocalPosition: {x: -1.001649, y: 0.5763224, z: -1.1007745}
+  m_LocalScale: {x: 1.1526448, y: 1.1526448, z: 1.1526448}
+  m_Children: []
+  m_Father: {fileID: 1785391448347731824}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2820438006346209122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1262,7 @@ Transform:
   m_LocalScale: {x: 1.1526448, y: 1.1526448, z: 1.1526448}
   m_Children: []
   m_Father: {fileID: 1785391448347731824}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5031497256860987533
 GameObject:
@@ -1189,7 +1275,6 @@ GameObject:
   - component: {fileID: 4607347708584558651}
   - component: {fileID: 6352673929446973847}
   - component: {fileID: 5902821251892424697}
-  - component: {fileID: 7083689183799745231}
   - component: {fileID: 1337154768938410466}
   m_Layer: 0
   m_Name: OutlineToolTip
@@ -1259,20 +1344,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7083689183799745231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5031497256860987533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a31529e0f999b4b9e5b000351300e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: -150
-  Grindstone: {fileID: 0}
 --- !u!64 &1337154768938410466
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1298,7 +1369,6 @@ GameObject:
   - component: {fileID: 7643034458765331755}
   - component: {fileID: 18456772466735116}
   - component: {fileID: 5798726216704841652}
-  - component: {fileID: 7219318364054846303}
   - component: {fileID: 7505148424935902333}
   m_Layer: 0
   m_Name: SM_Grinder_Wheel_Handle (1)
@@ -1368,20 +1438,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7219318364054846303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7767980848492429771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a31529e0f999b4b9e5b000351300e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: -150
-  Grindstone: {fileID: 0}
 --- !u!64 &7505148424935902333
 MeshCollider:
   m_ObjectHideFlags: 0

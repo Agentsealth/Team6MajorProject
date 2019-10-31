@@ -12,7 +12,7 @@ public class GrindstoneLogic : MonoBehaviour
     public GameObject handle;
     public GameObject guard;
     public GameObject options;
-    public GameObject sheet;
+    private GameObject sheet;
     public int i;
     Vector3 initialPosition;
     public float endPosition;
@@ -178,12 +178,23 @@ public class GrindstoneLogic : MonoBehaviour
 
     public void ExitGrinder() //Disables booleans to aid with player picking up and prevention of snap backing
     {
-        if (sheet.GetComponent<PickUp>().isHolding)
+        if (sheet == null)
         {
-            sheet.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            canGrind = false;
-            isGrinding = false;
+            return;
+        }
+        else
+        {
+            if (sheet.GetComponent<PickUp>().isHolding)
+            {
+                sheet.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                canGrind = false;
+                isGrinding = false;
 
+            }
+            else
+            {
+                return;
+            }
         }
     }
 

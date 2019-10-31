@@ -21,7 +21,7 @@ public class Anvil : MonoBehaviour
     public GameObject gameSlider;
     public GameObject hammer;
     public GameObject Parent;
-    public GameObject options;
+    //public GameObject options;
     public GameObject axe;
 
 
@@ -135,10 +135,10 @@ public class Anvil : MonoBehaviour
     {
             if (Input.GetKeyDown(KeyCode.F))
             {
-            prompt.SetActive(false);
-            PS.canShow = false;
+                prompt.SetActive(false);
+                PS.canShow = false;
 
-            canHammer = true;
+                canHammer = true;
                 int cCount = Parent.transform.childCount;
                 if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet" ||
                     cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Ingot")
@@ -168,33 +168,33 @@ public class Anvil : MonoBehaviour
             }
     }
 
-    public void chooseSword() //Player chooses to make a swordBlade
-    {
-        options.SetActive(false);
-        buttonSelected = true;
-        isSwordBlade = true;
-        resetValue = false;
+    //public void chooseSword() //Player chooses to make a swordBlade
+    //{
+    //    options.SetActive(false);
+    //    buttonSelected = true;
+    //    isSwordBlade = true;
+    //    resetValue = false;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+    //    Cursor.visible = false;
+    //    Cursor.lockState = CursorLockMode.Locked;
 
-        //playerInPos = true;
+    //    //playerInPos = true;
 
-    }
+    //}
 
-    public void chooseAxe() //player chooses to make a AxeBlade
-    {
-        options.SetActive(false);
-        buttonSelected = true;
-        isAxeBlade = true;
-        resetValue = false;
+    //public void chooseAxe() //player chooses to make a AxeBlade
+    //{
+    //    options.SetActive(false);
+    //    buttonSelected = true;
+    //    isAxeBlade = true;
+    //    resetValue = false;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+    //    Cursor.visible = false;
+    //    Cursor.lockState = CursorLockMode.Locked;
 
 
-        //playerInPos = true;
-    }
+    //    //playerInPos = true;
+    //}
 
     public void help(Transform other)
     {
@@ -377,9 +377,7 @@ public class Anvil : MonoBehaviour
             PS.canShow = true;
 
             hammer.transform.position = hammerOriginalPos;
-            if (isSwordBlade == true)
-            {
-
+          
                 if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
                 {
                     GameObject small = Instantiate(blades[0], drop.position, Quaternion.identity);
@@ -410,19 +408,7 @@ public class Anvil : MonoBehaviour
                 isSwordBlade = false;
                 buttonSelected = false;
 
-            }
-            else if (isAxeBlade == true)
-            {
-                if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
-                {
-                    GameObject small = Instantiate(axe, drop.position, Quaternion.identity);
-                    int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
-                    small.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
-                    Destroy(sheet[0]);
-                    sheet.RemoveRange(0, sheet.Count);
-                    sheetCount = 0;
-                }
-            }
+                       
         }
     }
 }

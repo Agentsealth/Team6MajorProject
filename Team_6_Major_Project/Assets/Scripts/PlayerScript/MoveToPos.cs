@@ -111,20 +111,8 @@ public class MoveToPos : MonoBehaviour
             rotB = loc2.transform.rotation;
             StartCoroutine(WaitAndMove(delayTime));
             StartCoroutine(WaitAndMoveTo(delayTime));
-
-            if (anvilLogic.sheetCount > 0)
-            {
-                options[1].SetActive(true);
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-
-            }
-            else
-            {
-                anvilLogic.buttonSelected = true;
-                anvilLogic.resetValue = false;
-
-            }
+            anvilLogic.buttonSelected = true;
+            anvilLogic.resetValue = false;
         }
         else
         {
