@@ -29,7 +29,7 @@ public class GrindstoneLogic : MonoBehaviour
     public GameObject Sparks;
     public GameObject SparkPosition;
     public GameObject[] sparkObjs;
-
+    public Transform sheetPos;
 
     public AudioSource grindingSound;
     public Tutorial tut;
