@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1898,10 +1898,16 @@ MonoBehaviour:
   AudioButton: {fileID: 1831738847}
   DisplayButton: {fileID: 88770277}
   GameplayButton: {fileID: 374668314}
+  Player: {fileID: 0}
   Music: {fileID: 0}
   OptionsMaster: {fileID: 1416930205}
   audioClip: {fileID: 8300000, guid: 1627d0ae49820494c8d5c8b5e01b560f, type: 3}
   audioSource: {fileID: 1739858443}
+  MenuCamera: {fileID: 0}
+  PlayerCamera: {fileID: 0}
+  SaveScreen: {fileID: 0}
+  playerCanvas: {fileID: 0}
+  optionsMaster: {fileID: 0}
 --- !u!4 &940093681
 Transform:
   m_ObjectHideFlags: 0
@@ -2501,6 +2507,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MasterVolumeSlider: {fileID: 2045086338}
+  resoulutionDropdown: {fileID: 0}
+  qualityIndexV: 0
+  fullScreen: 0
+  resoulationIndexV: 0
 --- !u!4 &1416930207
 Transform:
   m_ObjectHideFlags: 0
