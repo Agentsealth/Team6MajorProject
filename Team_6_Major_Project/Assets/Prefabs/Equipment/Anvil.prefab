@@ -350,7 +350,6 @@ MonoBehaviour:
   gameSlider: {fileID: 0}
   hammer: {fileID: 7903956388518484084}
   Parent: {fileID: 0}
-  options: {fileID: 0}
   axe: {fileID: 0}
   usingSlider: 0
   isHammering: 0
@@ -372,8 +371,6 @@ MonoBehaviour:
   - {fileID: 1149039118250727108, guid: e5ca8fd324ff57c40a742cb7628ed972, type: 3}
   crit: []
   warning: {fileID: 0}
-  CritPoint: {fileID: 5169861900474331791, guid: 217adb768201cca4e83a7646ad44e657,
-    type: 3}
   placeDown: {fileID: 0}
   tut: {fileID: 0}
 --- !u!82 &4291175538725360030
@@ -871,14 +868,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7903956388518484084}
-  m_LocalRotation: {x: 0.23349345, y: -0.6674435, z: -0.23349345, w: 0.6674435}
-  m_LocalPosition: {x: -0.305, y: 0, z: -0.213}
+  m_LocalRotation: {x: 0.7004264, y: -0.09696738, z: -0.7004266, w: 0.09696755}
+  m_LocalPosition: {x: 0.04, y: 0.122, z: 0.095}
   m_LocalScale: {x: 0.26896012, y: 0.26896, z: 0.26896012}
   m_Children:
-  - {fileID: 7903956389148471785}
+  - {fileID: 7871624125888749091}
   m_Father: {fileID: 4291175538170913703}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -38.563004}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -164.23601}
 --- !u!33 &7903956388518483980
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -886,7 +883,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7903956388518484084}
-  m_Mesh: {fileID: 4300000, guid: 8a838403b53a5c8469099596b1e7c3de, type: 3}
+  m_Mesh: {fileID: 4300000, guid: ac1c2338d6358624ab9f510f58769c9f, type: 3}
 --- !u!23 &7903956388518483979
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -904,7 +901,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d69bcdc631d7df7418900da888b98d61, type: 2}
+  - {fileID: 2100000, guid: 1b9748c7398f73f469fb531cfc21a26b, type: 2}
+  - {fileID: 2100000, guid: 1b9748c7398f73f469fb531cfc21a26b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1112,7 +1110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97b203623c80f8647830782c5ec2455b, type: 3}
---- !u!4 &7903956389148471785 stripped
+--- !u!4 &7871624125888749091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 39932177846234349, guid: 97b203623c80f8647830782c5ec2455b,
     type: 3}

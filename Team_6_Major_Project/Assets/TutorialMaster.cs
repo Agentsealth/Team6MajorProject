@@ -9,6 +9,9 @@ public class TutorialMaster : MonoBehaviour
     public GameObject MenuUI;
     public GameObject TutorialUI;
     public GameObject Checklist;
+    public GameObject TutSheet;
+    public GameObject EquipmentSheet;
+    public GameObject PeopleSheet;
 
     public Text tutTitle;
     public Text tutPurpose;
@@ -18,6 +21,7 @@ public class TutorialMaster : MonoBehaviour
 
     public Text OpenClose;
     public GameObject Book;
+    public GameObject tutRoot;
     // Start is called before the first frame update
     public void ShowHide()
     {
@@ -44,44 +48,149 @@ public class TutorialMaster : MonoBehaviour
         OpenClose.text = "→";
     }
 
-    public void FlipTutorialBack()
-    {
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipFront");
 
-    }
 
-    public void ToggleChecklist()
+    public void ToggleSubmenu(GameObject otherMenu)
     {
-        if (Checklist.activeSelf)
+        if (otherMenu.activeSelf)
         {
+
             TutorialUI.SetActive(true);
-            Checklist.SetActive(false);
+            otherMenu.SetActive(false);
             return;
             
-        } else if (!Checklist.activeSelf)
+        } else if (!otherMenu.activeSelf)
         {
-            Checklist.SetActive(true);
+            otherMenu.SetActive(true);
             TutorialUI.SetActive(false);
+
             return;
         }
     }
-
-    public void NPCTut()
+    public void ToggleTutSheet()
     {
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
-        tutTitle.text = "Customers";
-        tutPurpose.text = "-Gives you requests that appear on dockets.\n-Primary way to earn money.";
-        tutConditions.text = "See Dockets\nSee Weapon Holder";
-        tutImage.sprite = Images[0];
+        tutRoot.SetActive(true);
+        TutSheet.SetActive(false);
+        Book.GetComponent<Animator>().Play("TutorialFlipFront");
+
     }
+
+
+
 
     public void DocketTut()
     {
-        Book.GetComponent<Animator>().Play("TutorialPaperFlip");
+        TutSheet.SetActive(true);
+        tutRoot = EquipmentSheet;
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Dockets";
-        tutPurpose.text = "Folk that want to order swords. \n Primary way to earn money";
-        tutConditions.text = "Pay based on materials, condition, and labour cost";
+        tutPurpose.text = "-Describes given order\n-Serves as a reminder";
+        tutConditions.text = "-Customers\nSword Holder";
         tutImage.sprite = Images[0];
+    }
+
+    public void CoalTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = EquipmentSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Coal Hatch";
+        tutPurpose.text = "-Add Coal to start\n-Powers Crucible and Grills";
+        tutConditions.text = "-Shop\n-Crucible/Grills";
+        tutImage.sprite = Images[1];
+    }
+
+    public void CrucibleTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = EquipmentSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Crucible";
+        tutPurpose.text = "-Used to Melt Chunks to Ingots\n-Requires Coal";
+        tutConditions.text = "-Coal Hatch\n-Grills";
+        tutImage.sprite = Images[2];
+    }
+
+    public void GrillsTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = EquipmentSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Grills";
+        tutPurpose.text = "-Used to heat Ingots and Sheets\n-Requires Coal";
+        tutConditions.text = "-Coal Hatch\n-Crucible";
+        tutImage.sprite = Images[3];
+    }
+
+    public void AnvilTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = EquipmentSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Anvil";
+        tutPurpose.text = "-Used to make Sheets and Blades\n-Requires hot Ingot(s)/Sheet";
+        tutConditions.text = "-Crucible\n-Grindstone";
+        tutImage.sprite = Images[4];
+    }
+
+    public void GrindstoneTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = EquipmentSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Grindstone";
+        tutPurpose.text = "-Used to make Guards and Handles\n-Requires (not hot) Sheets";
+        tutConditions.text = "-Crucible\n-Anvil";
+        tutImage.sprite = Images[5];
+    }
+
+    public void QuenchingTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = EquipmentSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Quenching Barrel";
+        tutPurpose.text = "-Used to cool hot items\n-Requires hot Sheets/Ingots";
+        tutConditions.text = "-Anvil\n-Grills";
+        tutImage.sprite = Images[6];
+    }
+
+    public void AssemblyTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = EquipmentSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Assembly Table";
+        tutPurpose.text = "-Used to assemble Swords\n-Requires Blade, Guard, & Handle";
+        tutConditions.text = "-Grindstone\n-Anvil";
+        tutImage.sprite = Images[7];
+    }
+
+    public void HolderTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = EquipmentSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Sword Holder";
+        tutPurpose.text = "-Used to sell Swords\n-Requires assembled Sword";
+        tutConditions.text = "-Assembly Table\n-Customers";
+        tutImage.sprite = Images[8];
     }
 }

@@ -48,32 +48,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102071112793486498
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: TutorialPaperFlipReverse
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fe7918730a5c6a646aec864c136ccffa, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1102 &1102091538696280158
 AnimatorState:
   serializedVersion: 5
@@ -126,6 +100,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &1102189036146984120
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TutorialFlipFront
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 0
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 32c857d42ad29e94e8af5f59543d2324, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &1102349916638604898
 AnimatorState:
   serializedVersion: 5
@@ -152,14 +152,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102435188437871690
+--- !u!1102 &1102494355859979974
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TutorialPaperFlip
+  m_Name: TutorialPaperIn
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -172,20 +172,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 82cc06ca2708c5a4f952f5add18c348a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6b340c33b64fb56418e90ef865090d53, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102540331620959852
+--- !u!1102 &1102587271549474722
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TutorialPaperUp
+  m_Name: TutorialPaperOut
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -198,7 +198,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cc19efc843fcded478e40dae3431235e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 600a2af3e85c3c547acb08bd26bbf64e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -230,14 +230,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102971916340861618
+--- !u!1102 &1102909510978079752
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TutorialPaperDown
+  m_Name: TutorialPaperFlipBack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -250,7 +250,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9eb7c3e0c93a617458c4470fb83300d2, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2f815c1ede529a74cb16ed1a95c25016, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -281,17 +281,17 @@ AnimatorStateMachine:
     m_State: {fileID: 1102124373329894524}
     m_Position: {x: 216, y: 480, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102540331620959852}
-    m_Position: {x: 216, y: 540, z: 0}
+    m_State: {fileID: 1102587271549474722}
+    m_Position: {x: 286, y: 790, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102971916340861618}
-    m_Position: {x: 216, y: 600, z: 0}
+    m_State: {fileID: 1102494355859979974}
+    m_Position: {x: 321, y: 855, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102435188437871690}
-    m_Position: {x: 216, y: 660, z: 0}
+    m_State: {fileID: 1102909510978079752}
+    m_Position: {x: 356, y: 920, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102071112793486498}
-    m_Position: {x: 251, y: 725, z: 0}
+    m_State: {fileID: 1102189036146984120}
+    m_Position: {x: 384, y: 984, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
