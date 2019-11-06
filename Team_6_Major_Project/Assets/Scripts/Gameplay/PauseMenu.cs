@@ -31,6 +31,8 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         playerController = GameObject.FindObjectOfType<PlayerController>();
+        anvil = FindObjectOfType<Anvil>();
+        gsLogic = FindObjectOfType<GrindstoneLogic>();
     }
 
     private void Awake()

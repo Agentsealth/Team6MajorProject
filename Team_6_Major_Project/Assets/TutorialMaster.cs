@@ -195,4 +195,58 @@ public class TutorialMaster : MonoBehaviour
         tutConditions.text = "-Assembly Table\n-Customers";
         tutImage.sprite = Images[8];
     }
+
+    public void CustomerTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = PeopleSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Customer";
+        tutPurpose.text = "-Primary way to earn money\n-Gives orders for swords";
+        tutConditions.text = "-Dockets\n-Sword Holder";
+        tutImage.sprite = Images[9];
+    }
+
+    public void MoneyTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = PeopleSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Money";
+        tutPurpose.text = "-Silver coins held in a chest\n-Used to buy materials and upgrades";
+        tutConditions.text = "-Customers\n-Shop";
+        tutImage.sprite = Images[10];
+    }
+
+    public void ShopTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = PeopleSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Shop";
+        tutPurpose.text = "-Used to purchase materials and upgrades\n-Uses silver coins (money)";
+        tutConditions.text = "-Money\n-Customers";
+        tutImage.sprite = Images[11];
+    }
+
+    public void EnchTut()
+    {
+        TutSheet.SetActive(true);
+        tutRoot = PeopleSheet;
+
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+        tutTitle.text = "Enchanting Table";
+        tutPurpose.text = "-Applies an enchantment\n-Match symbols of the same colour to enchant";
+        tutConditions.text = "-Money\n-Customers";
+        tutImage.sprite = Images[12];
+    }
+
+
 }

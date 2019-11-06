@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 184f22f90c32f28409b5db67ffe810e6, type: 2}
+  - {fileID: 2100000, guid: b681982aa0f435440906ef6809c1b1c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -185,6 +185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokeP: {fileID: 8047713662385506893, guid: 9d86f730c1499f940bc9b01a2c60cacb, type: 3}
   audioSource: {fileID: 8980371709750876975}
+  Parent: {fileID: 0}
+  drop: {fileID: 0}
 --- !u!1 &8980371709750876973
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +229,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8980371709750876973}
-  m_Mesh: {fileID: 4300000, guid: fe096ad0bdbe2f24c8461abad7232601, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 2890ef0b639f02a4c8972d4d9f61b90d, type: 3}
 --- !u!23 &8980371709748676077
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -245,7 +247,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 24948d7d9f107254f8da3ed4bad66751, type: 2}
+  - {fileID: 2100000, guid: d933ff4c25edf5e45a40d4196ed089a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
