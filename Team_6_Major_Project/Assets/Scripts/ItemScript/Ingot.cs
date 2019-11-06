@@ -28,8 +28,8 @@ public class Ingot : MonoBehaviour
     {
         ingotPickup = this.gameObject.GetComponent<PickUp>();
         rigid = this.gameObject.GetComponent<Rigidbody>();
-        objectName = this.gameObject.name;
         TextureChange();
+        objectName = this.gameObject.name;
         if (ready == false)
         {
             this.gameObject.name = objectName + " (Not Ready)";

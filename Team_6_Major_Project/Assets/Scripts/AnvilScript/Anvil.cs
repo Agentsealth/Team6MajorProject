@@ -139,21 +139,25 @@ public class Anvil : MonoBehaviour
         {
             //Sets the gameobject's sheet Quality to the quality created from the minigame
             other.gameObject.GetComponent<Sheet>().quality = Quality;
-            //Resets the quality int value to 0
-            Quality = 0;
-            //Resets the int value sheetCount to 0
-            sheetCount = 0;
+            //Runs the resetValue function
+            ResetValue();
         }
         //Checks if the gameobject that exited the collider has a tag called Iron Blade
         else if (other.gameObject.tag == "Iron Blade")
         {
             //Sets the gameobject's blade Quality to the quality created from the minigame plus sheetquality divided by 2
             other.gameObject.GetComponent<Blade>().quality = (Quality + sheetQuality) / 2;
-            //Resets the quality int value to 0
-            Quality = 0;
-            //Resets the int value sheetCount to 0
-            sheetQuality = 0;
+            //Runs the resetValue function
+            ResetValue();
         }
+    }
+
+    private void ResetValue()
+    {
+        //Resets the quality int value to 0
+        Quality = 0;
+        //Resets the int value sheetCount to 0
+        sheetQuality = 0;
     }
 
     private void OnMouseOver()
@@ -230,25 +234,12 @@ public class Anvil : MonoBehaviour
                     //Checks if the ingot count is equal to 0
                     if (ingots.Count == 0)
                     {
-                        //Increases the ingot count by 1
-                        ingotCount++;
-                        //Sets the gameObject's isHolding to false
-                        other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
-                        //Sets the gameObject's rigidbody iskinematic to true
-                        other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                        //other.transform.position = drop.transform.position;
+                        increaseIngotCount(other);
                         //Checks if the ingotplace1 is empty
                         if (ingotplace1 == "empty")
                         {
-                            //Sets the gameObject's position to the ingotplaceArray at index 0's position
-                            other.transform.position = ingotplace[0].transform.position;
-                            //Sets the gameObject's eulerangle a new Vector 3 angles based on the x rotation by 180
-                            other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
-                            other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
-                            //Adds the gameobject to the list of ingots
-                            ingots.Add(other.gameObject);
-                            //Sets the ingotplace1 to full
-                            ingotplace1 = "full";
+                            //Snapping ingot 1
+                            snappingIngot(other, 0);
                         }
                         //Sets the gameObject to isHammering(true)
                         other.gameObject.GetComponent<Ingot>().ingotPickup.inHammering = true;
@@ -259,41 +250,18 @@ public class Anvil : MonoBehaviour
                         //Checks if the gameObject's material in the ingot script is the same as the ingot at index 0's material
                         if (other.gameObject.GetComponent<Ingot>().material == ingots[0].GetComponent<Ingot>().material)
                         {
-                            //Sets the gameObject's isHolding to false
-                            other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
-                            //Sets the gameObject's rigidbody iskinematic to true
-                            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                            //other.transform.position = drop.transform.position;
+                            increaseIngotCount(other);
                             //Checks if the ingotplace2 is empty
                             if (ingotplace2 == "empty")
                             {
-                                //Sets the gameObject's position to the ingotplaceArray at index 1's position
-                                other.transform.position = ingotplace[1].transform.position;
-                                //Sets the gameObject's eulerangle a new Vector 3 angles based on the x rotation by 180
-                                other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
-                                other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
-                                //Adds the gameobject to the list of ingots
-                                ingots.Add(other.gameObject);
-                                //Sets the ingotplace1 to full
-                                ingotplace2 = "full";
-                                //Increases the ingot count by 1
-                                ingotCount++;
-
+                                //Snapping ingot 2
+                                snappingIngot(other, 1);
                             }
                             //Checks if the ingotplace3 is empty
                             else if (ingotplace3 == "empty")
                             {
-                                //Sets the gameObject's position to the ingotplaceArray at index 2's position
-                                other.transform.position = ingotplace[2].transform.position;
-                                //Sets the gameObject's eulerangle a new Vector 3 angles based on the x rotation by 180
-                                other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
-                                other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
-                                //Adds the gameobject to the list of ingots
-                                ingots.Add(other.gameObject);
-                                //Sets the ingotplace1 to full
-                                ingotplace3 = "full";
-                                //Increases the ingot count by 1
-                                ingotCount++;
+                                //Snapping ingot 2
+                                snappingIngot(other, 2);
                             }
                             //Sets the gameObject to isHammering(true)
                             other.gameObject.GetComponent<Ingot>().ingotPickup.inHammering = true;
@@ -360,14 +328,7 @@ public class Anvil : MonoBehaviour
 
     public void anvilIngot()
     {
-        //Sets is hammering to false
-        isHammering = false;
-        //Runs the returnToPosing in the moving to Position script
-        MTP.returnToPos();
-        //Sets the prompt gameobject to true
-        prompt.SetActive(true);
-        //Sets the canshow in Prompt script to true
-        PS.canShow = true;
+        resettingHammer();
 
         //Checks if the textIndex for the tutorial is either 11 or 12
         if (tut.textPos == 12 || tut.textPos == 11)
@@ -381,70 +342,21 @@ public class Anvil : MonoBehaviour
             //Runs the function Progress tutorial in the tutorial script to index 14
             tut.ProgressTutorial(14);
         }
-        //Resets the hammer position to the original hammer position
-        hammer.transform.position = hammerOriginalPos;
 
         //Checks if the ingot count is 1
         if (ingots.Count == 1)
         {
-            //Creates a small sheet prefab at a drop position
-            GameObject sheet = Instantiate(sheets[0], drop.position, Quaternion.identity);
-            //Sets the material index based on the first ingot material
-            int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
-            //Sets the sheets material based on the material index
-            sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
-            //Destroy the ingot in the list
-            Destroy(ingots[0]);
-            //Removes the ingot from the list
-            ingots.RemoveRange(0, ingots.Count);
-            //Sets the count to 0
-            ingotCount = 0;
-            //Sets the ingotplace to empty
-            ingotplace1 = "empty";
+            removingIngot(0);
         }
         //Checks if the ingot count is 2
         if (ingots.Count == 2)
         {
-            //Creates a medium sheet prefab at a drop position
-            GameObject sheet = Instantiate(sheets[1], drop.position, Quaternion.identity);
-            //Sets the material index based on the first ingot material
-            int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
-            //Sets the sheets material based on the material index
-            sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
-            //Destroy the ingot in the list
-            Destroy(ingots[0]);
-            Destroy(ingots[1]);
-            //Removes the ingot from the list
-            ingots.RemoveRange(0, ingots.Count);
-            //Sets the count to 0
-            ingotCount = 0;
-            //Sets the ingotplace to empty
-            ingotplace1 = "empty";
-            ingotplace2 = "empty";
-
+            removingIngot(1);
         }
         //Checks if the ingot count is 3
         if (ingots.Count == 3)
         {
-            //Creates a large sheet prefab at a drop position
-            GameObject sheet = Instantiate(sheets[2], drop.position, Quaternion.identity);
-            //Sets the material index based on the first ingot material
-            int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
-            //Sets the sheets material based on the material index
-            sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
-            //Destroy the ingot in the list
-            Destroy(ingots[0]);
-            Destroy(ingots[1]);
-            Destroy(ingots[2]);
-            //Removes the ingot from the list
-            ingots.RemoveRange(0, ingots.Count);
-            //Sets the count to 0
-            ingotCount = 0;
-            //Sets the ingotplace to empty
-            ingotplace1 = "empty";
-            ingotplace2 = "empty";
-            ingotplace3 = "empty";
-
+            removingIngot(2);
         }
         //Sets button selected to false
         buttonSelected = false;
@@ -456,51 +368,136 @@ public class Anvil : MonoBehaviour
         //Checks if the sheet count is greater or equal to 1
         if (sheet.Count >= 1)
         {
-            //Sets the isHammering bool to false
-            isHammering = false;
-            //Runs the returnToPosition function in the movetoPositon script
-            MTP.returnToPos();
-            //Sets the prompt gameobject to true
-            prompt.SetActive(true);
-            //Sets the canShow in Prompt script to true
-            PS.canShow = true;
-            //Sets the transform of the hammer to the original hammer position
-            hammer.transform.position = hammerOriginalPos;
-                //Checks if the sizes of the sheet is small
-                if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
-                {
-                    
-                    GameObject small = Instantiate(blades[0], drop.position, Quaternion.identity);
-                    int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
-                    small.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
-                    Destroy(sheet[0]);
-                    sheet.RemoveRange(0, sheet.Count);
-                    sheetCount = 0;
-                }
-                //Checks if the sizes of the sheet is medium
-                if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(1))
-                {
-                    GameObject medium = Instantiate(blades[1], drop.position, Quaternion.identity);
-                    int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
-                    medium.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
-                    Destroy(sheet[0]);
-                    sheet.RemoveRange(0, sheet.Count);
-                    sheetCount = 0;
-                }
-                //Checks if the sizes of the sheet is large
-                if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(2))
-                {
-                    GameObject large = Instantiate(blades[2], drop.position, Quaternion.identity);
-                    int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
-                    large.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
-                    Destroy(sheet[0]);
-                    sheet.RemoveRange(0, sheet.Count);
-                    sheetCount = 0;
-                }
-                isSwordBlade = false;
-                buttonSelected = false;
-
-                       
+            resettingHammer();       
+            //Checks if the sizes of the sheet is small
+            if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(0))
+            {
+                removingSheet(0);
+            }
+            //Checks if the sizes of the sheet is medium
+            if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(1))
+            {
+                removingSheet(1);
+            }
+            //Checks if the sizes of the sheet is large
+            if (sheet[0].GetComponent<Sheet>().size == (Sheet.TypeSheet)(2))
+            {
+                removingSheet(2);
+            }
+            //Sets swordblade to false
+            isSwordBlade = false;
+            //Sets buttonSelected to false
+            buttonSelected = false;          
         }
+    }
+
+    private void resettingHammer()
+    {
+        //Sets is hammering to false
+        isHammering = false;
+        //Runs the returnToPosing in the moving to Position script
+        MTP.returnToPos();
+        //Sets the prompt gameobject to true
+        prompt.SetActive(true);
+        //Sets the canshow in Prompt script to true
+        PS.canShow = true;
+        //Resets the hammer position to the original hammer position
+        hammer.transform.position = hammerOriginalPos;
+    }
+
+    private void removingSheet(int index)
+    {
+        //Creates a small sheet prefab at a drop position
+        GameObject small = Instantiate(blades[index], drop.position, Quaternion.identity);
+        //Sets the material index based on the first ingot material
+        int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
+        //Sets the blade material based on the material index
+        small.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
+        //Destroy the sheet in the list
+        Destroy(sheet[0]);
+        //Removes the ingot from the list
+        sheet.RemoveRange(0, sheet.Count);
+        //Sets the count to 0
+        sheetCount = 0;
+    }
+
+    private void removingIngot(int index)
+    {
+        //Creates a small sheet prefab at a drop position
+        GameObject sheet = Instantiate(sheets[index], drop.position, Quaternion.identity);
+        //Sets the material index based on the first ingot material
+        int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
+        //Sets the sheets material based on the material index
+        sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
+        //Removes the ingot from the list
+        ingots.RemoveRange(0, ingots.Count);
+        //Sets the count to 0
+        ingotCount = 0;
+
+        if (index == 0)
+        {
+            //Destroy the ingot in the list
+            Destroy(ingots[0]);
+            //Sets the ingotplace to empty
+            ingotplace1 = "empty";
+        }
+        else if (index == 1)
+        {
+            //Destroy the ingot in the list
+            Destroy(ingots[0]);
+            Destroy(ingots[1]);
+
+            //Sets the ingotplace to empty
+            ingotplace1 = "empty";
+            ingotplace2 = "empty";
+        }
+        else if (index == 2)
+        {
+            //Destroy the ingot in the list
+            Destroy(ingots[0]);
+            Destroy(ingots[1]);
+            Destroy(ingots[2]);
+
+            //Sets the ingotplace to empty
+            ingotplace1 = "empty";
+            ingotplace2 = "empty";
+            ingotplace3 = "empty";
+        }
+    }
+
+    private void snappingIngot(Transform other, int index)
+    {
+        //Sets the gameObject's position to the ingotplaceArray at index 0's position
+        other.transform.position = ingotplace[index].transform.position;
+        //Sets the gameObject's eulerangle a new Vector 3 angles based on the x rotation by 180
+        other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x - other.transform.eulerAngles.x + 180,
+        other.transform.eulerAngles.y - other.transform.eulerAngles.y, other.transform.eulerAngles.z - other.transform.eulerAngles.z);
+        //Adds the gameobject to the list of ingots
+        ingots.Add(other.gameObject);
+        if (index == 0)
+        {
+            //Sets the ingotplace1 to full
+            ingotplace1 = "full";
+        }
+        else if (index == 1)
+        {
+            //Sets the ingotplace2 to full
+            ingotplace2 = "full";
+        }
+        else if (index == 2)
+        {
+            //Sets the ingotplace2 to full
+            ingotplace3 = "full";
+        }
+    }
+
+    private void increaseIngotCount(Transform other)
+    {
+        //Increases the ingot count by 1
+        ingotCount++;
+        //Sets the gameObject's isHolding to false
+        other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
+        //Sets the gameObject's rigidbody iskinematic to true
+        other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
     }
 }
