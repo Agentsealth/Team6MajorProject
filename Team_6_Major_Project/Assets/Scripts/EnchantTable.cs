@@ -84,17 +84,17 @@ public class EnchantTable : MonoBehaviour
                 sword.GetComponent<Sword>().enchantType = Sword.EnchantType.chill;
                 enchSound.Play();
             }
-            if (EnchantString == "FLAME")
+            if (EnchantString == "EMBER")
             {
                 sword.GetComponent<Sword>().enchantType = Sword.EnchantType.flame;
                 enchSound.Play();
             }
-            if (EnchantString == "SPARK")
+            if (EnchantString == "PYLON")
             {
                 sword.GetComponent<Sword>().enchantType = Sword.EnchantType.spark;
                 enchSound.Play();
             }
-            if (EnchantString == "TOXIN")
+            if (EnchantString == "TOXIC")
             {
                 sword.GetComponent<Sword>().enchantType = Sword.EnchantType.toxin;
                 enchSound.Play();

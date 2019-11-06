@@ -44,6 +44,8 @@ public class TutorialMaster : MonoBehaviour
     {
         Book.GetComponent<Animator>().Play("TutorialPaperIn");
         MenuUI.SetActive(true);
+        EquipmentSheet.SetActive(false);
+        PeopleSheet.SetActive(false);
         TutorialUI.SetActive(false);
         OpenClose.text = "→";
     }
