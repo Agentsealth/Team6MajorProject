@@ -214,7 +214,7 @@ public class Anvil : MonoBehaviour
         //Checks if the gameObject tag is an Iron Ingot
         if (other.gameObject.tag == "Iron Ingot")
         {
-            //Checkis if the gameobject has been heated (true)
+            //Checks if the gameobject has been heated (true)
             if (other.gameObject.GetComponent<Ingot>().ready == true)
             {
                 //Checks if the textIndex for the tutorial is either 9 or 10
@@ -407,12 +407,12 @@ public class Anvil : MonoBehaviour
 
     private void removingSheet(int index)
     {
-        //Creates a small sheet prefab at a drop position
-        GameObject small = Instantiate(blades[index], drop.position, Quaternion.identity);
+        //Creates a blade prefab at a drop position
+        GameObject blade = Instantiate(blades[index], drop.position, Quaternion.identity);
         //Sets the material index based on the first ingot material
         int materialIndex = (int)sheet[0].GetComponent<Sheet>().material;
         //Sets the blade material based on the material index
-        small.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
+        blade.GetComponent<Blade>().material = (Blade.BladeMaterial)(materialIndex);
         //Destroy the sheet in the list
         Destroy(sheet[0]);
         //Removes the ingot from the list
@@ -423,7 +423,7 @@ public class Anvil : MonoBehaviour
 
     private void removingIngot(int index)
     {
-        //Creates a small sheet prefab at a drop position
+        //Creates a sheet prefab at a drop position
         GameObject sheet = Instantiate(sheets[index], drop.position, Quaternion.identity);
         //Sets the material index based on the first ingot material
         int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
