@@ -428,12 +428,7 @@ public class Anvil : MonoBehaviour
         //Sets the material index based on the first ingot material
         int materialIndex = (int)ingots[0].GetComponent<Ingot>().material;
         //Sets the sheets material based on the material index
-        sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);
-        //Removes the ingot from the list
-        ingots.RemoveRange(0, ingots.Count);
-        //Sets the count to 0
-        ingotCount = 0;
-
+        sheet.GetComponent<Sheet>().material = (Sheet.SheetMaterial)(materialIndex);      
         if (index == 0)
         {
             //Destroy the ingot in the list
@@ -463,6 +458,10 @@ public class Anvil : MonoBehaviour
             ingotplace2 = "empty";
             ingotplace3 = "empty";
         }
+        //Removes the ingot from the list
+        ingots.RemoveRange(0, ingots.Count);
+        //Sets the count to 0
+        ingotCount = 0;
     }
 
     private void snappingIngot(Transform other, int index)
