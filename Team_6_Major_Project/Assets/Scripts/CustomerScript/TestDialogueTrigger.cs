@@ -64,123 +64,181 @@ public class TestDialogueTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Sets the delayInteraction to 200
         delayInteraction = 200;
+        //Sets the AIinteractiondelay to 100
         delayAiInteraction = 100;
+        //Finds the dialogueManager
         dialogueManager = FindObjectOfType<DialogueManager>();
+        //Finds the CustomerAI
         customerAI =this.gameObject.GetComponent<CustomerAI>();
+        //Finds the playerStats
         playerStats = FindObjectOfType<PlayerStats>();
+        //Finds the slots
         slots = FindObjectsOfType<ItemSlot>();
+        //Finds the tutorial
         tut = FindObjectOfType<Tutorial>();
-
+        //Find the shop
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponentInChildren<Shop>();
+        //Set the coal cost by finding the coalcost from the shop script
         coalCost = shop.coalCost;
+        //Set the iron cost by finding the ironCost from the shop script
         ironCost = shop.ironCost;
+        //Set the steel cost by finding the steelCost from the shop script
         steelCost = shop.steelCost;
+        //Set the bronze cost by finding the bronzeCost from the shop script
         bronzeCost = shop.bronzeCost;
+        //Checks if the tutorial is false
         if (tutorial == false)
         {
+            //Sets the random type based on a random range between 1 and 4
             randomtype = Random.Range(1, 4);
+            //Sets the random blade material based on a random range between 1 and materialGen
             randomblademat = Random.Range(1, materialGen);
+            //Sets the random guard material based on a random range between 1 and materialGen
             randomguardmat = Random.Range(1, materialGen);
+            //Sets the random handle material based on a random range between 1 and materialGen
             randomhandlemat = Random.Range(1, materialGen);
+            //Sets a random greetubg based in a rabdin range between 1 and the length of the greeting sentence
             randomgreeting = Random.Range(1, dialogueManager.greetingSentences.Length);
+            //Sets the blade type based on the random type
             dialogue.bladeType = (Sword.SwordType)randomtype;
+            //Sets the blade material based on the random blade material
             dialogue.bladeMaterial = (Sword.MaterialBlade)randomblademat;
+            //Sets the guard material based on the random guard material
             dialogue.guardMaterial = (Sword.MaterialGuard)randomguardmat;
-            dialogue.handleMaterial = (Sword.MaterialHandle)randomhandlemat;         
+            //Sets the handle material based on the random handle material
+            dialogue.handleMaterial = (Sword.MaterialHandle)randomhandlemat;  
+            //Runs the price function
             Price();
+            //Sets the first sentence
             dialogue.sentences[0] = "Hello";
+            //Sets the second sentence
             dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
             + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
-            //dialogue.sentences[2] = "I will pay " + (costToMake + 10);
+            //Sets the third sentences
             dialogue.sentences[2] = "Good bye";
         }
         else if(tutorial == true)
         {
+            //Sets a random greetubg based in a rabdin range between 1 and the length of the greeting sentence
             randomgreeting = Random.Range(1, dialogueManager.greetingSentences.Length);
+            //Runs the price function
             Price();
+            //Sets the first sentence
             dialogue.sentences[0] = "Hello";
+            //Sets the second sentence
             dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with "
             + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
-            //dialogue.sentences[2] = "I will pay " + (costToMake + 10);
+            //Sets the third sentences
             dialogue.sentences[2] = "Good bye";
         }
     }
 
     public void Price()
     {
+        //Runs the sword type check function
         SwordTypeCheck();
+        //Runs the blade material function
         BladeMatCheck();
+        //Runs the handle material check function
         HandleMatCheck();
+        //Runs the guard material check function
         GuardMatCheck();
+        //Does an equation to find the cost to make the sword
         costToMake = (bladeIngot * bladeIngotCost) + (1 * handleIngotCost) + (1 * guardIngotCost) + (4 * coalCost);
     }
 
     public void Tip()
     {
+        //Does an equation to find the cost of the sword
         cost = (int)(costToMake + (((quality / 100) - 0.5) * costToMake) + 10);
     }
 
     void SwordTypeCheck()
     {
+        //Checks if the blade is a small blade
         if (dialogue.bladeType == (Sword.SwordType)1)
         {
+            //Sents the blade ingot to 1
             bladeIngot = 1;
         }
+        //Checks if the blade is a medium blade
         else if (dialogue.bladeType == (Sword.SwordType)2)
         {
+            //Sents the blade ingot to 2
             bladeIngot = 2;
         }
+        //Checks if the blade is a large blade
         else if (dialogue.bladeType == (Sword.SwordType)3)
         {
+            //Sents the blade ingot to 3
             bladeIngot = 3;
         }
     }
 
     void BladeMatCheck()
     {
+        //Checks if the blade is a iron blade
         if (dialogue.bladeMaterial == (Sword.MaterialBlade)2)
         {
+            //Sets the bladeIngotcost to the ironcost
             bladeIngotCost = ironCost;
         }
+        //Checks if the blade is a steel blade
         else if (dialogue.bladeMaterial == (Sword.MaterialBlade)3)
         {
+            //Sets the bladeIngotcost to the steelCost
             bladeIngotCost = steelCost;
         }
+        //Checks if the blade is a bronze blade
         else if (dialogue.bladeMaterial == (Sword.MaterialBlade)1)
         {
+            //Sets the bladeIngotcost to the bronzeCost
             bladeIngotCost = bronzeCost;
         }
     }
 
     void GuardMatCheck()
     {
+        //Checks if the guard is a iron guard
         if (dialogue.guardMaterial == (Sword.MaterialGuard)2)
         {
+            //Sets the guardIngotCost to the ironcost
             guardIngotCost = ironCost;
         }
+        //Checks if the guard is a iron guard
         else if (dialogue.guardMaterial == (Sword.MaterialGuard)3)
         {
+            //Sets the guardIngotCost to the steelCost
             guardIngotCost = steelCost;
         }
+        //Checks if the guard is a iron guard
         else if (dialogue.guardMaterial == (Sword.MaterialGuard)1)
         {
+            //Sets the guardIngotCost to the bronzeCost
             guardIngotCost = bronzeCost;
         }
     }
 
     void HandleMatCheck()
     {
+        //Checks if the handle is a iron handle
         if (dialogue.handleMaterial == (Sword.MaterialHandle)2)
         {
+            //Sets the handleIngotCost to the ironcost
             handleIngotCost = ironCost;
         }
+        //Checks if the handle is a steel handle
         else if (dialogue.handleMaterial == (Sword.MaterialHandle)3)
         {
+            //Sets the handleIngotCost to the steelCost
             handleIngotCost = steelCost;
         }
+        //Checks if the handle is a bronze handle
         else if (dialogue.handleMaterial == (Sword.MaterialHandle)1)
         {
+            //Sets the handleIngotCost to the bronzeCost
             handleIngotCost = bronzeCost;
         }
     }
