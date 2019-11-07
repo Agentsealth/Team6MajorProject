@@ -12,14 +12,18 @@ public class CustomerAIAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Sets the agent
         agent = GetComponent<NavMeshAgent>();
+        //Sets the animator
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Update the speed Percentage
         speedPercent = agent.velocity.magnitude / agent.speed;
+        //Updates the animator's float speed
         animator.SetFloat("speed", speedPercent, smoothTime, Time.deltaTime);
     }
 }
