@@ -41,7 +41,7 @@ public class IPointClick : MonoBehaviour
 
     private void OnMouseExit()
     {
-        text.color = new Color32(255, 255, 255, 255);
+        text.color = new Color32(0, 0, 0, 255);
 
     }
 }
