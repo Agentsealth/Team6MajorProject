@@ -38,6 +38,7 @@ public class ItemSlot : MonoBehaviour
         
     }
 
+    //When an Objects collider to the trigger box checks the item out and sets the item properites to the slot properites
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Iron Sword")
@@ -60,6 +61,7 @@ public class ItemSlot : MonoBehaviour
         }
     }
 
+    //Function which checks which customer is assigned to the slot and moves that customer to the slot waypoint
     public void SetItemSlot()
     {
         for (int i = 0; i < npc.Length; i++)

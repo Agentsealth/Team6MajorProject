@@ -38,19 +38,26 @@ public class DayProgression : MonoBehaviour
 
     private void Start()
     {
+        //Sets dayCountDown to timeBetweenDays
         dayCountDown = timeBetweenDays;
+        //Sets the tutorial
         tut = GameObject.FindObjectOfType<Tutorial>().GetComponent<Tutorial>();
+        //Sets the save
         save = GameObject.FindObjectOfType<SaveLoadMenuTest>().GetComponent<SaveLoadMenuTest>();
+        //Sets the waypointManager
         waypointManager = GameObject.FindObjectOfType<WaypointManager>().GetComponent<WaypointManager>();
 
     }
 
     private void Update()
     {
+        //Checks if the state is equal to waiting
         if(state == SpawnState.waiting)
         {
+            //Check if the bool function NpcIsInScene is equal to false
             if (NpcIsInScene() == false)
             {
+                //Runs the DayCompleted function
                 DayCompleted();
             }
             else
@@ -58,25 +65,31 @@ public class DayProgression : MonoBehaviour
                 return;
             }
         }
-
+        //Checks if dayCountDown is less than or equal to 0
         if(dayCountDown <= 0)
         {
+            //Sets the randomNpc bygetting a range between 1 and 4
             randomNpc = Random.Range(1, 4);
+            //Check if the state is not equal to spawning
             if (state != SpawnState.Spawning)
             {
+                //Starts the coroutine for spawnDay
                 StartCoroutine(SpawnDay(week[nextDay]));
             }
         }
         else
         {
+            //Decreases dayCountdown by delta time
             dayCountDown -= Time.deltaTime;
         }
     }
 
+    //Completes the day and adds a new day to the List
     void DayCompleted()
     {
-
+        //Sets the state to counting
         state = SpawnState.counting;
+        
         dayCountDown = timeBetweenDays;
 
         if (nextDay + 1 > week.Count - 1)
@@ -98,6 +111,7 @@ public class DayProgression : MonoBehaviour
         }
     }
 
+    //Checks if there are NPCs still in scene
     public bool NpcIsInScene()
     {
         searchCountDown -= Time.deltaTime;
@@ -112,6 +126,7 @@ public class DayProgression : MonoBehaviour
         return true;
     }
 
+    //IEnumerator which spawn Days and adds NPCS to the scene
     IEnumerator SpawnDay(Day _day)
     {
         dayText.text = "Day " + (nextDay + 1).ToString();
@@ -150,6 +165,7 @@ public class DayProgression : MonoBehaviour
         yield break;
     }
 
+    //Spawns NPCS with restrictions on their order to show progression in the game
     void SpawnNpc (GameObject _npc)
     {
         GameObject Npc = Instantiate(_npc, spawn.position, Quaternion.identity);

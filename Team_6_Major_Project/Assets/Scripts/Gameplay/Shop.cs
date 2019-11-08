@@ -50,6 +50,7 @@ public class Shop : MonoBehaviour
         }
     }
 
+    //Function used to buy Iron Chucks
     public void BuyIron()
     {
         if(playerStats.gold >= ironCost)
@@ -59,7 +60,7 @@ public class Shop : MonoBehaviour
             Instantiate(ore, drop.position, Quaternion.identity);
         }
     }
-
+    //Function used to buy Bronze Chucks
     public void BuyBronze()
     {
         if (playerStats.gold >= bronzeCost)
@@ -70,7 +71,7 @@ public class Shop : MonoBehaviour
 
         }
     }
-
+    //Function used to buy Steel Chucks
     public void BuySteel()
     {
         if (playerStats.gold >= steelCost)
@@ -81,7 +82,7 @@ public class Shop : MonoBehaviour
 
         }
     }
-
+    //Function used to buy Coal Chucks
     public void BuyCoal()
     {
         if (playerStats.gold >= coalCost)

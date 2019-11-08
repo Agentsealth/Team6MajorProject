@@ -73,26 +73,26 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-
+    //Plays the animations which is used to display options
     public void DisplayOptions()
     {
         PauseBook.GetComponent<Animator>().Play("BookFlipBack", -1, 0f);
     }
-
+    //Plays the animations which is used to display menu
     public void DisplayMenu()
     {
         PauseBook.GetComponent<Animator>().Play("BookFlipFront", -1, 0f);
 
     }
 
-
+    //IEnumerator which delays the main menu
     IEnumerator MenuDelay(GameObject menuPart)
     {
         yield return new WaitForSeconds(1);
         menuPart.SetActive(false);
     }
 
-
+    //Function which unpauses the Main menu and resume gameplay
     public void Unpause()
     {
         PauseBook.GetComponent<Animator>().Play("BookDown", -1, 0f);
@@ -103,7 +103,7 @@ public class PauseMenu : MonoBehaviour
         return;
     }
 
-
+    //Shows audio options
     public void ShowAudioOptions()
     {
         DisplaySettings.SetActive(false);
@@ -112,7 +112,7 @@ public class PauseMenu : MonoBehaviour
         
     }
 
-
+    //Shows display options
     public void ShowDisplayOptions()
     {
         
@@ -121,7 +121,7 @@ public class PauseMenu : MonoBehaviour
         FullscreenToggle.isOn = PlayerPrefsX.GetBool("FullScreenMode");
         
     }
-
+    //Saves audio options
     public void SaveAudioOptions()
     {
         PlayerPrefs.SetFloat("MasterVolume", MasterVolSlider.value);
@@ -129,6 +129,7 @@ public class PauseMenu : MonoBehaviour
         PlayerPrefs.Save();
         
     }
+    //Shows fullScreen options
     public void ToggleFullscreen()
     {
     
@@ -152,7 +153,7 @@ public class PauseMenu : MonoBehaviour
             
         }
     }
-
+    //Sents the options back to main menu
     public void BackToMenu()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -165,7 +166,7 @@ public class PauseMenu : MonoBehaviour
         Player.GetComponent<PlayerMotor>().enabled = false;
         
     }
-
+    //Shows cursor
     IEnumerator showcursor()
     {
         yield return new WaitForSeconds(0.5f);

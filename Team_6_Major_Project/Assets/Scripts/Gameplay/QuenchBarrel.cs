@@ -23,6 +23,7 @@ public class QuenchBarrel : MonoBehaviour
         
     }
 
+    //On mouseOver check if input is pressed down on F for snapping gameobject on player hand
     private void OnMouseOver()
     {
         if (Input.GetKeyDown(KeyCode.F))
@@ -31,7 +32,7 @@ public class QuenchBarrel : MonoBehaviour
             if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Sheet" ||
                    cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Ingot")
             {
-                help(Parent.transform.GetChild(0));
+                Snapping(Parent.transform.GetChild(0));
 
             }
         }
@@ -41,7 +42,8 @@ public class QuenchBarrel : MonoBehaviour
         }
     }
 
-    public void help(Transform other)
+    //Function used to snap object to positon on the barrel
+    public void Snapping(Transform other)
     {
         if (other.gameObject.tag == "Iron Ingot")
         {
@@ -80,46 +82,12 @@ public class QuenchBarrel : MonoBehaviour
             return;
         }
     }
-
+    //Same snapping just for on trigger hitbox 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Iron Ingot")
-        {
-            if (other.gameObject.GetComponent<Ingot>().ready == true)
-            {
-                //audioSource.Play();
-                smokeGO = Instantiate(smokeP, this.gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
-
-
-                other.gameObject.GetComponent<Ingot>().ingotPickup.isHolding = false;
-                StartCoroutine(CoolIngot(other.gameObject));
-
-            }
-            else
-            {
-                return;
-            }
-        }
-        else if (other.gameObject.tag == "Iron Sheet")
-        {
-            if (other.gameObject.GetComponent<Sheet>().ready == true)
-            {
-                //audioSource.Play();
-                smokeGO = Instantiate(smokeP, this.gameObject.transform.position, Quaternion.Euler(-90,0,0));
-                other.gameObject.GetComponent<Sheet>().sheetPickup.isHolding = false;
-                StartCoroutine(CoolSheet(other.gameObject));
-            }
-            else
-            {
-                return;
-            }
-        }
-        else
-        {
-            return;
-        }
+        Snapping(other.gameObject.transform);
     }
-
+    //IEnumator which cool down the sheet
     IEnumerator CoolSheet(GameObject other)
     {
         yield return new WaitForSeconds(2.5f);
@@ -131,7 +99,7 @@ public class QuenchBarrel : MonoBehaviour
 
 
     }
-
+    //IEnumator which cool down the ingot
     IEnumerator CoolIngot(GameObject other)
     {
         yield return new WaitForSeconds(2.5f);
