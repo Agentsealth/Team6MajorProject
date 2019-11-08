@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TutorialMaster : MonoBehaviour
 {
+    public GameObject Player;
 
     public GameObject MenuUI;
     public GameObject TutorialUI;
@@ -12,6 +13,7 @@ public class TutorialMaster : MonoBehaviour
     public GameObject TutSheet;
     public GameObject EquipmentSheet;
     public GameObject PeopleSheet;
+
 
     public Text tutTitle;
     public Text tutPurpose;
@@ -22,7 +24,17 @@ public class TutorialMaster : MonoBehaviour
     public Text OpenClose;
     public GameObject Book;
     public GameObject tutRoot;
+
+    public GameObject actualReturn;
+    public GameObject otherReturn;
+
+    public OutlineTutorial outTut;
     // Start is called before the first frame update
+
+    private void Start()
+    {
+        Player = GameObject.FindObjectOfType<PlayerController>().gameObject;
+    }
     public void ShowHide()
     {
         if (OpenClose.text == "→")
@@ -77,14 +89,42 @@ public class TutorialMaster : MonoBehaviour
 
     }
 
+    public void ClosePopup()
+    {
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Book.GetComponent<Animator>().Play("TutorialPopDown");
+        actualReturn.SetActive(true);
+        otherReturn.SetActive(false);
+        Player.GetComponent<PlayerController>().enabled = true;
+        Player.GetComponent<PlayerMotor>().enabled = true;
 
 
+    }
+
+    public void OpenPopup()
+    {
+        Book.GetComponent<Animator>().Play("TutorialPopUp");
+        actualReturn.SetActive(false);
+        otherReturn.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Player.GetComponent<PlayerController>().enabled = false;
+        Player.GetComponent<PlayerMotor>().enabled = false;
+    }
+
+    public void FlipBack()
+    {
+        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
+
+    }
 
     public void DocketTut()
     {
+
         TutSheet.SetActive(true);
         tutRoot = EquipmentSheet;
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Dockets";
         tutPurpose.text = "-Describes given order\n-Serves as a reminder";
@@ -97,7 +137,6 @@ public class TutorialMaster : MonoBehaviour
         TutSheet.SetActive(true);
         tutRoot = EquipmentSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Coal Hatch";
         tutPurpose.text = "-Add Coal to start\n-Powers Crucible and Grills";
@@ -110,7 +149,6 @@ public class TutorialMaster : MonoBehaviour
         TutSheet.SetActive(true);
         tutRoot = EquipmentSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Crucible";
         tutPurpose.text = "-Used to Melt Chunks to Ingots\n-Requires Coal";
@@ -123,7 +161,6 @@ public class TutorialMaster : MonoBehaviour
         TutSheet.SetActive(true);
         tutRoot = EquipmentSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Grills";
         tutPurpose.text = "-Used to heat Ingots and Sheets\n-Requires Coal";
@@ -136,7 +173,6 @@ public class TutorialMaster : MonoBehaviour
         TutSheet.SetActive(true);
         tutRoot = EquipmentSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Anvil";
         tutPurpose.text = "-Used to make Sheets and Blades\n-Requires hot Ingot(s)/Sheet";
@@ -149,7 +185,6 @@ public class TutorialMaster : MonoBehaviour
         TutSheet.SetActive(true);
         tutRoot = EquipmentSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Grindstone";
         tutPurpose.text = "-Used to make Guards and Handles\n-Requires (not hot) Sheets";
@@ -162,7 +197,6 @@ public class TutorialMaster : MonoBehaviour
         TutSheet.SetActive(true);
         tutRoot = EquipmentSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Quenching Barrel";
         tutPurpose.text = "-Used to cool hot items\n-Requires hot Sheets/Ingots";
@@ -175,7 +209,6 @@ public class TutorialMaster : MonoBehaviour
         TutSheet.SetActive(true);
         tutRoot = EquipmentSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Assembly Table";
         tutPurpose.text = "-Used to assemble Swords\n-Requires Blade, Guard, & Handle";
@@ -188,7 +221,6 @@ public class TutorialMaster : MonoBehaviour
         TutSheet.SetActive(true);
         tutRoot = EquipmentSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Sword Holder";
         tutPurpose.text = "-Used to sell Swords\n-Requires assembled Sword";
@@ -201,7 +233,6 @@ public class TutorialMaster : MonoBehaviour
         TutSheet.SetActive(true);
         tutRoot = PeopleSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Customer";
         tutPurpose.text = "-Primary way to earn money\n-Gives orders for swords";
@@ -214,7 +245,6 @@ public class TutorialMaster : MonoBehaviour
         TutSheet.SetActive(true);
         tutRoot = PeopleSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Money";
         tutPurpose.text = "-Silver coins held in a chest\n-Used to buy materials and upgrades";
@@ -227,7 +257,6 @@ public class TutorialMaster : MonoBehaviour
         TutSheet.SetActive(true);
         tutRoot = PeopleSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Shop";
         tutPurpose.text = "-Used to purchase materials and upgrades\n-Uses silver coins (money)";
@@ -237,15 +266,17 @@ public class TutorialMaster : MonoBehaviour
 
     public void EnchTut()
     {
+       
         TutSheet.SetActive(true);
         tutRoot = PeopleSheet;
 
-        Book.GetComponent<Animator>().Play("TutorialPaperFlipBack");
 
         tutTitle.text = "Enchanting Table";
         tutPurpose.text = "-Applies an enchantment\n-Match symbols of the same colour to enchant";
         tutConditions.text = "-Money\n-Customers";
         tutImage.sprite = Images[12];
+
+        outTut.enabled = false;
     }
 
 

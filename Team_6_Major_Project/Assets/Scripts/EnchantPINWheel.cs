@@ -5,13 +5,17 @@ using UnityEngine.UI;
 public class EnchantPINWheel : MonoBehaviour
 {
     private bool canSpin;
-    private int RuneIndex;
+    public int RuneIndex;
     private char[] Rune;
     public Sprite[] Runes;
     public char SelectedRune;
     public Image runeImage;
 
     public AudioSource wheelScroll;
+
+    public int WheelNumber;
+
+    public bool didRun;
     void Start()
     {
         Rune = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray(); //sets rune array to alphabet. IE Rune[0] = A. Run[25] = Z.
@@ -24,6 +28,9 @@ public class EnchantPINWheel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ChangeColour();
+
+
         if (canSpin) //see OnMouseOver
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0f) //WHEN SCROLLING UP.
@@ -41,6 +48,8 @@ public class EnchantPINWheel : MonoBehaviour
                 }
                 SelectedRune = Rune[RuneIndex]; //Set the selected rune for enchanting
                 runeImage.sprite = Runes[RuneIndex];
+
+                ChangeColour();
 
                 return;
             }
@@ -60,6 +69,8 @@ public class EnchantPINWheel : MonoBehaviour
                 SelectedRune = Rune[RuneIndex]; //Set the selected rune for enchanting
                 runeImage.sprite = Runes[RuneIndex];
 
+                ChangeColour();
+
                 return;
             }
         }
@@ -73,5 +84,159 @@ public class EnchantPINWheel : MonoBehaviour
     private void OnMouseExit()
     {
         canSpin = false;
+    }
+
+    private void ChangeColour()
+    {
+        didRun = true;
+        if (WheelNumber == 1)
+        {
+            switch (RuneIndex)
+            {
+                case 2:
+                    runeImage.color = new Color32(0, 255, 255, 255);
+                    break;
+                case 4:
+                    runeImage.color = new Color32(255, 0, 0, 255);
+                    break;
+                case 15:
+                    runeImage.color = new Color32(0, 0, 255, 255);
+                    break;
+                case 19:
+                    runeImage.color = new Color32(0, 255, 0, 255);
+                    break;
+                case 13:
+                    runeImage.color = new Color32(255, 0, 255, 255);
+                    break;
+                case 1:
+                    runeImage.color = new Color32(255, 255, 0, 255);
+                    break;
+                default:
+                    runeImage.color = new Color32(255, 255, 255, 255);
+                    break;
+            }
+
+        }
+        //else runeImage.color = new Color32(255, 255, 255, 255);
+
+        if (WheelNumber == 2)
+        {
+            switch (RuneIndex)
+            {
+                case 7:
+                    runeImage.color = new Color32(0, 255, 255, 255);
+                    break;
+                case 12:
+                    runeImage.color = new Color32(255, 0, 0, 255);
+                    break;
+                case 24:
+                    runeImage.color = new Color32(0, 0, 255, 255);
+                    break;
+                case 14:
+                    runeImage.color = new Color32(0, 255, 0, 255);
+                    break;
+                case 4:
+                    runeImage.color = new Color32(255, 0, 255, 255);
+                    break;
+                case 11:
+                    runeImage.color = new Color32(255, 255, 0, 255);
+                    break;
+                default:
+                    runeImage.color = new Color32(255, 255, 255, 255);
+                    break;
+            }
+
+        }
+        //else runeImage.color = new Color32(255, 255, 255, 255);
+
+        if (WheelNumber == 3)
+        {
+            switch (RuneIndex)
+            {
+                case 8:
+                    runeImage.color = new Color32(0, 255, 255, 255);
+                    break;
+                case 1:
+                    runeImage.color = new Color32(255, 0, 0, 255);
+                    break;
+                case 11:
+                    runeImage.color = new Color32(0, 0, 255, 255);
+                    break;
+                case 23:
+                    runeImage.color = new Color32(0, 255, 0, 255);
+                    break;
+                case 2:
+                    runeImage.color = new Color32(255, 0, 255, 255);
+                    break;
+                case 4:
+                    runeImage.color = new Color32(255, 255, 0, 255);
+                    break;
+                default:
+                    runeImage.color = new Color32(255, 255, 255, 255);
+                    break;
+            }
+
+        }
+      //  else runeImage.color = new Color32(255, 255, 255, 255);
+
+        if (WheelNumber == 4)
+        {
+            switch (RuneIndex)
+            {
+                case 11:
+                    runeImage.color = new Color32(0, 255, 255, 255);
+                    break;
+                case 4:
+                    runeImage.color = new Color32(255, 0, 0, 255);
+                    break;
+                case 14:
+                    runeImage.color = new Color32(0, 0, 255, 255);
+                    break;
+                case 8:
+                    runeImage.color = new Color32(0, 255, 0, 255);
+                    break;
+                case 17:
+                    runeImage.color = new Color32(255, 0, 255, 255);
+                    break;
+                case 18:
+                    runeImage.color = new Color32(255, 255, 0, 255);
+                    break;
+                default:
+                    runeImage.color = new Color32(255, 255, 255, 255);
+                    break;
+            }
+
+        }
+       // else runeImage.color = new Color32(255, 255, 255, 255);
+
+        if (WheelNumber == 5)
+        {
+            switch (RuneIndex)
+            {
+                case 11:
+                    runeImage.color = new Color32(0, 255, 255, 255);
+                    break;
+                case 17:
+                    runeImage.color = new Color32(255, 0, 0, 255);
+                    break;
+                case 13:
+                    runeImage.color = new Color32(0, 0, 255, 255);
+                    break;
+                case 2:
+                    runeImage.color = new Color32(0, 255, 0, 255);
+                    break;
+                case 14:
+                    runeImage.color = new Color32(255, 0, 255, 255);
+                    break;
+                case 18:
+                    runeImage.color = new Color32(255, 255, 0, 255);
+                    break;
+                default:
+                    runeImage.color = new Color32(255, 255, 255, 255);
+                    break;
+            }
+
+        }
+        //else runeImage.color = new Color32(255, 255, 255, 255);
     }
 }

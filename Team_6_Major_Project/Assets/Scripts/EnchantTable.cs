@@ -20,6 +20,8 @@ public class EnchantTable : MonoBehaviour
     public GameObject outline;
 
     public AudioSource enchSound;
+
+    public int PinNumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,6 @@ public class EnchantTable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -66,8 +67,12 @@ public class EnchantTable : MonoBehaviour
                 sword.GetComponent<PickUp>().isHolding = false; //player stops holding the sword forcibly
                 sword.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.2f, this.gameObject.transform.position.z);
             }
-            MTP.gotoEnchant();
+            else if (sword != null)
+            {
+                MTP.gotoEnchant();
+            }
         }
+
     }
     public void Enchant()
     {
