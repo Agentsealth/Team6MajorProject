@@ -107,6 +107,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
+    //Makes a raycast and checks if it hits an objects
     private void RaycastObject()
     {
         if (Physics.Raycast(ray, out hit, distanceTohit))
@@ -115,6 +116,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
+    //On mouse down allows player to pick up objects
     private void OnMouseDown()
     {
         if (distance <= 3f)
@@ -140,6 +142,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
+    //When the mouse enters the hitbox highlights appears
     private void OnMouseEnter()
     {
         if (this.gameObject.transform.childCount > 0)
@@ -148,6 +151,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
+    //When the mouse exits the hitbox highlight disappears
     private void OnMouseExit()
     {
         if (this.gameObject.transform.childCount > 0)
@@ -156,8 +160,4 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    //private void OnMouseUp()
-    //{
-    //    isHolding = false;
-    //}
 }

@@ -16,6 +16,7 @@ public class TriggerDropRespawn : MonoBehaviour
     {
         
     }
+    //OntriggerEnter which check each object and returns them to a dropslot zone
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Iron Ore" || other.gameObject.tag == "Iron Ingot"

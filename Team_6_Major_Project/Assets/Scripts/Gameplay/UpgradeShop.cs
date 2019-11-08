@@ -25,7 +25,7 @@ public class UpgradeShop : MonoBehaviour
         enchanting.SetActive(false);
 
     }
-
+    //Function to buy enchanting table
     public void BuyEnchanting()
     {
         if (player.gold >= enchantingCost && upgradedEnchanting == false)
@@ -36,7 +36,7 @@ public class UpgradeShop : MonoBehaviour
             upgradeEnchantingButton.text = "Brought";
         }
     }
-
+    //Loading the enchanting table for loading function
     public void LoadEnchanting()
     {
         if(upgradedEnchanting == true)
