@@ -26,7 +26,7 @@ public class Grinder : MonoBehaviour
     {
         
     }
-
+    //Functions which checks if the mouse is hovering over the gameObject
     private void OnMouseOver()
     {
         if (sheetCount > 0)
@@ -41,7 +41,7 @@ public class Grinder : MonoBehaviour
             return;
         }
     }
-
+    //Function which check if an object collides with the gameObject 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Iron Sheet")
@@ -65,7 +65,7 @@ public class Grinder : MonoBehaviour
             }
         }
     }
-
+    //Function which check if an object has exited the collision off the gameObject
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Iron Guard")
@@ -83,7 +83,7 @@ public class Grinder : MonoBehaviour
             sheetQuality = 0;
         }
     }
-
+    //Functions which plays the minigame for the handle
     public void MinigameHandle()
     {
         options.SetActive(false);
@@ -93,7 +93,7 @@ public class Grinder : MonoBehaviour
         gameSlider.GetComponent<SliderMiniGame>().handle = true;
 
     }
-
+    //Functions which plays the minigame for the guard
     public void MinigameGuard()
     {
         options.SetActive(false);
@@ -103,7 +103,7 @@ public class Grinder : MonoBehaviour
         gameSlider.GetComponent<SliderMiniGame>().guard = true;
 
     }
-
+    //Function which grinds the handle
     public void GrinderHandle()
     {
         if(sheetCount > 0 )
@@ -113,7 +113,7 @@ public class Grinder : MonoBehaviour
             Destroy(sheet);
         }
     }
-
+    //Function which grinds the guard
     public void GrinderGuard()
     {
         if (sheetCount > 0)

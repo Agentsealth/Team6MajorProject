@@ -57,7 +57,6 @@ public class SliderMiniGame : MonoBehaviour
     private void Start()
     {
         anvil = GameObject.Find("Anvil").GetComponentInChildren<Anvil>();
-        //grinder = GameObject.Find("Grinder").GetComponent<Grinder>();
         SliderMovement();
     }
 
@@ -69,7 +68,7 @@ public class SliderMiniGame : MonoBehaviour
         Rating();
         Continue();
     }
-
+    //Functions which moves the indicator left and right
     private void SliderMovement()
     {
         if (stopped == false)
@@ -95,6 +94,7 @@ public class SliderMiniGame : MonoBehaviour
             }
         }
     }
+    //Functions which determines the direction of the indicator
     private void SliderDirection()
     {
         if(slider.value == slider.minValue)
@@ -107,7 +107,7 @@ public class SliderMiniGame : MonoBehaviour
         }
                             
     }
-
+    //Functions which runs after the hammering is done and gets the quality for the object on the anvil after hammering
     private void Rating()
     {
         if (repeat == maxrepeat)
@@ -198,12 +198,12 @@ public class SliderMiniGame : MonoBehaviour
             }
         }
     }
-
+    //Ienmerator which dinks the hammer
     IEnumerator DinkHammer()
     {
         yield return new WaitForSeconds(0.15f);
     }
-
+    //Continues the movements of the indicator
     private void Continue()
     {
         if (Input.GetMouseButtonUp(0))

@@ -22,7 +22,7 @@ public class QuestPointClick : MonoBehaviour
         }
         
     }
-
+    //Functions which replaces the default button click due to using cusor lock
     public void OnPointerClick()
     {
         if(OpenWindow == true)

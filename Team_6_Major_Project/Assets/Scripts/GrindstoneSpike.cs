@@ -16,7 +16,7 @@ public class GrindstoneSpike : MonoBehaviour
     {
         
     }
-
+    //When an object hits the hitbox of the gameObject
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Iron Sheet")

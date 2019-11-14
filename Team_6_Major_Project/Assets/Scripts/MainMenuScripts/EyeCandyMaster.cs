@@ -41,10 +41,7 @@ public class EyeCandyMaster : MonoBehaviour
         }
     }
 
-
-    //TODO: Empty space!
-
-
+    //Plays Particles system for Good vibes
     public void PlayGameCandy()
     {
         StopAllCoroutines();
@@ -59,7 +56,7 @@ public class EyeCandyMaster : MonoBehaviour
         StartCoroutine(WaitAndMove(delayTime));
 
     }
-
+    //Plays particles system for good vibes for options menu
     public void OptionsCandy()
     {
         StopAllCoroutines();
@@ -74,7 +71,7 @@ public class EyeCandyMaster : MonoBehaviour
         StartCoroutine(WaitAndMove(delayTime));
 
     }
-
+    //Plays particle systems for good vibes for exiting
     public void ExitCandy()
     {
         StopAllCoroutines();
@@ -91,14 +88,14 @@ public class EyeCandyMaster : MonoBehaviour
 
  
     }
-
+    //Functions which spins the grinder on main menu
     public void SpinGrinder()
     {
         float temp = GrindStone.transform.localRotation.x + 720;
         StopAllCoroutines();
         GrindStone.GetComponent<Animator>().Play("optionSpin", -1,0);
     }
-
+    //Destroyes the particles
     public void KillCandy()
     {
         HLSparks.transform.localPosition = new Vector3(0f, 95f, 0f);

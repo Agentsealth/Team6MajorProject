@@ -67,21 +67,21 @@ public class OptionsMaster : MonoBehaviour
     {
         AudioListener.volume = MasterVolumeSlider.value;
     }
-
+    //Sets the quality of the screen
     public void SetQuality(int qualityIndex)
     {
         qualityIndexV = qualityIndex;
         //sets the quality
         QualitySettings.SetQualityLevel(qualityIndexV);
     }
-
+    //Sets the fullscreen
     public void SetFullscreen(bool isFullscreen)
     {
         fullScreen = isFullscreen;
         //sets the fullscreen
         Screen.fullScreen = fullScreen;
     }
-
+    //Sets the resolutions
     public void SetResolution(int resolutionIndex)
     {
         resoulationIndexV = resolutionIndex;
@@ -89,7 +89,7 @@ public class OptionsMaster : MonoBehaviour
         Resolution resoultion = resolutions[resoulationIndexV];
         Screen.SetResolution(resoultion.width, resoultion.height, Screen.fullScreen);
     }
-
+    //Applies the changes
     public void ApplyChanges()
     {
         PlayerPrefs.SetFloat("MasterVolume", MasterVolumeSlider.value);
@@ -105,7 +105,7 @@ public class OptionsMaster : MonoBehaviour
         PlayerPrefs.SetInt("Resoultion", resoulationIndexV);
         PlayerPrefs.Save();
     }
-
+    //Updates the options
     public void updateOptions()
     {
         MasterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");

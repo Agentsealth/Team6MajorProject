@@ -101,7 +101,7 @@ public class Smorge : MonoBehaviour
             }
         }
     }
-
+    //An Ienumerator which delays the stopping of the smoke particle in the particle system
     IEnumerator StartStopSmoke()
     {
         hadCoal = false;
@@ -111,7 +111,7 @@ public class Smorge : MonoBehaviour
         Smoke.GetComponent<ParticleSystem>().Stop();
 
     }
-
+    //Checks if the mouse is hovering over the gameobject
     private void OnMouseOver()
     {
         if (Input.GetKeyDown(KeyCode.F))
@@ -120,7 +120,7 @@ public class Smorge : MonoBehaviour
             if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Ore" && Parent.transform.GetChild(0).gameObject.GetComponent<Ore>().material == Ore.OreMaterial.coal)
             {
 
-                help(Parent.transform.GetChild(0));
+                snapping(Parent.transform.GetChild(0));
 
             }
             else
@@ -130,8 +130,8 @@ public class Smorge : MonoBehaviour
 
         }
     }
-
-    public void help(Transform other)
+    //Snaps the gameObject to a position
+    public void snapping(Transform other)
     {
         if (other.gameObject.tag == "Iron Ore")
         {
@@ -153,39 +153,27 @@ public class Smorge : MonoBehaviour
                 time += timeIncrease;
                 if (oreplace1 == "empty")
                 {
-                    other.transform.position = oreplace[0].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 1;
-                    oreplace1 = "full";
+                    snappingCoal(other, 0);
                 }
                 else if (oreplace2 == "empty")
                 {
-                    other.transform.position = oreplace[1].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 2;
-                    oreplace2 = "full";
+                    snappingCoal(other, 1);
                 }
                 else if (oreplace3 == "empty")
                 {
-                    other.transform.position = oreplace[2].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 3;
-                    oreplace3 = "full";
+                    snappingCoal(other, 2);
                 }
                 else if (oreplace4 == "empty")
                 {
-                    other.transform.position = oreplace[3].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 4;
-                    oreplace4 = "full";
+                    snappingCoal(other, 3);
                 }
                 else if (oreplace5 == "empty")
                 {
-                    other.transform.position = oreplace[4].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 5;
-                    oreplace5 = "full";
+                    snappingCoal(other, 4);
                 }
                 else if (oreplace6 == "empty")
                 {
-                    other.transform.position = oreplace[5].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 6;
-                    oreplace6 = "full";
+                    snappingCoal(other, 5);
                 }
             }
             else
@@ -201,77 +189,43 @@ public class Smorge : MonoBehaviour
             return;
         }
     }
+    //Checks the gameObject hits the hitbox if this gameObject
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Iron Ore")
-        {
-            if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.coal)
-            {
-                PlaceDown.Play();
-                hadCoal = true;
-                if (time == 0)
-                {
-                    flameburst.Play();
-                    flamecrackling.Play();
-
-                }
-                other.gameObject.GetComponent<Ore>().orePickup.isHolding = false;
-                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                other.gameObject.GetComponent<Ore>().smorge = this;
-                other.gameObject.GetComponent<Ore>().timeToDestroy = timeIncrease;
-                other.gameObject.GetComponent<Ore>().timeDecrease = timeDecrease;
-                time += timeIncrease;
-                if (oreplace1 == "empty")
-                {
-                    other.transform.position = oreplace[0].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 1;
-                    oreplace1 = "full";
-                }
-                else if (oreplace2 == "empty")
-                {
-                    other.transform.position = oreplace[1].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 2;
-                    oreplace2 = "full";
-                }
-                else if (oreplace3 == "empty")
-                {
-                    other.transform.position = oreplace[2].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 3;
-                    oreplace3 = "full";
-                }
-                else if (oreplace4 == "empty")
-                {
-                    other.transform.position = oreplace[3].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 4;
-                    oreplace4 = "full";
-                }
-                else if (oreplace5 == "empty")
-                {
-                    other.transform.position = oreplace[4].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 5;
-                    oreplace5 = "full";
-                }
-                else if (oreplace6 == "empty")
-                {
-                    other.transform.position = oreplace[5].transform.position;
-                    other.gameObject.GetComponent<Ore>().place = 6;
-                    oreplace6 = "full";
-                }
-            }
-            else
-            {
-                other.transform.position = badplace.transform.position;
-                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                return;
-            }
-        }
-        else
-        {
-            return;
-        }
+        snapping(other.gameObject.transform);
     }
+    //Snaps the coal to a position
+    public void snappingCoal(Transform other, int index)
+    {
+        other.transform.position = oreplace[index].transform.position;
+        other.gameObject.GetComponent<Ore>().place = index + 1;
+        if(index == 0)
+        {
+            oreplace1 = "full";
+        }
+        else if(index == 1)
+        {
+            oreplace2 = "full";
+        }
+        else if (index == 2)
+        {
+            oreplace3 = "full";
+        }
+        else if (index == 3)
+        {
+            oreplace4 = "full";
+        }
+        else if (index == 4)
+        {
+            oreplace5 = "full";
+        }
+        else if (index == 5)
+        {
+            oreplace6 = "full";
+        }
 
+    }
+    //Functions which runs when the coals runs out and a place is empty
     public void Empty()
     {
         if (place == 1)

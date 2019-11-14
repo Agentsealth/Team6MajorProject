@@ -20,28 +20,28 @@ public class PlayerMotor : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-
+    //Sets the velocity for moving
     public void Move(Vector3 _velocity)
     {
         velocity = _velocity;
     }
-
+    //Sets the rotation for rotating
     public void Rotate(Vector3 _rotation)
     {
         rotation = _rotation;
     }
-
+    //Sets the cameraRotationX for rotating the camera
     public void RotateCamera(float _cameraRotationX)
     {
         cameraRotationX = _cameraRotationX;
     }
-
+    // FixedUpdate is called every fixed frame-rate frame
     private void FixedUpdate()
     {
         PerformMovement();
         PerformRotation();
     }
-
+    //Functions which does the moving of the player
     private void PerformMovement()
     {
         if(velocity != Vector3.zero)
@@ -49,7 +49,7 @@ public class PlayerMotor : MonoBehaviour
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
         }
     }
-
+    //Function which does the rotating of the player
     private void PerformRotation()
     {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));

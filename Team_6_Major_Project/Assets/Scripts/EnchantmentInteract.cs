@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnchantmentInteract : MonoBehaviour
 {
-
     public MoveToPos MTP;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +16,7 @@ public class EnchantmentInteract : MonoBehaviour
     {
         
     }
-
+    //Mouse hovers over the gameObject
     private void OnMouseOver()
     {
         if (Input.GetKeyDown(KeyCode.F))

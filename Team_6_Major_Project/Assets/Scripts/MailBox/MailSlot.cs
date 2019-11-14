@@ -28,7 +28,7 @@ public class MailSlot : MonoBehaviour
     {
         
     }
-
+    //Functions when runs when a gameObject enters the hitbox of the gameObject
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Iron Sword")

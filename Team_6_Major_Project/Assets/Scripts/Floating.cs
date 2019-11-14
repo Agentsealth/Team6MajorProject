@@ -15,7 +15,7 @@ public class Floating : MonoBehaviour
     {
         tempPosition = transform.position;
     }
-
+    //FixedUpdate is called fixed frame-rate frame 
     private void FixedUpdate()
     {
         tempPosition.x += horizontalSpeed;

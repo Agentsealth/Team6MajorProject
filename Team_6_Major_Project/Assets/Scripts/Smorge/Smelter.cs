@@ -41,6 +41,7 @@ public class Smelter : MonoBehaviour
         smeltBronze();
     }
 
+    //Checks if the mouse is hovering over the gameObject
     private void OnMouseOver()
     {
         if (Input.GetKeyDown(KeyCode.F))
@@ -49,7 +50,7 @@ public class Smelter : MonoBehaviour
             if (cCount > 0 && Parent.transform.GetChild(0).gameObject.tag == "Iron Ore" && Parent.transform.GetChild(0).gameObject.GetComponent<Ore>().material != Ore.OreMaterial.coal)
             {
 
-                help(Parent.transform.GetChild(0));
+                snappping(Parent.transform.GetChild(0));
 
             }
             else
@@ -59,8 +60,8 @@ public class Smelter : MonoBehaviour
 
         }
     }
-
-    public void help(Transform other)
+    //Functions which snaps the gameObject to a location
+    public void snappping(Transform other)
     {
         if (smorgeOn == true)
         {
@@ -94,40 +95,12 @@ public class Smelter : MonoBehaviour
         }
     }
 
+    //Checks if an gameobject enters the hitbox of this gameObject
     private void OnTriggerEnter(Collider other)
     {
-        if (smorgeOn == true)
-        {
-            if (other.gameObject.tag == "Iron Ore")
-            {
-                if (tut.textPos == 8 || tut.textPos == 7)
-                {
-                    tut.ProgressTutorial(8);
-                }
-                Smoke2.GetComponent<ParticleSystem>().Stop();
-                SmorgeBowl.GetComponent<Animator>().Play("BucketPourMetal", -1, 0);
-                SmorgeLever.GetComponent<Animator>().Play("LeverPourMetal", -1, 0);
-                if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.iron)
-                {
-                    ironOre++;
-                }
-                else if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.steel)
-                {
-                    steelOre++;
-                }
-                else if (other.gameObject.GetComponent<Ore>().material == Ore.OreMaterial.bronze)
-                {
-                    bronzeOre++;
-                }
-                Destroy(other.gameObject);
-            }
-        }
-        else
-        {
-            return;
-        }
+        snappping(other.gameObject.transform);
     }
-
+    //Functions which smelts the iron ore into iron ingots
     private void smeltIron()
     {
         if (ironOre > 0)
@@ -143,7 +116,7 @@ public class Smelter : MonoBehaviour
             }
         }
     }
-
+    //Functions which smelts the steel ore into steel ingots
     private void smeltSteel()
     {
         if (steelOre > 0)
@@ -160,7 +133,7 @@ public class Smelter : MonoBehaviour
             }
         }
     }
-
+    //Functions which smelts the bronze ore into bronze ingots
     private void smeltBronze()
     {
         if (bronzeOre > 0)

@@ -7,6 +7,7 @@ using UnityEngine;
 
 public static class SaveLoad
 {
+    //Static function for saving data
     public static void Save(GameData saveGame)
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -16,7 +17,7 @@ public static class SaveLoad
         
     }
 
-
+    //Checks if the file exist
     public static bool CheckFileExist(string gameToLoad)
     {
         if (File.Exists(Application.persistentDataPath + "/" + gameToLoad + ".sav"))
@@ -28,7 +29,7 @@ public static class SaveLoad
             return false;
         }
     }
-
+    //Static function for loading data
     public static GameData Load(string gameToLoad)
     {
         if(File.Exists(Application.persistentDataPath + "/" + gameToLoad + ".sav"))

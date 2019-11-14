@@ -81,11 +81,12 @@ public class EnchantPINWheel : MonoBehaviour
     {
         canSpin = true; //allow player to spin this pin
     }
+    //Mosue is not hovering over the object
     private void OnMouseExit()
     {
         canSpin = false;
     }
-
+    //Functions which changes the colour on the runes
     private void ChangeColour()
     {
         didRun = true;

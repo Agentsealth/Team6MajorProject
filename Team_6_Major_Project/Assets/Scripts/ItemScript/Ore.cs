@@ -43,7 +43,7 @@ public class Ore : MonoBehaviour
             }
         }
     }
-    
+    //Functions which changes the texture for the ore
     void TextureChange()
     {
         if(material == OreMaterial.iron)
@@ -67,7 +67,7 @@ public class Ore : MonoBehaviour
             this.gameObject.name = "Coal Chunk";
         }
     }
-
+    //Functions which happens when it collides with an object
     private void OnCollisionEnter(Collision collision)
     {
         this.GetComponent<AudioSource>().Play();

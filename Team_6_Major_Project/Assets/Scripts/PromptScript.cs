@@ -21,19 +21,10 @@ public class PromptScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        prompt.transform.LookAt(player.transform);
-        /* 
-         float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
-         if (dist < 3f)
-         {
-             prompt.SetActive(true);
-             prompt.transform.localScale = new Vector3(0.0003f * dist, 0.0003f * dist, 0.0003f * dist);
-         }
-
-         else prompt.SetActive(false);
-         */
+        prompt.transform.LookAt(player.transform);      
     }
 
+    //When the mouseHoversOver the gameobject
     private void OnMouseOver()
     {
         float dist = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
@@ -45,6 +36,7 @@ public class PromptScript : MonoBehaviour
         }
             
     }
+    //When the mouse exits the gameObject hitbox
     private void OnMouseExit()
     {
         Outline.SetActive(false);

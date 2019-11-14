@@ -16,6 +16,7 @@ public class KillSelf : MonoBehaviour
         
     }
 
+    //An IEnumerator which delays the the destroying of the particles in the particleSystem
     IEnumerator DelayKill()
     {
         yield return new WaitForSeconds(2.5f);

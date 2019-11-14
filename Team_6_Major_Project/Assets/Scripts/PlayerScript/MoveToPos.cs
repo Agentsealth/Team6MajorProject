@@ -21,9 +21,9 @@ public class MoveToPos : MonoBehaviour
     public GameObject[] options;
     private GrindstoneLogic gsLogic;
     private Anvil anvilLogic;
-    
-    public 
-    void Start()
+    // Start is called before the first frame updat
+
+    public void Start()
     {
         playerController = this.gameObject.GetComponent<PlayerController>();
         gsLogic = GameObject.FindObjectOfType<GrindstoneLogic>();
@@ -31,6 +31,7 @@ public class MoveToPos : MonoBehaviour
         resetPos = transform.position;
         resetRot = transform.rotation;
     }
+    //Moves the player on the rotation
     IEnumerator WaitAndMove(float delayTime)
     {
         yield return new WaitForSeconds(delayTime); // start at time X
@@ -44,7 +45,7 @@ public class MoveToPos : MonoBehaviour
         }
 
     }
-
+    //Moves the player on the position
     IEnumerator WaitAndMoveTo(float delayTime)
     {
         yield return new WaitForSeconds(delayTime); // start at time X
@@ -58,7 +59,7 @@ public class MoveToPos : MonoBehaviour
         }
 
     }
-
+    // Update is called once per frame
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -67,7 +68,7 @@ public class MoveToPos : MonoBehaviour
         }
 
     }
-
+    //Functions which moves the player to the grinder
     public void gotoGrinder()
     {
 
@@ -95,7 +96,7 @@ public class MoveToPos : MonoBehaviour
             return;
         }
     }
-
+    //Functions whichs moves the player to the anvil
     public void gotoAnvil()
     {
         if (anvilLogic.selected == false)
@@ -120,7 +121,7 @@ public class MoveToPos : MonoBehaviour
         }
         
     }
-
+    //Moves the player to the enchanting table
     public void gotoEnchant()
     {
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
@@ -139,7 +140,7 @@ public class MoveToPos : MonoBehaviour
 
 
     }
-
+    //Moves the player to the lathe
     public void gotoLathe()
     {
         resetPos = transform.position;
@@ -155,6 +156,7 @@ public class MoveToPos : MonoBehaviour
 
 
     }
+    //Moves to the player back to the original position
     public void returnToPos()
     {
 

@@ -42,7 +42,7 @@ public class Ingot : MonoBehaviour
         Smelt();
 
     }
-
+    //Functions which runs when you smelt the ingot
     void Smelt()
     {
         if (smeltTime > 0)
@@ -63,7 +63,7 @@ public class Ingot : MonoBehaviour
             }
         }        
     }
-
+    //Functions which changes the texture for the ingot
     void TextureChange()
     {
         if (material == IngotMaterial.iron)

@@ -13,7 +13,7 @@ public class UpgradePointClick : MonoBehaviour
     {
         shop = this.gameObject.GetComponentInParent<UpgradeShop>();
     }
-
+    //Functions which checks if you use to click on the button due to locking the mouse
     public void OnPointerClick()
     {
         if (enchanting == true)
@@ -22,11 +22,12 @@ public class UpgradePointClick : MonoBehaviour
         }
        
     }
-
+    //Functions which runs when the mouse hovers over the gameObject
     private void OnMouseOver()
     {
         text.color = new Color32(255, 255, 0, 255);
     }
+    //Functions which runs when the mouse exits the gameObject
     private void OnMouseExit()
     {
         text.color = new Color32(255, 255, 255, 255);

@@ -12,6 +12,7 @@ public class HeadBobber : MonoBehaviour
     public AudioSource footStep;
     public AudioClip[] footStepLib;
     private bool hasStepped;
+    //FixedUpdate is called every fixed frame-rate frame
     void FixedUpdate()
     {
         float waveslice = 0.0f;

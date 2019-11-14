@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour
         goldText.text = gold.ToString();
 
     }
-
+    //Functions which runs when the quest is complete
     public void QuestHandIn()
     {
         for (int i = 0; i < questes.Count; i++)

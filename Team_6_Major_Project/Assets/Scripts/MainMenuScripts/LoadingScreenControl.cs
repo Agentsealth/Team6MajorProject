@@ -15,12 +15,13 @@ public class LoadingScreenControl : MonoBehaviour
     AsyncOperation async;
 
     public AudioSource audioSource;
+    //Plays audio source starts coroutine for loading scene
     public void LoadScreenExample()
     {
         audioSource.Play();
         StartCoroutine(LoadingScreen());
     }
-
+    //An Ienumerator for loading scene
     IEnumerator LoadingScreen()
     {
         

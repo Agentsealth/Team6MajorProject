@@ -23,7 +23,7 @@ public class Handle : MonoBehaviour
     {
         
     }
-
+    //Functions which changes the texture for the handle
     void TextureChange()
     {
         if (material == HandleMaterial.iron)

@@ -25,6 +25,7 @@ public class Tutorial : MonoBehaviour
     public bool isTutorialing;
     private bool firstBit = false;
 
+    //When the script is first awoken
     void Awake()
     {
         nextButton = GetComponent<Button>();
@@ -32,7 +33,7 @@ public class Tutorial : MonoBehaviour
         isTutorialing = true;
        // _dialogueTrigger.inDialogue = false;
     }
-
+    //Functions which runs when the player presses the next button
     public void NextButton()
     {
         this.gameObject.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
@@ -112,7 +113,7 @@ public class Tutorial : MonoBehaviour
         }
 
     }
-
+    //Functions which progresses the tutorial to the next index
     public void ProgressTutorial(int neededPos)
     {
         if (isTutorialing)

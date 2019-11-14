@@ -42,7 +42,7 @@ public class Sheet : MonoBehaviour
             this.gameObject.name = objectName + " (Not Ready)";
         }
     }
-
+    //Functions which runs when the grinder is finish
     public void finishGrind()
     {
         GSLogic.FinishGrind();
@@ -53,7 +53,7 @@ public class Sheet : MonoBehaviour
     {
         Smelt();
     }
-
+    //Functions which runs when the sheet is smelted
     void Smelt()
     {
         if (smeltTime > 0)
@@ -74,7 +74,7 @@ public class Sheet : MonoBehaviour
             }
         }
     }
-
+    //Changes the texture for the sheet
     void TextureChange()
     {
         if (material == SheetMaterial.iron)

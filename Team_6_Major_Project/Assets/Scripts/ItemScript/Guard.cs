@@ -23,7 +23,7 @@ public class Guard : MonoBehaviour
     {
         
     }
-
+    //Functions which changes the texture for the guard
     void TextureChange()
     {
         if (material == GuardMaterial.iron)

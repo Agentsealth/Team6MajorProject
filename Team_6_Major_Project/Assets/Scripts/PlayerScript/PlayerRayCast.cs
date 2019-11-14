@@ -48,7 +48,7 @@ public class PlayerRayCast : MonoBehaviour
             RaycastUp();
         }
     }
-
+    //Runs the left click is pressed down
     private void RaycastDown()
     {
         if(Physics.Raycast(ray,out hit, distanceToSee))
@@ -57,7 +57,7 @@ public class PlayerRayCast : MonoBehaviour
             ButtonClickUI();
         }
     }
-
+    //Runs the left click is not pressed down
     private void RaycastUp()
     {
        if(objectInHand > 0)
@@ -65,7 +65,7 @@ public class PlayerRayCast : MonoBehaviour
             
        }
     }
-
+    //Runs when the raycast hoverovers something
     private void HoverOver()
     {
         if (Physics.Raycast(ray, out hit, distanceToSee))
@@ -88,20 +88,20 @@ public class PlayerRayCast : MonoBehaviour
             HideFloatingText();
         }
     }
-
+    //Shows floating text on a gameObject
     void ShowFloatingText()
     {
         floatingTextPrefab.SetActive(true);
         floatingTextPrefab.transform.position = hit.transform.position + new Vector3(0, (hit.transform.localScale.y / 2) + 0.2f, 0);
         floatingTextPrefab.GetComponentInChildren<Text>().text = hit.transform.name;
     }
-
+    //Hides floating text on a gameObject
     void HideFloatingText()
     {
         floatingTextPrefab.SetActive(false);
         floatingTextPrefab.GetComponentInChildren<Text>().text = "";
     }
-
+    //ButtonClickingOnUI due to cusor being locked to the center and using raycast
     private void ButtonClickUI()
     {
         if (hit.transform.gameObject.layer == 9)

@@ -9,20 +9,20 @@ public class PlayerController : MonoBehaviour
     public float lookSemsitivity = 3.0f;
 
     private PlayerMotor motor;
-
+    // Start is called before the first frame update
     private void Start()
     {
         motor = GetComponent<PlayerMotor>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-
+    // Update is called once per frame
     private void Update()
     {
         PlayerInput();
         LockMouse();
     }
-
+    //Gets the playerInput and moves the player
     private void PlayerInput()
     {
         float _xMov = Input.GetAxisRaw("Horizontal");
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
         motor.RotateCamera(_cameraRotationX);
     }
-
+    //Locks the mouse to the center(Debug Purpose)
     private void LockMouse()
     {
         if (Input.GetKeyDown("1"))

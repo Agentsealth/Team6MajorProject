@@ -489,7 +489,7 @@ public class Anvil : MonoBehaviour
             ingotplace3 = "full";
         }
     }
-
+    
     private void increaseIngotCount(Transform other)
     {
         //Increases the ingot count by 1

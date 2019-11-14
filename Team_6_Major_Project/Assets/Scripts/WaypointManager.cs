@@ -25,7 +25,7 @@ public class WaypointManager : MonoBehaviour
     {
         
     }
-
+    //Updates the Second Waypoint depending on how many Npcs are in line after first customer finishes ordering
     public void Waypoint1Update()
     {
         if(waypoint1_1 == "Empty" && waypoint1_3 == "Empty" && waypoint1_2 == "Empty")
@@ -52,7 +52,7 @@ public class WaypointManager : MonoBehaviour
             waypointIndex = 5;
         }
     }
-
+    //Checks if the second waypoint is Empty
     public void Waypoint1Empty()
     {
         if (waypoint1_1 == "Empty" && waypoint1_2 == "Full" && waypoint1_3 == "Empty")
@@ -93,6 +93,7 @@ public class WaypointManager : MonoBehaviour
         }
     }
 
+    //Adds the Npcs to an array
     public void AddNpcs()
     {
         Npcs = GameObject.FindGameObjectsWithTag("NPC");

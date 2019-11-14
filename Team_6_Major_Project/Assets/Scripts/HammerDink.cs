@@ -19,7 +19,7 @@ public class HammerDink : MonoBehaviour
     {
 
     }
-
+    //Plays the audioSource for the hammerDinking
     public void playDink()
     {
 

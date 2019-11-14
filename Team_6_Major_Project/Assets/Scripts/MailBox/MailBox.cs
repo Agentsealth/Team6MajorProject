@@ -51,12 +51,12 @@ public class MailBox : MonoBehaviour
         bronzeCost = shop.bronzeCost;
   
     }
-
+    //Functions which gets the cost based on an equation
     public void Tip()
     {
         cost = (int)(costToMake + (((quality / 100) - 0.5) * costToMake) + 10);
     }
-
+    //Functions which gets the cost to make based on an equation
     public void Price()
     {
         SwordTypeCheck();
@@ -65,7 +65,7 @@ public class MailBox : MonoBehaviour
         GuardMatCheck();
         costToMake = (bladeIngot * bladeIngotCost) + (1 * handleIngotCost) + (1 * guardIngotCost) + (4 * coalCost);
     }
-
+    //Functions which checks the sword type
     void SwordTypeCheck()
     {
         if (letter.bladeType[letter.specialIndex - 1] == (Sword.SwordType)1)
@@ -81,7 +81,7 @@ public class MailBox : MonoBehaviour
             bladeIngot = 3;
         }
     }
-
+    //Functions which checks the material for the blade
     void BladeMatCheck()
     {
         if (letter.bladeMaterial[letter.specialIndex - 1] == (Sword.MaterialBlade)1)
@@ -97,7 +97,7 @@ public class MailBox : MonoBehaviour
             bladeIngotCost = bronzeCost;
         }
     }
-
+    //Functions which checks the material for the guard
     void GuardMatCheck()
     {
         if (letter.guardMaterial[letter.specialIndex - 1] == (Sword.MaterialGuard)1)
@@ -113,7 +113,7 @@ public class MailBox : MonoBehaviour
             guardIngotCost = bronzeCost;
         }
     }
-
+    //Functions which checks the material for the handle
     void HandleMatCheck()
     {
         if (letter.handleMaterial[letter.specialIndex - 1] == (Sword.MaterialHandle)1)
@@ -196,7 +196,7 @@ public class MailBox : MonoBehaviour
         }
 
     }
-
+    //Functions which sets the item slot
     public void SetItemSlot()
     {
         mailSlot.docketBlade.text = letter.bladeType[letter.specialIndex - 1].ToString() + " " + letter.bladeMaterial[letter.specialIndex - 1].ToString() + " blade.";
@@ -204,7 +204,7 @@ public class MailBox : MonoBehaviour
         mailSlot.docketHandle.text = letter.handleMaterial[letter.specialIndex - 1].ToString() + " handle";
 
     }
-
+    //Functions which sets the letter
     public void SetLetter()
     {
         if (letter.specialIndex == 1)
@@ -223,7 +223,7 @@ public class MailBox : MonoBehaviour
 
         Price();
     }
-
+    //Functions which checks the item
     public void CheckItem()
     {
         if (mailSlot.bladeType == letter.bladeType[letter.specialIndex - 1])
@@ -279,7 +279,7 @@ public class MailBox : MonoBehaviour
         }
     }
 
-
+    //Functions which triggers the dialogue
     public void TriggerDialogue()
     {
         letterManager.StartLetter(letter);

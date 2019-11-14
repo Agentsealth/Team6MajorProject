@@ -59,22 +59,19 @@ public class Sword : MonoBehaviour
         AuctionMan = GameObject.FindGameObjectWithTag("AuctionMan");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        /*Auduction code put in sword will need to be moved */
 
     }
-
+    //Functions which does the auction price by using an equation
     public void AuctionPrice()
     {
-        /*Auduction code put in sword will need to be moved */
         SwordTypeCheck();
 
         costToMake = (bladeIngot * bladeIngotCost) + (1 * handleIngotCost) + (1 * guardIngotCost) + (4 * coalCost);
         cost = costToMake + (costToMake / 3) + ((quality / 10) * 2);
     }
-
+    //Functions which checks the sword type
     void SwordTypeCheck()
     {
         if (swordType == SwordType.small)
@@ -90,7 +87,7 @@ public class Sword : MonoBehaviour
             bladeIngot = 3;
         }
     }
-
+    //Functions which changes the textures on the blade
     void TextureChangeBlade()
     {
         if (materialBlade == MaterialBlade.iron)
@@ -145,7 +142,7 @@ public class Sword : MonoBehaviour
             }
         }
     }
-
+    //Functions which changes the textures on the guard
     void TextureChangeGuard()
     {
         if (materialGuard == MaterialGuard.iron)
@@ -164,7 +161,7 @@ public class Sword : MonoBehaviour
             guardIngotCost = bronzeCost;
         }
     }
-
+    //Functions which changes the textures on the handle
     void TextureChangeHandle()
     {
         if (materialHandle == MaterialHandle.iron)
@@ -183,7 +180,7 @@ public class Sword : MonoBehaviour
             handleIngotCost = bronzeCost;
         }
     }
-
+    //An Ienumerator which runs for the aunction for the number to speed up and then slow down as it gets closer to the number
     public IEnumerator RunAuction()
     {
         yield return new WaitForSeconds(0.01f);
@@ -221,7 +218,7 @@ public class Sword : MonoBehaviour
 
         }
     }
-
+    //Functions which runs when a gameObject hits the hitbox of the gameObject
     private void OnTriggerEnter(Collider other)
     {
 

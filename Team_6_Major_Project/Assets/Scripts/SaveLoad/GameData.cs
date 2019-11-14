@@ -15,7 +15,6 @@ public class OreInfo
 
     public int oreMat;
 }
-
 [System.Serializable]
 public class GuardInfo
 {
@@ -30,7 +29,6 @@ public class GuardInfo
     public int GuardMat;
     public int GuardQuality;
 }
-
 [System.Serializable]
 public class HandleInfo
 {
@@ -45,7 +43,6 @@ public class HandleInfo
     public int HandleMat;
     public int HandleQuality;
 }
-
 [System.Serializable]
 public class BladeInfo
 {
@@ -61,7 +58,6 @@ public class BladeInfo
     public int BladeQuality;
     public int BladeSize;
 }
-
 [System.Serializable]
 public class SheetInfo
 {
@@ -77,7 +73,6 @@ public class SheetInfo
     public int SheetQuality;
     public int SheetSize;
 }
-
 [System.Serializable]
 public class IngotInfo
 {
@@ -92,7 +87,6 @@ public class IngotInfo
     public int IngotMat;
     public bool IngotReady;
 }
-
 [System.Serializable]
 public class SwordInfo
 {
@@ -110,14 +104,11 @@ public class SwordInfo
     public int SwordQuality;
     public int SwordSize;
 }
-
 [System.Serializable]
 public class UpgradeInfo
 {
     public bool enchantingUpgrade;
 }
-
-
 [System.Serializable]
 public class GameData
 {

@@ -53,6 +53,7 @@ public class SaveLoadMenuTest : MonoBehaviour
         dayProgression = day.GetComponent<DayProgression>();
     }
 
+    //Sets the first save file
     public void SetSave1()
     {
         saveName.text = autoSaveSlot1.GetComponentInChildren<Text>().text;
@@ -75,7 +76,7 @@ public class SaveLoadMenuTest : MonoBehaviour
 
         }
     }
-
+    //Sets the second save file
     public void SetSave2()
     {
         saveName.text = autoSaveSlot2.GetComponentInChildren<Text>().text;
@@ -98,7 +99,7 @@ public class SaveLoadMenuTest : MonoBehaviour
 
         }
     }
-
+    //Sets the third save file
     public void SetSave3()
     {
         saveName.text = autoSaveSlot3.GetComponentInChildren<Text>().text;
@@ -121,7 +122,7 @@ public class SaveLoadMenuTest : MonoBehaviour
 
         }
     }
-
+    //Functions which saves stats
     public void Save()
     {
         GameData newSaveGame = new GameData();
@@ -306,7 +307,7 @@ public class SaveLoadMenuTest : MonoBehaviour
         saveButton.SetActive(false);
         loadButton.SetActive(false);
     }
-
+    //Function which loads stats
     public void Load()
     {
         GameData loadedGame = SaveLoad.Load(saveGameName);
