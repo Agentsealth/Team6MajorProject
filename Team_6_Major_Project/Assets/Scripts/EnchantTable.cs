@@ -26,6 +26,7 @@ public class EnchantTable : MonoBehaviour
     void Start()
     {
         Parent = GameObject.Find("Parent");
+        MTP = FindObjectOfType<MoveToPos>();
     }
 
     // Update is called once per frame

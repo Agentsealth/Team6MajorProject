@@ -14,6 +14,8 @@ public class OutlineTutorial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerBook = GameObject.FindGameObjectWithTag("PlayerMenu");
+        TM = FindObjectOfType<TutorialMaster>();
     }
 
     // Update is called once per frame
@@ -27,54 +29,74 @@ public class OutlineTutorial : MonoBehaviour
 
             if (dist < 3)
             {
-                
-                
-           
-
                 TM.outTut = this;
 
                 switch (objectIndex)
                 {
                     case 0:
-                        TM.DocketTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.DocketTut();
                         break;
                     case 1:
-                        TM.CoalTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.CoalTut();
                         break;
                     case 2:
-                        TM.CrucibleTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.CrucibleTut();
                         break;
                     case 3:
-                        TM.GrillsTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.GrillsTut();
                         break;
                     case 4:
-                        TM.AnvilTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.AnvilTut();
                         break;
                     case 5:
-                        TM.GrindstoneTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.GrindstoneTut();
                         break;
                     case 6:
-                        TM.QuenchingTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.QuenchingTut();
                         break;
                     case 7:
-                        TM.AssemblyTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.AssemblyTut();
                         break;
                     case 8:
-                        TM.HolderTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.HolderTut();
                         break;
                     case 9:
-                        TM.CustomerTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.CustomerTut();
                         break;
                     case 10:
-                        TM.MoneyTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.MoneyTut();
                         break;
                     case 11:
-                        TM.ShopTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.ShopTut();
                         break;
                     case 12:
-                        objectIndex = 100;
-                        TM.OpenPopup();
-                        TM.EnchTut();
+                    objectIndex = 100;
+                    TM.OpenPopup();
+                    TM.EnchTut();
                         break;
 
                 }
