@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3812608953104703530}
-  m_Mesh: {fileID: 4300000, guid: ef26320b116118a449ba6b55f7a338d5, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 7cb1686bd0abc204aa075aca0118ed36, type: 3}
 --- !u!23 &3812608953106644714
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97,9 +97,9 @@ MonoBehaviour:
   material: 0
   quality: 0
   textures:
-  - {fileID: 2100000, guid: 12b03d6e0aad6bd47830386889e34da9, type: 2}
-  - {fileID: 2100000, guid: 8d6843dfe3fb65e4fb52caa5c668c138, type: 2}
-  - {fileID: 2100000, guid: d1e7fa1b8f0422340bbded6a3435293e, type: 2}
+  - {fileID: 2100000, guid: a77656dddb265b340b732262250858e4, type: 2}
+  - {fileID: 2100000, guid: 64b6d4cfa2467054a8925c60848b69c2, type: 2}
+  - {fileID: 2100000, guid: e724b66bc51443d4d957d63930eb3d4d, type: 2}
 --- !u!54 &3812608953104606857
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,6 +133,8 @@ MonoBehaviour:
   objectPos: {x: 0, y: 0, z: 0}
   distance: 0
   canHold: 1
+  shopHold: 0
+  inHammering: 0
   item: {fileID: 3812608953104703530}
   tempParent: {fileID: 0}
   isHolding: 0
