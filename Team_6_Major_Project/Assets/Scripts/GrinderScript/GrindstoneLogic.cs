@@ -125,7 +125,7 @@ public class GrindstoneLogic : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Mouse0) && playerInPos)
         {
-            sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
+            sheet.transform.position = new Vector3(sheetPos.position.x, sheetPos.position.y, sheetPos.position.z - 0.6f);
             sheet.GetComponent<Animator>().enabled = false;
 
             isGrinding = false;
@@ -227,7 +227,7 @@ public class GrindstoneLogic : MonoBehaviour
         hitObstacle.Play();
         quality = quality - 10;
         isGrinding = false;
-        sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
+        sheet.transform.position = new Vector3(sheetPos.position.x, sheetPos.position.y, sheetPos.position.z - 0.6f);
     }
 
     public void chooseHandle() //Player chooses to make a handle
@@ -279,7 +279,7 @@ public class GrindstoneLogic : MonoBehaviour
                 sheet.GetComponent<Sheet>().sheetPickup.isHolding = false;
 
                 sheet.GetComponent<Rigidbody>().isKinematic = true;
-                sheet.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.6f);
+                sheet.transform.localPosition = new Vector3(sheetPos.position.x, sheetPos.position.y, sheetPos.position.z - 0.6f);
                 sheet.transform.eulerAngles = new Vector3(0, 0, 0);
                 canGrind = true;
 
