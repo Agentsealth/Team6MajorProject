@@ -8,13 +8,12 @@ public class GrindstoneLogic : MonoBehaviour
 
     public bool isGrinding;
     public bool canGrind;
-    // Start is called before the first frame update
     public GameObject handle;
     public GameObject guard;
     public GameObject options;
     private GameObject sheet;
     public int i;
-    Vector3 initialPosition;
+    private Vector3 initialPosition;
     public float endPosition;
     public MoveToPos MTP;
     private int quality;
@@ -207,7 +206,7 @@ public class GrindstoneLogic : MonoBehaviour
 
    
 
-    private void OnTriggerExit(Collider other) //same as exiting, implemented due to snap back issues
+    void OnTriggerExit(Collider other) //same as exiting, implemented due to snap back issues
     {
         {
             if (other.gameObject.tag == "Iron Sheet")
@@ -259,7 +258,7 @@ public class GrindstoneLogic : MonoBehaviour
         playerInPos = true;
     }
 
-    private void OnMouseOver() //Player hovers over grindstone and hits F to put down sheet. No longer collision based.
+    void OnMouseOver() //Player hovers over grindstone and hits F to put down sheet. No longer collision based.
     {
         if (Input.GetKeyDown(KeyCode.F))
         {

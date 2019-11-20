@@ -21,8 +21,8 @@ public class CraftingTable : MonoBehaviour
 
     public GameObject[] sword;
 
-    public Transform sworddrop;
-    public Transform sidedrop;
+    public Transform swordDrop;
+    public Transform sideDrop;
     public Transform guardPos;
     public Transform handlePos;
     public Transform bastardBladePos;
@@ -50,7 +50,7 @@ public class CraftingTable : MonoBehaviour
         
     }
 
-    private void OnMouseOver()
+    void OnMouseOver()
     {
         //When mouse is hovering over the gameobject and player presses F
         if (Input.GetKeyDown(KeyCode.F))
@@ -101,7 +101,7 @@ public class CraftingTable : MonoBehaviour
             if (bladeCount > 1)
             {
                 //Sets the gameobjects position to a position which is decided beforehand which is in sideDrop
-                other.gameObject.transform.position = sidedrop.position;
+                other.gameObject.transform.position = sideDrop.position;
             }
             else
             {
@@ -132,7 +132,7 @@ public class CraftingTable : MonoBehaviour
             if (guardCount > 1)
             {
                 //Sets the gameobjects position to a position which is decided beforehand which is in sideDrop
-                other.gameObject.transform.position = sidedrop.position;
+                other.gameObject.transform.position = sideDrop.position;
             }
             else
             {
@@ -165,7 +165,7 @@ public class CraftingTable : MonoBehaviour
             if (handleCount > 1)
             {
                 //Sets the gameobjects position to a position which is decided beforehand which is in sideDrop
-                other.gameObject.transform.position = sidedrop.position;
+                other.gameObject.transform.position = sideDrop.position;
             }
             else
             {
@@ -227,7 +227,7 @@ public class CraftingTable : MonoBehaviour
         }
     }
 
-    private void bladeCrafting(int index, Transform other)
+    void bladeCrafting(int index, Transform other)
     {
         //Sets a swordBlade Image on the crafting book to green
         craftingBook.swordBlade[index].color = Color.green;
@@ -264,10 +264,10 @@ public class CraftingTable : MonoBehaviour
         bladeCount++;
     }
 
-    private void swordCrafting(int index)
+    void swordCrafting(int index)
     {
         //Creates a small sword prefab at a drop position
-        GameObject swordPrefab = Instantiate(sword[index], sworddrop.position, Quaternion.identity);
+        GameObject swordPrefab = Instantiate(sword[index], swordDrop.position, Quaternion.identity);
         //Sets the material blade based on the bladeMaterial
         swordPrefab.GetComponent<Sword>().materialBlade = (Sword.MaterialBlade)bladeMaterial;
         //Sets the material guard based on the guardMaterial
@@ -298,7 +298,7 @@ public class CraftingTable : MonoBehaviour
         bladeCount = 0;
     }
 
-    private void resettingKinematics(Transform other)
+    void resettingKinematics(Transform other)
     {
         //Sets the gameObject's isHolding to false
         other.gameObject.GetComponent<PickUp>().isHolding = false;

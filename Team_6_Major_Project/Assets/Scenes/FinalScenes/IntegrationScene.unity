@@ -2001,6 +2001,11 @@ PrefabInstance:
       propertyPath: options.Array.data[0]
       value: 
       objectReference: {fileID: 152650528}
+    - target: {fileID: 7267120353207013774, guid: a293f25cf93078441984559e5537192d,
+        type: 3}
+      propertyPath: pM
+      value: 
+      objectReference: {fileID: 1033026094}
     - target: {fileID: 7267120353848688869, guid: a293f25cf93078441984559e5537192d,
         type: 3}
       propertyPath: playerCanvas
@@ -2569,11 +2574,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857022693}
     m_Modifications:
-    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparks
-      objectReference: {fileID: 0}
     - target: {fileID: 39932177846234349, guid: 97b203623c80f8647830782c5ec2455b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2643,6 +2643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.08117003
+      objectReference: {fileID: 0}
+    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparks
       objectReference: {fileID: 0}
     - target: {fileID: 39932177846234348, guid: 97b203623c80f8647830782c5ec2455b,
         type: 3}
@@ -15974,6 +15979,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024256505}
   m_Mesh: {fileID: 4300032, guid: 8aaa2dfd9819be94aa3d3c8b3bbc1130, type: 3}
+--- !u!114 &1033026094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7267120353848688869, guid: a293f25cf93078441984559e5537192d,
+    type: 3}
+  m_PrefabInstance: {fileID: 131349137}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65e49c7cd9805c4e86f5feff9e6307c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1038315233
 GameObject:
   m_ObjectHideFlags: 0
@@ -29887,16 +29904,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857022693}
     m_Modifications:
-    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparks (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 39932177846234349, guid: 97b203623c80f8647830782c5ec2455b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29966,6 +29973,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.081170015
+      objectReference: {fileID: 0}
+    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparks (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 39932177846234350, guid: 97b203623c80f8647830782c5ec2455b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 39932177846234348, guid: 97b203623c80f8647830782c5ec2455b,
         type: 3}
@@ -59479,8 +59496,8 @@ MonoBehaviour:
   - {fileID: 8266437360234052199, guid: 27cc3c72d8c73ce4cb0ff220fdcc1823, type: 3}
   - {fileID: 7739103084379047966, guid: cf1fbb52ebd827a4783782fbfe1f56c1, type: 3}
   - {fileID: 710953866555272097, guid: 7f5acf1082b5d3246936418de06b704a, type: 3}
-  sworddrop: {fileID: 354818157948502381}
-  sidedrop: {fileID: 354818157948502381}
+  swordDrop: {fileID: 0}
+  sideDrop: {fileID: 0}
   guardPos: {fileID: 5028771258120867071}
   handlePos: {fileID: 875361081221268685}
   bastardBladePos: {fileID: 445079696855108460}

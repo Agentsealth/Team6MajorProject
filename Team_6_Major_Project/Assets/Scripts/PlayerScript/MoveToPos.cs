@@ -193,7 +193,7 @@ public class MoveToPos : MonoBehaviour
     public void returnToPos()
     {
         pM.enabled = true;
-        shopCol.enabled = true;
+        //shopCol.enabled = true;
         Player.GetComponent<CapsuleCollider>().enabled = true;
 
         StopCoroutine(WaitAndMove(delayTime));
