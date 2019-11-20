@@ -30,7 +30,7 @@ public class UpgradePointClick : MonoBehaviour
     //Functions which runs when the mouse exits the gameObject
     private void OnMouseExit()
     {
-        text.color = new Color32(255, 255, 255, 255);
+        text.color = new Color32(0, 0, 0, 255);
 
     }
 }

@@ -18,13 +18,20 @@ public class MoveToPos : MonoBehaviour
     public GameObject loc2;
     public GameObject loc3;
     public GameObject loc4;
+    public GameObject loc5;
     public GameObject[] options;
     private GrindstoneLogic gsLogic;
     private Anvil anvilLogic;
+
+    private GameObject Player;
+    public BoxCollider shopCol;
+
+    public PauseMenu pM;
     // Start is called before the first frame updat
 
     public void Start()
     {
+        Player = GameObject.FindObjectOfType<PlayerController>().gameObject;
         playerController = this.gameObject.GetComponent<PlayerController>();
         gsLogic = GameObject.FindObjectOfType<GrindstoneLogic>();
         anvilLogic = GameObject.FindObjectOfType<Anvil>();
@@ -74,6 +81,8 @@ public class MoveToPos : MonoBehaviour
 
         if (gsLogic.selected == false)
         {
+            pM.enabled = false;
+
             gsLogic.selected = true;
             resetPos = transform.position;
             resetRot = transform.rotation;
@@ -99,9 +108,12 @@ public class MoveToPos : MonoBehaviour
     //Functions whichs moves the player to the anvil
     public void gotoAnvil()
     {
+
         if (anvilLogic.selected == false)
         {
             anvilLogic.selected = true;
+            pM.enabled = false;
+
             resetPos = transform.position;
             resetRot = transform.rotation;
             playerController.speed = 0;
@@ -124,6 +136,8 @@ public class MoveToPos : MonoBehaviour
     //Moves the player to the enchanting table
     public void gotoEnchant()
     {
+        pM.enabled = false;
+
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -156,9 +170,31 @@ public class MoveToPos : MonoBehaviour
 
 
     }
+
+    public void gotoShop()
+    {
+        pM.enabled = false;
+        shopCol.enabled = false;
+        Player.GetComponent<CapsuleCollider>().enabled = false;
+        resetPos = transform.position;
+        resetRot = transform.rotation;
+        playerController.speed = 0;
+        playerController.lookSemsitivity = 0;
+        posA = transform.position;
+        posB = loc5.transform.position;
+        rotA = transform.rotation;
+        rotB = loc5.transform.rotation;
+        StartCoroutine(WaitAndMove(delayTime));
+        StartCoroutine(WaitAndMoveTo(delayTime));
+
+
+    }
     //Moves to the player back to the original position
     public void returnToPos()
     {
+        pM.enabled = true;
+        shopCol.enabled = true;
+        Player.GetComponent<CapsuleCollider>().enabled = true;
 
         StopCoroutine(WaitAndMove(delayTime));
         StopAllCoroutines();
