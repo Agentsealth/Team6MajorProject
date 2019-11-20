@@ -68,7 +68,7 @@ public class Ore : MonoBehaviour
         }
     }
     //Functions which happens when it collides with an object
-    private void OnCollisionEnter(Collision collision)
+        void OnCollisionEnter(Collision collision)
     {
         this.GetComponent<AudioSource>().Play();
     }

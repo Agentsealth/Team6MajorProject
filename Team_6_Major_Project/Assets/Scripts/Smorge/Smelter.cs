@@ -96,12 +96,12 @@ public class Smelter : MonoBehaviour
     }
 
     //Checks if an gameobject enters the hitbox of this gameObject
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         snappping(other.gameObject.transform);
     }
     //Functions which smelts the iron ore into iron ingots
-    private void smeltIron()
+    void smeltIron()
     {
         if (ironOre > 0)
         {
@@ -117,7 +117,7 @@ public class Smelter : MonoBehaviour
         }
     }
     //Functions which smelts the steel ore into steel ingots
-    private void smeltSteel()
+    void smeltSteel()
     {
         if (steelOre > 0)
         {
@@ -134,7 +134,7 @@ public class Smelter : MonoBehaviour
         }
     }
     //Functions which smelts the bronze ore into bronze ingots
-    private void smeltBronze()
+    void smeltBronze()
     {
         if (bronzeOre > 0)
         {

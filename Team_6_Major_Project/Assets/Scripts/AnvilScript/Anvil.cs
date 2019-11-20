@@ -22,7 +22,6 @@ public class Anvil : MonoBehaviour
     public GameObject hammer;
     public GameObject Parent;
     //public GameObject options;
-    public GameObject axe;
 
 
     public bool usingSlider = false;
@@ -31,7 +30,6 @@ public class Anvil : MonoBehaviour
     public bool buttonSelected;
     public bool resetValue;
     public bool isSwordBlade;
-    public bool isAxeBlade;
     public bool canHammer;
 
     public List<GameObject> ingots = new List<GameObject>();
@@ -126,7 +124,7 @@ public class Anvil : MonoBehaviour
 
     } 
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         //Checks if the gameobject that exited the collider has a tag called Iron Ingot
         if (other.gameObject.tag == "Iron Ingot")
@@ -152,7 +150,7 @@ public class Anvil : MonoBehaviour
         }
     }
 
-    private void ResetValue()
+    void ResetValue()
     {
         //Resets the quality int value to 0
         Quality = 0;
@@ -160,7 +158,7 @@ public class Anvil : MonoBehaviour
         sheetQuality = 0;
     }
 
-    private void OnMouseOver()
+    void OnMouseOver()
     {
             //When mouse is hovering over the gameobject and player presses F
             if (Input.GetKeyDown(KeyCode.F))
@@ -391,7 +389,7 @@ public class Anvil : MonoBehaviour
         }
     }
 
-    private void resettingHammer()
+    void resettingHammer()
     {
         //Sets is hammering to false
         isHammering = false;
@@ -405,7 +403,7 @@ public class Anvil : MonoBehaviour
         hammer.transform.position = hammerOriginalPos;
     }
 
-    private void removingSheet(int index)
+    void removingSheet(int index)
     {
         //Creates a blade prefab at a drop position
         GameObject blade = Instantiate(blades[index], drop.position, Quaternion.identity);
@@ -421,7 +419,7 @@ public class Anvil : MonoBehaviour
         sheetCount = 0;
     }
 
-    private void removingIngot(int index)
+    void removingIngot(int index)
     {
         //Creates a sheet prefab at a drop position
         GameObject sheet = Instantiate(sheets[index], drop.position, Quaternion.identity);
@@ -464,7 +462,7 @@ public class Anvil : MonoBehaviour
         ingotCount = 0;
     }
 
-    private void snappingIngot(Transform other, int index)
+    void snappingIngot(Transform other, int index)
     {
         //Sets the gameObject's position to the ingotplaceArray at index 0's position
         other.transform.position = ingotplace[index].transform.position;
@@ -490,7 +488,7 @@ public class Anvil : MonoBehaviour
         }
     }
     
-    private void increaseIngotCount(Transform other)
+    void increaseIngotCount(Transform other)
     {
         //Increases the ingot count by 1
         ingotCount++;
