@@ -11,6 +11,7 @@ public class Handle : MonoBehaviour
     public int quality;
 
     public Material[] textures;
+    public Material[] cloth;
 
     // Start is called before the first frame update
     void Start()
@@ -28,15 +29,24 @@ public class Handle : MonoBehaviour
     {
         if (material == HandleMaterial.iron)
         {
-            this.gameObject.GetComponent<MeshRenderer>().material = textures[0];
+            Material[] mats = this.gameObject.GetComponent<MeshRenderer>().materials;
+            mats[0] = textures[0];
+            mats[1] = cloth[0];
+            this.gameObject.GetComponent<MeshRenderer>().materials = mats;
         }
         else if (material == HandleMaterial.steel)
         {
-            this.gameObject.GetComponent<MeshRenderer>().material = textures[1];
+            Material[] mats = this.gameObject.GetComponent<MeshRenderer>().materials;
+            mats[0] = textures[1];
+            mats[1] = cloth[1];
+            this.gameObject.GetComponent<MeshRenderer>().materials = mats;
         }
         else if (material == HandleMaterial.bronze)
         {
-            this.gameObject.GetComponent<MeshRenderer>().material = textures[2];
+            Material[] mats = this.gameObject.GetComponent<MeshRenderer>().materials;
+            mats[0] = textures[2];
+            mats[1] = cloth[2];
+            this.gameObject.GetComponent<MeshRenderer>().materials = mats;
         }
     }
 

@@ -17,6 +17,7 @@ public class Blade : MonoBehaviour
     public int quality;
 
     public Material[] textures;
+    public Material[] gem;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,13 @@ public class Blade : MonoBehaviour
     {
         if (material == BladeMaterial.iron)
         {
-            this.gameObject.GetComponent<MeshRenderer>().material = textures[0];
+
+            Material[] mats = this.gameObject.GetComponent<MeshRenderer>().materials;
+            mats[0] = textures[0];
+            mats[1] = textures[0];
+            mats[2] = gem[0];
+            this.gameObject.GetComponent<MeshRenderer>().materials = mats;
+
             if (size == Typeblade.small)
             {
                 this.gameObject.name = "Small Iron Blade";
@@ -49,7 +56,11 @@ public class Blade : MonoBehaviour
         }
         else if (material == BladeMaterial.steel)
         {
-            this.gameObject.GetComponent<MeshRenderer>().material = textures[1];
+            Material[] mats = this.gameObject.GetComponent<MeshRenderer>().materials;
+            mats[0] = textures[1];
+            mats[1] = textures[1];
+            mats[2] = gem[1];
+            this.gameObject.GetComponent<MeshRenderer>().materials = mats;           
             if (size == Typeblade.small)
             {
                 this.gameObject.name = "Small Steel Blade";
@@ -65,7 +76,12 @@ public class Blade : MonoBehaviour
         }
         else if (material == BladeMaterial.bronze)
         {
-            this.gameObject.GetComponent<MeshRenderer>().material = textures[2];
+
+            Material[] mats = this.gameObject.GetComponent<MeshRenderer>().materials;
+            mats[0] = textures[2];
+            mats[1] = textures[2];
+            mats[2] = gem[2];
+            this.gameObject.GetComponent<MeshRenderer>().materials = mats;
             if (size == Typeblade.small)
             {
                 this.gameObject.name = "Small Bronze Blade";
