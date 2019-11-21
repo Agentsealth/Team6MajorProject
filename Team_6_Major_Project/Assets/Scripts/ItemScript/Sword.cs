@@ -35,6 +35,9 @@ public class Sword : MonoBehaviour
     public Shop shop;
 
     public Material[] textures;
+    public Material[] gem;
+    public Material[] texturesDark;
+    public Material[] cloth;
 
     public int quality;
 
@@ -92,7 +95,12 @@ public class Sword : MonoBehaviour
     {
         if (materialBlade == MaterialBlade.iron)
         {
-            gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material = textures[0];
+            Material[] mats = gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().materials;
+            mats[0] = textures[0];
+            mats[1] = textures[0];
+            mats[2] = gem[0];
+            gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().materials = mats;           
+
             bladeIngotCost = ironCost;
             if (swordType == SwordType.small)
             {
@@ -109,7 +117,12 @@ public class Sword : MonoBehaviour
         }
         else if (materialBlade == MaterialBlade.steel)
         {
-            gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material = textures[1];
+            Material[] mats = gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().materials;
+            mats[0] = textures[1];
+            mats[1] = textures[1];
+            mats[2] = gem[1];
+            gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().materials = mats;
+
             bladeIngotCost = steelCost;
             if (swordType == SwordType.small)
             {
@@ -126,7 +139,12 @@ public class Sword : MonoBehaviour
         }
         else if (materialBlade == MaterialBlade.bronze)
         {
-            gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material = textures[2];
+            Material[] mats = gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().materials;
+            mats[0] = textures[2];
+            mats[1] = textures[2];
+            mats[2] = gem[2];
+            gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().materials = mats;
+
             bladeIngotCost = bronzeCost;
             if (swordType == SwordType.small)
             {
@@ -166,17 +184,26 @@ public class Sword : MonoBehaviour
     {
         if (materialHandle == MaterialHandle.iron)
         {
-            gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = textures[0];
+            Material[] mats = gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials;
+            mats[0] = cloth[0];
+            mats[1] = texturesDark[0];
+            gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials = mats;
             handleIngotCost = ironCost;
         }
         else if (materialHandle == MaterialHandle.steel)
         {
-            gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = textures[1];
+            Material[] mats = gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials;
+            mats[0] = cloth[1];
+            mats[1] = texturesDark[1];
+            gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials = mats;
             handleIngotCost = steelCost;
         }
         else if (materialHandle == MaterialHandle.bronze)
         {
-            gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = textures[2];
+            Material[] mats = gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials;
+            mats[0] = cloth[2];
+            mats[1] = texturesDark[2];
+            gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials = mats;
             handleIngotCost = bronzeCost;
         }
     }

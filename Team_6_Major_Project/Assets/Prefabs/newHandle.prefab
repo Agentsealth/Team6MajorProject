@@ -139,8 +139,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a77656dddb265b340b732262250858e4, type: 2}
-  - {fileID: 2100000, guid: a77656dddb265b340b732262250858e4, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -175,9 +175,13 @@ MonoBehaviour:
   material: 0
   quality: 0
   textures:
-  - {fileID: 2100000, guid: a77656dddb265b340b732262250858e4, type: 2}
-  - {fileID: 2100000, guid: 64b6d4cfa2467054a8925c60848b69c2, type: 2}
-  - {fileID: 2100000, guid: d2d1f147b113ece4698bafcd31a9fcd2, type: 2}
+  - {fileID: 2100000, guid: 24cd9d7aa44360642bdff824fa660dda, type: 2}
+  - {fileID: 2100000, guid: fef8a752a3ca351409679a6f1d29c306, type: 2}
+  - {fileID: 2100000, guid: 3ad7f50680d1e584ebf746a41e43ecdd, type: 2}
+  cloth:
+  - {fileID: 2100000, guid: 74be8c387ace950408a8bd146d4636cc, type: 2}
+  - {fileID: 2100000, guid: 3f8a7160355ca844792f5701ebcc7c1c, type: 2}
+  - {fileID: 2100000, guid: acd3163354066394f80837d937b7fada, type: 2}
 --- !u!54 &5023855182636267243
 Rigidbody:
   m_ObjectHideFlags: 0
