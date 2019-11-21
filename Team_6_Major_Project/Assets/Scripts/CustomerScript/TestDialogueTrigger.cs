@@ -114,10 +114,10 @@ public class TestDialogueTrigger : MonoBehaviour
             //Sets the first sentence
             dialogue.sentences[0] = "Hello";
             //Sets the second sentence
-            dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with " 
-            + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
+            dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with a " 
+            + dialogue.guardMaterial.ToString() + " guard and " + dialogue.handleMaterial.ToString() + " handle";
             //Sets the third sentences
-            dialogue.sentences[2] = "Good bye";
+            dialogue.sentences[2] = "Many thanks";
         }
         else if(tutorial == true)
         {
@@ -128,10 +128,10 @@ public class TestDialogueTrigger : MonoBehaviour
             //Sets the first sentence
             dialogue.sentences[0] = "Hello";
             //Sets the second sentence
-            dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with "
-            + dialogue.guardMaterial.ToString() + " guard " + dialogue.handleMaterial.ToString() + " handle";
+            dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with a "
+            + dialogue.guardMaterial.ToString() + " guard and " + dialogue.handleMaterial.ToString() + " handle";
             //Sets the third sentences
-            dialogue.sentences[2] = "Good bye";
+            dialogue.sentences[2] = "Many thanks";
         }
     }
 
