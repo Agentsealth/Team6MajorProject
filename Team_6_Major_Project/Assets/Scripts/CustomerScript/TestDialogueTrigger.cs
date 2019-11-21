@@ -112,12 +112,12 @@ public class TestDialogueTrigger : MonoBehaviour
             //Runs the price function
             Price();
             //Sets the first sentence
-            dialogue.sentences[0] = "Hello";
+            dialogue.sentences[0] = " \"Hello\" ";
             //Sets the second sentence
-            dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with a " 
-            + dialogue.guardMaterial.ToString() + " guard and " + dialogue.handleMaterial.ToString() + " handle";
+            dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with a " + 
+            dialogue.guardMaterial.ToString() + " guard and " + dialogue.handleMaterial.ToString() + " handle\"";
             //Sets the third sentences
-            dialogue.sentences[2] = "Many thanks";
+            dialogue.sentences[2] = "\"Many thanks\"";
         }
         else if(tutorial == true)
         {
@@ -126,12 +126,12 @@ public class TestDialogueTrigger : MonoBehaviour
             //Runs the price function
             Price();
             //Sets the first sentence
-            dialogue.sentences[0] = "Hello";
+            dialogue.sentences[0] = "\"Hello\"";
             //Sets the second sentence
-            dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with a "
-            + dialogue.guardMaterial.ToString() + " guard and " + dialogue.handleMaterial.ToString() + " handle";
+            dialogue.sentences[1] = dialogueManager.greetingSentences[randomgreeting] + dialogue.bladeType.ToString() + " " + dialogue.bladeMaterial.ToString() + " blade with a " + 
+               dialogue.guardMaterial.ToString() + " guard and " + dialogue.handleMaterial.ToString() + " handle\"";
             //Sets the third sentences
-            dialogue.sentences[2] = "Many thanks";
+            dialogue.sentences[2] = "\"Many thanks\"";
         }
     }
 
