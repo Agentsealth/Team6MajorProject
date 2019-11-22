@@ -29,6 +29,7 @@ public class TutorialMaster : MonoBehaviour
     public GameObject otherReturn;
 
     public OutlineTutorial outTut;
+    public Text RequiredText;
     // Start is called before the first frame update
 
     private void Start()
@@ -139,6 +140,7 @@ public class TutorialMaster : MonoBehaviour
 
 
         tutTitle.text = "Coal Hatch";
+        //RequiredText.text = "Requires Coal";
         tutPurpose.text = "-Add Coal to start\n-Powers Crucible and Grills";
         tutConditions.text = "-Shop\n-Crucible/Grills";
         tutImage.sprite = Images[1];
@@ -151,6 +153,7 @@ public class TutorialMaster : MonoBehaviour
 
 
         tutTitle.text = "Crucible";
+        //RequiredText.text = "Requires Power";
         tutPurpose.text = "-Used to Melt Chunks to Ingots\n-Requires Coal";
         tutConditions.text = "-Coal Hatch\n-Grills";
         tutImage.sprite = Images[2];
@@ -163,6 +166,7 @@ public class TutorialMaster : MonoBehaviour
 
 
         tutTitle.text = "Grills";
+        //RequiredText.text = "Requires Power";
         tutPurpose.text = "-Used to heat Ingots and Sheets\n-Requires Coal";
         tutConditions.text = "-Coal Hatch\n-Crucible";
         tutImage.sprite = Images[3];
@@ -175,6 +179,7 @@ public class TutorialMaster : MonoBehaviour
 
 
         tutTitle.text = "Anvil";
+        //RequiredText.text = "Requires Hot Ingot/Sheet";
         tutPurpose.text = "-Used to make Sheets and Blades\n-Requires hot Ingot(s)/Sheet";
         tutConditions.text = "-Crucible\n-Grindstone";
         tutImage.sprite = Images[4];
@@ -187,6 +192,7 @@ public class TutorialMaster : MonoBehaviour
 
 
         tutTitle.text = "Grindstone";
+        //RequiredText.text = "Requires Sheet";
         tutPurpose.text = "-Used to make Guards and Handles\n-Requires (not hot) Sheets";
         tutConditions.text = "-Crucible\n-Anvil";
         tutImage.sprite = Images[5];
@@ -199,6 +205,7 @@ public class TutorialMaster : MonoBehaviour
 
 
         tutTitle.text = "Quenching Barrel";
+        //RequiredText.text = "Requires Hot Ingot/Sheet";
         tutPurpose.text = "-Used to cool hot items\n-Requires hot Sheets/Ingots";
         tutConditions.text = "-Anvil\n-Grills";
         tutImage.sprite = Images[6];
@@ -211,6 +218,7 @@ public class TutorialMaster : MonoBehaviour
 
 
         tutTitle.text = "Assembly Table";
+        //RequiredText.text = "Requires Sword Parts (3)";
         tutPurpose.text = "-Used to assemble Swords\n-Requires Blade, Guard, & Handle";
         tutConditions.text = "-Grindstone\n-Anvil";
         tutImage.sprite = Images[7];
@@ -223,6 +231,7 @@ public class TutorialMaster : MonoBehaviour
 
 
         tutTitle.text = "Sword Holder";
+        //RequiredText.text = "Requires Sword;
         tutPurpose.text = "-Used to sell Swords\n-Requires assembled Sword";
         tutConditions.text = "-Assembly Table\n-Customers";
         tutImage.sprite = Images[8];
@@ -259,6 +268,7 @@ public class TutorialMaster : MonoBehaviour
 
 
         tutTitle.text = "Shop";
+        //RequiredText.text = "Requires Money"
         tutPurpose.text = "-Used to purchase materials and upgrades\n-Uses silver coins (money)";
         tutConditions.text = "-Money\n-Customers";
         tutImage.sprite = Images[11];
@@ -272,6 +282,7 @@ public class TutorialMaster : MonoBehaviour
 
 
         tutTitle.text = "Enchanting Table";
+        //RequiredText.text = "Must be purchased from Shop";
         tutPurpose.text = "-Applies an enchantment\n-Match symbols of the same colour to enchant";
         tutConditions.text = "-Money\n-Customers";
         tutImage.sprite = Images[12];
